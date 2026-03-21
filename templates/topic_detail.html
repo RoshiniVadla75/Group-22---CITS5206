@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic Detail - AI Museum</title>
+  <link rel="stylesheet" href="../static/css/topic-detail.css" />
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header glass-panel">
+      <div class="container nav-bar">
+        <a href="home.html" class="logo-link">
+          <div class="logo-circle">🧭</div>
+          <div class="logo-text">
+            <span class="logo-title brass-text">AI Museum</span>
+            <span class="logo-subtitle">Western Australia</span>
+          </div>
+        </a>
+
+        <nav class="desktop-nav" id="desktopNav"></nav>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav"></nav>
+    </header>
+
+    <main class="main-content">
+      <div class="container page-section">
+        <div class="breadcrumb" id="breadcrumb"></div>
+        <section id="topicHeader"></section>
+
+        <div class="content-grid">
+          <div class="main-column">
+            <div id="introCard"></div>
+            <div id="summaryCard"></div>
+            <div id="sectionsContainer"></div>
+          </div>
+
+          <aside class="sidebar-column">
+            <div id="mediaCard"></div>
+            <div id="referencesCard"></div>
+            <div id="relatedCard"></div>
+          </aside>
+        </div>
+
+        <div class="archival-divider"></div>
+        <div class="bottom-nav" id="bottomNav"></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="exhibit-label">A.I. Software Technology in Western Australia</p>
+        <p class="footer-text">A Virtual Museum Experience · Final Semester Project · 2024</p>
+      </div>
+    </footer>
+  </div>
+  <script src="../static/js/topic_data.js"></script>
+  <script src="../static/js/topic-detail.js"></script>
+</body>
+</html>
