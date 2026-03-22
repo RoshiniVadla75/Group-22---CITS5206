@@ -1,9 +1,5 @@
 const navItems = [
   { href: "home.html", label: "Home" },
-  { href: "input.html", label: "Input" },
-  { href: "function.html", label: "Function" },
-  { href: "visualize.html", label: "Visualize" },
-  { href: "output.html", label: "Output" },
   { href: "timeline.html", label: "Timeline" },
   { href: "explore_WA.html", label: "Explore WA" },
   { href: "guided_tour.html", label: "Guided Tour" },
@@ -19,13 +15,13 @@ function renderNavigation() {
 
   if (!desktopNav || !mobileNav || !mobileToggle) return;
 
-  desktopNav.innerHTML = navItems.map(item => `
+  desktopNav.innerHTML = navItems.map((item) => `
     <a href="${item.href}" class="nav-link ${item.href === currentPage ? "active" : ""}">
       ${item.label}
     </a>
   `).join("");
 
-  mobileNav.innerHTML = navItems.map(item => `
+  mobileNav.innerHTML = navItems.map((item) => `
     <a href="${item.href}" class="mobile-nav-link ${item.href === currentPage ? "active" : ""}">
       ${item.label}
     </a>
@@ -33,6 +29,12 @@ function renderNavigation() {
 
   mobileToggle.addEventListener("click", () => {
     mobileNav.classList.toggle("open");
+  });
+
+  mobileNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("open");
+    });
   });
 }
 
@@ -72,13 +74,16 @@ function renderIntro(container) {
         Each stop reveals a paradigm shift that changed how humans and machines interact.
       </p>
       <p class="intro-meta">Estimated time: 15–20 minutes · 10 exhibits</p>
-      <button id="beginJourneyBtn" class="primary-btn large-btn">
+      <button id="beginJourneyBtn" class="primary-btn large-btn" type="button">
         🧭 Begin Journey
       </button>
     </section>
   `;
 
-  document.getElementById("beginJourneyBtn").addEventListener("click", goNext);
+  const beginBtn = document.getElementById("beginJourneyBtn");
+  if (beginBtn) {
+    beginBtn.addEventListener("click", goNext);
+  }
 }
 
 function renderCompleted(container) {
@@ -92,17 +97,20 @@ function renderCompleted(container) {
         shaping our world today.
       </p>
       <div class="complete-actions">
-        <button id="restartJourneyBtn" class="secondary-btn">Restart Journey</button>
+        <button id="restartJourneyBtn" class="secondary-btn" type="button">Restart Journey</button>
         <a href="explore_WA.html" class="primary-btn">Explore WA Context</a>
       </div>
     </section>
   `;
 
-  document.getElementById("restartJourneyBtn").addEventListener("click", () => {
-    currentStep = -1;
-    visited = new Set();
-    renderGuidedTour();
-  });
+  const restartBtn = document.getElementById("restartJourneyBtn");
+  if (restartBtn) {
+    restartBtn.addEventListener("click", () => {
+      currentStep = -1;
+      visited = new Set();
+      renderGuidedTour();
+    });
+  }
 }
 
 function renderProgress(step, total) {
@@ -125,6 +133,7 @@ function renderProgress(step, total) {
             class="progress-dot ${i === step ? "current" : visited.has(i) ? "visited" : ""}"
             data-step="${i}"
             aria-label="Go to discovery ${i + 1}"
+            type="button"
           ></button>
         `).join("")}
       </div>
@@ -177,20 +186,22 @@ function renderTopicStep(container, topic, step) {
     </section>
 
     <section class="tour-navigation fade-in">
-      <button id="prevBtn" class="secondary-btn" ${step <= 0 ? "disabled" : ""}>
+      <button id="prevBtn" class="secondary-btn" type="button" ${step <= 0 ? "disabled" : ""}>
         ← Previous
       </button>
 
-      <button id="nextBtn" class="primary-btn">
+      <button id="nextBtn" class="primary-btn" type="button">
         ${step < topics.length - 1 ? "Next Discovery →" : "Complete Journey →"}
       </button>
     </section>
   `;
 
-  document.querySelectorAll(".progress-dot").forEach(btn => {
+  document.querySelectorAll(".progress-dot").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const targetStep = parseInt(e.currentTarget.dataset.step, 10);
-      goToStep(targetStep);
+      if (!Number.isNaN(targetStep)) {
+        goToStep(targetStep);
+      }
     });
   });
 
@@ -200,6 +211,7 @@ function renderTopicStep(container, topic, step) {
   if (prevBtn) {
     prevBtn.addEventListener("click", goPrev);
   }
+
   if (nextBtn) {
     nextBtn.addEventListener("click", goNext);
   }
@@ -220,6 +232,8 @@ function renderGuidedTour() {
   }
 
   const topic = topics[currentStep];
+  if (!topic) return;
+
   renderTopicStep(container, topic, currentStep);
 }
 
