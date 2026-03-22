@@ -1,0 +1,256 @@
+@import url("./explore-wa.css");
+
+.filters-panel {
+  margin-bottom: 44px;
+  padding: 28px 26px;
+  background:
+    linear-gradient(90deg, hsl(20, 24%, 13%) 0%, hsl(25, 22%, 16%) 100%);
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.filter-icon {
+  color: var(--primary);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.filter-group + .filter-group {
+  margin-top: 18px;
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  font-family: var(--font-heading);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-btn {
+  border: 1px solid transparent;
+  background: var(--secondary);
+  color: var(--muted-foreground);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  padding: 9px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  color: var(--foreground);
+  border-color: hsla(42, 72%, 50%, 0.3);
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: hsl(25, 30%, 8%);
+}
+
+.timeline-wrapper {
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 24px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: hsla(35, 20%, 45%, 0.45);
+  transform: translateX(-0.5px);
+}
+
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.timeline-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: start;
+}
+
+.timeline-middle {
+  position: relative;
+  min-height: 100%;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--primary);
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 4px var(--background);
+}
+
+.timeline-card-wrap {
+  width: 100%;
+}
+
+.timeline-card-wrap.left {
+  grid-column: 1;
+  padding-right: 18px;
+}
+
+.timeline-card-wrap.right {
+  grid-column: 3;
+  padding-left: 18px;
+}
+
+.timeline-card {
+  display: block;
+  min-height: 210px;
+  padding: 26px 26px 24px;
+  background:
+    linear-gradient(90deg, hsl(20, 24%, 13%) 0%, hsl(25, 22%, 16%) 100%);
+  transition: all 0.25s ease;
+}
+
+.timeline-card:hover {
+  border-color: hsla(42, 72%, 50%, 0.38);
+  transform: translateY(-2px);
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.timeline-category {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.timeline-year {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  font-family: var(--font-heading);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.timeline-title {
+  margin: 0 0 16px;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.2;
+  color: var(--foreground);
+  transition: color 0.2s ease;
+}
+
+.timeline-card:hover .timeline-title {
+  color: var(--primary);
+}
+
+.timeline-desc {
+  margin: 0 0 24px;
+  color: var(--muted-foreground);
+  line-height: 1.65;
+  font-size: 1rem;
+  max-width: 95%;
+}
+
+.timeline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+.timeline-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.timeline-card:hover .timeline-arrow {
+  transform: translateX(4px);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px 20px;
+}
+
+.empty-text {
+  color: var(--muted-foreground);
+  font-family: var(--font-heading);
+}
+
+@media (max-width: 900px) {
+  .timeline-line {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-list {
+    gap: 28px;
+  }
+
+  .timeline-row {
+    display: block;
+    padding-left: 44px;
+  }
+
+  .timeline-middle {
+    display: none;
+  }
+
+  .timeline-dot {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-card-wrap.left,
+  .timeline-card-wrap.right {
+    grid-column: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .timeline-row::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--primary);
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 4px var(--background);
+    z-index: 2;
+  }
+
+  .timeline-card {
+    min-height: unset;
+  }
+}
