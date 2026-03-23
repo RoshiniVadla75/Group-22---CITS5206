@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - AI Museum</title>
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="../static/css/home.css" />
   </head>
   <body>
     <div class="site-wrapper">
@@ -117,31 +117,90 @@
           <div class="section-heading fade-in">
             <span class="exhibit-label">Exhibition Preview</span>
             <h2 class="section-title brass-text">10 AI Paradigm Shifts</h2>
+            <p class="section-text">
+              Click any paradigm shift to view a quick exhibit preview. From the
+              popup, users can continue to the full topic page.
+            </p>
           </div>
 
-          <div class="highlights-grid">
-            <div class="museum-card highlight-panel">
-              <ul class="highlight-list">
-                <li>Turing’s AI Foundations</li>
-                <li>Learning Machines</li>
-                <li>Game Playing Systems</li>
-                <li>Expert Systems</li>
-                <li>Artificial Neural Networks</li>
-              </ul>
-            </div>
+          <div class="paradigm-grid" id="paradigmGrid">
+            <button class="museum-card paradigm-card" data-topic="turing" type="button">
+              <span class="paradigm-year">1950</span>
+              <h3>Turing’s AI Foundations</h3>
+              <p>Early ideas of machine intelligence, symbolic reasoning, and the Turing Test.</p>
+            </button>
 
-            <div class="museum-card highlight-panel">
-              <ul class="highlight-list">
-                <li>Internet-Driven AI</li>
-                <li>Evolutionary Computing</li>
-                <li>Synthetic Media Generation</li>
-                <li>Natural Language Processing</li>
-                <li>Large Language Models</li>
-              </ul>
-            </div>
+            <button class="museum-card paradigm-card" data-topic="learning-machines" type="button">
+              <span class="paradigm-year">1960s</span>
+              <h3>Learning Machines</h3>
+              <p>Systems that improved behaviour by learning patterns from prior experience.</p>
+            </button>
+
+            <button class="museum-card paradigm-card" data-topic="game-playing" type="button">
+              <span class="paradigm-year">1960–1970</span>
+              <h3>Game Playing Systems</h3>
+              <p>Programs that demonstrated strategy, search, and decision-making in structured games.</p>
+            </button>
+
+            <button class="museum-card paradigm-card" data-topic="expert-systems" type="button">
+              <span class="paradigm-year">1980s</span>
+              <h3>Expert Systems</h3>
+              <p>Knowledge-based systems designed to replicate specialist decision-making.</p>
+            </button>
+
+            <button class="museum-card paradigm-card" data-topic="neural-networks" type="button">
+              <span class="paradigm-year">1980–2000</span>
+              <h3>Artificial Neural Networks</h3>
+              <p>Layered computational models inspired by the human brain and pattern recognition.</p>
+            </button>
+
+            <button class="museum-card paradigm-card" data-topic="internet-ai" type="button">
+              <span class="paradigm-year">2010</span>
+              <h3>Internet-Driven AI</h3>
+              <p>AI systems strengthened by large-scale web data and connected knowledge sources.</p>
+            </button>
+
+            <button class="museum-card paradigm-card" data-topic="evolutionary-computing" type="button">
+              <span class="paradigm-year">2010</span>
+              <h3>Evolutionary Computing</h3>
+              <p>Algorithms inspired by mutation, selection, and optimisation in natural systems.</p>
+            </button>
+
+            <button class="museum-card paradigm-card" data-topic="synthetic-media" type="button">
+              <span class="paradigm-year">2015</span>
+              <h3>Synthetic Media Generation</h3>
+              <p>AI systems capable of generating realistic images, video, and synthetic identity content.</p>
+            </button>
+
+            <button class="museum-card paradigm-card" data-topic="nlp" type="button">
+              <span class="paradigm-year">2010–2020</span>
+              <h3>Natural Language Processing</h3>
+              <p>AI techniques for understanding, analysing, and generating human language.</p>
+            </button>
+
+            <button class="museum-card paradigm-card" data-topic="llms" type="button">
+              <span class="paradigm-year">2020–Present</span>
+              <h3>Large Language Models</h3>
+              <p>Transformer-based systems trained on massive text corpora for general-purpose language tasks.</p>
+            </button>
           </div>
         </section>
       </main>
+
+      <div class="modal-overlay hidden" id="topicModal">
+        <div class="modal-card">
+          <button class="modal-close" id="modalClose" aria-label="Close popup">✕</button>
+
+          <span class="exhibit-label">Exhibit Preview</span>
+          <h3 class="modal-title brass-text" id="modalTitle">Title</h3>
+          <p class="modal-year" id="modalYear">Year</p>
+          <p class="modal-text" id="modalText">Description</p>
+
+          <div class="modal-actions">
+            <a id="modalLink" href="#" class="primary-btn">Open Full Exhibit</a>
+          </div>
+        </div>
+      </div>
 
       <footer class="site-footer">
         <div class="container footer-inner">
@@ -155,6 +214,6 @@
       </footer>
     </div>
 
-    <script src="home.js"></script>
+    <script src="../static/js/home.js"></script>
   </body>
 </html>
