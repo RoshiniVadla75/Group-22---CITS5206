@@ -317,21 +317,50 @@ a {
   font-size: 0.98rem;
 }
 
-.highlights-grid {
+.paradigm-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 18px;
 }
 
-.highlight-panel {
-  padding: 24px 24px 20px;
+.paradigm-card {
+  display: block;
+  text-align: left;
+  padding: 22px 20px;
+  transition: all 0.25s ease;
 }
 
-.highlight-list {
-  margin: 0;
-  padding-left: 18px;
+.paradigm-card:hover {
+  transform: translateY(-4px);
+  border-color: hsla(42, 72%, 50%, 0.38);
+}
+
+.paradigm-year {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+}
+
+.paradigm-card h3 {
+  margin: 10px 0 10px;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  color: var(--foreground);
+}
+
+.paradigm-card p {
+  margin: 0 0 14px;
   color: var(--muted-foreground);
-  line-height: 1.9;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.topic-arrow {
+  color: var(--primary);
+  font-size: 1.15rem;
+  font-family: var(--font-heading);
 }
 
 .site-footer {
@@ -364,6 +393,12 @@ a {
   }
 }
 
+@media (max-width: 1200px) {
+  .paradigm-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 1100px) {
   .feature-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -388,7 +423,7 @@ a {
   }
 
   .feature-grid,
-  .highlights-grid {
+  .paradigm-grid {
     grid-template-columns: 1fr;
   }
 
