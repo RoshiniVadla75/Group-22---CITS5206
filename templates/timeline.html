@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline - AI Museum</title>
+    <link rel="stylesheet" href="../static/css/timeline.css" />
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header glass-panel">
+        <div class="container nav-bar">
+          <a href="home.html" class="logo-link">
+            <div class="logo-circle">🧭</div>
+            <div class="logo-text">
+              <span class="logo-title brass-text">AI Museum</span>
+              <span class="logo-subtitle">Western Australia</span>
+            </div>
+          </a>
+
+          <nav class="desktop-nav" id="desktopNav"></nav>
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav"></nav>
+      </header>
+
+      <main class="main-content">
+        <div class="container page-section">
+          <section class="hero-block fade-in">
+            <span class="exhibit-label">The Full Exhibition</span>
+            <h1 class="page-title brass-text">
+              Timeline of AI Paradigm Shifts
+            </h1>
+            <p class="hero-text">
+              Trace the evolution of artificial intelligence from Turing's
+              theoretical foundations to today's large language models.
+            </p>
+          </section>
+
+          <section class="museum-card filters-panel">
+            <div class="filter-header">
+              <span class="filter-icon">▽</span>
+              <span class="exhibit-label">Filter Exhibits</span>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">By Decade</label>
+              <div id="decadeFilters" class="filter-buttons"></div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label">By Category</label>
+              <div id="categoryFilters" class="filter-buttons"></div>
+            </div>
+          </section>
+
+          <section class="timeline-wrapper">
+            <div class="timeline-line"></div>
+            <div id="timelineList" class="timeline-list"></div>
+            <div id="emptyState" class="empty-state hidden">
+              <p class="empty-text">No exhibits match your filters.</p>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <p class="exhibit-label">
+            A.I. Software Technology in Western Australia
+          </p>
+          <p class="footer-text">
+            A Virtual Museum Experience · Final Semester Project · 2024
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../static/js/topic_data.js"></script>
+    <script src="../static/js/timeline.js"></script>
+  </body>
+</html>
