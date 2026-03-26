@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - AI Museum</title>
+    <link rel="stylesheet" href="../static/css/home.css" />
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header glass-panel">
+        <div class="container nav-bar">
+          <a href="home.html" class="logo-link">
+            <div class="logo-circle">🧭</div>
+            <div class="logo-text">
+              <span class="logo-title brass-text">AI Museum</span>
+              <span class="logo-subtitle">Western Australia</span>
+            </div>
+          </a>
+
+          <nav class="desktop-nav" id="desktopNav"></nav>
+
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav"></nav>
+      </header>
+
+      <main class="main-content">
+        <section class="hero-section">
+          <div class="container hero-grid">
+            <div class="hero-copy fade-in">
+              <span class="exhibit-label">Virtual Museum Experience</span>
+              <h1 class="page-title brass-text">
+                A.I. Software Technology in Western Australia – A History
+              </h1>
+              <p class="hero-text">
+                Discover the major paradigm shifts in artificial intelligence
+                through an interactive museum experience that combines history,
+                technology, multimedia, and guided learning.
+              </p>
+
+              <div class="hero-actions">
+                <a href="timeline.html" class="primary-btn">Explore Timeline</a>
+                <a href="guided_tour.html" class="secondary-btn">Start Guided Tour</a>
+              </div>
+            </div>
+
+            <div class="hero-card museum-card fade-in">
+              <span class="exhibit-label">Museum Mission</span>
+              <h3>Why this museum was created</h3>
+              <p>
+                This museum preserves and presents the history of artificial
+                intelligence software in an engaging way for students,
+                educators, and the public, with a focus on Western Australian
+                computing heritage.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="container page-section">
+          <div class="section-heading fade-in">
+            <span class="exhibit-label">Core Sections</span>
+            <h2 class="section-title brass-text">Explore the Museum</h2>
+            <p class="section-text">
+              Navigate through the main areas of the virtual museum and discover
+              how artificial intelligence evolved over time.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <a href="timeline.html" class="museum-card feature-card">
+              <div class="feature-icon">⏳</div>
+              <h3>Timeline</h3>
+              <p>
+                Trace the development of ten major AI paradigm shifts in
+                chronological order.
+              </p>
+            </a>
+
+            <a href="explore_WA.html" class="museum-card feature-card">
+              <div class="feature-icon">🌏</div>
+              <h3>Explore WA</h3>
+              <p>
+                Learn how Western Australian institutions and researchers connect
+                to the wider story of AI.
+              </p>
+            </a>
+
+            <a href="guided_tour.html" class="museum-card feature-card">
+              <div class="feature-icon">🧭</div>
+              <h3>Guided Tour</h3>
+              <p>
+                Follow a curated path through the exhibits for a structured
+                museum learning experience.
+              </p>
+            </a>
+
+            <a href="search.html" class="museum-card feature-card">
+              <div class="feature-icon">🔍</div>
+              <h3>Search</h3>
+              <p>
+                Search across topics, references, and multimedia in the archive.
+              </p>
+            </a>
+          </div>
+        </section>
+
+        <section class="container page-section">
+          <div class="section-heading fade-in">
+            <span class="exhibit-label">Exhibition Preview</span>
+            <h2 class="section-title brass-text">10 AI Paradigm Shifts</h2>
+            <p class="section-text">
+              Explore the complete sequence of AI paradigm shifts and open each
+              exhibit through the shared museum topic system.
+            </p>
+          </div>
+
+          <div class="paradigm-grid" id="paradigmGrid"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <p class="exhibit-label">
+            A.I. Software Technology in Western Australia
+          </p>
+          <p class="footer-text">
+            A Virtual Museum Experience · Final Semester Project · 2024
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../static/js/topic_data.js"></script>
+    <script src="../static/js/home.js"></script>
+  </body>
+</html>

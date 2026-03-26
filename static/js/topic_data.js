@@ -312,8 +312,8 @@ const topics = [
   },
   {
     id: 8,
-    slug: "deep-fakes",
-    title: "Deep Fakes",
+    slug: "Synthetic Media Technology-deep-fakes",
+    title: "Synthetic Media Technology / Deep Fakes",
     yearRange: "c. 2015",
     category: "Generative AI & Deception",
     introText: "Deep fakes emerged around 2015 as advances in deep learning — particularly Generative Adversarial Networks (GANs) — made it possible to create highly realistic fake media. A 'deep fake' uses neural networks to swap faces in video, clone voices, or generate entirely synthetic images of people who don't exist. The technology rapidly improved from obvious fakes to nearly undetectable fabrications, creating urgent challenges for journalism, democracy, and personal security.",
