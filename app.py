@@ -6,6 +6,7 @@ from routes import main
 def create_app():
     app = Flask(__name__)
 
+
     app.config["SECRET_KEY"] = "dev"
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///ai_museum.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -14,7 +15,6 @@ def create_app():
     app.register_blueprint(main)
 
     return app
-
 
 app = create_app()
 
