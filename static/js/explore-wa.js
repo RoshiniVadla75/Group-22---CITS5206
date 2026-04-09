@@ -1,15 +1,15 @@
 const navItems = [
-  { path: "home.html", label: "Home" },
-  { path: "timeline.html", label: "Timeline" },
-  { path: "explore_WA.html", label: "Explore WA" },
-  { path: "guided_tour.html", label: "Guided Tour" },
-  { path: "search.html", label: "Search" }
+  { path: "/", label: "Home" },
+  { path: "/timeline", label: "Timeline" },
+  { path: "/explore-wa", label: "Explore WA" },
+  { path: "/guided-tour", label: "Guided Tour" },
+  { path: "/search", label: "Search" }
 ];
 
 function renderNav() {
   const desktopNav = document.getElementById("desktopNav");
   const mobileNav = document.getElementById("mobileNav");
-  const currentPage = "explore_WA.html";
+  const currentPage = window.location.pathname;
 
   const html = navItems.map(item => {
     const activeClass = item.path === currentPage ? "active" : "";
@@ -20,19 +20,38 @@ function renderNav() {
   mobileNav.innerHTML = html;
 }
 
-function renderTopics() {
+async function fetchTopics() {
+  try {
+    const response = await fetch("/api/topics");
+    if (!response.ok) {
+      throw new Error("Failed to fetch topics");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching topics:", error);
+    return [];
+  }
+}
+
+async function renderTopics() {
   const topicsList = document.getElementById("topicsList");
+  const topics = await fetchTopics();
+
+  if (topics.length === 0) {
+    topicsList.innerHTML = `<p class="small-muted">No topics available at the moment.</p>`;
+    return;
+  }
 
   topicsList.innerHTML = topics.map(topic => {
     return `
-      <a href="topic_detail.html?slug=${topic.slug}" class="museum-card topic-link-card">
+      <a href="/topic-detail/${topic.slug}" class="museum-card topic-link-card">
         <div class="topic-pin">📍</div>
         <div class="topic-content">
           <div class="topic-header">
             <span class="topic-title">${topic.title}</span>
-            <span class="topic-year">${topic.yearRange}</span>
+            <span class="topic-year">${topic.year_range}</span>
           </div>
-          <p class="topic-desc">${topic.waContext}</p>
+          <p class="topic-desc">${topic.wa_context || "Explore this topic in detail."}</p>
         </div>
         <div class="topic-arrow">→</div>
       </a>
@@ -52,6 +71,7 @@ function setupMobileMenu() {
   });
 }
 
+// Initialize the page
 renderNav();
 renderTopics();
 setupMobileMenu();

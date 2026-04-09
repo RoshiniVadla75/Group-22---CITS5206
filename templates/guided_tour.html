@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guided Tour - AI Museum</title>
-  <link rel="stylesheet" href="../static/css/guided-tour.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/guided-tour.css') }}" />
 </head>
 <body>
   <div class="site-wrapper">
     <header class="site-header glass-panel">
       <div class="container nav-bar">
-        <a href="home.html" class="logo-link">
+        <a href="{{ url_for('main.home') }}" class="logo-link">
           <div class="logo-circle">🧭</div>
           <div class="logo-text">
             <span class="logo-title brass-text">AI Museum</span>
@@ -18,16 +18,73 @@
           </div>
         </a>
 
-        <nav class="desktop-nav" id="desktopNav"></nav>
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="{{ url_for('main.home') }}">Home</a>
+          <a href="{{ url_for('main.timeline') }}">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+          <a href="{{ url_for('main.search') }}">Search</a>
+        </nav>
+
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
       </div>
 
-      <nav class="mobile-nav" id="mobileNav"></nav>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="{{ url_for('main.home') }}">Home</a>
+        <a href="{{ url_for('main.timeline') }}">Timeline</a>
+        <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+        <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+        <a href="{{ url_for('main.search') }}">Search</a>
+      </nav>
     </header>
 
     <main class="main-content">
       <div class="container page-section">
-        <div id="guidedTourApp"></div>
+        <div id="guidedTourApp">
+          {% if topics %}
+            <section class="hero-block fade-in">
+              <span class="exhibit-label">Museum Route</span>
+              <h1 class="page-title brass-text">Guided Tour</h1>
+              <p class="hero-text">
+                Follow a curated journey through key moments in the history of artificial intelligence,
+                with a special focus on Western Australia’s place in that story.
+              </p>
+            </section>
+
+            <section class="tour-list">
+              {% for topic in topics %}
+                <article class="museum-card tour-stop">
+                  <span class="exhibit-label">
+                    Stop {{ loop.index }}
+                    {% if topic.year_range %}· {{ topic.year_range }}{% endif %}
+                  </span>
+
+                  <h2>{{ topic.title }}</h2>
+
+                  {% if topic.short_summary %}
+                    <p>{{ topic.short_summary }}</p>
+                  {% elif topic.intro_text %}
+                    <p>{{ topic.intro_text }}</p>
+                  {% else %}
+                    <p>Discover this exhibit in the guided tour.</p>
+                  {% endif %}
+
+                  <a href="{{ url_for('main.topic_detail', slug=topic.slug) }}" class="topic-link">
+                    View Topic
+                  </a>
+                </article>
+              {% endfor %}
+            </section>
+          {% else %}
+            <section class="hero-block fade-in">
+              <span class="exhibit-label">Museum Route</span>
+              <h1 class="page-title brass-text">Guided Tour</h1>
+              <p class="hero-text">
+                The guided tour content will appear here once the topic data is loaded from the backend.
+              </p>
+            </section>
+          {% endif %}
+        </div>
       </div>
     </main>
 
@@ -39,7 +96,6 @@
     </footer>
   </div>
 
-  <script src="../static/js/topic_data.js"></script>
-  <script src="../static/js/guided-tour.js"></script>
+  <script src="{{ url_for('static', filename='js/guided-tour.js') }}"></script>
 </body>
 </html>

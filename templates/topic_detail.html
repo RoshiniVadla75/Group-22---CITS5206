@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Topic Detail - AI Museum</title>
-  <link rel="stylesheet" href="../static/css/topic-detail.css" />
+  <title>{{ topic.title if topic else 'Topic Detail' }} - AI Museum</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/topic-detail.css') }}" />
 </head>
 <body>
   <div class="site-wrapper">
     <header class="site-header glass-panel">
       <div class="container nav-bar">
-        <a href="home.html" class="logo-link">
+        <a href="{{ url_for('main.home') }}" class="logo-link">
           <div class="logo-circle">🧭</div>
           <div class="logo-text">
             <span class="logo-title brass-text">AI Museum</span>
@@ -18,34 +18,150 @@
           </div>
         </a>
 
-        <nav class="desktop-nav" id="desktopNav"></nav>
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="{{ url_for('main.home') }}">Home</a>
+          <a href="{{ url_for('main.timeline') }}">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+          <a href="{{ url_for('main.search') }}">Search</a>
+        </nav>
+
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
       </div>
 
-      <nav class="mobile-nav" id="mobileNav"></nav>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="{{ url_for('main.home') }}">Home</a>
+        <a href="{{ url_for('main.timeline') }}">Timeline</a>
+        <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+        <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+        <a href="{{ url_for('main.search') }}">Search</a>
+      </nav>
     </header>
 
     <main class="main-content">
       <div class="container page-section">
-        <div class="breadcrumb" id="breadcrumb"></div>
-        <section id="topicHeader"></section>
+        <div class="breadcrumb" id="breadcrumb">
+          <a href="{{ url_for('main.home') }}">Home</a>
+          <span> / </span>
+          <a href="{{ url_for('main.timeline') }}">Timeline</a>
+          <span> / </span>
+          <span>{{ topic.title if topic else 'Topic Detail' }}</span>
+        </div>
+
+        <section id="topicHeader" class="museum-card">
+          {% if topic %}
+            {% if topic.year_range %}
+              <span class="exhibit-label">{{ topic.year_range }}</span>
+            {% endif %}
+            <h1 class="page-title brass-text">{{ topic.title }}</h1>
+            {% if topic.category %}
+              <p class="hero-text">{{ topic.category }}</p>
+            {% endif %}
+          {% else %}
+            <h1 class="page-title brass-text">Topic Detail</h1>
+          {% endif %}
+        </section>
 
         <div class="content-grid">
           <div class="main-column">
-            <div id="introCard"></div>
-            <div id="summaryCard"></div>
-            <div id="sectionsContainer"></div>
+            <div id="introCard" class="museum-card">
+              <h2>Introduction</h2>
+              {% if topic and topic.intro_text %}
+                <p>{{ topic.intro_text }}</p>
+              {% elif topic and topic.short_summary %}
+                <p>{{ topic.short_summary }}</p>
+              {% else %}
+                <p>Topic introduction will appear here once content is loaded from the backend.</p>
+              {% endif %}
+            </div>
+
+            <div id="summaryCard" class="museum-card">
+              <h2>Summary</h2>
+              {% if topic and topic.short_summary %}
+                <p>{{ topic.short_summary }}</p>
+              {% elif topic and topic.how_it_works %}
+                <p>{{ topic.how_it_works }}</p>
+              {% else %}
+                <p>Topic summary will appear here once content is loaded from the backend.</p>
+              {% endif %}
+            </div>
+
+            <div id="sectionsContainer">
+              {% if topic %}
+                {% if topic.how_it_works %}
+                  <section class="museum-card">
+                    <h2>How It Works</h2>
+                    <p>{{ topic.how_it_works }}</p>
+                  </section>
+                {% endif %}
+
+                {% if topic.simple_example %}
+                  <section class="museum-card">
+                    <h2>Simple Example</h2>
+                    <p>{{ topic.simple_example }}</p>
+                  </section>
+                {% endif %}
+
+                {% if topic.effective_use %}
+                  <section class="museum-card">
+                    <h2>Effective Use</h2>
+                    <p>{{ topic.effective_use }}</p>
+                  </section>
+                {% endif %}
+
+                {% if topic.real_world_examples %}
+                  <section class="museum-card">
+                    <h2>Real-World Examples</h2>
+                    <p>{{ topic.real_world_examples }}</p>
+                  </section>
+                {% endif %}
+
+                {% if topic.wa_context %}
+                  <section class="museum-card">
+                    <h2>Western Australia Context</h2>
+                    <p>{{ topic.wa_context }}</p>
+                  </section>
+                {% endif %}
+              {% endif %}
+            </div>
           </div>
 
           <aside class="sidebar-column">
-            <div id="mediaCard"></div>
-            <div id="referencesCard"></div>
-            <div id="relatedCard"></div>
+            <div id="referencesCard" class="museum-card">
+              <h2>References</h2>
+              {% if topic and topic.references %}
+                <ul>
+                  {% for ref in topic.references %}
+                    <li>
+                      {% if ref.url %}
+                        <a href="{{ ref.url }}" target="_blank" rel="noopener noreferrer">
+                          {{ ref.title if ref.title else ref.url }}
+                        </a>
+                      {% else %}
+                        {{ ref.title if ref.title else ref }}
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <p>References will appear here when available.</p>
+              {% endif %}
+            </div>
+
+            <div id="relatedCard" class="museum-card">
+              <h2>Related Links</h2>
+              <p><a href="{{ url_for('main.timeline') }}">Back to Timeline</a></p>
+              <p><a href="{{ url_for('main.search') }}">Search the Collection</a></p>
+              <p><a href="{{ url_for('main.guided_tour') }}">Continue Guided Tour</a></p>
+            </div>
           </aside>
         </div>
 
         <div class="archival-divider"></div>
-        <div class="bottom-nav" id="bottomNav"></div>
+
+        <div class="bottom-nav" id="bottomNav">
+          <a href="{{ url_for('main.timeline') }}">← Back to Timeline</a>
+        </div>
       </div>
     </main>
 
@@ -56,7 +172,7 @@
       </div>
     </footer>
   </div>
-  <script src="../static/js/topic_data.js"></script>
-  <script src="../static/js/topic-detail.js"></script>
+
+  <script src="{{ url_for('static', filename='js/topic-detail.js') }}"></script>
 </body>
 </html>

@@ -1,28 +1,27 @@
 const navItems = [
-  { href: "home.html", label: "Home" },
-  { href: "timeline.html", label: "Timeline" },
-  { href: "explore_WA.html", label: "Explore WA" },
-  { href: "guided_tour.html", label: "Guided Tour" },
-  { href: "search.html", label: "Search" }
+  { path: "/", label: "Home" },
+  { path: "/timeline", label: "Timeline" },
+  { path: "/explore-wa", label: "Explore WA" },
+  { path: "/guided-tour", label: "Guided Tour" },
+  { path: "/search", label: "Search" }
 ];
-
-const currentPage = "guided_tour.html";
 
 function renderNavigation() {
   const desktopNav = document.getElementById("desktopNav");
   const mobileNav = document.getElementById("mobileNav");
   const mobileToggle = document.getElementById("mobileToggle");
+  const currentPage = window.location.pathname;
 
   if (!desktopNav || !mobileNav || !mobileToggle) return;
 
   desktopNav.innerHTML = navItems.map((item) => `
-    <a href="${item.href}" class="nav-link ${item.href === currentPage ? "active" : ""}">
+    <a href="${item.path}" class="nav-link ${item.path === currentPage ? "active" : ""}">
       ${item.label}
     </a>
   `).join("");
 
   mobileNav.innerHTML = navItems.map((item) => `
-    <a href="${item.href}" class="mobile-nav-link ${item.href === currentPage ? "active" : ""}">
+    <a href="${item.path}" class="mobile-nav-link ${item.path === currentPage ? "active" : ""}">
       ${item.label}
     </a>
   `).join("");
@@ -98,7 +97,7 @@ function renderCompleted(container) {
       </p>
       <div class="complete-actions">
         <button id="restartJourneyBtn" class="secondary-btn" type="button">Restart Journey</button>
-        <a href="explore_WA.html" class="primary-btn">Explore WA Context</a>
+        <a href="/explore-wa" class="primary-btn">Explore WA Context</a>
       </div>
     </section>
   `;
@@ -149,36 +148,36 @@ function renderTopicStep(container, topic, step) {
       <div class="museum-card topic-card">
         <div class="topic-meta">
           <span class="exhibit-label">${topic.category}</span>
-          <span class="topic-year">${topic.yearRange}</span>
+          <span class="topic-year">${topic.year_range}</span>
         </div>
 
         <h2 class="topic-title brass-text">${topic.title}</h2>
 
-        <p class="topic-intro">${topic.introText}</p>
+        <p class="topic-intro">${topic.intro_text}</p>
 
         <div class="archival-divider"></div>
 
         <div class="topic-sections">
           <div class="topic-section">
             <span class="exhibit-label block-label">How It Works</span>
-            <p>${topic.howItWorks}</p>
+            <p>${topic.how_it_works}</p>
           </div>
 
           <div class="topic-section">
             <span class="exhibit-label block-label">Simple Example</span>
-            <p>${topic.simpleExample}</p>
+            <p>${topic.simple_example}</p>
           </div>
 
           <div class="topic-section">
             <span class="exhibit-label block-label">WA Connection</span>
-            <p>${topic.waContext}</p>
+            <p>${topic.wa_context}</p>
           </div>
         </div>
 
         <div class="archival-divider"></div>
 
         <div class="topic-link-row">
-          <a href="topic_detail.html?slug=${topic.slug}" class="topic-link">
+          <a href="/topic-detail/${topic.slug}" class="topic-link">
             View full exhibit →
           </a>
         </div>

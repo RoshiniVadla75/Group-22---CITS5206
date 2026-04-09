@@ -1,15 +1,15 @@
 const navItems = [
-  { path: "home.html", label: "Home" },
-  { path: "timeline.html", label: "Timeline" },
-  { path: "explore_WA.html", label: "Explore WA" },
-  { path: "guided_tour.html", label: "Guided Tour" },
-  { path: "search.html", label: "Search" }
+  { path: "/", label: "Home" },
+  { path: "/timeline", label: "Timeline" },
+  { path: "/explore-wa", label: "Explore WA" },
+  { path: "/guided-tour", label: "Guided Tour" },
+  { path: "/search", label: "Search" }
 ];
 
 function renderNav() {
   const desktopNav = document.getElementById("desktopNav");
   const mobileNav = document.getElementById("mobileNav");
-  const currentPage = "home.html";
+  const currentPage = window.location.pathname;
 
   const html = navItems
     .map((item) => {
@@ -29,10 +29,10 @@ function renderParadigmShifts() {
   paradigmGrid.innerHTML = topics
     .map((topic) => {
       return `
-        <a href="topic_detail.html?slug=${topic.slug}" class="museum-card paradigm-card">
-          <span class="paradigm-year">${topic.yearRange}</span>
+        <a href="/topic-detail/${topic.slug}" class="museum-card paradigm-card">
+          <span class="paradigm-year">${topic.year_range}</span>
           <h3>${topic.title}</h3>
-          <p>${topic.shortSummary || "Explore this AI paradigm shift in detail."}</p>
+          <p>${topic.short_summary || "Explore this AI paradigm shift in detail."}</p>
           <div class="topic-arrow">→</div>
         </a>
       `;
@@ -52,6 +52,7 @@ function setupMobileMenu() {
   });
 }
 
+// Initialize the page
 renderNav();
 renderParadigmShifts();
 setupMobileMenu();

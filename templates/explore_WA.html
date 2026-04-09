@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore WA - AI Museum</title>
-  <link rel="stylesheet" href="../static/css/explore-wa.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/explore-wa.css') }}" />
 </head>
 <body>
   <div class="site-wrapper">
     <header class="site-header glass-panel">
       <div class="container nav-bar">
-        <a href="home.html" class="logo-link">
+        <a href="{{ url_for('main.home') }}" class="logo-link">
           <div class="logo-circle">🧭</div>
           <div class="logo-text">
             <span class="logo-title brass-text">AI Museum</span>
@@ -18,11 +18,24 @@
           </div>
         </a>
 
-        <nav class="desktop-nav" id="desktopNav"></nav>
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="{{ url_for('main.home') }}">Home</a>
+          <a href="{{ url_for('main.timeline') }}">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+          <a href="{{ url_for('main.search') }}">Search</a>
+        </nav>
+
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
       </div>
 
-      <nav class="mobile-nav" id="mobileNav"></nav>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="{{ url_for('main.home') }}">Home</a>
+        <a href="{{ url_for('main.timeline') }}">Timeline</a>
+        <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+        <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+        <a href="{{ url_for('main.search') }}">Search</a>
+      </nav>
     </header>
 
     <main class="main-content">
@@ -100,7 +113,32 @@
 
         <section class="timeline-section">
           <span class="exhibit-label timeline-label">WA Connections Across the Timeline</span>
-          <div id="topicsList" class="topics-list"></div>
+          <div id="topicsList" class="topics-list">
+            {% if topics %}
+              {% for topic in topics %}
+                <article class="museum-card topic-card">
+                  <span class="exhibit-label">{{ topic.year_range }}</span>
+                  <h3>{{ topic.title }}</h3>
+
+                  {% if topic.wa_context %}
+                    <p>{{ topic.wa_context }}</p>
+                  {% elif topic.short_summary %}
+                    <p>{{ topic.short_summary }}</p>
+                  {% elif topic.intro_text %}
+                    <p>{{ topic.intro_text }}</p>
+                  {% else %}
+                    <p>Explore this topic and its connection to Western Australia.</p>
+                  {% endif %}
+
+                  <a href="{{ url_for('main.topic_detail', slug=topic.slug) }}" class="topic-link">
+                    View Topic
+                  </a>
+                </article>
+              {% endfor %}
+            {% else %}
+              <p class="small-muted">WA-related topic content will appear here once loaded from the database.</p>
+            {% endif %}
+          </div>
         </section>
 
         <section class="museum-card coming-soon">
@@ -123,7 +161,7 @@
       </div>
     </footer>
   </div>
-  <script src="../static/js/topic_data.js"></script>
-  <script src="../static/js/explore-wa.js"></script>
+
+  <script src="{{ url_for('static', filename='js/explore-wa.js') }}"></script>
 </body>
 </html>

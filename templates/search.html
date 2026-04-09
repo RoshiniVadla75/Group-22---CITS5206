@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Search - AI Museum</title>
-  <link rel="stylesheet" href="../static/css/search.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}" />
 </head>
 <body>
   <div class="site-wrapper">
     <header class="site-header glass-panel">
       <div class="container nav-bar">
-        <a href="home.html" class="logo-link">
+        <a href="{{ url_for('main.home') }}" class="logo-link">
           <div class="logo-circle">🧭</div>
           <div class="logo-text">
             <span class="logo-title brass-text">AI Museum</span>
@@ -18,11 +18,24 @@
           </div>
         </a>
 
-        <nav class="desktop-nav" id="desktopNav"></nav>
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="{{ url_for('main.home') }}">Home</a>
+          <a href="{{ url_for('main.timeline') }}">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+          <a href="{{ url_for('main.search') }}">Search</a>
+        </nav>
+
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
       </div>
 
-      <nav class="mobile-nav" id="mobileNav"></nav>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="{{ url_for('main.home') }}">Home</a>
+        <a href="{{ url_for('main.timeline') }}">Timeline</a>
+        <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+        <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+        <a href="{{ url_for('main.search') }}">Search</a>
+      </nav>
     </header>
 
     <main class="main-content">
@@ -44,7 +57,31 @@
 
         <p id="resultCount" class="result-count hidden"></p>
 
-        <div id="resultsContainer" class="results-container"></div>
+        <div id="resultsContainer" class="results-container">
+          {% if topics %}
+            {% for topic in topics %}
+              <article class="museum-card result-card">
+                {% if topic.year_range %}
+                  <span class="exhibit-label">{{ topic.year_range }}</span>
+                {% endif %}
+
+                <h3>{{ topic.title }}</h3>
+
+                {% if topic.short_summary %}
+                  <p>{{ topic.short_summary }}</p>
+                {% elif topic.intro_text %}
+                  <p>{{ topic.intro_text }}</p>
+                {% else %}
+                  <p>Explore this topic in detail.</p>
+                {% endif %}
+
+                <a href="{{ url_for('main.topic_detail', slug=topic.slug) }}" class="topic-link">
+                  View Topic
+                </a>
+              </article>
+            {% endfor %}
+          {% endif %}
+        </div>
 
         <section id="emptyState" class="empty-state museum-card">
           <div class="empty-icon">🔎</div>
@@ -62,7 +99,6 @@
     </footer>
   </div>
 
-  <script src="../static/js/topic_data.js"></script>
-  <script src="../static/js/search.js"></script>
+  <script src="{{ url_for('static', filename='js/search.js') }}"></script>
 </body>
 </html>

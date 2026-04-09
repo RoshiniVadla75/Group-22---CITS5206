@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - AI Museum</title>
-    <link rel="stylesheet" href="../static/css/home.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
   </head>
   <body>
     <div class="site-wrapper">
       <header class="site-header glass-panel">
         <div class="container nav-bar">
-          <a href="home.html" class="logo-link">
+          <a href="{{ url_for('main.home') }}" class="logo-link">
             <div class="logo-circle">🧭</div>
             <div class="logo-text">
               <span class="logo-title brass-text">AI Museum</span>
@@ -18,7 +18,13 @@
             </div>
           </a>
 
-          <nav class="desktop-nav" id="desktopNav"></nav>
+          <nav class="desktop-nav" id="desktopNav">
+            <a href="{{ url_for('main.home') }}">Home</a>
+            <a href="{{ url_for('main.timeline') }}">Timeline</a>
+            <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+            <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+            <a href="{{ url_for('main.search') }}">Search</a>
+          </nav>
 
           <button
             class="mobile-toggle"
@@ -29,7 +35,13 @@
           </button>
         </div>
 
-        <nav class="mobile-nav" id="mobileNav"></nav>
+        <nav class="mobile-nav" id="mobileNav">
+          <a href="{{ url_for('main.home') }}">Home</a>
+          <a href="{{ url_for('main.timeline') }}">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+          <a href="{{ url_for('main.search') }}">Search</a>
+        </nav>
       </header>
 
       <main class="main-content">
@@ -47,8 +59,8 @@
               </p>
 
               <div class="hero-actions">
-                <a href="timeline.html" class="primary-btn">Explore Timeline</a>
-                <a href="guided_tour.html" class="secondary-btn">Start Guided Tour</a>
+                <a href="{{ url_for('main.timeline') }}" class="primary-btn">Explore Timeline</a>
+                <a href="{{ url_for('main.guided_tour') }}" class="secondary-btn">Start Guided Tour</a>
               </div>
             </div>
 
@@ -76,7 +88,7 @@
           </div>
 
           <div class="feature-grid">
-            <a href="timeline.html" class="museum-card feature-card">
+            <a href="{{ url_for('main.timeline') }}" class="museum-card feature-card">
               <div class="feature-icon">⏳</div>
               <h3>Timeline</h3>
               <p>
@@ -85,7 +97,7 @@
               </p>
             </a>
 
-            <a href="explore_WA.html" class="museum-card feature-card">
+            <a href="{{ url_for('main.explore_wa') }}" class="museum-card feature-card">
               <div class="feature-icon">🌏</div>
               <h3>Explore WA</h3>
               <p>
@@ -94,7 +106,7 @@
               </p>
             </a>
 
-            <a href="guided_tour.html" class="museum-card feature-card">
+            <a href="{{ url_for('main.guided_tour') }}" class="museum-card feature-card">
               <div class="feature-icon">🧭</div>
               <h3>Guided Tour</h3>
               <p>
@@ -103,7 +115,7 @@
               </p>
             </a>
 
-            <a href="search.html" class="museum-card feature-card">
+            <a href="{{ url_for('main.search') }}" class="museum-card feature-card">
               <div class="feature-icon">🔍</div>
               <h3>Search</h3>
               <p>
@@ -123,7 +135,35 @@
             </p>
           </div>
 
-          <div class="paradigm-grid" id="paradigmGrid"></div>
+          <div class="paradigm-grid" id="paradigmGrid">
+            {% if topics %}
+              {% for topic in topics %}
+                <article class="museum-card feature-card">
+                  {% if topic.year_range %}
+                    <span class="exhibit-label">{{ topic.year_range }}</span>
+                  {% endif %}
+
+                  <h3>{{ topic.title }}</h3>
+
+                  {% if topic.short_summary %}
+                    <p>{{ topic.short_summary }}</p>
+                  {% elif topic.intro_text %}
+                    <p>{{ topic.intro_text }}</p>
+                  {% else %}
+                    <p>Discover this exhibit in the virtual museum.</p>
+                  {% endif %}
+
+                  <a href="{{ url_for('main.topic_detail', slug=topic.slug) }}" class="primary-btn">
+                    View Topic
+                  </a>
+                </article>
+              {% endfor %}
+            {% else %}
+              <p class="section-text">
+                Topic previews will appear here once data is loaded from the backend.
+              </p>
+            {% endif %}
+          </div>
         </section>
       </main>
 
@@ -139,7 +179,6 @@
       </footer>
     </div>
 
-    <script src="../static/js/topic_data.js"></script>
-    <script src="../static/js/home.js"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
   </body>
 </html>
