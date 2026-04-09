@@ -22,24 +22,6 @@ function renderNav() {
   if (mobileNav) mobileNav.innerHTML = html;
 }
 
-function renderParadigmShifts() {
-  const paradigmGrid = document.getElementById("paradigmGrid");
-  if (!paradigmGrid || typeof topics === "undefined") return;
-
-  paradigmGrid.innerHTML = topics
-    .map((topic) => {
-      return `
-        <a href="/topic-detail/${topic.slug}" class="museum-card paradigm-card">
-          <span class="paradigm-year">${topic.year_range}</span>
-          <h3>${topic.title}</h3>
-          <p>${topic.short_summary || "Explore this AI paradigm shift in detail."}</p>
-          <div class="topic-arrow">→</div>
-        </a>
-      `;
-    })
-    .join("");
-}
-
 function setupMobileMenu() {
   const mobileToggle = document.getElementById("mobileToggle");
   const mobileNav = document.getElementById("mobileNav");
@@ -54,5 +36,4 @@ function setupMobileMenu() {
 
 // Initialize the page
 renderNav();
-renderParadigmShifts();
 setupMobileMenu();

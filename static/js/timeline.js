@@ -20,11 +20,14 @@ const decades = [
 
 let selectedDecade = "All";
 let selectedCategory = "All";
+let allTopics = [];
 
 function renderNav() {
   const desktopNav = document.getElementById("desktopNav");
   const mobileNav = document.getElementById("mobileNav");
   const currentPage = window.location.pathname;
+
+  if (!desktopNav || !mobileNav) return;
 
   const html = navItems
     .map((item) => {
@@ -37,24 +40,42 @@ function renderNav() {
   mobileNav.innerHTML = html;
 }
 
+async function fetchTopics() {
+  try {
+    const response = await fetch("/api/topics");
+    if (!response.ok) {
+      throw new Error("Failed to fetch topics");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching topics:", error);
+    return [];
+  }
+}
+
 function extractStartYear(yearRange) {
-  const match = yearRange.match(/\d{4}|\d{3}/);
+  if (!yearRange) return null;
+  const match = String(yearRange).match(/\d{4}|\d{3}/);
   if (!match) return null;
   return parseInt(match[0], 10);
 }
 
 function getTopicDecade(topic) {
-  const year = extractStartYear(topic.year_range);
+  const year = extractStartYear(topic.yearRange);
   if (!year) return null;
   return `${Math.floor(year / 10) * 10}s`;
 }
 
 function getCategories() {
-  return ["All", ...new Set(topics.map((topic) => topic.category))];
+  const categories = allTopics
+    .map((topic) => topic.category)
+    .filter((category) => category && category.trim() !== "");
+  return ["All", ...new Set(categories)];
 }
 
 function buildFilterButtons(containerId, values, selectedValue, onClickHandler) {
   const container = document.getElementById(containerId);
+  if (!container) return;
 
   container.innerHTML = values
     .map((value) => {
@@ -90,7 +111,7 @@ function renderFilters() {
 }
 
 function getFilteredTopics() {
-  return topics.filter((topic) => {
+  return allTopics.filter((topic) => {
     const matchesDecade =
       selectedDecade === "All" || getTopicDecade(topic) === selectedDecade;
 
@@ -104,6 +125,9 @@ function getFilteredTopics() {
 function renderTimeline() {
   const timelineList = document.getElementById("timelineList");
   const emptyState = document.getElementById("emptyState");
+
+  if (!timelineList || !emptyState) return;
+
   const filteredTopics = getFilteredTopics();
 
   if (filteredTopics.length === 0) {
@@ -121,15 +145,15 @@ function renderTimeline() {
       return `
       <div class="timeline-row">
         <div class="timeline-card-wrap ${sideClass}">
-          <a href="/topic-detail/${topic.slug}" class="museum-card timeline-card">
+          <a href="/topic/${topic.slug}" class="museum-card timeline-card">
             <div class="timeline-card-header">
-              <span class="exhibit-label timeline-category">${topic.category}</span>
-              <span class="timeline-year">${topic.year_range}</span>
+              <span class="exhibit-label timeline-category">${topic.category || ""}</span>
+              <span class="timeline-year">${topic.yearRange || ""}</span>
             </div>
 
             <h3 class="timeline-title">${topic.title}</h3>
 
-            <p class="timeline-desc">${topic.short_summary}</p>
+            <p class="timeline-desc">${topic.shortSummary || "Explore this exhibit in the AI Museum timeline."}</p>
 
             <div class="timeline-link">
               <span>Open Exhibit</span>
@@ -161,7 +185,14 @@ function setupMobileMenu() {
   });
 }
 
-renderNav();
-renderFilters();
-renderTimeline();
-setupMobileMenu();
+async function initTimelinePage() {
+  renderNav();
+  setupMobileMenu();
+
+  allTopics = await fetchTopics();
+
+  renderFilters();
+  renderTimeline();
+}
+
+initTimelinePage();

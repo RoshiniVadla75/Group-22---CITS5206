@@ -49,27 +49,17 @@ function highlightText(text, query) {
   return text.replace(regex, '<mark class="search-highlight">$1</mark>');
 }
 
-function getSearchableText(topic) {
-  const referenceTitles = (topic.references || []).map((r) => r.title).join(" ");
-  const mediaTitles = (topic.media || []).map((m) => m.title).join(" ");
-
-  return [
-    topic.title,
-    topic.category,
-    topic.year_range,
-    topic.short_summary,
-    topic.intro_text,
-    topic.how_it_works,
-    topic.simple_example,
-    topic.effective_use,
-    topic.wa_context,
-    topic.advantages,
-    topic.limitations,
-    topic.misuse,
-    topic.ethics,
-    referenceTitles,
-    mediaTitles
-  ].join(" ").toLowerCase();
+async function fetchTopics() {
+  try {
+    const response = await fetch("/api/topics");
+    if (!response.ok) {
+      throw new Error("Failed to fetch topics");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching topics:", error);
+    return [];
+  }
 }
 
 function renderResults(results, query) {
@@ -103,13 +93,13 @@ function renderResults(results, query) {
   emptyState.classList.add("hidden");
 
   resultsContainer.innerHTML = results.map((topic, index) => `
-    <a href="/topic-detail/${topic.slug}" class="museum-card result-card fade-in" style="animation-delay:${index * 0.05}s">
+    <a href="/topic/${topic.slug}" class="museum-card result-card fade-in" style="animation-delay:${index * 0.05}s">
       <div class="result-meta">
         <span class="exhibit-label">${topic.category}</span>
-        <span class="result-year">${topic.year_range}</span>
+        <span class="result-year">${topic.yearRange}</span>
       </div>
       <h3 class="result-title">${highlightText(topic.title, query)}</h3>
-      <p class="result-summary">${highlightText(topic.short_summary, query)}</p>
+      <p class="result-summary">${highlightText(topic.shortSummary, query)}</p>
       <div class="result-link">
         <span>Open exhibit</span>
         <span class="result-link-arrow">→</span>
@@ -122,23 +112,37 @@ function initSearch() {
   const searchInput = document.getElementById("searchInput");
   if (!searchInput) return;
 
-  searchInput.addEventListener("input", (event) => {
-    const query = event.target.value.trim().toLowerCase();
+  let topics = [];
 
-    if (!query) {
-      renderResults([], "");
-      return;
-    }
+  // Fetch topics once and filter them locally
+  fetchTopics().then((fetchedTopics) => {
+    topics = fetchedTopics;
 
-    const results = topics.filter((topic) => {
-      const searchableText = getSearchableText(topic);
-      return searchableText.includes(query);
+    searchInput.addEventListener("input", (event) => {
+      const query = event.target.value.trim().toLowerCase();
+
+      if (!query) {
+        renderResults([], "");
+        return;
+      }
+
+      const results = topics.filter((topic) => {
+        const searchableText = [
+          topic.title,
+          topic.category,
+          topic.yearRange,
+          topic.shortSummary,
+          topic.waContext
+        ].join(" ").toLowerCase();
+        return searchableText.includes(query);
+      });
+
+      renderResults(results, query);
     });
 
-    renderResults(results, query);
+    // Render empty results initially
+    renderResults([], "");
   });
-
-  renderResults([], "");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
