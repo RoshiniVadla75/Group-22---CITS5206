@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timeline - AI Museum</title>
-    <link rel="stylesheet" href="../static/css/timeline.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/timeline.css') }}"
+    />
   </head>
   <body>
     <div class="site-wrapper">
       <header class="site-header glass-panel">
         <div class="container nav-bar">
-          <a href="home.html" class="logo-link">
+          <a href="{{ url_for('main.home') }}" class="logo-link">
             <div class="logo-circle">🧭</div>
             <div class="logo-text">
               <span class="logo-title brass-text">AI Museum</span>
@@ -18,7 +21,22 @@
             </div>
           </a>
 
-          <nav class="desktop-nav" id="desktopNav"></nav>
+          <nav class="desktop-nav" id="desktopNav">
+            <a href="{{ url_for('main.home') }}">Home</a>
+            <a href="{{ url_for('main.timeline') }}">Timeline</a>
+            <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+            <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+            <a href="{{ url_for('main.search') }}">Search</a>
+
+            {% if current_user.is_authenticated %}
+            <span class="nav-user">Hi, {{ current_user.username }}</span>
+            <a href="{{ url_for('main.logout') }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for('main.login') }}">Login</a>
+            <a href="{{ url_for('main.signup') }}">Sign Up</a>
+            {% endif %}
+          </nav>
+
           <button
             class="mobile-toggle"
             id="mobileToggle"
@@ -28,7 +46,23 @@
           </button>
         </div>
 
-        <nav class="mobile-nav" id="mobileNav"></nav>
+        <nav class="mobile-nav" id="mobileNav">
+          <a href="{{ url_for('main.home') }}">Home</a>
+          <a href="{{ url_for('main.timeline') }}">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+          <a href="{{ url_for('main.search') }}">Search</a>
+
+          {% if current_user.is_authenticated %}
+          <span class="nav-user mobile-user"
+            >Hi, {{ current_user.username }}</span
+          >
+          <a href="{{ url_for('main.logout') }}">Logout</a>
+          {% else %}
+          <a href="{{ url_for('main.login') }}">Login</a>
+          <a href="{{ url_for('main.signup') }}">Sign Up</a>
+          {% endif %}
+        </nav>
       </header>
 
       <main class="main-content">
@@ -43,6 +77,18 @@
               theoretical foundations to today's large language models.
             </p>
           </section>
+
+          <div class="timeline-legend">
+            <div class="legend-item">
+              <span class="legend-dot active"></span>
+              <span>Active — Still in use today</span>
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-dot legacy"></span>
+              <span>Legacy — Historical significance</span>
+            </div>
+          </div>
 
           <section class="museum-card filters-panel">
             <div class="filter-header">
@@ -59,11 +105,18 @@
               <label class="filter-label">By Category</label>
               <div id="categoryFilters" class="filter-buttons"></div>
             </div>
+
+            <div class="filter-group">
+              <label class="filter-label">By Status</label>
+              <div id="statusFilters" class="filter-buttons"></div>
+            </div>
           </section>
 
           <section class="timeline-wrapper">
             <div class="timeline-line"></div>
+
             <div id="timelineList" class="timeline-list"></div>
+
             <div id="emptyState" class="empty-state hidden">
               <p class="empty-text">No exhibits match your filters.</p>
             </div>
@@ -83,7 +136,7 @@
       </footer>
     </div>
 
-    <script src="../static/js/topic_data.js"></script>
-    <script src="../static/js/timeline.js"></script>
+    <script src="{{ url_for('static', filename='js/timeline.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
   </body>
 </html>
