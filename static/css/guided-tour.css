@@ -76,6 +76,22 @@ a {
   gap: 1rem;
 }
 
+.nav-user {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--foreground);
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  background: hsla(42, 72%, 50%, 0.08);
+}
+
+.mobile-user {
+  padding: 12px 14px;
+}
+
 .logo-link {
   display: flex;
   align-items: center;
@@ -116,6 +132,8 @@ a {
   align-items: center;
   gap: 0.25rem;
 }
+
+
 
 .nav-link {
   padding: 0.6rem 0.85rem;

@@ -1,129 +1,220 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explore WA - AI Museum</title>
-  <link rel="stylesheet" href="../static/css/explore-wa.css" />
-</head>
-<body>
-  <div class="site-wrapper">
-    <header class="site-header glass-panel">
-      <div class="container nav-bar">
-        <a href="home.html" class="logo-link">
-          <div class="logo-circle">🧭</div>
-          <div class="logo-text">
-            <span class="logo-title brass-text">AI Museum</span>
-            <span class="logo-subtitle">Western Australia</span>
-          </div>
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore WA - AI Museum</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/explore-wa.css') }}"
+    />
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header glass-panel">
+        <div class="container nav-bar">
+          <a href="{{ url_for('main.home') }}" class="logo-link">
+            <div class="logo-circle">🧭</div>
+            <div class="logo-text">
+              <span class="logo-title brass-text">AI Museum</span>
+              <span class="logo-subtitle">Western Australia</span>
+            </div>
+          </a>
 
-        <nav class="desktop-nav" id="desktopNav"></nav>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
-      </div>
+          <nav class="desktop-nav" id="desktopNav">
+            <a href="{{ url_for('main.home') }}">Home</a>
+            <a href="{{ url_for('main.timeline') }}">Timeline</a>
+            <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+            <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+            <a href="{{ url_for('main.search') }}">Search</a>
 
-      <nav class="mobile-nav" id="mobileNav"></nav>
-    </header>
+            {% if current_user.is_authenticated %}
+            <span class="nav-user">Hi, {{ current_user.username }}</span>
+            <a href="{{ url_for('main.logout') }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for('main.login') }}">Login</a>
+            <a href="{{ url_for('main.signup') }}">Sign Up</a>
+            {% endif %}
+          </nav>
 
-    <main class="main-content">
-      <div class="container page-section">
-        <section class="hero-block fade-in">
-          <span class="exhibit-label">Regional Heritage</span>
-          <h1 class="page-title brass-text">Explore WA: Our Place in AI History</h1>
-          <p class="hero-text">
-            Western Australia's story within global AI development is unique — shaped by its vast geography,
-            dominant industries, world-class universities, and growing technology sector.
-          </p>
-        </section>
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
 
-        <section class="museum-card why-wa">
-          <div class="section-icon">🗺️</div>
-          <span class="exhibit-label">Why Western Australia Matters</span>
-          <p>
-            Western Australia occupies a third of the Australian continent, with a population concentrated
-            in Perth and a vast regional hinterland dependent on mining, agriculture, and environmental
-            management. These conditions have driven unique applications of AI — from autonomous mining
-            vehicles in the Pilbara to precision agriculture in the Wheatbelt, from marine conservation
-            AI on the Ningaloo coast to remote healthcare delivery across distances greater than most
-            European countries.
-          </p>
-          <p>
-            WA's universities — UWA, Curtin, Murdoch, and ECU — have contributed to AI research across
-            every paradigm represented in this museum. The state's technology sector, centred in Perth,
-            is rapidly growing and positioning itself as a hub for AI innovation in the Indo-Pacific region.
-          </p>
-        </section>
+        <nav class="mobile-nav" id="mobileNav">
+          <a href="{{ url_for('main.home') }}">Home</a>
+          <a href="{{ url_for('main.timeline') }}">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+          <a href="{{ url_for('main.search') }}">Search</a>
 
-        <section class="institution-grid">
-          <article class="museum-card">
-            <div class="section-icon">🎓</div>
-            <h3>Universities</h3>
-            <p>
-              UWA, Curtin, ECU, and Murdoch have strong computer science and AI research programs,
-              with alumni contributing to global AI companies and research institutions.
+          {% if current_user.is_authenticated %}
+          <span class="nav-user mobile-user"
+            >Hi, {{ current_user.username }}</span
+          >
+          <a href="{{ url_for('main.logout') }}">Logout</a>
+          {% else %}
+          <a href="{{ url_for('main.login') }}">Login</a>
+          <a href="{{ url_for('main.signup') }}">Sign Up</a>
+          {% endif %}
+        </nav>
+      </header>
+
+      <main class="main-content">
+        <div class="container page-section">
+          <section class="hero-block fade-in">
+            <span class="exhibit-label">Regional Heritage</span>
+            <h1 class="page-title brass-text">
+              Explore WA: Our Place in AI History
+            </h1>
+            <p class="hero-text">
+              Western Australia's story within global AI development is unique —
+              shaped by its vast geography, dominant industries, world-class
+              universities, and growing technology sector.
             </p>
-          </article>
+          </section>
 
-          <article class="museum-card">
-            <div class="section-icon">🏢</div>
-            <h3>Tech Sector</h3>
+          <section class="museum-card why-wa">
+            <div class="section-icon">🗺️</div>
+            <span class="exhibit-label">Why Western Australia Matters</span>
             <p>
-              Perth's tech sector is growing rapidly, with startups and established companies applying
-              AI to mining, healthcare, agriculture, and environmental management.
+              Western Australia occupies a third of the Australian continent,
+              with a population concentrated in Perth and a vast regional
+              hinterland dependent on mining, agriculture, and environmental
+              management. These conditions have driven unique applications of AI
+              — from autonomous mining vehicles in the Pilbara to precision
+              agriculture in the Wheatbelt, from marine conservation AI on the
+              Ningaloo coast to remote healthcare delivery across distances
+              greater than most European countries.
             </p>
-          </article>
-
-          <article class="museum-card">
-            <div class="section-icon">⛏️</div>
-            <h3>Resources Industry</h3>
             <p>
-              WA's mining giants (Rio Tinto, BHP, Fortescue) operate some of the world's most advanced
-              autonomous and AI-driven operations, pioneered right here.
+              WA's universities — UWA, Curtin, Murdoch, and ECU — have
+              contributed to AI research across every paradigm represented in
+              this museum. The state's technology sector, centred in Perth, is
+              rapidly growing and positioning itself as a hub for AI innovation
+              in the Indo-Pacific region.
             </p>
-          </article>
-        </section>
+          </section>
 
-        <section class="parchment-panel uwa-panel">
-          <span class="exhibit-label">UWA & WA Computing Heritage</span>
-          <p>
-            The University of Western Australia established one of Australia's earliest computer science
-            departments. From early adoption of mainframe computing in the 1960s to pioneering AI research
-            in the 1990s and 2000s, UWA has been central to WA's computing story. Today, UWA's research
-            groups in machine learning, computer vision, and natural language processing contribute to
-            both academic knowledge and industry applications.
+          <section class="institution-grid">
+            <article class="museum-card">
+              <div class="section-icon">🎓</div>
+              <h3>Universities</h3>
+              <p>
+                UWA, Curtin, ECU, and Murdoch have strong computer science and
+                AI research programs, with alumni contributing to global AI
+                companies and research institutions.
+              </p>
+            </article>
+
+            <article class="museum-card">
+              <div class="section-icon">🏢</div>
+              <h3>Tech Sector</h3>
+              <p>
+                Perth's tech sector is growing rapidly, with startups and
+                established companies applying AI to mining, healthcare,
+                agriculture, and environmental management.
+              </p>
+            </article>
+
+            <article class="museum-card">
+              <div class="section-icon">⛏️</div>
+              <h3>Resources Industry</h3>
+              <p>
+                WA's mining giants (Rio Tinto, BHP, Fortescue) operate some of
+                the world's most advanced autonomous and AI-driven operations,
+                pioneered right here.
+              </p>
+            </article>
+          </section>
+
+          <section class="parchment-panel uwa-panel">
+            <span class="exhibit-label">UWA & WA Computing Heritage</span>
+            <p>
+              The University of Western Australia established one of Australia's
+              earliest computer science departments. From early adoption of
+              mainframe computing in the 1960s to pioneering AI research in the
+              1990s and 2000s, UWA has been central to WA's computing story.
+              Today, UWA's research groups in machine learning, computer vision,
+              and natural language processing contribute to both academic
+              knowledge and industry applications.
+            </p>
+            <p class="small-muted">
+              Future additions to this section will include interviews with WA
+              computing pioneers, archival photographs, and oral histories
+              documenting the growth of computing and AI in the state.
+            </p>
+          </section>
+
+          <section class="timeline-section">
+            <span class="exhibit-label timeline-label"
+              >WA Connections Across the Timeline</span
+            >
+            <div id="topicsList" class="topics-list">
+              {% if topics %} {% for topic in topics %}
+              <article class="museum-card topic-card">
+                <span class="exhibit-label">{{ topic.year_range }}</span>
+                <h3>{{ topic.title }}</h3>
+
+                {% if topic.wa_context %}
+                <p>{{ topic.wa_context }}</p>
+                {% elif topic.short_summary %}
+                <p>{{ topic.short_summary }}</p>
+                {% elif topic.intro_text %}
+                <p>{{ topic.intro_text }}</p>
+                {% else %}
+                <p>
+                  Explore this topic and its connection to Western Australia.
+                </p>
+                {% endif %}
+
+                <a
+                  href="{{ url_for('main.topic_detail', slug=topic.slug) }}"
+                  class="topic-link"
+                >
+                  View Topic
+                </a>
+              </article>
+              {% endfor %} {% else %}
+              <p class="small-muted">
+                WA-related topic content will appear here once loaded from the
+                database.
+              </p>
+              {% endif %}
+            </div>
+          </section>
+
+          <section class="museum-card coming-soon">
+            <div class="section-icon large">🗺️</div>
+            <span class="exhibit-label">Coming Soon</span>
+            <h3>WA-Specific Interviews & Research</h3>
+            <p>
+              Future updates will include recorded interviews with WA computing
+              pioneers, case studies from WA industry AI deployments, and
+              contributions from regional researchers and practitioners.
+            </p>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <p class="exhibit-label">
+            A.I. Software Technology in Western Australia
           </p>
-          <p class="small-muted">
-            Future additions to this section will include interviews with WA computing pioneers,
-            archival photographs, and oral histories documenting the growth of computing and AI in the state.
+          <p class="footer-text">
+            A Virtual Museum Experience · Final Semester Project · 2024
           </p>
-        </section>
+        </div>
+      </footer>
+    </div>
 
-        <section class="timeline-section">
-          <span class="exhibit-label timeline-label">WA Connections Across the Timeline</span>
-          <div id="topicsList" class="topics-list"></div>
-        </section>
-
-        <section class="museum-card coming-soon">
-          <div class="section-icon large">🗺️</div>
-          <span class="exhibit-label">Coming Soon</span>
-          <h3>WA-Specific Interviews & Research</h3>
-          <p>
-            Future updates will include recorded interviews with WA computing pioneers,
-            case studies from WA industry AI deployments, and contributions from regional
-            researchers and practitioners.
-          </p>
-        </section>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p class="exhibit-label">A.I. Software Technology in Western Australia</p>
-        <p class="footer-text">A Virtual Museum Experience · Final Semester Project · 2024</p>
-      </div>
-    </footer>
-  </div>
-  <script src="../static/js/topic_data.js"></script>
-  <script src="../static/js/explore-wa.js"></script>
-</body>
+    <script src="{{ url_for('static', filename='js/explore-wa.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+  </body>
 </html>

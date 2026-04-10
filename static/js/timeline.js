@@ -1,11 +1,3 @@
-const navItems = [
-  { path: 'home.html', label: 'Home' },
-  { path: 'timeline.html', label: 'Timeline' },
-  { path: 'explore_WA.html', label: 'Explore WA' },
-  { path: 'guided_tour.html', label: 'Guided Tour' },
-  { path: 'search.html', label: 'Search' },
-];
-
 const decades = [
   'All',
   '1950s',
@@ -18,39 +10,76 @@ const decades = [
   '2020s',
 ];
 
+const statuses = ['All', 'Active', 'Legacy'];
+
 let selectedDecade = 'All';
 let selectedCategory = 'All';
+let selectedStatus = 'All';
+let allTopics = [];
 
-function renderNav() {
-  const desktopNav = document.getElementById('desktopNav');
+function setupMobileMenu() {
+  const mobileToggle = document.getElementById('mobileToggle');
   const mobileNav = document.getElementById('mobileNav');
-  const currentPage = 'timeline.html';
 
-  const html = navItems
-    .map((item) => {
-      const activeClass = item.path === currentPage ? 'active' : '';
-      return `<a href="${item.path}" class="${activeClass}">${item.label}</a>`;
-    })
-    .join('');
+  if (!mobileToggle || !mobileNav) return;
 
-  desktopNav.innerHTML = html;
-  mobileNav.innerHTML = html;
+  mobileToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+    mobileToggle.textContent = mobileNav.classList.contains('open')
+      ? '✕'
+      : '☰';
+  });
+}
+
+function highlightCurrentNav() {
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('#desktopNav a, #mobileNav a');
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href === currentPath) {
+      link.classList.add('active');
+    }
+  });
+}
+
+async function fetchTopics() {
+  try {
+    const response = await fetch('/api/topics');
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch topics: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching topics:', error);
+    return [];
+  }
 }
 
 function extractStartYear(yearRange) {
-  const match = yearRange.match(/\d{4}|\d{3}/);
+  if (!yearRange) return null;
+
+  const match = String(yearRange).match(/\d{4}|\d{3}/);
   if (!match) return null;
+
   return parseInt(match[0], 10);
 }
 
 function getTopicDecade(topic) {
   const year = extractStartYear(topic.yearRange);
   if (!year) return null;
+
   return `${Math.floor(year / 10) * 10}s`;
 }
 
 function getCategories() {
-  return ['All', ...new Set(topics.map((topic) => topic.category))];
+  const categories = allTopics
+    .map((topic) => topic.category)
+    .filter((category) => category && category.trim() !== '');
+
+  return ['All', ...new Set(categories)];
 }
 
 function buildFilterButtons(
@@ -60,11 +89,20 @@ function buildFilterButtons(
   onClickHandler,
 ) {
   const container = document.getElementById(containerId);
+  if (!container) return;
 
   container.innerHTML = values
     .map((value) => {
       const activeClass = value === selectedValue ? 'active' : '';
-      return `<button class="filter-btn ${activeClass}" data-value="${value}">${value}</button>`;
+      return `
+        <button
+          type="button"
+          class="filter-btn ${activeClass}"
+          data-value="${value}"
+        >
+          ${value}
+        </button>
+      `;
     })
     .join('');
 
@@ -92,23 +130,35 @@ function renderFilters() {
       renderTimeline();
     },
   );
+
+  buildFilterButtons('statusFilters', statuses, selectedStatus, (value) => {
+    selectedStatus = value;
+    renderFilters();
+    renderTimeline();
+  });
 }
 
 function getFilteredTopics() {
-  return topics.filter((topic) => {
+  return allTopics.filter((topic) => {
     const matchesDecade =
       selectedDecade === 'All' || getTopicDecade(topic) === selectedDecade;
 
     const matchesCategory =
       selectedCategory === 'All' || topic.category === selectedCategory;
 
-    return matchesDecade && matchesCategory;
+    const matchesStatus =
+      selectedStatus === 'All' || topic.status === selectedStatus;
+
+    return matchesDecade && matchesCategory && matchesStatus;
   });
 }
 
 function renderTimeline() {
   const timelineList = document.getElementById('timelineList');
   const emptyState = document.getElementById('emptyState');
+
+  if (!timelineList || !emptyState) return;
+
   const filteredTopics = getFilteredTopics();
 
   if (filteredTopics.length === 0) {
@@ -121,52 +171,66 @@ function renderTimeline() {
 
   timelineList.innerHTML = filteredTopics
     .map((topic, index) => {
-      const sideClass = index % 2 === 0 ? 'right' : 'left';
+      const isActive = String(topic.status || '').toLowerCase() === 'active';
+      const rowClass =
+        index % 2 === 0 ? 'timeline-item-row' : 'timeline-item-row reverse';
+      const dotClass = isActive ? 'timeline-dot active' : 'timeline-dot legacy';
+      const badgeClass = isActive
+        ? 'timeline-status status-active'
+        : 'timeline-status status-legacy';
 
       return `
-      <div class="timeline-row">
-        <div class="timeline-card-wrap ${sideClass}">
-          <a href="topic_detail.html?slug=${topic.slug}" class="museum-card timeline-card">
-            <div class="timeline-card-header">
-              <span class="exhibit-label timeline-category">${topic.category}</span>
-              <span class="timeline-year">${topic.yearRange}</span>
-            </div>
+        <div class="${rowClass}">
+          <div class="${dotClass}"></div>
 
-            <h3 class="timeline-title">${topic.title}</h3>
+          <div class="timeline-spacer"></div>
 
-            <p class="timeline-desc">${topic.shortSummary}</p>
+          <div class="timeline-card-shell">
+            <a href="/topic/${topic.slug}" class="museum-card timeline-card">
+              <div class="timeline-card-header">
+                <div class="timeline-topline">
+                  <span class="exhibit-label timeline-category">
+                    ${topic.category || ''}
+                  </span>
+                  <span class="${badgeClass}">
+                    ${topic.status || 'Legacy'}
+                  </span>
+                </div>
+                <span class="timeline-year">
+                  ${topic.yearRange || ''}
+                </span>
+              </div>
 
-            <div class="timeline-link">
-              <span>Open Exhibit</span>
-              <span class="timeline-arrow">→</span>
-            </div>
-          </a>
+              <h3 class="timeline-title">
+                ${topic.title || ''}
+              </h3>
+
+              <p class="timeline-desc">
+                ${topic.shortSummary || 'Explore this exhibit in the AI Museum timeline.'}
+              </p>
+
+              <div class="timeline-link">
+                <span>Open Exhibit</span>
+                <span class="timeline-arrow">→</span>
+              </div>
+            </a>
+          </div>
         </div>
-
-        <div class="timeline-middle">
-          <div class="timeline-dot"></div>
-        </div>
-      </div>
-    `;
+      `;
     })
     .join('');
 }
 
-function setupMobileMenu() {
-  const mobileToggle = document.getElementById('mobileToggle');
-  const mobileNav = document.getElementById('mobileNav');
+async function initTimelinePage() {
+  setupMobileMenu();
+  highlightCurrentNav();
 
-  if (!mobileToggle || !mobileNav) return;
+  allTopics = await fetchTopics();
 
-  mobileToggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
-    mobileToggle.textContent = mobileNav.classList.contains('open')
-      ? '✕'
-      : '☰';
-  });
+  renderFilters();
+  renderTimeline();
 }
 
-renderNav();
-renderFilters();
-renderTimeline();
-setupMobileMenu();
+document.addEventListener('DOMContentLoaded', () => {
+  initTimelinePage();
+});

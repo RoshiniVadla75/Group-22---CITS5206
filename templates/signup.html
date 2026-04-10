@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - AI Museum</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/auth.css') }}"
+    />
+  </head>
+  <body>
+    <div class="auth-page">
+      <main class="auth-main">
+        <div class="auth-shell">
+          <div class="auth-brand">
+            <a href="{{ url_for('main.home') }}" class="logo-link">
+              <div class="logo-circle">🧭</div>
+            </a>
+            <div class="logo-text" style="display: block">
+              <span class="logo-title brass-text">AI Museum</span>
+              <span class="logo-subtitle">Western Australia</span>
+            </div>
+          </div>
+
+          <section class="museum-card auth-card">
+            <div class="auth-icon-wrap">
+              <div class="auth-icon">⊕</div>
+            </div>
+
+            <h1 class="auth-title brass-text">Create Account</h1>
+            <p class="auth-subtitle">Join the AI Museum experience</p>
+
+            {% with messages = get_flashed_messages(with_categories=true) %} {%
+            if messages %}
+            <div class="flash-list">
+              {% for category, message in messages %}
+              <div class="flash-message {{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+            {% endif %} {% endwith %}
+
+            <form method="POST" class="auth-form">
+              <div class="auth-field">
+                <label for="username">Username</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon">👤</span>
+                  <input
+                    id="username"
+                    class="auth-input"
+                    type="text"
+                    name="username"
+                    value="{{ form_data.username }}"
+                    placeholder="Your display name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="auth-field">
+                <label for="email">Email</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon">✉</span>
+                  <input
+                    id="email"
+                    class="auth-input"
+                    type="email"
+                    name="email"
+                    value="{{ form_data.email }}"
+                    placeholder="test@museum.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="auth-field">
+                <label for="password">Password</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon">🔒</span>
+                  <input
+                    id="password"
+                    class="auth-input"
+                    type="password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="auth-field">
+                <label for="confirm_password">Confirm Password</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon">🔒</span>
+                  <input
+                    id="confirm_password"
+                    class="auth-input"
+                    type="password"
+                    name="confirm_password"
+                    placeholder="Re-enter password"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button type="submit" class="auth-submit">Create Account</button>
+            </form>
+
+            <p class="auth-footer">
+              Already have an account?
+              <a href="{{ url_for('main.login') }}">Sign In</a>
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

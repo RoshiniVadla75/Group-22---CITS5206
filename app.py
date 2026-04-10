@@ -1,26 +1,35 @@
 from flask import Flask
-from models import db
+from flask_login import LoginManager
+from models import db, User
 from routes import main
+
+login_manager = LoginManager()
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
 def create_app():
     app = Flask(__name__)
 
-    # Database configuration
+    app.config["SECRET_KEY"] = "dev"
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///ai_museum.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    # Initialise database
     db.init_app(app)
 
-    # Register routes blueprint
+    login_manager.init_app(app)
+    login_manager.login_view = "main.login"
+    login_manager.login_message_category = "warning"
+
     app.register_blueprint(main)
 
     return app
 
 
 app = create_app()
-
 
 if __name__ == "__main__":
     app.run(debug=True)
