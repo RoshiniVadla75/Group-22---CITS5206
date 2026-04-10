@@ -8,6 +8,7 @@
   font-size: 14px;
   margin-bottom: 32px;
   font-family: var(--font-heading);
+  flex-wrap: wrap;
 }
 
 .breadcrumb a {
@@ -19,7 +20,7 @@
 }
 
 .header-block {
-  margin-bottom: 48px;
+  margin-bottom: 8px;
 }
 
 .header-meta {
@@ -27,6 +28,7 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
 .meta-muted {
@@ -39,7 +41,7 @@
   font-size: 1.1rem;
   color: var(--muted-foreground);
   font-family: var(--font-heading);
-  margin-bottom: 24px;
+  margin: 0 0 16px;
 }
 
 .archival-divider {
@@ -52,7 +54,7 @@
     transparent
   );
   margin-top: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 
 .content-grid {
@@ -185,13 +187,14 @@
 
 .bottom-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 24px;
 }
 
 .nav-card {
   display: inline-block;
   min-width: 220px;
+  text-decoration: none;
 }
 
 .nav-card-right {
