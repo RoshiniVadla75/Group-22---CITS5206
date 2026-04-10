@@ -14,7 +14,11 @@ def load_user(user_id):
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        template_folder="app/templates",
+        static_folder="app/static",
+    )
 
     # -------------------------
     # CONFIG
