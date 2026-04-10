@@ -22,18 +22,18 @@
           </a>
 
           <nav class="desktop-nav" id="desktopNav">
-            <a href="{{ url_for('main.home') }}">Home</a>
-            <a href="{{ url_for('main.timeline') }}">Timeline</a>
-            <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
-            <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
-            <a href="{{ url_for('main.search') }}">Search</a>
+            <a href="{{ url_for('main.home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('main.timeline') }}" class="nav-link">Timeline</a>
+            <a href="{{ url_for('main.guided_tour') }}" class="nav-link">Guided Tour</a>
+            <a href="{{ url_for('main.explore_wa') }}" class="nav-link">Explore WA</a>
+            <a href="{{ url_for('main.search') }}" class="nav-link">Search</a>
 
             {% if current_user.is_authenticated %}
             <span class="nav-user">Hi, {{ current_user.username }}</span>
-            <a href="{{ url_for('main.logout') }}">Logout</a>
+            <a href="{{ url_for('main.logout') }}" class="nav-link">Logout</a>
             {% else %}
-            <a href="{{ url_for('main.login') }}">Login</a>
-            <a href="{{ url_for('main.signup') }}">Sign Up</a>
+            <a href="{{ url_for('main.login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('main.signup') }}" class="nav-link">Sign Up</a>
             {% endif %}
           </nav>
 
@@ -47,20 +47,18 @@
         </div>
 
         <nav class="mobile-nav" id="mobileNav">
-          <a href="{{ url_for('main.home') }}">Home</a>
-          <a href="{{ url_for('main.timeline') }}">Timeline</a>
-          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
-          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
-          <a href="{{ url_for('main.search') }}">Search</a>
+          <a href="{{ url_for('main.home') }}" class="mobile-nav-link">Home</a>
+          <a href="{{ url_for('main.timeline') }}" class="mobile-nav-link">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}" class="mobile-nav-link">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}" class="mobile-nav-link">Explore WA</a>
+          <a href="{{ url_for('main.search') }}" class="mobile-nav-link">Search</a>
 
           {% if current_user.is_authenticated %}
-          <span class="nav-user mobile-user"
-            >Hi, {{ current_user.username }}</span
-          >
-          <a href="{{ url_for('main.logout') }}">Logout</a>
+          <span class="nav-user mobile-user">Hi, {{ current_user.username }}</span>
+          <a href="{{ url_for('main.logout') }}" class="mobile-nav-link">Logout</a>
           {% else %}
-          <a href="{{ url_for('main.login') }}">Login</a>
-          <a href="{{ url_for('main.signup') }}">Sign Up</a>
+          <a href="{{ url_for('main.login') }}" class="mobile-nav-link">Login</a>
+          <a href="{{ url_for('main.signup') }}" class="mobile-nav-link">Sign Up</a>
           {% endif %}
         </nav>
       </header>
@@ -76,41 +74,58 @@
           </div>
 
           <section id="topicHeader" class="museum-card">
-            {% if topic %} {% if topic.year_range %}
-            <span class="exhibit-label">{{ topic.year_range }}</span>
-            {% endif %}
-            <h1 class="page-title brass-text">{{ topic.title }}</h1>
-            {% if topic.category %}
-            <p class="hero-text">{{ topic.category }}</p>
-            {% endif %} {% else %}
-            <h1 class="page-title brass-text">Topic Detail</h1>
+            {% if topic %}
+              <div class="header-block">
+                <div class="header-meta">
+                  {% if topic.category %}
+                  <span class="exhibit-label">{{ topic.category }}</span>
+                  {% endif %}
+                  {% if topic.status %}
+                  <span class="meta-muted">{{ topic.status }}</span>
+                  {% endif %}
+                </div>
+
+                {% if topic.year_range %}
+                <p class="year-text">{{ topic.year_range }}</p>
+                {% endif %}
+
+                <h1 class="page-title brass-text">{{ topic.title }}</h1>
+
+                {% if topic.short_summary %}
+                <p class="hero-text">{{ topic.short_summary }}</p>
+                {% elif topic.intro_text %}
+                <p class="hero-text">{{ topic.intro_text }}</p>
+                {% endif %}
+              </div>
+            {% else %}
+              <h1 class="page-title brass-text">Topic Detail</h1>
             {% endif %}
           </section>
 
           <div class="content-grid">
             <div class="main-column">
               <div id="introCard" class="museum-card">
-                <h2>Introduction</h2>
+                <span class="exhibit-label block-label">Introduction</span>
                 {% if topic and topic.intro_text %}
-                <p>{{ topic.intro_text }}</p>
+                <p class="intro-text">{{ topic.intro_text }}</p>
                 {% elif topic and topic.short_summary %}
-                <p>{{ topic.short_summary }}</p>
+                <p class="intro-text">{{ topic.short_summary }}</p>
                 {% else %}
-                <p>
+                <p class="intro-text">
                   Topic introduction will appear here once content is loaded
                   from the backend.
                 </p>
                 {% endif %}
               </div>
 
-              <div id="summaryCard" class="museum-card">
-                <h2>Summary</h2>
+              <div id="summaryCard" class="museum-card summary-card">
+                <span class="exhibit-label block-label">Summary</span>
                 {% if topic and topic.short_summary %}
-                <p>{{ topic.short_summary }}</p>
+                <p class="summary-text">{{ topic.short_summary }}</p>
                 {% elif topic and topic.how_it_works %}
-                <p>{{ topic.how_it_works }}</p>
+                <p class="summary-text">{{ topic.how_it_works }}</p>
                 {% else %}
-                <p>
+                <p class="summary-text">
                   Topic summary will appear here once content is loaded from the
                   backend.
                 </p>
@@ -118,74 +133,182 @@
               </div>
 
               <div id="sectionsContainer">
-                {% if topic %} {% if topic.how_it_works %}
-                <section class="museum-card">
-                  <h2>How It Works</h2>
-                  <p>{{ topic.how_it_works }}</p>
-                </section>
-                {% endif %} {% if topic.simple_example %}
-                <section class="museum-card">
-                  <h2>Simple Example</h2>
-                  <p>{{ topic.simple_example }}</p>
-                </section>
-                {% endif %} {% if topic.effective_use %}
-                <section class="museum-card">
-                  <h2>Effective Use</h2>
-                  <p>{{ topic.effective_use }}</p>
-                </section>
-                {% endif %} {% if topic.real_world_examples %}
-                <section class="museum-card">
-                  <h2>Real-World Examples</h2>
-                  <p>{{ topic.real_world_examples }}</p>
-                </section>
-                {% endif %} {% if topic.wa_context %}
-                <section class="museum-card">
-                  <h2>Western Australia Context</h2>
-                  <p>{{ topic.wa_context }}</p>
-                </section>
-                {% endif %} {% endif %}
+                {% if topic %}
+                  {% if topic.how_it_works %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">⚙️</span>
+                      <span class="exhibit-label">How It Works</span>
+                    </div>
+                    <p class="section-text">{{ topic.how_it_works }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic.simple_example %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">💡</span>
+                      <span class="exhibit-label">Simple Example</span>
+                    </div>
+                    <p class="section-text">{{ topic.simple_example }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic.effective_use %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">🎯</span>
+                      <span class="exhibit-label">Effective Use</span>
+                    </div>
+                    <p class="section-text">{{ topic.effective_use }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic.real_world_examples %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">🌍</span>
+                      <span class="exhibit-label">Real-World Examples</span>
+                    </div>
+                    <p class="section-text">{{ topic.real_world_examples }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic.advantages %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">✅</span>
+                      <span class="exhibit-label">Advantages</span>
+                    </div>
+                    <p class="section-text">{{ topic.advantages }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic.limitations %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">⚠️</span>
+                      <span class="exhibit-label">Limitations</span>
+                    </div>
+                    <p class="section-text">{{ topic.limitations }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic.misuse %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">🚫</span>
+                      <span class="exhibit-label">Possible Misuse</span>
+                    </div>
+                    <p class="section-text">{{ topic.misuse }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic.ethics %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">⚖️</span>
+                      <span class="exhibit-label">Ethical Concerns</span>
+                    </div>
+                    <p class="section-text">{{ topic.ethics }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic.wa_context %}
+                  <section class="museum-card">
+                    <div class="section-title-row">
+                      <span class="section-emoji">📍</span>
+                      <span class="exhibit-label">Western Australia Context</span>
+                    </div>
+                    <p class="section-text">{{ topic.wa_context }}</p>
+                  </section>
+                  {% endif %}
+                {% endif %}
               </div>
             </div>
 
             <aside class="sidebar-column">
+              <div id="mediaCard" class="museum-card">
+                <h2>Media</h2>
+                {% if topic and topic.media %}
+                  <div class="sidebar-stack">
+                    {% for item in topic.media %}
+                    <div class="media-item">
+                      {% if item.url %}
+                      <img
+                        src="{{ item.url }}"
+                        alt="{{ item.title if item.title else topic.title }}"
+                        class="media-image"
+                      />
+                      {% endif %}
+                      <div class="media-caption-box">
+                        {% if item.title %}
+                        <p class="media-title">{{ item.title }}</p>
+                        {% endif %}
+                        {% if item.caption %}
+                        <p class="media-caption">{{ item.caption }}</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                <p class="media-caption">Media will appear here when available.</p>
+                {% endif %}
+              </div>
+
               <div id="referencesCard" class="museum-card">
                 <h2>References</h2>
                 {% if topic and topic.references %}
-                <ul>
-                  {% for ref in topic.references %}
-                  <li>
-                    {% if ref.url %}
-                    <a
-                      href="{{ ref.url }}"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {{ ref.title if ref.title else ref.url }}
-                    </a>
-                    {% else %} {{ ref.title if ref.title else ref }} {% endif %}
-                  </li>
-                  {% endfor %}
-                </ul>
+                  <div class="sidebar-stack">
+                    {% for ref in topic.references %}
+                    <div class="reference-item">
+                      {% if ref.url %}
+                      <a
+                        href="{{ ref.url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="reference-link"
+                      >
+                        {{ ref.title if ref.title else ref.url }}
+                      </a>
+                      {% else %}
+                      <p class="reference-link">{{ ref.title if ref.title else 'Reference' }}</p>
+                      {% endif %}
+
+                      {% if ref.source_type %}
+                      <p class="reference-meta">Type: {{ ref.source_type }}</p>
+                      {% endif %}
+
+                      {% if ref.accessed_date %}
+                      <p class="reference-meta">{{ ref.accessed_date }}</p>
+                      {% endif %}
+
+                      {% if ref.notes %}
+                      <p class="reference-notes">{{ ref.notes }}</p>
+                      {% endif %}
+                    </div>
+                    {% endfor %}
+                  </div>
                 {% else %}
-                <p>References will appear here when available.</p>
+                <p class="reference-meta">References will appear here when available.</p>
                 {% endif %}
               </div>
 
               <div id="relatedCard" class="museum-card">
                 <h2>Related Links</h2>
-                <p>
-                  <a href="{{ url_for('main.timeline') }}">Back to Timeline</a>
-                </p>
-                <p>
-                  <a href="{{ url_for('main.search') }}"
-                    >Search the Collection</a
-                  >
-                </p>
-                <p>
-                  <a href="{{ url_for('main.guided_tour') }}"
-                    >Continue Guided Tour</a
-                  >
-                </p>
+                <a href="{{ url_for('main.timeline') }}" class="related-link">
+                  <span class="related-id">→</span>
+                  <span>Back to Timeline</span>
+                </a>
+                <a href="{{ url_for('main.search') }}" class="related-link">
+                  <span class="related-id">→</span>
+                  <span>Search the Collection</span>
+                </a>
+                <a href="{{ url_for('main.guided_tour') }}" class="related-link">
+                  <span class="related-id">→</span>
+                  <span>Continue Guided Tour</span>
+                </a>
               </div>
             </aside>
           </div>
@@ -193,7 +316,10 @@
           <div class="archival-divider"></div>
 
           <div class="bottom-nav" id="bottomNav">
-            <a href="{{ url_for('main.timeline') }}">← Back to Timeline</a>
+            <a href="{{ url_for('main.timeline') }}" class="nav-card">
+              <div class="nav-direction">Return</div>
+              <div class="nav-title">← Back to Timeline</div>
+            </a>
           </div>
         </div>
       </main>

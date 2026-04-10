@@ -22,18 +22,18 @@
           </a>
 
           <nav class="desktop-nav" id="desktopNav">
-            <a href="{{ url_for('main.home') }}">Home</a>
-            <a href="{{ url_for('main.timeline') }}">Timeline</a>
-            <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
-            <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
-            <a href="{{ url_for('main.search') }}">Search</a>
+            <a href="{{ url_for('main.home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('main.timeline') }}" class="nav-link">Timeline</a>
+            <a href="{{ url_for('main.guided_tour') }}" class="nav-link">Guided Tour</a>
+            <a href="{{ url_for('main.explore_wa') }}" class="nav-link">Explore WA</a>
+            <a href="{{ url_for('main.search') }}" class="nav-link">Search</a>
 
             {% if current_user.is_authenticated %}
             <span class="nav-user">Hi, {{ current_user.username }}</span>
-            <a href="{{ url_for('main.logout') }}">Logout</a>
+            <a href="{{ url_for('main.logout') }}" class="nav-link">Logout</a>
             {% else %}
-            <a href="{{ url_for('main.login') }}">Login</a>
-            <a href="{{ url_for('main.signup') }}">Sign Up</a>
+            <a href="{{ url_for('main.login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('main.signup') }}" class="nav-link">Sign Up</a>
             {% endif %}
           </nav>
 
@@ -47,20 +47,18 @@
         </div>
 
         <nav class="mobile-nav" id="mobileNav">
-          <a href="{{ url_for('main.home') }}">Home</a>
-          <a href="{{ url_for('main.timeline') }}">Timeline</a>
-          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
-          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
-          <a href="{{ url_for('main.search') }}">Search</a>
+          <a href="{{ url_for('main.home') }}" class="mobile-nav-link">Home</a>
+          <a href="{{ url_for('main.timeline') }}" class="mobile-nav-link">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}" class="mobile-nav-link">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}" class="mobile-nav-link">Explore WA</a>
+          <a href="{{ url_for('main.search') }}" class="mobile-nav-link">Search</a>
 
           {% if current_user.is_authenticated %}
-          <span class="nav-user mobile-user"
-            >Hi, {{ current_user.username }}</span
-          >
-          <a href="{{ url_for('main.logout') }}">Logout</a>
+          <span class="nav-user mobile-user">Hi, {{ current_user.username }}</span>
+          <a href="{{ url_for('main.logout') }}" class="mobile-nav-link">Logout</a>
           {% else %}
-          <a href="{{ url_for('main.login') }}">Login</a>
-          <a href="{{ url_for('main.signup') }}">Sign Up</a>
+          <a href="{{ url_for('main.login') }}" class="mobile-nav-link">Login</a>
+          <a href="{{ url_for('main.signup') }}" class="mobile-nav-link">Sign Up</a>
           {% endif %}
         </nav>
       </header>
@@ -85,30 +83,35 @@
           <p id="resultCount" class="result-count hidden"></p>
 
           <div id="resultsContainer" class="results-container">
-            {% if topics %} {% for topic in topics %}
-            <article class="museum-card result-card">
-              {% if topic.year_range %}
-              <span class="exhibit-label">{{ topic.year_range }}</span>
-              {% endif %}
+            {% if topics %}
+              {% for topic in topics %}
+              <article class="museum-card result-card">
+                <div class="result-meta">
+                  {% if topic.year_range %}
+                  <span class="exhibit-label">{{ topic.year_range }}</span>
+                  {% endif %}
+                </div>
 
-              <h3>{{ topic.title }}</h3>
+                <h3 class="result-title">{{ topic.title }}</h3>
 
-              {% if topic.short_summary %}
-              <p>{{ topic.short_summary }}</p>
-              {% elif topic.intro_text %}
-              <p>{{ topic.intro_text }}</p>
-              {% else %}
-              <p>Explore this topic in detail.</p>
-              {% endif %}
+                {% if topic.short_summary %}
+                <p class="result-summary">{{ topic.short_summary }}</p>
+                {% elif topic.intro_text %}
+                <p class="result-summary">{{ topic.intro_text }}</p>
+                {% else %}
+                <p class="result-summary">Explore this topic in detail.</p>
+                {% endif %}
 
-              <a
-                href="{{ url_for('main.topic_detail', slug=topic.slug) }}"
-                class="topic-link"
-              >
-                View Topic
-              </a>
-            </article>
-            {% endfor %} {% endif %}
+                <a
+                  href="{{ url_for('main.topic_detail', slug=topic.slug) }}"
+                  class="result-link"
+                >
+                  <span>View Topic</span>
+                  <span class="result-link-arrow">→</span>
+                </a>
+              </article>
+              {% endfor %}
+            {% endif %}
           </div>
 
           <section id="emptyState" class="empty-state museum-card">

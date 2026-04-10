@@ -134,32 +134,26 @@ p {
 .desktop-nav {
   display: none;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
-.desktop-nav a,
-.mobile-nav a {
+.nav-link {
+  padding: 0.6rem 0.85rem;
+  border-radius: 2px;
   font-family: var(--font-heading);
-  letter-spacing: 0.04em;
-  transition: all 0.2s ease;
-}
-
-.desktop-nav a {
-  padding: 10px 12px;
-  border-radius: 4px;
-  font-size: 14px;
+  font-size: 0.88rem;
   color: var(--muted-foreground);
+  transition: 0.2s ease;
 }
 
-.desktop-nav a:hover {
+.nav-link:hover {
   color: var(--foreground);
   background: var(--secondary);
 }
 
-.desktop-nav a.active,
-.mobile-nav a.active {
-  background: hsla(42, 72%, 50%, 0.15);
+.nav-link.active {
   color: var(--primary);
+  background: rgba(215, 167, 63, 0.12);
 }
 
 .mobile-toggle {
@@ -174,25 +168,32 @@ p {
 .mobile-nav {
   display: none;
   border-top: 1px solid var(--border);
-  padding: 12px 24px 16px;
+  padding: 0.8rem 1rem 1rem;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .mobile-nav.open {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 
-.mobile-nav a {
-  padding: 12px 14px;
-  border-radius: 4px;
+.mobile-nav-link {
+  padding: 0.85rem 1rem;
+  border-radius: 2px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
   color: var(--muted-foreground);
-  background: transparent;
+  transition: 0.2s ease;
 }
 
-.mobile-nav a:hover {
+.mobile-nav-link:hover {
   color: var(--foreground);
   background: var(--secondary);
+}
+
+.mobile-nav-link.active {
+  color: var(--primary);
+  background: rgba(215, 167, 63, 0.12);
 }
 
 .main-content {

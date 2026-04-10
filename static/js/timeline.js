@@ -1,51 +1,25 @@
 const decades = [
-  'All',
-  '1950s',
-  '1960s',
-  '1970s',
-  '1980s',
-  '1990s',
-  '2000s',
-  '2010s',
-  '2020s',
+  "All",
+  "1950s",
+  "1960s",
+  "1970s",
+  "1980s",
+  "1990s",
+  "2000s",
+  "2010s",
+  "2020s",
 ];
 
-const statuses = ['All', 'Active', 'Legacy'];
+const statuses = ["All", "Active", "Legacy"];
 
-let selectedDecade = 'All';
-let selectedCategory = 'All';
-let selectedStatus = 'All';
+let selectedDecade = "All";
+let selectedCategory = "All";
+let selectedStatus = "All";
 let allTopics = [];
-
-function setupMobileMenu() {
-  const mobileToggle = document.getElementById('mobileToggle');
-  const mobileNav = document.getElementById('mobileNav');
-
-  if (!mobileToggle || !mobileNav) return;
-
-  mobileToggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
-    mobileToggle.textContent = mobileNav.classList.contains('open')
-      ? '✕'
-      : '☰';
-  });
-}
-
-function highlightCurrentNav() {
-  const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('#desktopNav a, #mobileNav a');
-
-  navLinks.forEach((link) => {
-    const href = link.getAttribute('href');
-    if (href === currentPath) {
-      link.classList.add('active');
-    }
-  });
-}
 
 async function fetchTopics() {
   try {
-    const response = await fetch('/api/topics');
+    const response = await fetch("/api/topics");
 
     if (!response.ok) {
       throw new Error(`Failed to fetch topics: ${response.status}`);
@@ -53,9 +27,19 @@ async function fetchTopics() {
 
     return await response.json();
   } catch (error) {
-    console.error('Error fetching topics:', error);
+    console.error("Error fetching topics:", error);
     return [];
   }
+}
+
+function escapeHtml(value) {
+  if (value === null || value === undefined) return "";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function extractStartYear(yearRange) {
@@ -77,61 +61,56 @@ function getTopicDecade(topic) {
 function getCategories() {
   const categories = allTopics
     .map((topic) => topic.category)
-    .filter((category) => category && category.trim() !== '');
+    .filter((category) => category && category.trim() !== "");
 
-  return ['All', ...new Set(categories)];
+  return ["All", ...new Set(categories)];
 }
 
-function buildFilterButtons(
-  containerId,
-  values,
-  selectedValue,
-  onClickHandler,
-) {
+function buildFilterButtons(containerId, values, selectedValue, onClickHandler) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
   container.innerHTML = values
     .map((value) => {
-      const activeClass = value === selectedValue ? 'active' : '';
+      const activeClass = value === selectedValue ? "active" : "";
       return `
         <button
           type="button"
           class="filter-btn ${activeClass}"
-          data-value="${value}"
+          data-value="${escapeHtml(value)}"
         >
-          ${value}
+          ${escapeHtml(value)}
         </button>
       `;
     })
-    .join('');
+    .join("");
 
-  container.querySelectorAll('.filter-btn').forEach((button) => {
-    button.addEventListener('click', () => {
+  container.querySelectorAll(".filter-btn").forEach((button) => {
+    button.addEventListener("click", () => {
       onClickHandler(button.dataset.value);
     });
   });
 }
 
 function renderFilters() {
-  buildFilterButtons('decadeFilters', decades, selectedDecade, (value) => {
+  buildFilterButtons("decadeFilters", decades, selectedDecade, (value) => {
     selectedDecade = value;
     renderFilters();
     renderTimeline();
   });
 
   buildFilterButtons(
-    'categoryFilters',
+    "categoryFilters",
     getCategories(),
     selectedCategory,
     (value) => {
       selectedCategory = value;
       renderFilters();
       renderTimeline();
-    },
+    }
   );
 
-  buildFilterButtons('statusFilters', statuses, selectedStatus, (value) => {
+  buildFilterButtons("statusFilters", statuses, selectedStatus, (value) => {
     selectedStatus = value;
     renderFilters();
     renderTimeline();
@@ -141,43 +120,93 @@ function renderFilters() {
 function getFilteredTopics() {
   return allTopics.filter((topic) => {
     const matchesDecade =
-      selectedDecade === 'All' || getTopicDecade(topic) === selectedDecade;
+      selectedDecade === "All" || getTopicDecade(topic) === selectedDecade;
 
     const matchesCategory =
-      selectedCategory === 'All' || topic.category === selectedCategory;
+      selectedCategory === "All" || topic.category === selectedCategory;
 
     const matchesStatus =
-      selectedStatus === 'All' || topic.status === selectedStatus;
+      selectedStatus === "All" || topic.status === selectedStatus;
 
     return matchesDecade && matchesCategory && matchesStatus;
   });
 }
 
+function renderMediaPreview(topic) {
+  if (!topic.media || !topic.media.length) return "";
+
+  const imageItem = topic.media.find((item) => item.type === "image" && item.url);
+
+  if (!imageItem) return "";
+
+  return `
+    <div class="timeline-media">
+      <img
+        src="${escapeHtml(imageItem.url)}"
+        alt="${escapeHtml(imageItem.title || topic.title)}"
+        class="timeline-media-image"
+      />
+      ${
+        imageItem.caption
+          ? `<p class="timeline-media-caption">${escapeHtml(imageItem.caption)}</p>`
+          : ""
+      }
+    </div>
+  `;
+}
+
+function renderReferenceMeta(topic) {
+  const refCount = topic.references ? topic.references.length : 0;
+  const mediaCount = topic.media ? topic.media.length : 0;
+
+  if (!refCount && !mediaCount) return "";
+
+  return `
+    <div class="timeline-meta-row">
+      ${
+        mediaCount
+          ? `<span class="timeline-meta-chip">${mediaCount} media item${mediaCount > 1 ? "s" : ""}</span>`
+          : ""
+      }
+      ${
+        refCount
+          ? `<span class="timeline-meta-chip">${refCount} reference${refCount > 1 ? "s" : ""}</span>`
+          : ""
+      }
+    </div>
+  `;
+}
+
 function renderTimeline() {
-  const timelineList = document.getElementById('timelineList');
-  const emptyState = document.getElementById('emptyState');
+  const timelineList = document.getElementById("timelineList");
+  const emptyState = document.getElementById("emptyState");
 
   if (!timelineList || !emptyState) return;
 
   const filteredTopics = getFilteredTopics();
 
   if (filteredTopics.length === 0) {
-    timelineList.innerHTML = '';
-    emptyState.classList.remove('hidden');
+    timelineList.innerHTML = "";
+    emptyState.classList.remove("hidden");
     return;
   }
 
-  emptyState.classList.add('hidden');
+  emptyState.classList.add("hidden");
 
   timelineList.innerHTML = filteredTopics
     .map((topic, index) => {
-      const isActive = String(topic.status || '').toLowerCase() === 'active';
+      const isActive = String(topic.status || "").toLowerCase() === "active";
       const rowClass =
-        index % 2 === 0 ? 'timeline-item-row' : 'timeline-item-row reverse';
-      const dotClass = isActive ? 'timeline-dot active' : 'timeline-dot legacy';
+        index % 2 === 0 ? "timeline-item-row" : "timeline-item-row reverse";
+      const dotClass = isActive ? "timeline-dot active" : "timeline-dot legacy";
       const badgeClass = isActive
-        ? 'timeline-status status-active'
-        : 'timeline-status status-legacy';
+        ? "timeline-status status-active"
+        : "timeline-status status-legacy";
+
+      const description =
+        topic.shortSummary ||
+        topic.introText ||
+        "Explore this exhibit in the AI Museum timeline.";
 
       return `
         <div class="${rowClass}">
@@ -186,28 +215,34 @@ function renderTimeline() {
           <div class="timeline-spacer"></div>
 
           <div class="timeline-card-shell">
-            <a href="/topic/${topic.slug}" class="museum-card timeline-card">
+            <a href="/topic/${encodeURIComponent(topic.slug)}" class="museum-card timeline-card">
               <div class="timeline-card-header">
                 <div class="timeline-topline">
                   <span class="exhibit-label timeline-category">
-                    ${topic.category || ''}
+                    ${escapeHtml(topic.category || "")}
                   </span>
                   <span class="${badgeClass}">
-                    ${topic.status || 'Legacy'}
+                    ${escapeHtml(topic.status || "Legacy")}
                   </span>
                 </div>
                 <span class="timeline-year">
-                  ${topic.yearRange || ''}
+                  ${escapeHtml(topic.yearRange || "")}
                 </span>
               </div>
 
               <h3 class="timeline-title">
-                ${topic.title || ''}
+                ${escapeHtml(topic.title || "")}
               </h3>
 
+              ${renderMediaPreview(topic)}
+
               <p class="timeline-desc">
-                ${topic.shortSummary || 'Explore this exhibit in the AI Museum timeline.'}
+                ${escapeHtml(description)}
               </p>
+
+              ${topic.waContext ? `<p class="timeline-wa">${escapeHtml(topic.waContext)}</p>` : ""}
+
+              ${renderReferenceMeta(topic)}
 
               <div class="timeline-link">
                 <span>Open Exhibit</span>
@@ -218,19 +253,16 @@ function renderTimeline() {
         </div>
       `;
     })
-    .join('');
+    .join("");
 }
 
 async function initTimelinePage() {
-  setupMobileMenu();
-  highlightCurrentNav();
-
   allTopics = await fetchTopics();
 
   renderFilters();
   renderTimeline();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   initTimelinePage();
 });
