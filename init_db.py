@@ -485,6 +485,8 @@ TOPICS_DATA = [
 
 def seed_database():
     with app.app_context():
+        
+        db.drop_all()
 
         print("Creating tables...")
         db.create_all()
