@@ -27,6 +27,14 @@
             <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
             <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
             <a href="{{ url_for('main.search') }}">Search</a>
+
+            {% if current_user.is_authenticated %}
+            <span class="nav-user">Hi, {{ current_user.username }}</span>
+            <a href="{{ url_for('main.logout') }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for('main.login') }}">Login</a>
+            <a href="{{ url_for('main.signup') }}">Sign Up</a>
+            {% endif %}
           </nav>
 
           <button
@@ -44,6 +52,16 @@
           <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
           <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
           <a href="{{ url_for('main.search') }}">Search</a>
+
+          {% if current_user.is_authenticated %}
+          <span class="nav-user mobile-user"
+            >Hi, {{ current_user.username }}</span
+          >
+          <a href="{{ url_for('main.logout') }}">Logout</a>
+          {% else %}
+          <a href="{{ url_for('main.login') }}">Login</a>
+          <a href="{{ url_for('main.signup') }}">Sign Up</a>
+          {% endif %}
         </nav>
       </header>
 
@@ -119,5 +137,6 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/timeline.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
   </body>
 </html>

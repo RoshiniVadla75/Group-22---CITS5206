@@ -6,68 +6,80 @@
     <title>Login - AI Museum</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/explore-wa.css') }}"
+      href="{{ url_for('static', filename='css/auth.css') }}"
     />
   </head>
-
   <body>
-    <div class="site-wrapper">
-      <header class="site-header glass-panel">
-        <div class="container nav-bar">
-          <a href="{{ url_for('main.home') }}" class="logo-link">
-            <div class="logo-circle">🧭</div>
-            <div class="logo-text">
+    <div class="auth-page">
+      <main class="auth-main">
+        <div class="auth-shell">
+          <div class="auth-brand">
+            <a href="{{ url_for('main.home') }}" class="logo-link">
+              <div class="logo-circle">🧭</div>
+            </a>
+            <div class="logo-text" style="display: block">
               <span class="logo-title brass-text">AI Museum</span>
               <span class="logo-subtitle">Western Australia</span>
             </div>
-          </a>
-        </div>
-      </header>
-
-      <main class="main-content">
-        <div class="container page-section" style="max-width: 500px">
-          <h1 class="page-title brass-text">Login</h1>
-
-          {% with messages = get_flashed_messages(with_categories=true) %} {% if
-          messages %}
-          <div style="margin-bottom: 16px">
-            {% for category, message in messages %}
-            <p style="color: #ff6b6b">{{ message }}</p>
-            {% endfor %}
           </div>
-          {% endif %} {% endwith %}
 
-          <form method="POST" class="museum-card" style="padding: 24px">
-            <div style="margin-bottom: 16px">
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                value="{{ form_data.email }}"
-                required
-                style="width: 100%; padding: 10px; margin-top: 6px"
-              />
+          <section class="museum-card auth-card">
+            <div class="auth-icon-wrap">
+              <div class="auth-icon">↪</div>
             </div>
 
-            <div style="margin-bottom: 16px">
-              <label>Password</label>
-              <input
-                type="password"
-                name="password"
-                required
-                style="width: 100%; padding: 10px; margin-top: 6px"
-              />
+            <h1 class="auth-title brass-text">Welcome Back</h1>
+            <p class="auth-subtitle">Sign in to explore the museum</p>
+
+            {% with messages = get_flashed_messages(with_categories=true) %} {%
+            if messages %}
+            <div class="flash-list">
+              {% for category, message in messages %}
+              <div class="flash-message {{ category }}">{{ message }}</div>
+              {% endfor %}
             </div>
+            {% endif %} {% endwith %}
 
-            <button type="submit" class="filter-btn active" style="width: 100%">
-              Login
-            </button>
-          </form>
+            <form method="POST" class="auth-form">
+              <div class="auth-field">
+                <label for="email">Email</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon">✉</span>
+                  <input
+                    id="email"
+                    class="auth-input"
+                    type="email"
+                    name="email"
+                    value="{{ form_data.email }}"
+                    placeholder="test@museum.com"
+                    required
+                  />
+                </div>
+              </div>
 
-          <p style="margin-top: 16px">
-            Don’t have an account?
-            <a href="{{ url_for('main.signup') }}">Sign up</a>
-          </p>
+              <div class="auth-field">
+                <label for="password">Password</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon">🔒</span>
+                  <input
+                    id="password"
+                    class="auth-input"
+                    type="password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button type="submit" class="auth-submit">Sign In</button>
+            </form>
+
+            <p class="auth-footer">
+              Don't have an account?
+              <a href="{{ url_for('main.signup') }}">Sign Up</a>
+            </p>
+          </section>
         </div>
       </main>
     </div>

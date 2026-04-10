@@ -1,4 +1,4 @@
-@import url("./explore-wa.css");
+@import url('./explore-wa.css');
 
 .breadcrumb {
   display: flex;
@@ -45,7 +45,12 @@
 .archival-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--primary), transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--primary),
+    transparent
+  );
   margin-top: 24px;
   margin-bottom: 8px;
 }
@@ -160,6 +165,22 @@
 .related-id {
   color: var(--primary);
   font-family: var(--font-heading);
+}
+
+.nav-user {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--foreground);
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  background: hsla(42, 72%, 50%, 0.08);
+}
+
+.mobile-user {
+  padding: 12px 14px;
 }
 
 .bottom-nav {

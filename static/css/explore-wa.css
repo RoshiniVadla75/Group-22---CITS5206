@@ -38,7 +38,12 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   letter-spacing: 0.03em;
   margin-top: 0;
@@ -78,6 +83,22 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.nav-user {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--foreground);
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  background: hsla(42, 72%, 50%, 0.08);
+}
+
+.mobile-user {
+  padding: 12px 14px;
 }
 
 .logo-link {
@@ -227,8 +248,11 @@ p {
 }
 
 .museum-card {
-  background:
-    linear-gradient(135deg, hsl(25, 20%, 12%) 0%, hsl(25, 22%, 14%) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(25, 20%, 12%) 0%,
+    hsl(25, 22%, 14%) 100%
+  );
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;

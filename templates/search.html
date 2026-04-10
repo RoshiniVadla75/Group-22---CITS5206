@@ -1,104 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search - AI Museum</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}" />
-</head>
-<body>
-  <div class="site-wrapper">
-    <header class="site-header glass-panel">
-      <div class="container nav-bar">
-        <a href="{{ url_for('main.home') }}" class="logo-link">
-          <div class="logo-circle">🧭</div>
-          <div class="logo-text">
-            <span class="logo-title brass-text">AI Museum</span>
-            <span class="logo-subtitle">Western Australia</span>
-          </div>
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search - AI Museum</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/search.css') }}"
+    />
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header glass-panel">
+        <div class="container nav-bar">
+          <a href="{{ url_for('main.home') }}" class="logo-link">
+            <div class="logo-circle">🧭</div>
+            <div class="logo-text">
+              <span class="logo-title brass-text">AI Museum</span>
+              <span class="logo-subtitle">Western Australia</span>
+            </div>
+          </a>
 
-        <nav class="desktop-nav" id="desktopNav">
+          <nav class="desktop-nav" id="desktopNav">
+            <a href="{{ url_for('main.home') }}">Home</a>
+            <a href="{{ url_for('main.timeline') }}">Timeline</a>
+            <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
+            <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
+            <a href="{{ url_for('main.search') }}">Search</a>
+
+            {% if current_user.is_authenticated %}
+            <span class="nav-user">Hi, {{ current_user.username }}</span>
+            <a href="{{ url_for('main.logout') }}">Logout</a>
+            {% else %}
+            <a href="{{ url_for('main.login') }}">Login</a>
+            <a href="{{ url_for('main.signup') }}">Sign Up</a>
+            {% endif %}
+          </nav>
+
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav">
           <a href="{{ url_for('main.home') }}">Home</a>
           <a href="{{ url_for('main.timeline') }}">Timeline</a>
           <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
           <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
           <a href="{{ url_for('main.search') }}">Search</a>
-        </nav>
 
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
-      </div>
-
-      <nav class="mobile-nav" id="mobileNav">
-        <a href="{{ url_for('main.home') }}">Home</a>
-        <a href="{{ url_for('main.timeline') }}">Timeline</a>
-        <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
-        <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
-        <a href="{{ url_for('main.search') }}">Search</a>
-      </nav>
-    </header>
-
-    <main class="main-content">
-      <div class="container page-section search-page-shell">
-        <span class="exhibit-label search-label">Museum Search</span>
-        <h1 class="page-title brass-text">Search the Collection</h1>
-
-        <section class="search-bar-card">
-          <div class="search-input-wrap">
-            <span class="search-icon">🔎</span>
-            <input
-              id="searchInput"
-              type="text"
-              placeholder="Search by title, keyword, category, year..."
-              autocomplete="off"
-            />
-          </div>
-        </section>
-
-        <p id="resultCount" class="result-count hidden"></p>
-
-        <div id="resultsContainer" class="results-container">
-          {% if topics %}
-            {% for topic in topics %}
-              <article class="museum-card result-card">
-                {% if topic.year_range %}
-                  <span class="exhibit-label">{{ topic.year_range }}</span>
-                {% endif %}
-
-                <h3>{{ topic.title }}</h3>
-
-                {% if topic.short_summary %}
-                  <p>{{ topic.short_summary }}</p>
-                {% elif topic.intro_text %}
-                  <p>{{ topic.intro_text }}</p>
-                {% else %}
-                  <p>Explore this topic in detail.</p>
-                {% endif %}
-
-                <a href="{{ url_for('main.topic_detail', slug=topic.slug) }}" class="topic-link">
-                  View Topic
-                </a>
-              </article>
-            {% endfor %}
+          {% if current_user.is_authenticated %}
+          <span class="nav-user mobile-user"
+            >Hi, {{ current_user.username }}</span
+          >
+          <a href="{{ url_for('main.logout') }}">Logout</a>
+          {% else %}
+          <a href="{{ url_for('main.login') }}">Login</a>
+          <a href="{{ url_for('main.signup') }}">Sign Up</a>
           {% endif %}
+        </nav>
+      </header>
+
+      <main class="main-content">
+        <div class="container page-section search-page-shell">
+          <span class="exhibit-label search-label">Museum Search</span>
+          <h1 class="page-title brass-text">Search the Collection</h1>
+
+          <section class="search-bar-card">
+            <div class="search-input-wrap">
+              <span class="search-icon">🔎</span>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search by title, keyword, category, year..."
+                autocomplete="off"
+              />
+            </div>
+          </section>
+
+          <p id="resultCount" class="result-count hidden"></p>
+
+          <div id="resultsContainer" class="results-container">
+            {% if topics %} {% for topic in topics %}
+            <article class="museum-card result-card">
+              {% if topic.year_range %}
+              <span class="exhibit-label">{{ topic.year_range }}</span>
+              {% endif %}
+
+              <h3>{{ topic.title }}</h3>
+
+              {% if topic.short_summary %}
+              <p>{{ topic.short_summary }}</p>
+              {% elif topic.intro_text %}
+              <p>{{ topic.intro_text }}</p>
+              {% else %}
+              <p>Explore this topic in detail.</p>
+              {% endif %}
+
+              <a
+                href="{{ url_for('main.topic_detail', slug=topic.slug) }}"
+                class="topic-link"
+              >
+                View Topic
+              </a>
+            </article>
+            {% endfor %} {% endif %}
+          </div>
+
+          <section id="emptyState" class="empty-state museum-card">
+            <div class="empty-icon">🔎</div>
+            <p class="empty-title">
+              Enter a search term to explore the collection
+            </p>
+            <p class="empty-text">
+              Search across titles, topics, categories, years, and content
+            </p>
+          </section>
         </div>
+      </main>
 
-        <section id="emptyState" class="empty-state museum-card">
-          <div class="empty-icon">🔎</div>
-          <p class="empty-title">Enter a search term to explore the collection</p>
-          <p class="empty-text">Search across titles, topics, categories, years, and content</p>
-        </section>
-      </div>
-    </main>
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <p class="exhibit-label">
+            A.I. Software Technology in Western Australia
+          </p>
+          <p class="footer-text">
+            A Virtual Museum Experience · Final Semester Project · 2024
+          </p>
+        </div>
+      </footer>
+    </div>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p class="exhibit-label">A.I. Software Technology in Western Australia</p>
-        <p class="footer-text">A Virtual Museum Experience · Final Semester Project · 2024</p>
-      </div>
-    </footer>
-  </div>
-
-  <script src="{{ url_for('static', filename='js/search.js') }}"></script>
-</body>
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+  </body>
 </html>

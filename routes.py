@@ -18,6 +18,7 @@ def timeline():
 
 
 @main.route("/guided-tour")
+@login_required
 def guided_tour():
     topics = Topic.query.order_by(Topic.id.asc()).all()
     return render_template("guided_tour.html", topics=topics)
