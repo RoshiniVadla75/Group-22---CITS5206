@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - AI Museum</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/explore-wa.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header glass-panel">
+        <div class="container nav-bar">
+          <a href="{{ url_for('main.home') }}" class="logo-link">
+            <div class="logo-circle">🧭</div>
+            <div class="logo-text">
+              <span class="logo-title brass-text">AI Museum</span>
+              <span class="logo-subtitle">Western Australia</span>
+            </div>
+          </a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <div class="container page-section" style="max-width: 500px">
+          <h1 class="page-title brass-text">Sign Up</h1>
+
+          {% with messages = get_flashed_messages(with_categories=true) %} {% if
+          messages %}
+          <div style="margin-bottom: 16px">
+            {% for category, message in messages %}
+            <p style="color: #ff6b6b">{{ message }}</p>
+            {% endfor %}
+          </div>
+          {% endif %} {% endwith %}
+
+          <form method="POST" class="museum-card" style="padding: 24px">
+            <div style="margin-bottom: 16px">
+              <label>Username</label>
+              <input
+                type="text"
+                name="username"
+                value="{{ form_data.username }}"
+                required
+                style="width: 100%; padding: 10px; margin-top: 6px"
+              />
+            </div>
+
+            <div style="margin-bottom: 16px">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value="{{ form_data.email }}"
+                required
+                style="width: 100%; padding: 10px; margin-top: 6px"
+              />
+            </div>
+
+            <div style="margin-bottom: 16px">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                required
+                style="width: 100%; padding: 10px; margin-top: 6px"
+              />
+            </div>
+
+            <div style="margin-bottom: 16px">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                name="confirm_password"
+                required
+                style="width: 100%; padding: 10px; margin-top: 6px"
+              />
+            </div>
+
+            <button type="submit" class="filter-btn active" style="width: 100%">
+              Create Account
+            </button>
+          </form>
+
+          <p style="margin-top: 16px">
+            Already have an account?
+            <a href="{{ url_for('main.login') }}">Login</a>
+          </p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
