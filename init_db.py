@@ -483,42 +483,80 @@ TOPICS_DATA = [
 ]
 
 
+
 def seed_database():
     with app.app_context():
-        
-        db.drop_all()
 
-        print("Creating tables...")
-        db.create_all()
+        print("Seeding / Updating topics...")
 
-        print("Seeding topics...")
         for topic_data in TOPICS_DATA:
-            topic = Topic(
-                id=topic_data["id"],
-                slug=topic_data["slug"],
-                title=topic_data["title"],
-                year_range=topic_data["yearRange"],
-                category=topic_data["category"],
-                status=topic_data["status"],
-                intro_text=topic_data["introText"],
-                short_summary=topic_data["shortSummary"],
-                how_it_works=topic_data["howItWorks"],
-                simple_example=topic_data["simpleExample"],
-                effective_use=topic_data["effectiveUse"],
-                real_world_examples=topic_data["realWorldExamples"],
-                advantages=topic_data["advantages"],
-                limitations=topic_data["limitations"],
-                misuse=topic_data["misuse"],
-                ethics=topic_data["ethics"],
-                wa_context=topic_data["waContext"],
-            )
 
-            db.session.add(topic)
-            db.session.flush()
+            # -------------------------
+            # CHECK IF EXISTS (by slug)
+            # -------------------------
+            topic = Topic.query.filter_by(slug=topic_data["slug"]).first()
 
+            if topic:
+                # -------------------------
+                # UPDATE EXISTING
+                # -------------------------
+                topic.title = topic_data["title"]
+                topic.year_range = topic_data["yearRange"]
+                topic.category = topic_data["category"]
+                topic.status = topic_data["status"]
+                topic.intro_text = topic_data["introText"]
+                topic.short_summary = topic_data["shortSummary"]
+                topic.how_it_works = topic_data["howItWorks"]
+                topic.simple_example = topic_data["simpleExample"]
+                topic.effective_use = topic_data["effectiveUse"]
+                topic.real_world_examples = topic_data["realWorldExamples"]
+                topic.advantages = topic_data["advantages"]
+                topic.limitations = topic_data["limitations"]
+                topic.misuse = topic_data["misuse"]
+                topic.ethics = topic_data["ethics"]
+                topic.wa_context = topic_data["waContext"]
+
+                print(f"Updated: {topic.slug}")
+
+            else:
+                # -------------------------
+                # CREATE NEW
+                # -------------------------
+                topic = Topic(
+                    slug=topic_data["slug"],
+                    title=topic_data["title"],
+                    year_range=topic_data["yearRange"],
+                    category=topic_data["category"],
+                    status=topic_data["status"],
+                    intro_text=topic_data["introText"],
+                    short_summary=topic_data["shortSummary"],
+                    how_it_works=topic_data["howItWorks"],
+                    simple_example=topic_data["simpleExample"],
+                    effective_use=topic_data["effectiveUse"],
+                    real_world_examples=topic_data["realWorldExamples"],
+                    advantages=topic_data["advantages"],
+                    limitations=topic_data["limitations"],
+                    misuse=topic_data["misuse"],
+                    ethics=topic_data["ethics"],
+                    wa_context=topic_data["waContext"],
+                )
+
+                db.session.add(topic)
+                db.session.flush()
+
+                print(f"Created: {topic.slug}")
+
+            # -------------------------
+            # CLEAR OLD MEDIA/REFERENCES
+            # -------------------------
+            Media.query.filter_by(topic_id=topic.id).delete()
+            TopicReference.query.filter_by(topic_id=topic.id).delete()
+
+            # -------------------------
+            # ADD MEDIA
+            # -------------------------
             for media_data in topic_data.get("media", []):
                 media = Media(
-                    id=media_data["id"],
                     topic_id=topic.id,
                     type=media_data["type"],
                     title=media_data["title"],
@@ -527,9 +565,11 @@ def seed_database():
                 )
                 db.session.add(media)
 
+            # -------------------------
+            # ADD REFERENCES
+            # -------------------------
             for ref_data in topic_data.get("references", []):
                 reference = TopicReference(
-                    id=ref_data["id"],
                     topic_id=topic.id,
                     title=ref_data["title"],
                     url=ref_data["url"],
@@ -540,7 +580,7 @@ def seed_database():
                 db.session.add(reference)
 
         db.session.commit()
-        print("Database seeded successfully!")
+        print("Database updated successfully!")
 
 
 if __name__ == "__main__":
