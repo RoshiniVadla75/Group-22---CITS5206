@@ -157,21 +157,27 @@ function renderTimeline() {
 
   timelineList.innerHTML = filteredTopics
     .map((topic, index) => {
-      const sideClass = index % 2 === 0 ? 'right' : 'left';
       const isActive = topic.status === 'Active';
-      const statusClass = isActive ? 'status-active' : 'status-legacy';
+      const rowClass =
+        index % 2 === 0 ? 'timeline-item-row' : 'timeline-item-row reverse';
       const dotClass = isActive ? 'timeline-dot active' : 'timeline-dot legacy';
+      const badgeClass = isActive
+        ? 'timeline-status status-active'
+        : 'timeline-status status-legacy';
 
       return `
-        <div class="timeline-row">
-          <div class="timeline-card-wrap ${sideClass}">
+        <div class="${rowClass}">
+          <div class="${dotClass}"></div>
+
+          <div class="timeline-spacer"></div>
+
+          <div class="timeline-card-shell">
             <a href="/topic/${topic.slug}" class="museum-card timeline-card">
               <div class="timeline-card-header">
                 <div class="timeline-topline">
                   <span class="exhibit-label timeline-category">${topic.category || ''}</span>
-                  <span class="timeline-status ${statusClass}">${topic.status || 'Legacy'}</span>
+                  <span class="${badgeClass}">${topic.status || 'Legacy'}</span>
                 </div>
-
                 <span class="timeline-year">${topic.yearRange || ''}</span>
               </div>
 
@@ -186,10 +192,6 @@ function renderTimeline() {
                 <span class="timeline-arrow">→</span>
               </div>
             </a>
-          </div>
-
-          <div class="timeline-middle">
-            <div class="${dotClass}"></div>
           </div>
         </div>
       `;
