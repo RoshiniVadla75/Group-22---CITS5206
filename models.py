@@ -22,6 +22,7 @@ class Topic(db.Model):
     title = db.Column(db.String(200), nullable=False)
     year_range = db.Column(db.String(50), nullable=False)
     category = db.Column(db.String(100), nullable=False)
+    status = db.Column(db.String(20), nullable=False, default="Legacy")
 
     intro_text = db.Column(db.Text, nullable=False)
     short_summary = db.Column(db.Text, nullable=False)
