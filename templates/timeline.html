@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timeline - AI Museum</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/timeline.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/timeline.css') }}"
+    />
   </head>
   <body>
     <div class="site-wrapper">
@@ -57,6 +60,18 @@
             </p>
           </section>
 
+          <div class="timeline-legend">
+            <div class="legend-item">
+              <span class="legend-dot active"></span>
+              <span>Active — Still in use today</span>
+            </div>
+
+            <div class="legend-item">
+              <span class="legend-dot legacy"></span>
+              <span>Legacy — Historical significance</span>
+            </div>
+          </div>
+
           <section class="museum-card filters-panel">
             <div class="filter-header">
               <span class="filter-icon">▽</span>
@@ -72,42 +87,17 @@
               <label class="filter-label">By Category</label>
               <div id="categoryFilters" class="filter-buttons"></div>
             </div>
+
+            <div class="filter-group">
+              <label class="filter-label">By Status</label>
+              <div id="statusFilters" class="filter-buttons"></div>
+            </div>
           </section>
 
           <section class="timeline-wrapper">
             <div class="timeline-line"></div>
 
-            <div id="timelineList" class="timeline-list">
-              {% if topics %}
-                {% for topic in topics %}
-                  <article class="museum-card timeline-item">
-                    {% if topic.year_range %}
-                      <span class="exhibit-label">{{ topic.year_range }}</span>
-                    {% endif %}
-
-                    <h3>{{ topic.title }}</h3>
-
-                    {% if topic.category %}
-                      <p class="timeline-category">{{ topic.category }}</p>
-                    {% endif %}
-
-                    {% if topic.short_summary %}
-                      <p>{{ topic.short_summary }}</p>
-                    {% elif topic.intro_text %}
-                      <p>{{ topic.intro_text }}</p>
-                    {% else %}
-                      <p>Explore this exhibit in the AI Museum timeline.</p>
-                    {% endif %}
-
-                    <a href="{{ url_for('main.topic_detail', slug=topic.slug) }}" class="topic-link">
-                      View Topic
-                    </a>
-                  </article>
-                {% endfor %}
-              {% else %}
-                <p class="empty-text">No topics available to display.</p>
-              {% endif %}
-            </div>
+            <div id="timelineList" class="timeline-list"></div>
 
             <div id="emptyState" class="empty-state hidden">
               <p class="empty-text">No exhibits match your filters.</p>
