@@ -1,138 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guided Tour - AI Museum</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/guided-tour.css') }}"
-    />
-  </head>
-  <body>
-    <div class="site-wrapper">
-      <header class="site-header glass-panel">
-        <div class="container nav-bar">
-          <a href="{{ url_for('main.home') }}" class="logo-link">
-            <div class="logo-circle">🧭</div>
-            <div class="logo-text">
-              <span class="logo-title brass-text">AI Museum</span>
-              <span class="logo-subtitle">Western Australia</span>
-            </div>
-          </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guided Tour - AI Museum</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/guided-tour.css') }}" />
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header glass-panel">
+      <div class="container nav-bar">
+        <a href="{{ url_for('main.home') }}" class="logo-link">
+          <div class="logo-circle">🧭</div>
+          <div class="logo-text">
+            <span class="logo-title brass-text">AI Museum</span>
+            <span class="logo-subtitle">Western Australia</span>
+          </div>
+        </a>
 
-          <nav class="desktop-nav" id="desktopNav">
-            <a href="{{ url_for('main.home') }}">Home</a>
-            <a href="{{ url_for('main.timeline') }}">Timeline</a>
-            <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
-            <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
-            <a href="{{ url_for('main.search') }}">Search</a>
-
-            {% if current_user.is_authenticated %}
-            <span class="nav-user">Hi, {{ current_user.username }}</span>
-            <a href="{{ url_for('main.logout') }}">Logout</a>
-            {% else %}
-            <a href="{{ url_for('main.login') }}">Login</a>
-            <a href="{{ url_for('main.signup') }}">Sign Up</a>
-            {% endif %}
-          </nav>
-
-          <button
-            class="mobile-toggle"
-            id="mobileToggle"
-            aria-label="Open menu"
-          >
-            ☰
-          </button>
-        </div>
-
-        <nav class="mobile-nav" id="mobileNav">
-          <a href="{{ url_for('main.home') }}">Home</a>
-          <a href="{{ url_for('main.timeline') }}">Timeline</a>
-          <a href="{{ url_for('main.guided_tour') }}">Guided Tour</a>
-          <a href="{{ url_for('main.explore_wa') }}">Explore WA</a>
-          <a href="{{ url_for('main.search') }}">Search</a>
+        <nav class="desktop-nav" id="desktopNav">
+          <a href="{{ url_for('main.home') }}" class="nav-link">Home</a>
+          <a href="{{ url_for('main.timeline') }}" class="nav-link">Timeline</a>
+          <a href="{{ url_for('main.guided_tour') }}" class="nav-link">Guided Tour</a>
+          <a href="{{ url_for('main.explore_wa') }}" class="nav-link">Explore WA</a>
+          <a href="{{ url_for('main.search') }}" class="nav-link">Search</a>
 
           {% if current_user.is_authenticated %}
-          <span class="nav-user mobile-user"
-            >Hi, {{ current_user.username }}</span
-          >
-          <a href="{{ url_for('main.logout') }}">Logout</a>
+          <span class="nav-user">Hi, {{ current_user.username }}</span>
+          <a href="{{ url_for('main.logout') }}" class="nav-link">Logout</a>
           {% else %}
-          <a href="{{ url_for('main.login') }}">Login</a>
-          <a href="{{ url_for('main.signup') }}">Sign Up</a>
+          <a href="{{ url_for('main.login') }}" class="nav-link">Login</a>
+          <a href="{{ url_for('main.signup') }}" class="nav-link">Sign Up</a>
           {% endif %}
         </nav>
-      </header>
 
-      <main class="main-content">
-        <div class="container page-section">
-          <div id="guidedTourApp">
-            {% if topics %}
-            <section class="hero-block fade-in">
-              <span class="exhibit-label">Museum Route</span>
-              <h1 class="page-title brass-text">Guided Tour</h1>
-              <p class="hero-text">
-                Follow a curated journey through key moments in the history of
-                artificial intelligence, with a special focus on Western
-                Australia’s place in that story.
-              </p>
-            </section>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      </div>
 
-            <section class="tour-list">
-              {% for topic in topics %}
-              <article class="museum-card tour-stop">
-                <span class="exhibit-label">
-                  Stop {{ loop.index }} {% if topic.year_range %}· {{
-                  topic.year_range }}{% endif %}
-                </span>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="{{ url_for('main.home') }}" class="mobile-nav-link">Home</a>
+        <a href="{{ url_for('main.timeline') }}" class="mobile-nav-link">Timeline</a>
+        <a href="{{ url_for('main.guided_tour') }}" class="mobile-nav-link">Guided Tour</a>
+        <a href="{{ url_for('main.explore_wa') }}" class="mobile-nav-link">Explore WA</a>
+        <a href="{{ url_for('main.search') }}" class="mobile-nav-link">Search</a>
 
-                <h2>{{ topic.title }}</h2>
+        {% if current_user.is_authenticated %}
+        <span class="nav-user mobile-user">Hi, {{ current_user.username }}</span>
+        <a href="{{ url_for('main.logout') }}" class="mobile-nav-link">Logout</a>
+        {% else %}
+        <a href="{{ url_for('main.login') }}" class="mobile-nav-link">Login</a>
+        <a href="{{ url_for('main.signup') }}" class="mobile-nav-link">Sign Up</a>
+        {% endif %}
+      </nav>
+    </header>
 
-                {% if topic.short_summary %}
-                <p>{{ topic.short_summary }}</p>
-                {% elif topic.intro_text %}
-                <p>{{ topic.intro_text }}</p>
-                {% else %}
-                <p>Discover this exhibit in the guided tour.</p>
-                {% endif %}
+    <main class="main-content">
+      <div class="container page-section">
+        <div id="guidedTourApp"></div>
+      </div>
+    </main>
 
-                <a
-                  href="{{ url_for('main.topic_detail', slug=topic.slug) }}"
-                  class="topic-link"
-                >
-                  View Topic
-                </a>
-              </article>
-              {% endfor %}
-            </section>
-            {% else %}
-            <section class="hero-block fade-in">
-              <span class="exhibit-label">Museum Route</span>
-              <h1 class="page-title brass-text">Guided Tour</h1>
-              <p class="hero-text">
-                The guided tour content will appear here once the topic data is
-                loaded from the backend.
-              </p>
-            </section>
-            {% endif %}
-          </div>
-        </div>
-      </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="exhibit-label">A.I. Software Technology in Western Australia</p>
+        <p class="footer-text">A Virtual Museum Experience · Final Semester Project · 2024</p>
+      </div>
+    </footer>
+  </div>
 
-      <footer class="site-footer">
-        <div class="container footer-inner">
-          <p class="exhibit-label">
-            A.I. Software Technology in Western Australia
-          </p>
-          <p class="footer-text">
-            A Virtual Museum Experience · Final Semester Project · 2024
-          </p>
-        </div>
-      </footer>
-    </div>
-
-    <script src="{{ url_for('static', filename='js/guided-tour.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-  </body>
+  <script src="{{ url_for('static', filename='js/guided-tour.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+</body>
 </html>
