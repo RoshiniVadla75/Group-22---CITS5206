@@ -1,101 +1,100 @@
-# Group-22---CITS5206
-Information Technology Capstone Project
+# Group-22---CITS5206  
+Information Technology Capstone Project  
 
-# 🏛️ AI Museum – Western Australia
+# 🏛️ AI Museum – Western Australia  
 *A Virtual Museum of A.I. Software Technology*
 
 ---
 
 ## 📌 Project Overview
-The **AI Museum – Western Australia** is a full-stack Flask web application designed to present the history of artificial intelligence software through an interactive virtual museum experience.
 
-The platform allows users to explore **10 major paradigm shifts in AI**, view educational content with images and references, search exhibits, follow a guided tour, and examine the role of **Western Australia** in the broader history of AI.
+The **AI Museum – Western Australia** is a full-stack web application designed to present the history of artificial intelligence through an interactive virtual museum experience.
 
-This project was developed as part of the **CITS5206 Information Technology Capstone Project**.
+The system enables users to explore **10 major paradigm shifts in AI (1950–present)** using guided exhibits, multimedia content, search functionality, and structured storytelling.
+
+This project transforms complex AI concepts into an engaging and accessible learning experience, with a focus on **Western Australian contributions** to computing and AI research.
 
 ---
 
 ## 👥 Team Members
-| Name | Student ID | GitHub Username |
-|------|------------|-----------------|
-| Roshini Vadla | 24324533 | RoshiniVadla75 |
-| Weiyu Xu | 24233679 | Hannah-X0206 |
-| Shanin Rashid | 24117314 | kdmars0168 |
-| Noah Ning | 24120321 | NingNoah |
-| Xi Qin | 24235608 | xiqin2049 |
+
+| Name            | Student ID | GitHub Username |
+|-----------------|------------|-----------------|
+| Roshini Vadla   | 24324533   | RoshiniVadla75  |
+| Weiyu Xu        | 24233679   | Hannah-X0206    |
+| Shanin Rashid   | 24117314   | kdmars0168      |
+| Noah Ning       | 24120321   | NingNoah        |
+| Xi Qin          | 24235608   | xiqin2049       |
 
 ---
 
-## 🎯 Project Purpose
+## 🎯 Purpose
+
 - Provide an interactive museum-style learning experience  
-- Present historical and modern AI developments in a structured way  
-- Highlight Western Australia’s contributions to AI and computing  
-- Support educational storytelling through multimedia and exhibit-style pages  
-- Transform complex AI concepts into accessible content for students and general users  
+- Present historical and modern AI developments  
+- Highlight Western Australia’s contributions  
+- Support visual and multimedia-based education  
 
 ---
 
 ## 🧠 AI Paradigm Shifts Covered
-1. Alan Turing’s Thoughts on AI  
-2. Learning Machines  
-3. Game Playing AI  
-4. Expert Systems  
-5. Artificial Neural Networks  
-6. Internet-Driven AI / IBM Watson  
+
+1. Turing’s AI Foundations (1950)  
+2. Learning Machines (1960s)  
+3. Game Playing Systems (1970s)  
+4. Expert Systems (1980s)  
+5. Artificial Neural Networks (1980–2000)  
+6. Internet-Driven AI / IBM Watson (2010)  
 7. Evolutionary Computing & Genetic Algorithms  
-8. Synthetic Media Technology / Deep Fakes  
-9. Natural Language Processing  
-10. Large Language Models  
+8. Synthetic Media / Deepfakes  
+9. Natural Language Processing (NLP)  
+10. Large Language Models (LLMs)  
 
 ---
 
-## 🧭 Main Application Pages
+## 🧭 Application Pages
 
 ### 🏠 Home
 - Entry point of the virtual museum  
-- Introduces the project and navigation  
-- Displays preview of AI topics  
+- Overview of the project  
+- Navigation hub  
 
 ### ⏳ Timeline
-- Displays AI evolution chronologically  
-- Supports filtering by decade, category, and status  
-- Shows structured exhibit summaries  
+- Chronological AI development  
+- Filter by decade, category, and status  
+- Interactive exploration  
 
 ### 🌏 Explore WA
-- Highlights Western Australian contributions  
-- Connects local institutions to global AI development  
+- Focus on Western Australian contributions  
+- Local institutions and research  
 
 ### 🧭 Guided Tour
-- Provides structured walkthrough of exhibits  
-- Presents each topic as a museum exhibit  
+- Step-by-step structured learning  
+- Educational explanations and examples  
 
 ### 🔍 Search
-- Allows users to search across topics  
-- Filters by title, category, year, and content  
+- Search across all topics  
+- Real-time filtering  
+- Archive-style browsing  
 
 ### 📄 Topic Detail
-- Displays full exhibit content including:
-  - introduction  
-  - summary  
-  - explanation  
-  - examples  
+- Full topic breakdown  
+- Includes:
+  - Introduction  
+  - How it works  
+  - Examples  
   - WA context  
-  - references  
-  - media  
-
-### 🔐 Authentication
-- Login and signup functionality  
-- Session handling using Flask-Login  
-- Dynamic navbar based on user state  
+  - References  
+  - Media  
 
 ---
 
-## 🖼️ Multimedia and Educational Content
-- Images and captions  
-- Topic references  
-- WA-specific contextual information  
-- Structured exhibit explanations  
-- Educational storytelling sections  
+## 🎥 Multimedia and Learning Features
+
+- Image-based explanations  
+- Concept visualisation  
+- Structured educational content  
+- Interactive UI components  
 
 ---
 
@@ -109,16 +108,12 @@ This project was developed as part of the **CITS5206 Information Technology Caps
 ### Backend
 - Flask  
 - Flask-Login  
-- Flask-SQLAlchemy  
 - Flask-WTF  
 - Flask-Migrate  
+- SQLAlchemy  
 
 ### Database
 - SQLite  
-
-### ORM / Migrations
-- SQLAlchemy  
-- Alembic  
 
 ---
 
@@ -129,13 +124,15 @@ This project was developed as part of the **CITS5206 Information Technology Caps
 git clone https://github.com/RoshiniVadla75/Group-22---CITS5206.git
 cd Group-22---CITS5206
 ```
-2. Create a virtual environment
-```bash
-python -m venv venv
-```
-3. Activate the environment
 
-MacOS / Linux
+### 2. Create a virtual environment
+MacOS/Linux
+```bash
+source venv/bin/activate
+```
+
+### 3. Activate environment
+MacOS/Linux
 ```bash
 source venv/bin/activate
 ```
@@ -143,109 +140,146 @@ Windows
 ```bash
 venv\Scripts\activate
 ```
-4. Install dependencies
+
+### ### 4. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
-5. Initialise and seed the database
+
+### 5. Run database migrations (first time only)
+```bash
+flask db init
+flask db migrate -m "Initial migration"
+flask db upgrade
+```
+
+### 6. Seed the database
 ```bash
 python init_db.py
 ```
-6. Run the application
+
+### 7. Run the application
 ```bash
 python app.py
 ```
-7. Open in browser
 
+### 8. Open in browser
+```bash
 http://127.0.0.1:5000/
+```
 
+## 🔐 Authentication
 
-⸻
+This project includes a user authentication system using **Flask-Login**.
 
-🔐 Authentication
+### Features
+- User registration  
+- User login  
+- Session management  
+- Authentication-aware navigation  
 
-This project includes a user authentication system using Flask-Login.
+> You may need to register a user before testing login features.
 
-Features:
-	•	User registration
-	•	User login
-	•	Session management
-	•	Authentication-aware navigation
+---
 
-You may need to register a user before testing login features.
-
-⸻
-
-🔌 API Endpoints
+## 🔌 API Endpoints
 
 The backend provides API routes for dynamic content:
-	•	GET /api/topics
-→ Returns all topics
-	•	GET /api/topics/<slug>
-→ Returns a single topic
 
-These endpoints are used by frontend JavaScript to render data dynamically.
+- **GET /api/topics**  
+  → Returns all topics  
 
-⸻
+- **GET /api/topics/<slug>**  
+  → Returns a single topic  
 
-🗂️ Project Structure
+These APIs are used by frontend JavaScript for dynamic rendering.
 
-Group-22---CITS5206/
-│
-├── static/
-│   ├── css/
-│   └── js/
-│
-├── templates/
-│
-├── migrations/
-│
+---
+
+## 🧪 Database Notes
+
+- Database is managed using **Flask-Migrate (Alembic)**  
+- Initial data is seeded via `init_db.py`  
+
+### Includes:
+- 10 AI topics  
+- Media (images)  
+- References  
+- WA context  
+
+## 🗂️ Project Structure
+```
+GROUP-22---CITS5206/
+├── app/
+│   ├── static/
+│   │   ├── css/                 
+│   │   │   ├── auth.css
+│   │   │   ├── explore-wa.css
+│   │   │   ├── guided-tour.css
+│   │   │   ├── home.css
+│   │   │   ├── search.css
+│   │   │   ├── timeline.css
+│   │   │   └── topic-detail.css
+│   │   └── js/                  
+│   │       ├── explore-wa.js
+│   │       ├── guided-tour.js
+│   │       ├── home.js
+│   │       ├── navbar.js
+│   │       ├── search.js
+│   │       ├── timeline.js
+│   │       ├── topic_data.js
+│   │       └── topic-detail.js
+│   └── templates/               
+│       ├── explore_WA.html
+│       ├── guided_tour.html
+│       ├── home.html
+│       ├── login.html
+│       ├── search.html
+│       ├── signup.html
+│       ├── timeline.html
+│       └── topic_detail.html
 ├── instance/
-│   └── ai_museum.db
-│
-├── app.py
-├── init_db.py
-├── models.py
-├── routes.py
-├── requirements.txt
-├── .gitignore
-└── README.md
+│   └── ai_museum.db             
+├── migrations/                  
+│   ├── versions/
+│   ├── alembic.ini
+│   ├── env.py
+│   ├── README
+│   └── script.py.mako
+├── __pycache__/                
+├── .gitignore                   
+├── app.py                       
+├── init_db.py                   
+├── models.py                    
+├── README.md                   
+├── requirements.txt             
+└── routes.py                    
+```
 
+## ✅ Features Implemented
 
-⸻
+- Full Flask backend  
+- SQLite database integration  
+- Flask-Migrate database version control  
+- API-driven frontend  
+- Timeline filtering system  
+- Guided Tour system  
+- Search functionality  
+- Topic detail pages  
+- User authentication  
+- Responsive UI  
+- Shared navigation system  
 
-🧪 Database Notes
-	•	Database is seeded via init_db.py
-	•	Includes:
-	•	10 AI topics
-	•	media (images)
-	•	references
-	•	WA context
+---
 
-⸻
-
-✅ Features Implemented
-	•	Full Flask backend
-	•	SQLite database integration
-	•	API-driven frontend rendering
-	•	Timeline with filters
-	•	Guided Tour system
-	•	Search functionality
-	•	Topic detail pages
-	•	User authentication
-	•	Responsive UI
-	•	Shared navigation system
-
-⸻
-
-📄 License
+## 📄 License
 
 This project is developed for academic purposes (CITS5206).
 
-⸻
-
-✨ Summary
-
-The AI Museum – Western Australia demonstrates how complex AI concepts can be transformed into an interactive digital museum experience. By combining backend data, structured UI, and educational storytelling, the system provides an engaging and accessible way to explore the history of artificial intelligence.
-
 ---
+
+## ✨ Summary
+
+The AI Museum – Western Australia demonstrates how complex artificial intelligence concepts can be transformed into an interactive digital museum experience.
+
+By combining backend data, structured UI design, and educational storytelling, the system provides an engaging and accessible way to explore the evolution of AI.
