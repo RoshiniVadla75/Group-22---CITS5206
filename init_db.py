@@ -4,43 +4,67 @@ from models import db, Topic, Media, TopicReference
 
 TOPICS_DATA = [
     {
-        "id": 1,
-        "slug": "turing-thoughts-on-ai",
-        "title": "Alan Turing's Thoughts on AI",
-        "yearRange": "c. 1950",
-        "category": "Foundations",
-        "status": "Legacy",
-        "introText": "Alan Turing's ideas laid the intellectual groundwork for artificial intelligence. His questions about whether machines can think became central to later AI research.",
-        "shortSummary": "Turing provided the conceptual foundations for machine intelligence.",
-        "howItWorks": "This topic focuses on theoretical ideas about computation, intelligence, and symbolic reasoning rather than a single application system.",
-        "simpleExample": "A machine following formal logical steps to solve a problem reflects Turing's vision of computation.",
-        "effectiveUse": "Most effective in foundational teaching, philosophy of AI, and computational theory.",
-        "realWorldExamples": "University teaching, theoretical computer science, and early AI research.",
-        "advantages": "Provides a strong conceptual basis for later technologies.",
-        "limitations": "Highly theoretical and not a direct end-user system.",
-        "misuse": "Can be oversimplified when discussing modern AI.",
-        "ethics": "Raises questions about intelligence, autonomy, and human-machine comparison.",
-        "waContext": "The University of Western Australia's Computer Science department has long incorporated Turing's theories into its foundational curriculum.",
-        "media": [
-            {
-                "id": 1,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-                "title": "Computing Foundations",
-                "caption": "Theoretical work shaped the future of AI."
-            }
-        ],
-        "references": [
-            {
-                "id": 1,
-                "title": "Foundational AI History",
-                "url": "https://en.wikipedia.org/wiki/Alan_Turing",
-                "sourceType": "Background Source",
-                "accessedDate": "Accessed 2026",
-                "notes": "General background on Turing and computing history."
-            }
-        ]
-    },
+    "id": 1,
+    "slug": "turing-thoughts-on-ai",
+    "title": "Alan Turing & The Turing Test",
+    "yearRange": "c. 1950",
+    "category": "Foundations",
+    "status": "Legacy",
+    "introText": "Alan Turing was one of the earliest thinkers to explore artificial intelligence, and his idea of the Turing Test became a foundational concept in AI.",
+    "shortSummary": "The Turing Test evaluates machine intelligence through observable behaviour rather than internal structure.",
+    "howItWorks": "Turing proposed that machines could produce intelligent behaviour by following logical rules and algorithms. Rather than copying the human brain directly, a machine could achieve similar outcomes using computational processes such as reasoning, search, and structured decision-making.",
+    "simpleExample": "A simple example is a machine playing chess by evaluating possible moves and selecting the best option. Another example is a conversational system such as ELIZA, which simulated human-like responses using simple pattern-matching rules.",
+    "effectiveUse": "Most effective in evaluating conversational systems, game-playing AI, and decision-making systems based on observable behaviour.",
+    "realWorldExamples": "Chatbots, conversational agents, game-playing systems, decision-support tools, and modern large language models.",
+    "advantages": "It focuses on observable behaviour, provides a practical way to evaluate AI systems, and encourages the development of systems that interact naturally with humans.",
+    "limitations": "Passing the Turing Test does not mean true understanding. The test focuses mainly on conversation and depends on human judgement, which can be subjective and inconsistent.",
+    "misuse": "Turing’s ideas can be misused in systems that imitate humans to deceive users, generate misleading information, or manipulate users through human-like interaction.",
+    "ethics": "Key ethical concerns include trust, transparency, deception, and the responsible use of human-like AI interaction.",
+    "waContext": "In Western Australia, Turing’s ideas can be seen in conversational systems and automated support tools used in customer service, digital platforms, universities, and institutions. This influence can also be linked historically to Professor Jeff Rohl, the founding Professor of Computer Science at The University of Western Australia, who worked at the University of Manchester shortly after Turing’s time.",
+    "media": [
+        {
+            "id": 1,
+            "type": "image",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg",
+            "title": "Alan Turing",
+            "caption": "Alan Turing, a pioneer of artificial intelligence and the originator of the Turing Test"
+        }
+    ],
+    "references": [
+        {
+            "id": 1,
+            "title": "The Turing Test: The Elusive Standard of Artificial Intelligence",
+            "url": "https://link.springer.com/article/10.1023/A:1011288000451",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "French (2000)"
+        },
+        {
+            "id": 2,
+            "title": "The Turing Test: The nature of intelligence",
+            "url": "https://link.springer.com/chapter/10.1007/978-94-017-2804-3_9",
+            "sourceType": "Book Chapter",
+            "accessedDate": "2026",
+            "notes": "Moor (2001)"
+        },
+        {
+            "id": 3,
+            "title": "Alan Turing and the development of Artificial Intelligence",
+            "url": "https://link.springer.com/article/10.1007/s10462-012-9374-5",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Muggleton (2014)"
+        },
+        {
+            "id": 4,
+            "title": "The Turing Test and the frame problem",
+            "url": "https://link.springer.com/article/10.1007/s11023-010-9203-3",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Proudfoot (2010)"
+        }
+    ]
+},
     {
         "id": 2,
         "slug": "learning-machines",
@@ -240,39 +264,66 @@ TOPICS_DATA = [
     ]
 },
     {
-        "id": 6,
-        "slug": "internet-driven-ai-ibm-watson",
-        "title": "Internet-Driven AI / IBM Watson",
-        "yearRange": "c. 2011",
-        "category": "Knowledge Retrieval",
-        "status": "Legacy",
-        "introText": "IBM Watson showed that AI could process enormous volumes of unstructured text, understand natural language questions, and answer in real time.",
-        "shortSummary": "IBM Watson demonstrated large-scale knowledge-driven AI.",
-        "howItWorks": "Watson used a massively parallel architecture called DeepQA to generate, score, and rank candidate answers.",
-        "simpleExample": "Imagine a thousand researchers searching millions of documents at once, each proposing an answer with a confidence score.",
-        "effectiveUse": "Question answering, information retrieval, medical literature analysis, legal review.",
-        "realWorldExamples": "Jeopardy!, Watson for Oncology, enterprise assistants.",
-        "advantages": "Processes and synthesises information from huge document collections.",
-        "limitations": "Requires major computing resources and struggled in messy real-world domains.",
-        "misuse": "Overhyped marketing can lead organisations to trust the system beyond its real capabilities.",
-        "ethics": "Raises accountability concerns in healthcare and other high-stakes domains.",
-        "waContext": "WA healthcare and resources sectors explored Watson-style AI for analysis and decision support.",
-        "media": [
-            {
-                "id": 8,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
-                "title": "Watson on Jeopardy!",
-                "caption": "AI competing against human champions in knowledge retrieval"
-            },
-            {
-                "id": 9,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
-                "title": "Big Data Processing",
-                "caption": "The massive data processing infrastructure behind Watson"
-            }
-        ],
+    "id": 6,
+    "slug": "internet-driven-ai-ibm-watson",
+    "title": "Internet-Driven AI Systems",
+    "yearRange": "c. 2011",
+    "category": "Knowledge Retrieval",
+    "status": "Legacy",
+    "introText": "With the growth of the internet, AI systems gained access to very large amounts of data from web pages, documents, and databases, enabling new forms of large-scale question answering.",
+    "shortSummary": "Internet-driven AI systems retrieve, evaluate, and rank information from large datasets rather than relying only on fixed rules.",
+    "howItWorks": "Internet-driven AI systems process large amounts of unstructured data from websites, documents, and databases. They convert language into a machine-processable form, retrieve candidate answers, gather supporting evidence, and rank possible answers based on confidence. IBM Watson’s DeepQA system is a well-known example of this approach.",
+    "simpleExample": "For example, when asked 'Who is the president of the United States?', the system searches large datasets, finds patterns linking names with that role, and selects the most likely answer. In quiz-style tasks such as Jeopardy!, the system must analyse the clue, search for evidence, and rank competing answers.",
+    "effectiveUse": "Question answering, search engines, virtual assistants, and knowledge retrieval systems that must analyse large amounts of information quickly.",
+    "realWorldExamples": "IBM Watson, Jeopardy!, search engines, virtual assistants, enterprise knowledge systems, and data-driven decision support tools.",
+    "advantages": "These systems can access large amounts of information, connect knowledge from multiple sources, provide fast responses, and improve as more data becomes available.",
+    "limitations": "They depend heavily on data quality, require significant computational resources, and rely on statistical patterns rather than true understanding, which can lead to inaccurate or misleading results.",
+    "misuse": "Internet-driven AI systems can be misused to spread misinformation, generate misleading answers, and manipulate information at scale.",
+    "ethics": "Key ethical concerns include reliability of sources, bias in data, and over-reliance on automated systems in important decisions.",
+    "waContext": "In Western Australia, internet-driven AI systems are especially relevant in mining, energy, and remote operations. Companies such as Rio Tinto and BHP use data-driven and internet-based systems to support monitoring, analysis, and decision-making, while universities and research institutions such as UWA and Curtin contribute to research in information retrieval and large-scale data interpretation.",
+    "media": [
+        {
+            "id": 8,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
+            "title": "Internet-Driven AI Process",
+            "caption": "Simplified process of an internet-driven AI system such as IBM Watson for question answering"
+        },
+        {
+            "id": 9,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
+            "title": "Mining and Data-Driven AI in Western Australia",
+            "caption": "Mining and resource industries in Western Australia, where internet-driven AI systems support decision-making"
+        }
+    ],
+    "references": [
+        {
+            "id": 7,
+            "title": "Building Watson: An overview of the DeepQA project",
+            "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2303",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Ferrucci et al. (2010)"
+        },
+        {
+            "id": 8,
+            "title": "Introduction to 'This is Watson'",
+            "url": "https://ieeexplore.ieee.org/abstract/document/6177724",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Ferrucci (2012)"
+        },
+        {
+            "id": 9,
+            "title": "Question analysis: How Watson reads a clue",
+            "url": "https://www.patwardhans.net/papers/LallyEtAl12.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Lally et al. (2012)"
+        }
+    ]
+},
         "references": [
             {
                 "id": 7,
