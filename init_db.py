@@ -163,58 +163,82 @@ TOPICS_DATA = [
         ]
     },
     {
-        "id": 5,
-        "slug": "artificial-neural-nets",
-        "title": "Artificial Neural Networks",
-        "yearRange": "1980–2000",
-        "category": "Neural Computing",
-        "status": "Active",
-        "introText": "Artificial neural networks experienced a renaissance in the 1980s with the development of backpropagation.",
-        "shortSummary": "Inspired by the human brain, artificial neural networks learned complex patterns through layers of interconnected nodes.",
-        "howItWorks": "A neural network consists of layers of artificial neurons. Data enters the input layer, passes through hidden layers, and produces output.",
-        "simpleExample": "Imagine a team passing a message through a chain, then adjusting after feedback until the message becomes reliable.",
-        "effectiveUse": "Pattern recognition in images, speech, and text.",
-        "realWorldExamples": "Handwriting recognition, speech recognition, financial prediction, and medical image analysis.",
-        "advantages": "Learns complex non-linear patterns and generalises to new data.",
-        "limitations": "Needs large amounts of data and is often difficult to explain.",
-        "misuse": "Biased training data can lead to biased outcomes in decision systems.",
-        "ethics": "Raises accountability concerns because decisions are often hard to explain.",
-        "waContext": "WA universities, particularly UWA and Curtin, established neural computing research groups in the 1990s.",
-        "media": [
-            {
-                "id": 6,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600",
-                "title": "Neural Network Architecture",
-                "caption": "Visualisation of neural network layers and connections"
-            },
-            {
-                "id": 7,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600",
-                "title": "Brain-Inspired Computing",
-                "caption": "Neural networks drew inspiration from biological neural structures"
-            }
-        ],
-        "references": [
-            {
-                "id": 5,
-                "title": "Learning Representations by Back-propagating Errors",
-                "url": "https://www.nature.com/articles/323533a0",
-                "sourceType": "Research Paper",
-                "accessedDate": "2024-02-15",
-                "notes": "Rumelhart, Hinton & Williams' seminal 1986 paper"
-            },
-            {
-                "id": 6,
-                "title": "Neural Networks and Deep Learning",
-                "url": "http://neuralnetworksanddeeplearning.com/",
-                "sourceType": "Online Book",
-                "accessedDate": "2024-02-15",
-                "notes": "Michael Nielsen's accessible introduction"
-            }
-        ]
-    },
+    "id": 5,
+    "slug": "artificial-neural-nets",
+    "title": "Artificial Neural Networks",
+    "yearRange": "1980–2000",
+    "category": "Neural Computing",
+    "status": "Active",
+    "introText": "Artificial Neural Networks (ANNs) are inspired by the structure of the human brain and learn patterns from data through interconnected neurons.",
+    "shortSummary": "ANNs learn complex patterns through layered structures and form the foundation of modern deep learning systems.",
+    "howItWorks": "ANNs consist of an input layer, one or more hidden layers, and an output layer. Data is passed through the network, where each neuron applies weighted calculations. During training, the system adjusts these weights to reduce error and improve performance. Deep learning extends this by using multiple hidden layers to capture more complex relationships in data.",
+    "simpleExample": "An image classification system processes pixel data through multiple layers to detect features such as edges, shapes, and colours, and then predicts whether the image is a cat or a dog.",
+    "effectiveUse": "Pattern recognition tasks such as image classification, speech recognition, and data analysis.",
+    "realWorldExamples": "Facial recognition systems, handwriting recognition, speech recognition, medical diagnosis, and financial prediction.",
+    "advantages": "They can learn directly from data, model complex relationships, detect hidden patterns, and improve performance with more data.",
+    "limitations": "Training requires large datasets and computational resources. The internal decision-making process is often difficult to interpret, leading to 'black box' concerns.",
+    "misuse": "ANNs can be misused in surveillance systems, biased automated decision-making, and misleading predictive systems.",
+    "ethics": "Key concerns include bias in training data, lack of transparency, and fairness in automated decision-making.",
+    "waContext": "In Western Australia, neural network research is mainly carried out in universities and research institutions such as UWA, Curtin, ECU, and Murdoch University, as well as organisations like CSIRO. Facilities such as the Pawsey Supercomputing Research Centre support large-scale data processing and AI research. Neural networks are also applied in projects like the Square Kilometre Array (SKA) to analyse large volumes of scientific data.",
+    "media": [
+        {
+            "id": 6,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600",
+            "title": "Neural Network Architecture",
+            "caption": "Basic structure of an artificial neural network with input, hidden, and output layers"
+        },
+        {
+            "id": 7,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600",
+            "title": "Brain-Inspired Computing",
+            "caption": "Neural networks are inspired by the structure of the human brain"
+        }
+    ],
+    "references": [
+        {
+            "id": 5,
+            "title": "Artificial neural networks: fundamentals, computing, design, and application",
+            "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Basheer & Hajmeer (2000)"
+        },
+        {
+            "id": 6,
+            "title": "Artificial neural networks for beginners",
+            "url": "https://arxiv.org/pdf/cs/0308031",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Gershenson (2003)"
+        },
+        {
+            "id": 7,
+            "title": "Fundamentals of artificial neural networks",
+            "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews/links/56ebf73a08aee4707a3849a6/Fundamentals-of-Artificial-Neural-Networks-Book-Reviews.pdf",
+            "sourceType": "Book",
+            "accessedDate": "2026",
+            "notes": "Hassoun (1995)"
+        },
+        {
+            "id": 8,
+            "title": "What are artificial neural networks?",
+            "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Krogh (2008)"
+        },
+        {
+            "id": 9,
+            "title": "Perceptrons: An Introduction to Computational Geometry",
+            "url": "https://mitpress.mit.edu/9780262630229/perceptrons/",
+            "sourceType": "Book",
+            "accessedDate": "2026",
+            "notes": "Minsky & Papert (1969)"
+        }
+    ]
+},
     {
         "id": 6,
         "slug": "internet-driven-ai-ibm-watson",
@@ -375,58 +399,82 @@ TOPICS_DATA = [
         ]
     },
     {
-        "id": 9,
-        "slug": "natural-language-processing",
-        "title": "Natural Language Processing",
-        "yearRange": "2010–2020",
-        "category": "Language AI",
-        "status": "Active",
-        "introText": "Natural Language Processing (NLP) transformed how computers understand and generate human language.",
-        "shortSummary": "NLP enabled machine translation, sentiment analysis, and the precursors to modern AI assistants.",
-        "howItWorks": "Modern NLP uses embeddings and Transformer architectures to represent and process language contextually.",
-        "simpleExample": "A Transformer connects words in a sentence to understand which ones refer to each other.",
-        "effectiveUse": "Machine translation, summarisation, question answering, sentiment analysis, chatbots.",
-        "realWorldExamples": "Google Translate, virtual assistants, Gmail Smart Reply, sentiment analysis tools.",
-        "advantages": "Allows computers to work with language at useful quality and scale.",
-        "limitations": "Can struggle with sarcasm, irony, and cultural nuance.",
-        "misuse": "Spam, disinformation, surveillance, manipulative targeting.",
-        "ethics": "Bias in language data can produce unfair or exclusionary outcomes at scale.",
-        "waContext": "WA researchers have applied NLP in mining documents, environmental assessments, and language projects.",
-        "media": [
-            {
-                "id": 14,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600",
-                "title": "Language Processing Pipeline",
-                "caption": "The complex pipeline of processing natural language"
-            },
-            {
-                "id": 15,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600",
-                "title": "Transformer Architecture",
-                "caption": "The Transformer architecture revolutionised NLP"
-            }
-        ],
-        "references": [
-            {
-                "id": 13,
-                "title": "Attention Is All You Need",
-                "url": "https://arxiv.org/abs/1706.03762",
-                "sourceType": "Research Paper",
-                "accessedDate": "2024-03-15",
-                "notes": "The foundational Transformer paper by Vaswani et al."
-            },
-            {
-                "id": 14,
-                "title": "Efficient Estimation of Word Representations in Vector Space",
-                "url": "https://arxiv.org/abs/1301.3781",
-                "sourceType": "Research Paper",
-                "accessedDate": "2024-03-15",
-                "notes": "Mikolov et al.'s Word2Vec paper"
-            }
-        ]
-    },
+    "id": 9,
+    "slug": "natural-language-processing",
+    "title": "Natural Language Processing",
+    "yearRange": "2010–2020",
+    "category": "Language AI",
+    "status": "Active",
+    "introText": "Natural Language Processing (NLP) enables computers to read, “understand”, and generate human language, although this “understanding” is based on pattern analysis rather than true human comprehension.",
+    "shortSummary": "NLP allows computers to process language through tokenisation, vector representations, and transformer-based models.",
+    "howItWorks": "NLP systems convert human language into numerical representations that computers can process. Text is first tokenised into smaller units such as words or subwords, then converted into vectors that capture relationships between words. Modern NLP systems, especially transformer models, use attention mechanisms to process context and relationships between words. Importantly, these systems do not truly understand language in the human sense; instead, they identify patterns such as nouns, verbs, and sentence structure, and generate outputs based on statistical relationships learned from data.",
+    "simpleExample": "For example, in the sentence 'book a flight to Sydney tomorrow', the system tokenises the text, converts it into vectors, identifies patterns suggesting the user’s intent, and extracts information such as destination and time to generate an appropriate action.",
+    "effectiveUse": "Machine translation, summarisation, question answering, sentiment analysis, chatbots, and information extraction.",
+    "realWorldExamples": "Speech recognition, machine translation, sentiment analysis, chatbots, search engines, customer support systems, and transformer-based models such as BERT and GPT.",
+    "advantages": "NLP systems can process large amounts of text quickly, operate continuously without fatigue, and automate repetitive language tasks. Transformer models are flexible and can be adapted to many real-world applications.",
+    "limitations": "Human language is complex and context-dependent, making full understanding difficult. NLP systems rely on statistical patterns rather than true comprehension, can inherit bias from training data, and often require significant computational resources.",
+    "misuse": "NLP can be misused to generate fake or misleading content, automate scams or spam messages, and produce biased or harmful text.",
+    "ethics": "Key ethical concerns include bias in language data, misinformation, harmful outputs, and the social impact of automated language systems.",
+    "waContext": "In Western Australia, NLP research has developed mainly through universities and research institutions such as UWA, Curtin, ECU, Murdoch University, and organisations including CSIRO. Research infrastructure such as the Pawsey Supercomputing Research Centre supports large-scale NLP and AI work, while projects such as the Square Kilometre Array (SKA) highlight the role of NLP in processing textual and metadata information for scientific research.",
+    "media": [
+        {
+            "id": 14,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600",
+            "title": "Language Processing Pipeline",
+            "caption": "Basic pipeline of a Natural Language Processing system"
+        },
+        {
+            "id": 15,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600",
+            "title": "Pawsey Supercomputing Research Centre",
+            "caption": "Research infrastructure supporting AI and NLP work in Western Australia"
+        }
+    ],
+    "references": [
+        {
+            "id": 13,
+            "title": "Natural language processing",
+            "url": "https://mbahng.com/Natural_Sciences/Statistics/Natural_Language_Processing/paper.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Bahng (2024)"
+        },
+        {
+            "id": 14,
+            "title": "Advances in natural language processing",
+            "url": "https://nlp.stanford.edu/~manning/xyzzy/Hirschberg-Manning-Science-2015.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Hirschberg & Manning (2015)"
+        },
+        {
+            "id": 15,
+            "title": "Natural language processing: A historical review",
+            "url": "https://aclanthology.org/www.mt-archive.info/90/Zampolli-1994-Sparck-Jones.pdf",
+            "sourceType": "Book Chapter",
+            "accessedDate": "2026",
+            "notes": "Sparck Jones (1994)"
+        },
+        {
+            "id": 16,
+            "title": "Transformers: State-of-the-art natural language processing",
+            "url": "https://aclanthology.org/2020.emnlp-demos.6.pdf",
+            "sourceType": "Conference Paper",
+            "accessedDate": "2026",
+            "notes": "Wolf et al. (2020)"
+        },
+        {
+            "id": 17,
+            "title": "Survey of transformers and towards ensemble learning using transformers for natural language processing",
+            "url": "https://link.springer.com/content/pdf/10.1186/s40537-023-00842-0.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Zhang & Shafiq (2024)"
+        }
+    ]
+},
     {
         "id": 10,
         "slug": "large-language-models",
