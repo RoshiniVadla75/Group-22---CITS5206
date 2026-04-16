@@ -328,16 +328,16 @@ TOPICS_DATA = [
         "yearRange": "c. 2015",
         "category": "Generative AI & Deception",
         "status": "Active",
-        "introText": "Deep fakes use neural networks to create highly realistic fake media.",
-        "shortSummary": "Deep fake technology creates convincing fake images, audio, and video.",
-        "howItWorks": "Most deep fakes use GANs, where a generator and discriminator compete to improve realism and detection.",
-        "simpleExample": "Like two art students: one creates forgeries, the other tries to detect them, both improving over time.",
-        "effectiveUse": "Film, accessibility, art, privacy protection, and synthetic data generation.",
-        "realWorldExamples": "Face-swapping in films, voice cloning, manipulated political or intimate media.",
-        "advantages": "Powerful creative applications and privacy-preserving possibilities.",
-        "limitations": "Detection remains difficult and fakes often spread faster than debunking.",
-        "misuse": "Non-consensual imagery, political disinformation, voice fraud, fabricated evidence.",
-        "ethics": "Raises urgent concerns around consent, evidence, trust, and democracy.",
+        "introText": "Synthetic Media Technologies use neural networks to create highly realistic fake media.",
+        "shortSummary": "Synthetic Media Technologies, commonly referred to as Deep fakes use deep learning - specifically Generative Adversarial Networks (GANs) - to synthesise realistic but fabricated images, videos, and audio of real people. Emerging around 2015, they represent one of the most ethically complex and socially disruptive AI technologies.",
+        "howItWorks": "A GAN consists of two competing neural networks: a Generator (which creates fake content) and a Discriminator (which tries to detect fakes). The two networks train together: the generator improves at creating convincing fakes; the discriminator improves at detecting them. Over time, the generator produces increasingly realistic synthetic media. Deep fakes additionally use face-swapping techniques (autoencoders and facial landmark detection) to map one person’s face onto another’s with high fidelity.",
+        "simpleExample": "Start with thousands of photos of Person A and video footage of Person B. The GAN learns the facial geometry, lighting, and expression patterns of Person A. It then replaces Person B’s face in the video with a photorealistic rendering of Person A’s face, frame by  frame - resulting in a convincing video of Person A saying things they never said or doing things they never did.",
+        "effectiveUse": "Deep fake technology has legitimate applications in film production (de ageing actors, dubbing into other languages while preserving lip sync), gaming (realistic character animation), accessibility (generating synthetic voices for people who have lost theirs), and historical preservation (animating archival photographs).",
+        "realWorldExamples": "Hollywood studios use deep fake technology to de-age actors. The Dali Museum recreated Salvador Dali using deep fakes for interactive exhibitions. Ukraine’s president was targeted by a deep fake video urging troops to surrender. The eSafety Commissioner identifies deep fakes as a growing risk for identity theft, humiliation, extortion, sexual exploitation, and reputational damage.",
+        "advantages": "Deep-fake systems can generate or alter media at a scale and speed impossible for manual editing alone. They can automate detailed synthesis, imitate facial or vocal patterns quickly, and create many variations of a scene far faster than a human editor working frame by frame.",
+        "limitations": "Deep fakes can still be detected by artefacts around eyes, ears, and hair, and by unnatural blinking or lighting. They require significant compute and data for high quality. Real-time deep fakes at high resolution remain challenging. Detection tools are in an arms race with generation tools",
+        "misuse": "Deep fakes are weaponised for political disinformation, fraud (CEO voice spoofing for wire transfers), non-consensual intimate imagery, reputation destruction, and evidence fabrication. They fundamentally undermine trust in audiovisual evidence - the concept of ‘seeing is believing.’ ",
+        "ethics": "Deep fakes attack foundational concepts of truth, consent, and identity. They can cause severe psychological harm to victims of non-consensual synthetic imagery. They create an epistemic crisis in democratic societies where shared visual reality is a basis for public discourse. Legal frameworks are struggling to keep pace.",
         "waContext": "WA law enforcement and cybersecurity researchers have studied deep fake detection and digital forensics.",
         "media": [
             {
@@ -358,7 +358,7 @@ TOPICS_DATA = [
         "references": [
             {
                 "id": 11,
-                "title": "Generative Adversarial Networks",
+                "title": "Generative Adversarial Nets",
                 "url": "https://arxiv.org/abs/1406.2661",
                 "sourceType": "Research Paper",
                 "accessedDate": "2024-03-10",
@@ -371,7 +371,47 @@ TOPICS_DATA = [
                 "sourceType": "Report",
                 "accessedDate": "2024-03-10",
                 "notes": "Deeptrace's analysis of deep fake proliferation"
-            }
+            },
+            {
+                "id": 13,
+                "title": "Deepfakes and Manipulated Media",
+                "url": "https://www.esafety.gov.au/",
+                "sourceType": "Government Website",
+                "accessedDate": "2026-03-23",
+                "notes": "eSafety Commissioner guidance on deepfakes"
+            },
+            {
+                "id": 14,
+                "title": "Generative Adversarial Nets",
+                "url": "N/A",
+                "sourceType": "Journal Article",
+                "accessedDate": "2026-03-23",
+                "notes": "Goodfellow, I., Pouget-Abadie, J., & Mirza, M. (2014). Advances in Neural Information Processing Systems, 2672-2680"
+            },
+            {
+                "id": 15,
+                "title": "Deepfakes: Trick or Treat?",
+                "url": "N/A",
+                "sourceType": "Journal Article",
+                "accessedDate": "2026-03-23",
+                "notes": "Kietzmann, J., Lee, L., & McCarthy, I. (2020). Business Horizons, 63(2), 135-146"
+            },
+            {
+                "id": 16,
+                "title": "The Emergence of Deepfake Technology",
+                "url": "N/A",
+                "sourceType": "Journal Article",
+                "accessedDate": "2026-03-23",
+                "notes": "Westerlund, M. (2019). Technology Innovation Management Review, 9(11)"
+            },
+             {
+                "id": 17,
+                "title": "Deepfakes: A Looming Challenge for Privacy, Democracy, and National Security",
+                "url": "N/A",
+                "sourceType": "Journal Article",
+                "accessedDate": "2026-03-23",
+                "notes": "Citron, D., & Chesney, R. (2019). California Law Review"
+         }
         ]
     },
     {
@@ -435,15 +475,15 @@ TOPICS_DATA = [
         "category": "Frontier AI",
         "status": "Active",
         "introText": "Large Language Models (LLMs) scale Transformer architectures to enormous sizes and datasets.",
-        "shortSummary": "LLMs like GPT-4, Claude, and Gemini represent the current frontier of AI.",
-        "howItWorks": "LLMs are Transformer neural networks trained on vast corpora to predict next words and generate helpful outputs.",
-        "simpleExample": "Like someone who has read almost everything and answers by predicting the most useful response word by word.",
-        "effectiveUse": "Writing assistance, code generation, tutoring, summarisation, research support.",
-        "realWorldExamples": "ChatGPT, GitHub Copilot, Claude, Gemini.",
-        "advantages": "Very versatile and accessible through natural language.",
-        "limitations": "Hallucinations, high compute cost, outdated knowledge, imprecise logic.",
-        "misuse": "Mass disinformation, phishing, academic dishonesty, malicious code generation.",
-        "ethics": "Raises concerns about copyright, employment, power concentration, and environmental cost.",
+        "shortSummary": "Large Language Models (LLMs) like GPT-4, Claude, Gemini, and Llama represent the cutting edge of AI in 2024. Trained on trillions of words and hundreds of billions of parameters, they exhibit capabilities by performing tasks they were never explicitly trained for and are transforming every industry.",
+        "howItWorks": "LLMs are extremely large transformer neural networks trained on vast internet text using self-supervised learning (predicting the next word). Their scale creates emergent capabilities: reasoning, code generation, instruction following, translation, mathematics, and creative writing - all from the same model. Reinforcement learning from Human Feedback (RLHF) is used to align model outputs with human preferences and safety guidelines. Models are accessed via Application Programming Interfaces (APIs) or run locally on consumer hardware.",
+        "simpleExample": "Ask an LLM: ‘Explain quantum entanglement to a 10-year-old using a story about socks.’ The model has never seen that exact prompt but draws on its training to craft an age-appropriate metaphor, with narrative structure and accurate physics - an example of generalisation for beyond simple pattern matching.",
+        "effectiveUse": "LLMs are most effective as flexible general-purpose assistants for text generation, code writing, summarisation, Q&A, translation, tutoring, creative writing, and data analysis. They are transforming software development, education, legal research, scientific writing, and customer service",
+        "realWorldExamples": "ChatGPT (OpenAI) reached 100 million users in two months – the fastest growing consumer application in history. GitHub Copilot, powered by OpenAI, assists millions of developers with code. Claude (Anthropic) is used for long-form document analysis. Google Gemini integrates into Google Workspace. Meta’s Llama models enable open-source deployment on consumer hardware.",
+        "advantages over human intelligence": "LLMs can process and generate text at a speed and scale that humans cannot match. They can draft multiple versions of a response quickly, work across many subject areas, and handle large volumes of text without fatigue. In educational settings, they can provide immediate feedback and different levels of explanation, which can be useful when supervised carefully.",
+        "limitations": "LLMs do not truly understand meaning in the human sense. They can hallucinate - generating confident, fluent, but factually wrong information. They have knowledge cutoffs and cannot access real-time information without tools. They can be inconsistent across sessions. Very large models require enormous compute resources. Fine-tuned alignment is imperfect; models can still harmful outputs. ",
+        "misuse": "Because they produce persuasive text quickly, LLMs can be misused for disinformation, phishing messages, spam, academic misconduct, or the generation of misleading summaries that appear confident but are wrong. Their ease of use lowers the barrier for harmful content creation. ",
+        "ethics": "Key ethical issues include copyright, privacy, embedded social bias, over-reliance by students, and the risk that confident machine output may be trusted without verification. For a museum or school audience, the most important message is that LLM output should be treated as a draft or assistant, not as unquestionable truth. Human checking remains essential. ",
         "waContext": "WA's technology sector is adopting LLMs in mining, agriculture, healthcare, and education.",
         "media": [
             {
@@ -459,9 +499,17 @@ TOPICS_DATA = [
                 "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
                 "title": "AI Computing Infrastructure",
                 "caption": "The massive computing infrastructure required to train LLMs"
+            },
+            {
+                "id": 18,
+                "type": "image",    
+                "url": "https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison",
+                "title": "LLM Architecture Comparison",
+                "caption": "Sebastian Raschka's overview comparing major LLM architectures"
             }
         ],
-        "references": [
+        "references": 
+        [
             {
                 "id": 15,
                 "title": "GPT-4 Technical Report",
@@ -477,6 +525,54 @@ TOPICS_DATA = [
                 "sourceType": "Research Paper",
                 "accessedDate": "2024-03-20",
                 "notes": "Bender et al.'s critique of LLMs"
+            },
+            {
+                "id": 17,
+                "title": "The Big LLM Architecture Comparison",
+                "url": "https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison",
+                "sourceType": "Article",
+                "accessedDate": "2026-03-25",
+                "notes": "Sebastian Raschka's overview comparing major LLM architectures"
+            },
+            {
+                "id": 18,
+                "title": "Large Language Models: Guidance of the WA Public Sector",
+                "url": "https://www.wa.gov.au/system/files/2025-02/largelanguagemodels.pdf",
+                "sourceType": "Government Report",
+                "accessedDate": "2026-03-13",
+                "notes": "Guidelines from WA Government on LLM usage in the public sector"
+            },
+            {
+                "id": 19,
+                "title": "Guidance on Privacy and AI Products",
+                "url": "https://www.oaic.gov.au/",
+                "sourceType": "Government Website",
+                "accessedDate": "2026-03-24",
+                "notes": "Privacy guidance for AI systems from OAIC"
+            },
+            {
+                "id": 20,
+                "title": "GPT-4 Technical Report",
+                "url": "https://arxiv.org/pdf/2303.08774",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026-03-22",
+                "notes": "OpenAI's technical report on GPT-4"
+            },
+            {
+                "id": 21,
+                "title": "Training Language Models to Follow Instructions with Human Feedback",
+                "url": "https://arxiv.org/pdf/2203.02155",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026-03-22",
+                "notes": "Ouyang et al. paper on RLHF for LLM alignment"
+            },
+            {
+                "id": 22,
+                "title": "Attention Is All You Need",
+                "url": "https://arxiv.org/abs/1706.03762",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026-03-22",
+                "notes": "Foundational Transformer architecture paper"
             }
         ]
     }
