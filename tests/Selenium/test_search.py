@@ -1,7 +1,6 @@
 import os
 import sys
 import threading
-from pathlib import Path
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -10,12 +9,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from werkzeug.serving import make_server
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, PROJECT_ROOT)
 
 from app import create_app
 from models import db
-import init_db  # ⭐ Important: directly use your init data
+import init_db
 
 
 class ServerThread(threading.Thread):
@@ -34,21 +33,17 @@ class ServerThread(threading.Thread):
 
 
 def test_search_page_filtering(tmp_path):
-    # Use a temporary database (will not affect instance folder)
     db_path = tmp_path / "test.db"
 
     app = create_app()
-
     app.config.update({
         "TESTING": True,
-        "SQLALCHEMY_DATABASE_URI": f"sqlite:///{db_path}"
+        "SQLALCHEMY_DATABASE_URI": f"sqlite:///{db_path}",
     })
 
     with app.app_context():
         db.drop_all()
         db.create_all()
-
-        # Directly seed database using init_db data (10 records)
         init_db.seed_database()
 
     server = ServerThread(app, port=5001)
@@ -74,10 +69,8 @@ def test_search_page_filtering(tmp_path):
             EC.presence_of_element_located((By.ID, "resultCount"))
         )
 
-        # 1️⃣ Initial state
         assert empty_state.is_displayed()
 
-        # 2️⃣ Search for existing content (using real data)
         driver.execute_script("""
             arguments[0].value = 'Turing';
             arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
@@ -97,26 +90,22 @@ def test_search_page_filtering(tmp_path):
         assert len(visible_cards) >= 1
         assert any("Turing" in c.text for c in visible_cards)
 
-        # 3️⃣ Search for non-existing content
         driver.execute_script("""
             arguments[0].value = 'zzzzzzz';
             arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
         """, search_input)
 
         wait.until(
-            lambda d: "No results found"
-            in d.find_element(By.ID, "emptyState").text
+            lambda d: "No results found" in d.find_element(By.ID, "emptyState").text
         )
 
-        # 4️⃣ Clear input
         driver.execute_script("""
             arguments[0].value = '';
             arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
         """, search_input)
 
         wait.until(
-            lambda d: "Enter a search term"
-            in d.find_element(By.ID, "emptyState").text
+            lambda d: "Enter a search term" in d.find_element(By.ID, "emptyState").text
         )
 
     finally:
