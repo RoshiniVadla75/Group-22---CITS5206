@@ -192,7 +192,7 @@ pytest
 pytest tests/Unit
 ```
 
-4. Run only Selenium tests
+### 4. Run only Selenium tests
 Before running Selenium tests, start the Flask application in a separate terminal:
 
 ```bash
