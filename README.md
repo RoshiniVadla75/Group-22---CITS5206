@@ -168,6 +168,47 @@ python app.py
 http://127.0.0.1:5000/
 ```
 
+## 🧪 How to Run Tests
+
+This project includes both **unit tests** and **Selenium tests**.
+
+### 1. Install dependencies
+Make sure all required packages are installed:
+
+```bash
+pip install -r requirements.txt
+pip install pytest selenium
+```
+
+### 2. Run all tests
+From the project root directory, run:
+
+```bash
+pytest
+```
+
+### 3. Run only unit tests
+```bash
+pytest tests/Unit
+```
+
+### 4. Run only Selenium tests
+Before running Selenium tests, start the Flask application in a separate terminal:
+
+```bash
+python app.py
+```
+
+Then run:
+```bash
+pytest tests/Selenium
+```
+### Notes
+	•	Run tests from the project root directory.
+	•	Selenium tests require Chrome and ChromeDriver to be installed and working correctly.
+	•	The Guided Tour, Home, Timeline, and Search Selenium tests depend on the application being available at http://127.0.0.1:5000.
+
+
 ## 🔐 Authentication
 
 This project includes a user authentication system using **Flask-Login**.
@@ -212,7 +253,7 @@ These APIs are used by frontend JavaScript for dynamic rendering.
 GROUP-22---CITS5206/
 ├── app/
 │   ├── static/
-│   │   ├── css/                 
+│   │   ├── css/
 │   │   │   ├── auth.css
 │   │   │   ├── explore-wa.css
 │   │   │   ├── guided-tour.css
@@ -220,7 +261,7 @@ GROUP-22---CITS5206/
 │   │   │   ├── search.css
 │   │   │   ├── timeline.css
 │   │   │   └── topic-detail.css
-│   │   └── js/                  
+│   │   └── js/
 │   │       ├── explore-wa.js
 │   │       ├── guided-tour.js
 │   │       ├── home.js
@@ -229,7 +270,7 @@ GROUP-22---CITS5206/
 │   │       ├── timeline.js
 │   │       ├── topic_data.js
 │   │       └── topic-detail.js
-│   └── templates/               
+│   └── templates/
 │       ├── explore_WA.html
 │       ├── guided_tour.html
 │       ├── home.html
@@ -239,21 +280,30 @@ GROUP-22---CITS5206/
 │       ├── timeline.html
 │       └── topic_detail.html
 ├── instance/
-│   └── ai_museum.db             
-├── migrations/                  
-│   ├── versions/
+│   └── ai_museum.db
+├── migrations/
 │   ├── alembic.ini
 │   ├── env.py
 │   ├── README
 │   └── script.py.mako
-├── __pycache__/                
-├── .gitignore                   
-├── app.py                       
-├── init_db.py                   
-├── models.py                    
-├── README.md                   
-├── requirements.txt             
-└── routes.py                    
+├── tests/
+│   ├── Selenium/
+│   │   ├── test_guided_tour.py
+│   │   ├── test_home.py
+│   │   ├── test_search.py
+│   │   └── test_timeline.py
+│   ├── Unit/
+│   │   ├── test_app.py
+│   │   ├── test_models.py
+│   │   └── test_routes.py
+│   └── conftest.py
+├── .gitignore
+├── app.py
+├── init_db.py
+├── models.py
+├── README.md
+├── requirements.txt
+└── routes.py
 ```
 
 ## ✅ Features Implemented
