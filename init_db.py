@@ -402,12 +402,12 @@ TOPICS_DATA = [
         "limitations": "Deep fakes can still be detected by artefacts around eyes, ears, and hair, and by unnatural blinking or lighting. They require significant compute and data for high quality. Real-time deep fakes at high resolution remain challenging. Detection tools are in an arms race with generation tools",
         "misuse": "Deep fakes are weaponised for political disinformation, fraud (CEO voice spoofing for wire transfers), non-consensual intimate imagery, reputation destruction, and evidence fabrication. They fundamentally undermine trust in audiovisual evidence - the concept of ‘seeing is believing.’ ",
         "ethics": "Deep fakes attack foundational concepts of truth, consent, and identity. They can cause severe psychological harm to victims of non-consensual synthetic imagery. They create an epistemic crisis in democratic societies where shared visual reality is a basis for public discourse. Legal frameworks are struggling to keep pace.",
-        "waContext": "WA law enforcement and cybersecurity researchers have studied deep fake detection and digital forensics.",
+        "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
         "media": [
             {
                 "id": 12,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600",
+                "url": "/static/images/deep%20fake.png",
                 "title": "Synthetic Media Generation",
                 "caption": "The technology behind generating synthetic media content"
             },
@@ -572,28 +572,28 @@ TOPICS_DATA = [
         "limitations": "LLMs do not truly understand meaning in the human sense. They can hallucinate - generating confident, fluent, but factually wrong information. They have knowledge cutoffs and cannot access real-time information without tools. They can be inconsistent across sessions. Very large models require enormous compute resources. Fine-tuned alignment is imperfect; models can still harmful outputs. ",
         "misuse": "Because they produce persuasive text quickly, LLMs can be misused for disinformation, phishing messages, spam, academic misconduct, or the generation of misleading summaries that appear confident but are wrong. Their ease of use lowers the barrier for harmful content creation. ",
         "ethics": "Key ethical issues include copyright, privacy, embedded social bias, over-reliance by students, and the risk that confident machine output may be trusted without verification. For a museum or school audience, the most important message is that LLM output should be treated as a draft or assistant, not as unquestionable truth. Human checking remains essential. ",
-        "waContext": "WA's technology sector is adopting LLMs in mining, agriculture, healthcare, and education.",
+        "waContext": "Western Australia’s capability in Large Language Models has developed through documented academic research and applied system development, rather than creating foundational models. At the University of Western Australia, researchers have directly contributed to LLM knowledge through peer-reviewed work such as “A Comprehensive Overview of Large Language Models” (2025), which surveys advanced topics including multimodal LLMs, training strategies, and benchmarking​ (University of Western Australia, 2025)​ . This shows that WA researchers are actively contributing to the global understanding and refinement of LLM systems, not just using them. At Curtin University, current research projects explicitly focus on LLM-powered autonomous systems, where language models are integrated with real-world tools such as sensors and infrastructure monitoring systems​ (Curtin University, 2025)​ . These projects demonstrate practical implementation of LLMs in areas like: infrastructure management, real-time decision systems, intelligent automation. At the national level, evidence shows that Australia does not yet produce globally competitive LLMs (like GPT-4) and instead relies on international models while focusing on application and adaptation . ",
         "media": [
             {
                 "id": 16,
+                "type": "image",    
+                "url": "/static/images/large%20language%20models.png",
+                "title": "LLM Architectures,Training, and Applications",
+                "caption": "AI architectures, training processes, and applications of LLMs in various industries"
+            },
+            {
+                "id": 17,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600",
                 "title": "Modern AI Interface",
                 "caption": "The conversational interfaces that made LLMs accessible to everyone"
             },
             {
-                "id": 17,
+                "id": 18,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
                 "title": "AI Computing Infrastructure",
                 "caption": "The massive computing infrastructure required to train LLMs"
-            },
-            {
-                "id": 18,
-                "type": "image",    
-                "url": "https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison",
-                "title": "LLM Architecture Comparison",
-                "caption": "Sebastian Raschka's overview comparing major LLM architectures"
             }
         ],
         "references": 
@@ -613,14 +613,6 @@ TOPICS_DATA = [
                 "sourceType": "Research Paper",
                 "accessedDate": "2024-03-20",
                 "notes": "Bender et al.'s critique of LLMs"
-            },
-            {
-                "id": 17,
-                "title": "The Big LLM Architecture Comparison",
-                "url": "https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison",
-                "sourceType": "Article",
-                "accessedDate": "2026-03-25",
-                "notes": "Sebastian Raschka's overview comparing major LLM architectures"
             },
             {
                 "id": 18,

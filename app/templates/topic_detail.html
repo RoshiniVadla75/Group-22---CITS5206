@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/topic-detail.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/topic-diagram.css', _t='5') }}"
+    />
   </head>
   <body>
     <div class="site-wrapper">
@@ -141,6 +145,29 @@
                       <span class="exhibit-label">How It Works</span>
                     </div>
                     <p class="section-text">{{ topic.how_it_works }}</p>
+                  </section>
+                  {% endif %}
+
+                  {% if topic %}
+                  <section class="museum-card interactive-diagram-section">
+                    <div class="section-title-row">
+                      <span class="section-emoji">🧩</span>
+                      <span class="exhibit-label">Interactive Diagram</span>
+                    </div>
+
+                    <p class="diagram-intro">
+                      Click each stage to understand how this technology works.
+                    </p>
+
+                    <div id="interactive-diagram" data-slug="{{ topic.slug }}">
+                      <div class="diagram-flow vertical" id="diagram-flow"></div>
+                      <div class="diagram-info" id="diagram-info">
+                        <h3 id="diagram-title">Select a stage</h3>
+                        <p id="diagram-description">
+                          Click a step in the diagram to view an explanation.
+                        </p>
+                      </div>
+                    </div>
                   </section>
                   {% endif %}
 
@@ -337,6 +364,7 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/topic-detail.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/topic-diagram.js') }}"></script>
     <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
   </body>
 </html>
