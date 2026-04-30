@@ -142,41 +142,72 @@ TOPICS_DATA = [
             }
         ]
     },
-    {
+        {
         "id": 3,
         "slug": "game-playing-ai",
-        "title": "Game Playing AI",
-        "yearRange": "c. 1970",
+        "title": "Board Game Playing",
+        "yearRange": "1950s–1990s",
         "category": "Strategic Systems",
-        "status": "Active",
-        "introText": "Game-playing AI demonstrated that machines could make strategic decisions in structured environments.",
-        "shortSummary": "Game AI made abstract reasoning and search visible and measurable.",
-        "howItWorks": "These systems explore possible future moves and evaluate game states to choose effective strategies.",
-        "simpleExample": "A chess engine examines several possible moves and chooses the one with the highest evaluation.",
-        "effectiveUse": "Best in structured problems with clear rules and goals.",
-        "realWorldExamples": "Chess engines, board games, and teaching search algorithms.",
-        "advantages": "Excellent for demonstrating planning and search methods.",
-        "limitations": "Performs best in closed systems with well-defined rules.",
-        "misuse": "People may assume success in games always transfers to messy real-world tasks.",
-        "ethics": "Limited direct ethical risk, but influences public perception of AI capability.",
-        "waContext": "WA computing programs have used game-playing systems as teaching tools for search, heuristics, and decision-making.",
+        "status": "Legacy",
+        "introText": "Board games played a central role in early artificial intelligence research because they provide controlled environments with fixed rules, limited actions, and clearly defined outcomes. These characteristics make them suitable for studying decision-making and reasoning. As explained by Tim French (2021), games offer a simplified domain where intelligent behaviour can be analysed without the uncertainty of real-world environments. Early AI researchers used board games as primary evidence that machines could perform structured reasoning tasks. Claude Shannon (1950) formalised computer chess as a search problem, showing that a machine could evaluate future possibilities and select optimal moves. Arthur Samuel (1959) extended this approach by incorporating learning into a checkers program, demonstrating that performance could improve through experience. These properties made board games one of the earliest and most effective forms of evidence that machines could perform structured reasoning within a well-defined domain.",
+        "shortSummary": "Board game AI demonstrated how machines use search, evaluation, and optimisation to make strategic decisions in structured environments.",
+        "howItWorks": "Board game AI models decision-making as a search through possible game states. A game consists of a set of possible states, a set of legal moves, a transition function defining how moves change states, and a utility function that assigns outcomes. The minimax algorithm evaluates moves by assuming both players act optimally. It explores the game tree and selects actions that maximise the AI’s outcome while minimising the opponent’s best response. In simple games such as noughts and crosses, the full game tree can be evaluated. Each possible sequence of moves is explored until a terminal state is reached, and values are propagated back through the tree to determine the optimal move. Because the number of possible states grows rapidly in more complex games, practical systems use depth-limited search, heuristic evaluation functions, and alpha-beta pruning to reduce computation.",
+        "simpleExample": "In noughts and crosses, all possible outcomes can be evaluated, which guarantees optimal play when using minimax. In chess, the search space is much larger, so programs rely on evaluation functions that estimate the value of a position based on factors such as material balance and positional strength.",
+        "effectiveUse": "Board game AI is used in chess engines, checkers programs, and Go systems. The same techniques are applied in planning and scheduling, optimisation problems, and strategic decision systems where search and evaluation are required.",
+        "realWorldExamples": "Deep Blue demonstrated the effectiveness of large-scale search combined with domain-specific evaluation by defeating world chess champion Garry Kasparov in 1997. AlphaGo later combined search with learned evaluation functions, showing how modern systems extend classical approaches to handle complex environments such as Go.",
+        "advantages": "Board game AI provides a controlled environment for testing algorithms, enables precise evaluation of decision-making strategies, and supports the development of search and optimisation techniques.",
+        "limitations": "Board game AI is limited to structured environments with defined rules, does not generalise easily to complex real-world problems, and depends on accurate modelling of the domain.",
+        "misuse": "Search and optimisation techniques developed for board games can be applied to high-stakes decision systems without sufficient transparency, making decisions difficult to interpret.",
+        "ethics": "Success in board games may lead to overestimating AI capability. These systems operate in constrained environments and do not represent general intelligence. Distinguishing between domain-specific performance and broader intelligence remains important.",
+        "waContext": "In Western Australia, board game AI is primarily used for education and training. The University of Western Australia includes game-playing algorithms such as minimax and alpha-beta pruning in its computer science curriculum. These concepts are taught through lecture material and support the development of foundational skills in adversarial search and decision-making.",
         "media": [
             {
                 "id": 3,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&w=1200&q=80",
-                "title": "Strategic Search",
-                "caption": "Game environments provided clear testbeds for AI reasoning."
+                "url": "/static/images/minimax-diagram.png",
+                "title": "Minimax Search",
+                "caption": "Minimax search applied to noughts and crosses, showing how values are propagated through the game tree."
+            },
+            {
+                "id": 30,
+                "type": "image",
+                "url": "/static/images/deep-blue.png",
+                "title": "IBM Deep Blue",
+                "caption": "Deep Blue demonstrated large-scale search and evaluation in computer chess."
             }
         ],
         "references": [
             {
                 "id": 3,
-                "title": "Game AI Background",
-                "url": "https://en.wikipedia.org/wiki/Game_artificial_intelligence",
-                "sourceType": "Background Source",
+                "title": "Programming a computer for playing chess",
+                "url": "https://doi.org/10.1080/14786445008521796",
+                "sourceType": "Research Paper",
                 "accessedDate": "Accessed 2026",
-                "notes": "General overview source."
+                "notes": "Shannon, C. E. (1950)."
+            },
+            {
+                "id": 31,
+                "title": "Game-Playing Lecture",
+                "url": "https://teaching.csse.uwa.edu.au/units/CITS3001/lectures/07GamePlaying.pdf",
+                "sourceType": "Lecture Material",
+                "accessedDate": "Accessed 2026",
+                "notes": "French, T. (2021)."
+            },
+            {
+                "id": 32,
+                "title": "Deep Blue",
+                "url": "https://www.ibm.com/history/deep-blue",
+                "sourceType": "Company Source",
+                "accessedDate": "Accessed 2026",
+                "notes": "IBM (2011)."
+            },
+            {
+                "id": 33,
+                "title": "Mastering the game of Go",
+                "url": "https://www.nature.com/articles/nature16961",
+                "sourceType": "Research Paper",
+                "accessedDate": "Accessed 2026",
+                "notes": "Silver et al. (2016)."
             }
         ]
     },
