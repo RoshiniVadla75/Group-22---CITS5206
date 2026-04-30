@@ -405,14 +405,14 @@ TOPICS_DATA = [
         "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
         "media": [
             {
-                "id": 13,
+                "id": 12,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=600",
+                "url": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7",
                 "title": "Digital Forensics",
                 "caption": "Digital forensics tools used to detect manipulated media"
             },
             {
-                "id": 12,
+                "id": 13,
                 "type": "image",
                 "url": "/static/images/deep%20fake.png",
                 "title": "Synthetic Media Generation",
