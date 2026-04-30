@@ -48,6 +48,56 @@ document.addEventListener('DOMContentLoaded', function () {
           'The cycle repeats through many games. Over time, performance improves through repeated evaluation and adjustment.',
       },
     ],
+    'game-playing-ai': [
+      {
+        label: '1. Current Game State',
+        title: 'Current Game State',
+        description:
+          'The AI observes the current board configuration, including all pieces, positions, and possible legal moves.',
+      },
+      {
+        label: '2. Generate Possible Moves',
+        title: 'Move Generation',
+        description:
+          'The system generates all possible legal moves available from the current state.',
+      },
+      {
+        label: '3. Expand Game Tree',
+        title: 'Game Tree Expansion',
+        description:
+          'Each move leads to a new game state. The AI builds a tree of future possibilities by exploring sequences of moves.',
+      },
+      {
+        label: '4. Depth-Limited Search',
+        title: 'Depth-Limited Search',
+        description:
+          'Because the full game tree is too large, the AI explores only a limited number of moves ahead.',
+      },
+      {
+        label: '5. Evaluate Positions',
+        title: 'Evaluation Function',
+        description:
+          'Each resulting state is scored using a heuristic evaluation function, based on factors like material advantage and position strength.',
+      },
+      {
+        label: '6. Minimax Decision',
+        title: 'Minimax Algorithm',
+        description:
+          'The AI assumes the opponent plays optimally. It maximises its own score while minimising the opponent’s best possible response.',
+      },
+      {
+        label: '7. Alpha-Beta Pruning',
+        title: 'Alpha-Beta Pruning',
+        description:
+          'Branches that cannot influence the final decision are removed early, reducing computation while preserving accuracy.',
+      },
+      {
+        label: '8. Select Best Move',
+        title: 'Best Move Selection',
+        description:
+          'The AI selects the move with the highest evaluated outcome after considering all relevant possibilities.',
+      },
+    ],
     'large-language-models': [
       {
         label: '1. Input Prompt',
