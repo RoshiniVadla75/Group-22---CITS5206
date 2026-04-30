@@ -407,16 +407,16 @@ TOPICS_DATA = [
             {
                 "id": 12,
                 "type": "image",
-                "url": "/static/images/deep%20fake.png",
-                "title": "Synthetic Media Generation",
-                "caption": "The technology behind generating synthetic media content"
+                "url": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7",
+                "title": "Digital Forensics",
+                "caption": "Digital forensics tools used to detect manipulated media"
             },
             {
                 "id": 13,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=600",
-                "title": "Digital Forensics",
-                "caption": "Digital forensics tools used to detect manipulated media"
+                "url": "/static/images/deep%20fake.png",
+                "title": "Synthetic Media Generation",
+                "caption": "The technology behind generating synthetic media content"
             }
         ],
         "references": [
@@ -447,7 +447,7 @@ TOPICS_DATA = [
             {
                 "id": 14,
                 "title": "Generative Adversarial Nets",
-                "url": "N/A",
+                "url": "https://arxiv.org/abs/1406.2661",
                 "sourceType": "Journal Article",
                 "accessedDate": "2026-03-23",
                 "notes": "Goodfellow, I., Pouget-Abadie, J., & Mirza, M. (2014). Advances in Neural Information Processing Systems, 2672-2680"
@@ -576,17 +576,17 @@ TOPICS_DATA = [
         "media": [
             {
                 "id": 16,
-                "type": "image",    
-                "url": "/static/images/large%20language%20models.png",
-                "title": "LLM Architectures,Training, and Applications",
-                "caption": "AI architectures, training processes, and applications of LLMs in various industries"
-            },
-            {
-                "id": 17,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600",
                 "title": "Modern AI Interface",
                 "caption": "The conversational interfaces that made LLMs accessible to everyone"
+            },
+            {
+                "id": 17,
+                "type": "image",    
+                "url": "/static/images/large%20language%20models.png",
+                "title": "LLM Architectures,Training, and Applications",
+                "caption": "AI architectures, training processes, and applications of LLMs in various industries"
             },
             {
                 "id": 18,

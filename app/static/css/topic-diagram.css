@@ -14,12 +14,6 @@ section.topic-card.interactive-diagram-section {
     inset 0 1px 0 hsla(30, 18%, 22%, 0.3) !important;
 }
 
-
-    .diagram-flow.vertical::before {
-      display: none; /* Hide the vertical line */
-    }
-}
-
 .diagram-flow {
   display: flex;
   flex-wrap: wrap;
@@ -53,21 +47,6 @@ section.topic-card.interactive-diagram-section {
   z-index: 0;
 }
 
-      font-size: 2rem; /* Increase font size for better visibility */
-      transition: color 0.2s, transform 0.2s; /* Add transition effects */
-      cursor: pointer; /* Change cursor to pointer */
-      animation: arrow-bounce 1.2s infinite alternate; /* Add bounce animation */
-    }
-
-    .diagram-arrow:hover {
-      color: #ffd700; /* Change color on hover */
-      transform: translateY(4px) scale(1.2); /* Scale effect on hover */
-    }
-
-    @keyframes arrow-bounce {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(8px); }
-    }
 .diagram-step {
   appearance: none;
   -webkit-appearance: none;
@@ -78,7 +57,6 @@ section.topic-card.interactive-diagram-section {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: linear-gradient(
-      padding: 8px 0; /* Increase padding for better spacing */
     135deg,
     rgba(255, 255, 255, 0.05),
     rgba(255, 255, 255, 0.02)
@@ -111,7 +89,7 @@ section.topic-card.interactive-diagram-section {
 
 .diagram-step:not(.active) {
   color: var(--muted-foreground);
-  background: rgba(255,255,255,0.13);
+  background: rgba(255, 255, 255, 0.13);
   border-color: var(--border);
   opacity: 1;
   font-weight: 500;
@@ -122,27 +100,33 @@ section.topic-card.interactive-diagram-section {
   position: relative;
   z-index: 1;
   color: var(--primary);
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1;
+  transition: color 0.2s, transform 0.2s;
+  cursor: pointer;
+  animation: arrow-bounce 1.2s infinite alternate;
 }
 
-      padding: 18px 24px; /* Increase padding for better visuals */
-      border: 2px solid var(--border); /* Change border thickness */
-      border-radius: 14px; /* Change border radius */
-      background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)); /* Change background gradient */
-      font-size: 1.1rem; /* Increase font size */
-      letter-spacing: 0.04em; /* Adjust letter spacing */
-      margin-bottom: 4px; /* Add margin for spacing */
+.diagram-arrow:hover {
+  color: #ffd700;
+  transform: translateY(4px) scale(1.2);
+}
+
+@keyframes arrow-bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(8px);
+  }
+}
+
 .diagram-flow.vertical .diagram-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-      border-color: #ffd700; /* Change border color on hover */
-      color: #ffd700; /* Change text color on hover */
-      background: rgba(255, 215, 0, 0.10); /* Change background on hover */
-      transform: scale(1.04); /* Scale effect on hover */
-      box-shadow: 0 4px 18px hsla(42, 90%, 60%, 0.18); /* Add shadow effect on hover */
   width: 100%;
   padding: 4px 0;
 }
