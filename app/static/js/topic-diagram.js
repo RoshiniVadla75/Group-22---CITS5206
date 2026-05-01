@@ -253,6 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const isVertical = flowContainer.classList.contains("vertical");
   flowContainer.innerHTML = "";
+
   if (isVertical) {
     flowContainer.classList.add("vertical");
   }
@@ -291,6 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const firstButton = flowContainer.querySelector(".diagram-step");
+
   if (firstButton) {
     setActiveStep(firstButton, steps[0]);
   }
