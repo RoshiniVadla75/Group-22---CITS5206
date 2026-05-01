@@ -1,9 +1,30 @@
-# Python cache
+# Python cache files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
-# Database
-instance/
+# Pytest
+.pytest_cache/
 
-# macOS system files
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Database files
+instance/ai_museum.db
+*.db
+*.sqlite3
+
+# macOS
 .DS_Store
+
+# VS Code
+.vscode/
+
+# Selenium / test artifacts
+*.log
+
+# Environment files
+.env
+.env.*

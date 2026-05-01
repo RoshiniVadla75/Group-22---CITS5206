@@ -51,15 +51,14 @@ function renderIntro() {
   app.innerHTML = `
     <section class="tour-intro fade-in">
       <div class="intro-icon">🧭</div>
-      <span class="exhibit-label">Museum Route</span>
-      <h1 class="page-title brass-text">Guided Tour</h1>
+      <span class="exhibit-label">Guided Museum Journey</span>
+      <h1 class="page-title brass-text">Start Your Discovery</h1>
       <p class="intro-text">
-        Follow a structured journey through the history of artificial intelligence.
-        This guided tour will take you through the major paradigm shifts in sequence,
-        while helping you understand their key ideas and Western Australia connections.
+        Step through 10 groundbreaking moments in AI history, presented in chronological order.
+        Each stop reveals a paradigm shift that changed how humans and machines interact.
       </p>
       <p class="intro-meta">
-        ${topics.length} exhibits · Interactive museum walkthrough
+        Estimated time: 15–20 minutes · ${topics.length} exhibits
       </p>
       <button id="beginJourneyBtn" class="primary-btn large-btn">Begin Journey</button>
     </section>
@@ -229,47 +228,87 @@ function renderStep() {
 
   const topic = topics[currentStep];
   const total = topics.length;
+  const percent = total > 0 ? Math.round(((currentStep + 1) / total) * 100) : 0;
+
+  const previewText =
+    topic.introText ||
+    topic.shortSummary ||
+    "Discover this exhibit in the guided tour.";
+
+  const quoteText =
+    topic.shortSummary ||
+    topic.introText ||
+    "A key moment in AI history.";
 
   app.innerHTML = `
-    ${renderProgress()}
+    <section class="guided-preview-page fade-in">
+      <div class="tour-topline">
+        <span class="tour-step-label">Stop ${currentStep + 1} of ${total}</span>
+        <button id="endTourBtn" class="tour-end-btn">× End Tour</button>
+      </div>
 
-    <section class="topic-step fade-in">
-      <article class="museum-card topic-card">
-        <div class="topic-meta">
-          <span class="exhibit-label">Stop ${currentStep + 1}</span>
-          ${topic.yearRange ? `<span class="topic-year">${escapeHtml(topic.yearRange)}</span>` : ""}
+      <div class="progress-bar-shell">
+        <div class="progress-bar-fill" style="width: ${percent}%;"></div>
+      </div>
+
+      <div class="progress-dots">
+        ${topics
+          .map((_, index) => {
+            const classes = [
+              "progress-dot",
+              visited.has(index) ? "visited" : "",
+              index === currentStep ? "current" : "",
+            ]
+              .filter(Boolean)
+              .join(" ");
+
+            return `<button class="${classes}" data-step="${index}" aria-label="Go to stop ${index + 1}"></button>`;
+          })
+          .join("")}
+      </div>
+
+      <article class="guided-preview-card museum-card">
+        <div class="guided-preview-meta">
+          ${
+            topic.yearRange
+              ? `<span class="guided-year exhibit-label">${escapeHtml(topic.yearRange)}</span>`
+              : ""
+          }
+          ${
+            topic.category
+              ? `<span class="guided-category">${escapeHtml(topic.category)}</span>`
+              : ""
+          }
         </div>
 
-        <h2 class="topic-title brass-text">${escapeHtml(topic.title)}</h2>
+        <h2 class="guided-preview-title brass-text">${escapeHtml(topic.title)}</h2>
 
-        <p class="topic-intro">
-          ${escapeHtml(topic.shortSummary || topic.introText || "Discover this exhibit in the guided tour.")}
+        <div class="guided-quote-box">
+          <p>“${escapeHtml(quoteText)}”</p>
+        </div>
+
+        <p class="guided-preview-text">
+          ${escapeHtml(previewText)}
         </p>
 
         <div class="archival-divider"></div>
 
-        <div class="topic-sections">
-          ${renderSections(topic)}
-          ${renderMedia(topic)}
-          ${renderReferences(topic)}
-        </div>
+        <div class="guided-preview-actions">
+          <a href="/topic/${encodeURIComponent(topic.slug)}" class="topic-link">
+            Inspect Full Artefact Detail
+          </a>
 
-        <div class="archival-divider"></div>
+          <div class="guided-nav-buttons">
+            <button id="prevBtn" class="nav-square-btn" ${currentStep === 0 ? "disabled" : ""}>
+              ←
+            </button>
 
-        <div class="topic-link-row">
-          <a href="/topic/${encodeURIComponent(topic.slug)}" class="topic-link">Open full exhibit</a>
+            <button id="nextBtn" class="primary-btn next-stop-btn">
+              ${currentStep === total - 1 ? "Finish Tour →" : "Next Stop →"}
+            </button>
+          </div>
         </div>
       </article>
-
-      <div class="tour-navigation">
-        <button id="prevBtn" class="secondary-btn" ${currentStep === 0 ? "disabled" : ""}>
-          ← Previous
-        </button>
-
-        <button id="nextBtn" class="primary-btn">
-          ${currentStep === total - 1 ? "Finish Tour" : "Next Stop →"}
-        </button>
-      </div>
     </section>
   `;
 
@@ -284,6 +323,7 @@ function renderStep() {
 
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
+  const endTourBtn = document.getElementById("endTourBtn");
 
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
@@ -302,6 +342,14 @@ function renderStep() {
         visited.add(currentStep);
       }
       renderStep();
+    });
+  }
+
+  if (endTourBtn) {
+    endTourBtn.addEventListener("click", () => {
+      currentStep = -1;
+      visited = new Set();
+      renderIntro();
     });
   }
 }
