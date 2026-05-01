@@ -36,15 +36,7 @@ section.topic-card.interactive-diagram-section {
 }
 
 .diagram-flow.vertical::before {
-  content: "";
-  position: absolute;
-  width: 2px;
-  background: hsla(42, 50%, 50%, 0.3);
-  top: 18px;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
+  display: none;
 }
 
 .diagram-step {

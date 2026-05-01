@@ -1,5 +1,6 @@
 from app import app
 from models import db, Topic, Media, TopicReference
+from sqlalchemy import inspect, text
 
 
 TOPICS_DATA = [
@@ -20,6 +21,7 @@ TOPICS_DATA = [
         "limitations": "Passing the Turing Test does not imply true understanding. It focuses mainly on conversation and depends on subjective human judgement.",
         "misuse": "Can be misused in systems that imitate humans to deceive users, generate misleading information, or manipulate users.",
         "ethics": "Raises concerns about trust, transparency, deception, and responsible use of human-like AI systems.",
+        "paradigmShift": "Before Turing’s ideas, artificial intelligence was judged by internal design or rule execution. With the Turing Test, the shift was to evaluate intelligence based on observable behaviour and the ability to communicate like a human.",
         "waContext": "In Western Australia, Turing’s ideas influence conversational systems and automated support tools used in customer service, digital platforms, and universities. This influence is also linked to Professor Jeff Rohl at UWA, who worked at the University of Manchester shortly after Turing’s time. Behaviour-based evaluation remains important in modern AI systems across WA.",
         "media": [
             {
@@ -90,6 +92,7 @@ TOPICS_DATA = [
         "limitations": "Learning machines depend on the quality of feedback data. Early systems required carefully designed features, and learning processes may converge slowly or to suboptimal results.",
         "misuse": "Learning systems may reinforce biased or incorrect patterns if training data or feedback signals are flawed. This can lead to unintended or misleading outcomes.",
         "ethics": "Learning machines optimise measurable objectives, which may not align with broader social or ethical goals. Oversight is required to ensure responsible use and to manage risks related to bias and unintended behaviour.",
+        "paradigmShift": "Before learning machines, artificial intelligence followed fixed rules and could not improve from experience. The shift was to systems that learn from feedback and adapt their behaviour over time.",
         "waContext": "In Western Australia, the influence of learning machines is reflected in research, infrastructure, and industrial application. The University of Western Australia conducts teaching and research in machine learning, data science, and optimisation. These areas build on the principles of adaptive systems and iterative improvement. The Pawsey Supercomputing Research Centre, located in Perth, provides high-performance computing infrastructure that supports large-scale data processing and model training. This infrastructure enables modern systems that extend early learning machine concepts. In industry, Rio Tinto applies machine learning techniques in areas such as predictive maintenance and operational optimisation, where systems improve performance using historical data.",
         "media": [
             {
@@ -159,6 +162,7 @@ TOPICS_DATA = [
         "limitations": "Board game AI is limited to structured environments with defined rules, does not generalise easily to complex real-world problems, and depends on accurate modelling of the domain.",
         "misuse": "Search and optimisation techniques developed for board games can be applied to high-stakes decision systems without sufficient transparency, making decisions difficult to interpret.",
         "ethics": "Success in board games may lead to overestimating AI capability. These systems operate in constrained environments and do not represent general intelligence. Distinguishing between domain-specific performance and broader intelligence remains important.",
+        "paradigmShift": "Before board game AI, computers solved problems using fixed logic and simple rules. The shift was to machines that can search through possibilities, evaluate outcomes, and make strategic decisions in game environments.",
         "waContext": "In Western Australia, board game AI is primarily used for education and training. The University of Western Australia includes game-playing algorithms such as minimax and alpha-beta pruning in its computer science curriculum. These concepts are taught through lecture material and support the development of foundational skills in adversarial search and decision-making.",
         "media": [
             {
@@ -228,6 +232,7 @@ TOPICS_DATA = [
         "limitations": "They are brittle, hard to maintain, and struggle with uncertainty and ambiguity.",
         "misuse": "They can be misused when applied outside their narrow domain.",
         "ethics": "Important concerns include accountability, transparency, and over-reliance in high-stakes domains.",
+        "paradigmShift": "Before expert systems, AI could not capture the detailed knowledge of human specialists. The shift was to rule-based systems that encode expert reasoning and provide advice in narrow domains.",
         "waContext": "Expert systems influenced decision support work in WA across mining, agriculture, and environmental management.",
         "media": [
             {
@@ -273,6 +278,7 @@ TOPICS_DATA = [
     "limitations": "Training requires large datasets and computational resources. The internal decision-making process is often difficult to interpret, leading to 'black box' concerns.",
     "misuse": "ANNs can be misused in surveillance systems, biased automated decision-making, and misleading predictive systems.",
     "ethics": "Key concerns include bias in training data, lack of transparency, and fairness in automated decision-making.",
+    "paradigmShift": "Before artificial neural networks, machine intelligence relied on hand-coded rules and symbolic reasoning. The shift was to learning systems that discover patterns directly from data through layered network structures.",
     "waContext": "In Western Australia, neural network research is mainly carried out in universities and research institutions such as UWA, Curtin, ECU, and Murdoch University, as well as organisations like CSIRO. Facilities such as the Pawsey Supercomputing Research Centre support large-scale data processing and AI research. Neural networks are also applied in projects like the Square Kilometre Array (SKA) to analyse large volumes of scientific data.",
     "media": [
         {
@@ -350,6 +356,7 @@ TOPICS_DATA = [
         "limitations": "They depend on data quality, require significant computational resources, and rely on statistical patterns rather than true understanding, which can lead to incorrect or misleading results.",
         "misuse": "Can be misused to spread misinformation, generate misleading answers, and manipulate information at scale.",
         "ethics": "Key concerns include reliability of sources, bias in data, and over-reliance on automated decision-making systems.",
+        "paradigmShift": "Before internet-driven AI, systems had access only to local or curated data. The shift was to large-scale retrieval and ranking of information from the web and distributed datasets.",
         "waContext": "In Western Australia, internet-driven AI systems are widely used in industries such as mining and energy. Companies like Rio Tinto and BHP use data-driven systems and remote operations centres to monitor and manage large-scale operations. Universities such as UWA and Curtin also contribute to research in information retrieval and large-scale data analysis.",
         "media": [
             {
@@ -411,6 +418,7 @@ TOPICS_DATA = [
         "limitations": "Computationally expensive and does not guarantee the global optimum.",
         "misuse": "Can be used to optimise harmful or adversarial outcomes if the fitness criteria are poorly designed.",
         "ethics": "Optimization goals must be defined carefully to avoid harmful unintended consequences.",
+        "paradigmShift": "Before evolutionary computing, optimisation relied on deterministic and gradient-based methods. The shift was to population-based search inspired by natural selection, which can explore many solutions simultaneously.",
         "waContext": "WA researchers have used genetic algorithms in mining optimisation and logistics.",
         "media": [
             {
@@ -464,7 +472,7 @@ TOPICS_DATA = [
         "limitations": "Deep fakes can still be detected by artefacts around eyes, ears, and hair, and by unnatural blinking or lighting. They require significant compute and data for high quality. Real-time deep fakes at high resolution remain challenging. Detection tools are in an arms race with generation tools",
         "misuse": "Deep fakes are weaponised for political disinformation, fraud (CEO voice spoofing for wire transfers), non-consensual intimate imagery, reputation destruction, and evidence fabrication. They fundamentally undermine trust in audiovisual evidence - the concept of ‘seeing is believing.’ ",
         "ethics": "Deep fakes attack foundational concepts of truth, consent, and identity. They can cause severe psychological harm to victims of non-consensual synthetic imagery. They create an epistemic crisis in democratic societies where shared visual reality is a basis for public discourse. Legal frameworks are struggling to keep pace.",
-        "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
+        "paradigmShift": "Before synthetic media technologies, digital images, videos, and audio were generally trusted as accurate representations of reality. While editing tools existed, most users assumed that visual and audio content was authentic.\n\nWith the development of deepfake technologies, artificial intelligence can now generate highly realistic but fabricated media. This makes it difficult to distinguish between real and manipulated content.\n\nThis represents a shift from trusting digital media to critically evaluating its authenticity, where users must question what they see and rely on verification tools and ethical safeguards.",        "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
         "media": [
             {
                 "id": 12,
@@ -557,6 +565,7 @@ TOPICS_DATA = [
     "limitations": "Human language is complex and context-dependent, making full understanding difficult. NLP systems rely on statistical patterns rather than true comprehension, can inherit bias from training data, and often require significant computational resources.",
     "misuse": "NLP can be misused to generate fake or misleading content, automate scams or spam messages, and produce biased or harmful text.",
     "ethics": "Key ethical concerns include bias in language data, misinformation, harmful outputs, and the social impact of automated language systems.",
+    "paradigmShift": "Before NLP, computers processed language using rigid, hand-coded rules. The shift was to statistical and contextual language processing that can handle ambiguity and learn from large text data.",
     "waContext": "In Western Australia, NLP research has developed mainly through universities and research institutions such as UWA, Curtin, ECU, Murdoch University, and organisations including CSIRO. Research infrastructure such as the Pawsey Supercomputing Research Centre supports large-scale NLP and AI work, while projects such as the Square Kilometre Array (SKA) highlight the role of NLP in processing textual and metadata information for scientific research.",
     "media": [
         {
@@ -634,6 +643,7 @@ TOPICS_DATA = [
         "limitations": "LLMs do not truly understand meaning in the human sense. They can hallucinate - generating confident, fluent, but factually wrong information. They have knowledge cutoffs and cannot access real-time information without tools. They can be inconsistent across sessions. Very large models require enormous compute resources. Fine-tuned alignment is imperfect; models can still harmful outputs. ",
         "misuse": "Because they produce persuasive text quickly, LLMs can be misused for disinformation, phishing messages, spam, academic misconduct, or the generation of misleading summaries that appear confident but are wrong. Their ease of use lowers the barrier for harmful content creation. ",
         "ethics": "Key ethical issues include copyright, privacy, embedded social bias, over-reliance by students, and the risk that confident machine output may be trusted without verification. For a museum or school audience, the most important message is that LLM output should be treated as a draft or assistant, not as unquestionable truth. Human checking remains essential. ",
+        "paradigmShift": "Before large language models, computers followed explicit instructions and produced predictable outputs. Users interacted through structured commands, and systems did not understand meaning or context.\n\nWith the emergence of large language models, computers are now seen as systems capable of understanding language, generating human-like responses, and assisting with complex cognitive tasks.\n\nThis represents a shift from command-based computing to interaction-based and context-aware systems, where users expect computers to interpret intent rather than simply execute instructions.",
         "waContext": "Western Australia’s capability in Large Language Models has developed through documented academic research and applied system development, rather than creating foundational models. At the University of Western Australia, researchers have directly contributed to LLM knowledge through peer-reviewed work such as “A Comprehensive Overview of Large Language Models” (2025), which surveys advanced topics including multimodal LLMs, training strategies, and benchmarking​ (University of Western Australia, 2025)​ . This shows that WA researchers are actively contributing to the global understanding and refinement of LLM systems, not just using them. At Curtin University, current research projects explicitly focus on LLM-powered autonomous systems, where language models are integrated with real-world tools such as sensors and infrastructure monitoring systems​ (Curtin University, 2025)​ . These projects demonstrate practical implementation of LLMs in areas like: infrastructure management, real-time decision systems, intelligent automation. At the national level, evidence shows that Australia does not yet produce globally competitive LLMs (like GPT-4) and instead relies on international models while focusing on application and adaptation . ",
         "media": [
             {
@@ -752,6 +762,7 @@ def seed_database():
                 topic.limitations = topic_data["limitations"]
                 topic.misuse = topic_data["misuse"]
                 topic.ethics = topic_data["ethics"]
+                topic.paradigm_shift = topic_data.get("paradigmShift", "")
                 topic.wa_context = topic_data["waContext"]
 
                 print(f"Updated: {topic.slug}")
@@ -776,8 +787,9 @@ def seed_database():
                     limitations=topic_data["limitations"],
                     misuse=topic_data["misuse"],
                     ethics=topic_data["ethics"],
+                    paradigm_shift=topic_data.get("paradigmShift", ""),
                     wa_context=topic_data["waContext"],
-                )
+)
 
                 db.session.add(topic)
                 db.session.flush()
