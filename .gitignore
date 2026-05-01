@@ -27,4 +27,4 @@ instance/ai_museum.db
 
 # Environment files
 .env
-.env.*
+.env.*.DS_Store

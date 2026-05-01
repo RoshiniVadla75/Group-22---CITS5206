@@ -25,7 +25,8 @@ def create_app():
     instance_path = os.path.join(os.path.dirname(__file__), "instance")
     os.makedirs(instance_path, exist_ok=True)
     db_path = os.path.abspath(os.path.join(instance_path, "ai_museum.db"))
-    db_uri = f"sqlite:///{db_path.replace('\\', '/')}"
+    db_path = db_path.replace("\\", "/")
+    db_uri = f"sqlite:///{db_path}"
 
     # -------------------------
     # CONFIG

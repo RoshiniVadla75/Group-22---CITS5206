@@ -7,70 +7,70 @@ TOPICS_DATA = [
         "id": 1,
         "slug": "turing-thoughts-on-ai",
         "title": "Alan Turing & The Turing Test",
-        "yearRange": "c. 1950",
+        "yearRange": "1950",
         "category": "Foundations",
         "status": "Legacy",
-        "introText": "Alan Turing was one of the earliest thinkers to explore artificial intelligence. His idea of the Turing Test evaluates machine intelligence based on behaviour rather than internal structure.",
-        "shortSummary": "The Turing Test evaluates whether a machine can exhibit human-like behaviour through conversation.",
-        "howItWorks": "Turing proposed that machines could produce intelligent behaviour by following logical rules and algorithms rather than copying the human brain. Systems can simulate reasoning and decision-making by evaluating options and selecting the most favourable outcomes, such as in a chess game.",
-        "simpleExample": "A machine playing chess evaluates possible moves and selects the best option based on defined criteria. Another example is ELIZA, a program from the 1960s that simulated conversation using pattern-matching rules, showing how machines can appear intelligent without true understanding.",
-        "effectiveUse": "Evaluating conversational systems, game-playing AI, and decision-making systems based on observable behaviour.",
-        "realWorldExamples": "Chatbots, conversational agents, large language models, game-playing systems, and decision-support tools.",
-        "advantages": "Focuses on observable behaviour, provides a practical evaluation method, and encourages human-like interaction in AI systems.",
-        "limitations": "Passing the Turing Test does not imply true understanding. It focuses mainly on conversation and depends on subjective human judgement.",
-        "misuse": "Can be misused in systems that imitate humans to deceive users, generate misleading information, or manipulate users.",
-        "ethics": "Raises concerns about trust, transparency, deception, and responsible use of human-like AI systems.",
-        "paradigmShift": "Before Turing's ideas, artificial intelligence was judged by internal design or rule execution. With the Turing Test, the shift was to evaluate intelligence based on observable behaviour and the ability to communicate like a human.",
-        "waContext": "In Western Australia, Turing’s ideas influence conversational systems and automated support tools used in customer service, digital platforms, and universities. This influence is also linked to Professor Jeff Rohl at UWA, who worked at the University of Manchester shortly after Turing’s time. Behaviour-based evaluation remains important in modern AI systems across WA.",
+        "introText": "Alan Turing was one of the earliest thinkers to explore artificial intelligence in 1950. One of his most important contributions was the idea of the Turing Test, which evaluates machine intelligence based on behaviour rather than internal structure. This idea laid an important foundation for modern AI research. The Turing Test involves a human evaluator communicating with both a machine and another human without knowing which is which. If the evaluator cannot reliably tell them apart, the machine is considered to exhibit intelligent behaviour. The test focuses not only on correctness, but also on whether the machine can maintain natural, human-like conversation over time.",
+        "shortSummary": "The Turing Test evaluates machine intelligence based on observable behaviour rather than internal structure.",
+        "howItWorks": "Turing proposed that machines could follow logical rules and algorithms to produce intelligent behaviour. Instead of copying the human brain directly, he suggested that machines could achieve similar outcomes using different methods. This idea can be understood through an analogy: just as airplanes achieve flight using engines and wings rather than flapping like birds, AI systems can demonstrate intelligence without thinking in the same way as humans. Turing also explored how machines could solve problems through structured reasoning. For example, in a chess game, a system can evaluate possible moves, compare outcomes, and select the most favourable option.",
+        "simpleExample": "A simple example of Turing’s idea is a machine playing chess. The system evaluates different possible moves, predicts outcomes, and selects the best option based on predefined rules or calculations. However, the idea of “best” must be clearly defined, usually based on measurable criteria such as winning probability or board advantage. Another example is a conversational system. If a machine can respond to questions in a way that appears natural and human-like, it may pass the Turing Test. However, this does not mean the system truly understands the conversation; it may only be generating responses based on patterns. An early example of this is ELIZA, a program developed in the 1960s that simulated human conversation using simple pattern-matching rules. Although ELIZA could produce responses that appeared meaningful, it did not truly understand the conversation. These examples show that intelligence, in Turing’s framework, is evaluated based on observable behaviour rather than internal understanding.",
+        "paradigmShift": "Before Alan Turing’s work, computers were primarily viewed as machines for performing calculations and executing predefined instructions. Intelligence was often associated with human thinking processes, and it was generally assumed that machines could not demonstrate genuine intelligence. Turing challenged this assumption by proposing that intelligence should be evaluated based on observable behaviour rather than internal processes. Through the idea of the Turing Test, he suggested that if a machine could produce responses indistinguishable from a human, it could be considered intelligent, regardless of how it actually worked. This shifted the focus of artificial intelligence from attempting to replicate human thinking exactly to designing systems that can produce intelligent behaviour. It also opened the possibility that machines could appear intelligent without truly “understanding” in the human sense. This marked a fundamental change in thinking—from viewing computers as purely computational tools to recognising them as systems capable of simulating intelligent behaviour through interaction.",
+        "effectiveUse": "Conversational agents and chatbots, game-playing systems such as chess programs, and decision-making systems.",
+        "realWorldExamples": "The Turing Test remains an important concept in evaluating AI systems. Modern chatbots and large language models are often informally assessed using similar principles. For example, if users cannot easily tell whether they are interacting with a human or a machine, the system may be considered successful in terms of behavioural intelligence. However, many systems that appear intelligent still rely on pattern recognition rather than true understanding, which reflects one of the key limitations of the Turing Test.",
+        "advantages": "Turing’s approach focuses on observable behaviour rather than internal complexity. It provides a practical way to evaluate AI systems and encourages the development of systems that interact naturally with humans.",
+        "limitations": "Passing the Turing Test does not mean a system truly understands language or thinks like a human. It may only imitate human responses. The test also focuses mainly on conversation and does not measure other types of intelligence, such as perception or physical interaction. Finally, it depends on human judgement, which may be subjective and inconsistent.",
+        "misuse": "Turing’s ideas can be misused in systems that imitate humans to deceive users, generate misleading or false information, or manipulate users through human-like interaction.",
+        "ethics": "These issues raise concerns about trust, transparency, deception, and the ethical use of AI systems.",
+        "waContext": "Although Alan Turing developed his ideas in the United Kingdom, the concept of evaluating intelligence through observable behaviour can be seen in modern applications in Western Australia. This influence can also be linked to Professor Jeff Rohl, the founding Professor of Computer Science at The University of Western Australia. Professor Rohl worked at the University of Manchester shortly after Turing’s time, where many of Turing’s ideas were still influential. Through this connection, early concepts of artificial intelligence were indirectly introduced to Western Australia. In WA, conversational systems, automated support tools, and decision-support systems are evaluated based on how effectively they respond in a clear, helpful, and human-like way.",
         "media": [
             {
                 "id": 1,
                 "type": "image",
-                "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg",
+                "url": "/static/images/alan-turing.png",
                 "title": "Alan Turing",
-                "caption": "Alan Turing, a pioneer of artificial intelligence and the originator of the Turing Test"
+                "caption": "Figure 1: Alan Turing, a pioneer of artificial intelligence and the originator of the Turing Test"
             }
         ],
         "references": [
             {
                 "id": 1,
-                "title": "Artificial neural networks technology",
-                "url": "https://d1wqtxts1xzle7.cloudfront.net/33786328/Artificial_Neural_Networks_Technology-libre.pdf",
-                "sourceType": "Research Paper",
+                "title": "The status and future of the Turing Test",
+                "url": "https://academicos.azc.uam.mx/cbr/Cursos/UEA_14P_LenAut/2StatusFutureTT2001.pdf",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Anderson & McNeill (1992)"
+                "notes": "Moor (2001)"
             },
             {
                 "id": 2,
-                "title": "Artificial neural networks: fundamentals, computing, design, and application",
-                "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
-                "sourceType": "Research Paper",
+                "title": "The Turing Test: The first 50 years",
+                "url": "https://lead.ube.fr/wp-content/uploads/2023/09/000279-the-turing-test-the-first-50-years.pdf",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Basheer & Hajmeer (2000)"
+                "notes": "French (2000)"
             },
             {
                 "id": 3,
-                "title": "Artificial neural networks for beginners",
-                "url": "https://arxiv.org/pdf/cs/0308031",
-                "sourceType": "Research Paper",
+                "title": "ELIZA—A computer program for the study of natural language communication between man and machine",
+                "url": "https://dl.acm.org/doi/pdf/10.1145/365153.365168",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Gershenson (2003)"
+                "notes": "Weizenbaum (1966)"
             },
             {
                 "id": 4,
-                "title": "Fundamentals of artificial neural networks",
-                "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews",
-                "sourceType": "Book",
+                "title": "Turing Test: 50 years later",
+                "url": "https://philarchive.org/archive/PINTT",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Hassoun (1995)"
+                "notes": "Saygin, Cicekli, & Akman (2000)"
             },
             {
                 "id": 5,
-                "title": "What are artificial neural networks?",
-                "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
-                "sourceType": "Research Paper",
+                "title": "Rethinking the Turing Test",
+                "url": "https://philpapers.org/archive/PRORTT-3.pdf",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Krogh (2008)"
+                "notes": "Proudfoot (2010)"
             }
         ]
     },
@@ -278,7 +278,7 @@ TOPICS_DATA = [
         "introText": "Artificial Neural Nets, or Artificial Neural Networks (ANNs), are a key area of artificial intelligence inspired by the structure of the human brain. They consist of interconnected artificial neurons that learn patterns from data. ANNs became particularly important between 1980 and 2000 for tasks such as classification and pattern recognition. Early research in neural networks was criticised by researchers such as Marvin Minsky, who argued that simple neural networks without intermediate layers could not solve complex problems. This criticism contributed to a slowdown in research for a period of time. However, later developments introduced networks with multiple hidden layers, which led to the rise of deep learning. Deep learning refers to neural networks with several intermediate hidden layers, allowing systems to learn more complex patterns and relationships in data.",
         "shortSummary": "ANNs learn patterns from data through interconnected artificial neurons and later became the foundation of deep learning systems.",
         "howItWorks": "ANNs are made up of layers of neurons connected by weighted links. A typical neural network includes three main parts: an input layer, one or more hidden layers, and an output layer. Data enters through the input layer, is processed through hidden layers, and produces results in the output layer. Each neuron receives numerical inputs, applies a weighted calculation, and passes the result forward. During training, the network adjusts these weights to reduce errors and improve accuracy. In this way, the system learns patterns from data rather than following explicitly programmed rules. Deep learning extends this idea by adding multiple hidden layers. These additional layers allow the system to capture more complex relationships in the data, which improves performance in tasks such as image and speech recognition.",
-        "simpleExample": "For example, an ANN can classify images of animals. The system first converts an image into numerical data, such as pixel values. These values are processed through multiple layers, where the network detects features such as edges, shapes, and colours. Based on these features, the system predicts the most likely category, such as 'cat' or 'dog'. The 'best' result is chosen based on the highest probability calculated by the network. Another example is handwriting recognition. The system learns from many examples of handwritten letters and identifies patterns in how characters are formed. When new input is given, the network compares it with learned patterns and produces the most probable output. These examples show how ANNs detect patterns and make decisions based on learned data representations.\n\nParadigm Shift: How This Changed Thinking About AI\nBefore the development of Artificial Neural Networks, computers were generally viewed as systems that followed fixed rules and produced predictable outputs. Traditional programs relied on explicitly defined instructions, and it was assumed that the same input would always produce the same result. As a result, computers were seen mainly as calculation tools rather than systems capable of adapting or improving. The introduction of neural networks challenged this assumption. Instead of relying entirely on predefined rules, ANNs could learn patterns directly from data and adjust their internal parameters through experience. This meant that a system could improve its performance over time and produce different, often better, outputs even when given similar inputs. As neural networks evolved into deep learning systems with multiple hidden layers, they demonstrated the ability to solve complex problems such as image and speech recognition. This showed that computers could go beyond simple rule-based processing and begin to mimic certain aspects of human learning. This marked a significant shift in thinking—from viewing computers as rigid, deterministic machines to recognising them as adaptive systems capable of learning from data and improving over time.",
+        "simpleExample": "For example, an ANN can classify images of animals. The system first converts an image into numerical data, such as pixel values. These values are processed through multiple layers, where the network detects features such as edges, shapes, and colours. Based on these features, the system predicts the most likely category, such as 'cat' or 'dog'. The 'best' result is chosen based on the highest probability calculated by the network. Another example is handwriting recognition. The system learns from many examples of handwritten letters and identifies patterns in how characters are formed. When new input is given, the network compares it with learned patterns and produces the most probable output. These examples show how ANNs detect patterns and make decisions based on learned data representations.",
         "effectiveUse": "Pattern recognition, image classification, speech recognition, medical diagnosis, financial prediction, and other tasks where patterns are difficult to define using explicit rules.",
         "realWorldExamples": "Facial recognition is a common real-world application of Artificial Neural Networks. The system learns patterns in facial features, such as the distances between key points on a face. These features are converted into numerical representations and compared with stored data to identify individuals. Deep learning models have significantly improved facial recognition by extracting more detailed and abstract features. The limitations of early perceptrons, such as their inability to solve the XOR problem, also encouraged the development of multi-layer networks that form the basis of modern deep learning.",
         "advantages": "ANNs can learn directly from data, model complex relationships, detect hidden patterns, and improve performance with more data.",
@@ -348,61 +348,73 @@ TOPICS_DATA = [
     },
     {
         "id": 6,
-        "slug": "internet-driven-ai-ibm-watson",
-        "title": "Internet-Driven AI Systems",
-        "yearRange": "c. 2011",
-        "category": "Knowledge Retrieval",
-        "status": "Legacy",
-        "introText": "With the growth of the internet, AI systems gained access to large-scale data, enabling them to connect information across sources and simulate general knowledge.",
-        "shortSummary": "Internet-driven AI systems retrieve, evaluate, and rank information from large datasets rather than relying on fixed rules.",
-        "howItWorks": "Internet-driven AI systems process large amounts of unstructured data such as web pages, documents, and databases. They convert text using NLP techniques, generate multiple candidate answers, and evaluate them using evidence. A key step is 'soft filtering', where less likely answers are gradually removed based on confidence scores rather than strict rules. Systems such as IBM Watson use architectures like DeepQA to rank answers and select the most probable result.",
-        "simpleExample": "For example, when asked 'Who is the president of the United States?', the system searches large datasets, identifies patterns linking names with that role, and selects the most likely answer. In quiz-style tasks such as Jeopardy!, the system analyses clues, gathers evidence, and ranks competing answers.",
-        "effectiveUse": "Question answering, search engines, virtual assistants, and knowledge retrieval systems that require analysing large amounts of data quickly.",
-        "realWorldExamples": "IBM Watson, Jeopardy!, search engines, virtual assistants, enterprise knowledge systems, and data-driven decision support tools.",
-        "advantages": "They can access large amounts of information, connect knowledge from multiple sources, provide fast responses, and improve as more data becomes available.",
-        "limitations": "They depend on data quality, require significant computational resources, and rely on statistical patterns rather than true understanding, which can lead to incorrect or misleading results.",
-        "misuse": "Can be misused to spread misinformation, generate misleading answers, and manipulate information at scale.",
-        "ethics": "Key concerns include reliability of sources, bias in data, and over-reliance on automated decision-making systems.",
-        "paradigmShift": "Before internet-driven AI, systems had access only to local or curated data. The shift was to large-scale retrieval and ranking of information from the web and distributed datasets.",
-        "waContext": "In Western Australia, internet-driven AI systems are widely used in industries such as mining and energy. Companies like Rio Tinto and BHP use data-driven systems and remote operations centres to monitor and manage large-scale operations. Universities such as UWA and Curtin also contribute to research in information retrieval and large-scale data analysis.",
+        "slug": "internet-driven-ai-systems",
+        "title": "Internet Driven AI Systems",
+        "yearRange": "2000s–Present",
+        "category": "Data-Driven AI",
+        "status": "Modern",
+        "introText": "With the growth of the internet, artificial intelligence systems gained access to very large amounts of data from web pages, documents, and online databases. This allowed AI systems to connect information across different sources and create the appearance of general knowledge. Unlike earlier rule-based systems, internet-driven AI systems rely on large-scale data to learn relationships between words, concepts, and ideas. A well-known example is IBM Watson, which became the Jeopardy! champion in 2011.",
+        "shortSummary": "Internet-driven AI systems use large-scale online data to answer questions and retrieve knowledge dynamically.",
+        
+        "howItWorks": "Internet-driven AI systems collect and process large amounts of unstructured data from the internet, including websites and documents. The system converts text into processable form using NLP, then generates possible answers and evaluates them. For example, IBM Watson used DeepQA to generate hypotheses, gather evidence, rank answers, and select the most confident result.",
+        
+        "simpleExample": "For example, when asked 'Who is the president of the United States?', the system searches large datasets and finds patterns linking names with the phrase. Another example is Jeopardy-style questions, where the system must understand meaning, retrieve data, and evaluate answers.",
+        
+        "paradigmShift": "Before the rise of internet-driven AI systems, computers were generally seen as limited to the knowledge explicitly programmed into them. Traditional systems relied on predefined rules or structured databases, and it was assumed that a computer could only provide answers based on information that had been carefully encoded in advance. The growth of the internet, combined with advances in data processing, challenged this view. Instead of depending on fixed knowledge, AI systems could access and analyse vast amounts of information from multiple sources in real time. Systems such as IBM Watson demonstrated that a machine could search, evaluate, and combine evidence from large datasets to answer complex questions. This changed expectations about how computers could handle knowledge. Rather than storing all information internally, systems could dynamically retrieve and interpret data from external sources, producing answers that appear informed and context-aware. This marked a significant shift in thinking—from viewing computers as isolated systems with limited knowledge to recognising them as connected systems capable of leveraging large-scale information to support reasoning and decision-making.",
+
+        "effectiveUse": "Search engines, question answering systems, virtual assistants, and knowledge retrieval platforms.",
+        
+        "realWorldExamples": "IBM Watson is a key example. In 2011, it defeated human champions in Jeopardy! by analysing natural language, searching large datasets, and evaluating answers based on evidence.",
+        
+        "advantages": "They can access large-scale information, connect multiple data sources, respond quickly, and improve with more data.",
+        
+        "limitations": "They depend on data quality, require high computational resources, and do not truly understand information, relying instead on statistical patterns.",
+        
+        "misuse": "These systems can spread misinformation, generate misleading answers, and manipulate information at scale.",
+        
+        "ethics": "Key concerns include data reliability, bias, and over-reliance on automated systems.",
+        
+        "waContext": "In Western Australia, internet-driven AI systems are widely used in mining and resource industries. Companies like Rio Tinto and BHP use real-time data systems and remote operation centres in Perth to monitor mining activities. These systems rely on internet connectivity to process large datasets from remote sites. Universities such as UWA and Curtin also contribute to research in data-driven AI. These systems help manage information across large distances, which is critical in WA’s geographically vast environment.",
+        
         "media": [
             {
-                "id": 8,
+                "id": 1,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
-                "title": "Internet-Driven AI Process",
-                "caption": "Simplified process of an internet-driven AI system such as IBM Watson for question answering"
+                "url": "/static/images/watson-diagram.png",
+                "title": "IBM Watson Processing Pipeline",
+                "caption": "Figure 1: Simplified process of an internet-driven AI system (e.g., IBM Watson)"
             },
             {
-                "id": 9,
+                "id": 2,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
-                "title": "Data-Driven AI in Western Australia",
-                "caption": "Large-scale data systems supporting decision-making in WA industries"
+                "url": "/static/images/wa-mining.png",
+                "title": "Mining in Western Australia",
+                "caption": "Figure 2: Mining and resource industries in Western Australia using data-driven AI systems"
             }
         ],
+        
         "references": [
             {
-                "id": 7,
-                "title": "Building Watson: An overview of the DeepQA project",
+                "id": 1,
+                "title": "Building Watson: DeepQA Project",
                 "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2303",
-                "sourceType": "Research Paper",
+                "sourceType": "Journal",
                 "accessedDate": "2026",
                 "notes": "Ferrucci et al. (2010)"
             },
             {
-                "id": 8,
-                "title": "Introduction to 'This is Watson'",
+                "id": 2,
+                "title": "Introduction to This is Watson",
                 "url": "https://ieeexplore.ieee.org/abstract/document/6177724",
-                "sourceType": "Research Paper",
+                "sourceType": "Journal",
                 "accessedDate": "2026",
                 "notes": "Ferrucci (2012)"
             },
             {
-                "id": 9,
-                "title": "Question analysis: How Watson reads a clue",
+                "id": 3,
+                "title": "How Watson Reads a Clue",
                 "url": "https://www.patwardhans.net/papers/LallyEtAl12.pdf",
-                "sourceType": "Research Paper",
+                "sourceType": "Journal",
                 "accessedDate": "2026",
                 "notes": "Lally et al. (2012)"
             }
@@ -566,7 +578,7 @@ TOPICS_DATA = [
         "introText": "Natural Language Processing (NLP) is a field of artificial intelligence that enables computers to read, “understand”, and generate human language. Here, “understand” refers to the ability of systems to process and analyse language patterns, rather than true human-like comprehension. It has developed alongside advances in computing power and data. Early NLP systems were rule-based, relying on predefined linguistic rules. In contrast, modern NLP mainly uses machine learning and deep learning techniques. Transformer-based models are now the dominant approach, as they can handle a wide range of language tasks effectively. These models have significantly improved the ability of systems to process and generate human-like language.",
         "shortSummary": "NLP enables computers to process and generate human language using tokenisation, vector representations, and transformer-based models.",
         "howItWorks": "NLP systems convert human language into numerical representations so that computers can process it. A key step is tokenisation, which splits text into smaller units such as words or subwords. These tokens are then converted into vectors, which are numerical representations of words. Vectors allow the system to capture relationships between words, such as similarity in meaning. Modern NLP systems, especially transformer models, use attention mechanisms to understand context by focusing on important words in a sentence and considering how words relate to each other. Overall, NLP follows a general process: input text is tokenised, converted into vectors, processed by a model, and then transformed into an output such as a response or prediction. It is important to note that NLP systems do not truly 'understand' language in the same way humans do. Instead, they identify patterns in text, such as nouns, verbs, and sentence structure, and assign meaning based on statistical relationships learned from data.",
-        "simpleExample": "For example, consider the input: 'book a flight to Sydney tomorrow'. The system first splits the sentence into tokens and converts them into vectors. It then analyses these vectors to identify patterns that suggest the user’s intent, such as booking a flight, and extracts key information like destination and time. Based on this, the system generates an appropriate response or action. Another example is a search query such as 'best cafe near me open now'. The system processes the words as tokens, converts them into vectors, and uses learned patterns to understand the meaning of the query. It then considers factors such as location, time, and user intent to provide relevant results. These examples show how NLP systems process language step by step and make decisions based on learned patterns rather than explicit rules.\n\nParadigm Shift: How This Changed Thinking About AI\nBefore the development of Natural Language Processing, computers were generally seen as systems that could only handle structured, numerical data. Human language was considered too complex, ambiguous, and context-dependent for machines to process effectively. As a result, interaction with computers was limited to formal commands and predefined inputs. The introduction of NLP challenged this view by enabling computers to process and generate human language. Early rule-based systems showed that language could be analysed using structured rules, but their limitations highlighted the complexity of real-world communication. Later, the shift to machine learning and deep learning approaches allowed systems to learn language patterns directly from large datasets rather than relying entirely on predefined rules. With the development of transformer-based models, NLP systems became capable of handling a wide range of tasks, such as translation, question answering, and text generation. These systems could produce outputs that appear meaningful and context-aware, even though they do not truly 'understand' language in a human sense. This marked a significant shift in thinking—from viewing computers as tools limited to structured data processing to recognising them as systems that can interact with human language in flexible and increasingly natural ways.",
+        "simpleExample": "For example, consider the input: 'book a flight to Sydney tomorrow'. The system first splits the sentence into tokens and converts them into vectors. It then analyses these vectors to identify patterns that suggest the user’s intent, such as booking a flight, and extracts key information like destination and time. Based on this, the system generates an appropriate response or action. Another example is a search query such as 'best cafe near me open now'. The system processes the words as tokens, converts them into vectors, and uses learned patterns to understand the meaning of the query. It then considers factors such as location, time, and user intent to provide relevant results. These examples show how NLP systems process language step by step and make decisions based on learned patterns rather than explicit rules.",
         "effectiveUse": "Speech recognition, machine translation, sentiment analysis, chatbots, dialogue systems, summarisation, question answering, and information extraction.",
         "realWorldExamples": "Transformer models are widely used in industry. Libraries such as Hugging Face Transformers support tasks including translation and text classification. Models such as BERT and GPT can perform multiple language tasks using the same architecture. These models generate outputs based on learned statistical patterns rather than true understanding of language, and they are commonly applied in chatbots, search engines, and customer support systems.",
         "advantages": "NLP systems can process large amounts of text quickly, operate continuously without fatigue, and automate repetitive language tasks. Transformer models are flexible and can be adapted to different applications.",
