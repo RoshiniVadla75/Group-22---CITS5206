@@ -222,6 +222,7 @@ TOPICS_DATA = [
         "yearRange": "c. 1980",
         "category": "Knowledge Engineering",
         "status": "Legacy",
+<<<<<<< HEAD
         "introText": "In the 1980s, expert systems became the first commercially successful form of AI. These programs encoded the decision-making knowledge of human experts into software using rules, facts, and inference engines.",
         "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, enabling computers to make decisions in medicine, finance, and engineering by following chains of if-then logic.",
         "howItWorks": "An expert system consists of a knowledge base, an inference engine, and a user interface. The inference engine applies rules step by step to reach a conclusion.",
@@ -234,34 +235,56 @@ TOPICS_DATA = [
         "ethics": "Important concerns include accountability, transparency, and over-reliance in high-stakes domains.",
         "paradigmShift": "Before expert systems, AI could not capture the detailed knowledge of human specialists. The shift was to rule-based systems that encode expert reasoning and provide advice in narrow domains.",
         "waContext": "Expert systems influenced decision support work in WA across mining, agriculture, and environmental management.",
+=======
+        "introText": "Expert systems were one of the most important symbolic AI technologies of the 1980s. They were designed to imitate the decision-making ability of a human expert in a narrow domain by storing specialist knowledge in rules and facts.",
+        "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, allowing computers to provide recommendations and decisions in domains such as medicine, troubleshooting, finance, and industry.",
+        "howItWorks": "An expert system usually consists of a knowledge base, an inference engine, and a user interface. Knowledge is stored as facts, relationships, and if-then-else rules. The inference engine applies these rules step by step to reach a conclusion. Two common reasoning methods are forward chaining, which starts from known facts and moves toward a conclusion, and backward chaining, which starts from a possible conclusion and checks whether the supporting facts are true.",
+        "simpleExample": "Imagine a car fault diagnosis system. If the engine does not start and the battery lights are weak, the system may conclude that the battery is flat and recommend recharging or replacing it. In a more advanced example such as MYCIN, the system used rules about symptoms, infections, and treatments to recommend antibiotics.",
+        "effectiveUse": "Most effective in narrow, stable, and rule-based domains where specialist knowledge can be clearly expressed, such as medical diagnosis, troubleshooting, legal reasoning, financial advice, and industrial monitoring.",
+        "realWorldExamples": "Classic examples include MYCIN for medical diagnosis and antibiotic recommendation, DENDRAL for chemical analysis, and XCON for computer system configuration.",
+        "advantages": "Expert systems can preserve specialist knowledge, provide consistent decisions, and support fast decision-making in repetitive or highly specialised tasks. They do not become tired and can continue to apply the same logic reliably.",
+        "limitations": "Their performance depends heavily on the quality of the knowledge base. They are difficult to build and maintain, often suffer from the knowledge acquisition bottleneck, and usually work only in narrow domains. They also struggle with ambiguity and unfamiliar situations.",
+        "misuse": "They can be misused when applied outside their intended domain, or when users trust outdated, incomplete, or biased rules too much in high-stakes areas such as medicine, law, or finance.",
+        "ethics": "Important concerns include accountability, transparency, and over-reliance. Some expert systems also used Bayes theorem to reason under uncertainty and fuzzy logic to handle vague concepts, but even then the system’s outputs could still create risks if human judgement was ignored.",
+        "waContext": "In Western Australia, expert-system and rule-based decision support approaches were relevant in industrial environments such as Alcoa’s Wagerup alumina refinery, where expert knowledge could support diagnostics, scheduling, and operational planning.",
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
         "media": [
-            {
-                "id": 4,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
-                "title": "Knowledge Engineering Process",
-                "caption": "The process of capturing expert knowledge into rule-based systems."
-            },
             {
                 "id": 5,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80",
-                "title": "Medical Expert Systems",
-                "caption": "Expert systems found early success in medical diagnosis."
+                "url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+                "title": "Knowledge Engineering in Practice",
+                "caption": "Expert systems translated specialist knowledge into structured rules for decision support."
+            },
+            {
+                "id": 4,
+                "type": "image",
+                "url": "/static/images/expert-systems-diagram.png",
+                "title": "Basic Structure of an Expert System",
+                "caption": "A simplified expert system structure showing the knowledge base, inference engine, user interface, and external data sources."
             }
         ],
         "references": [
             {
                 "id": 4,
-                "title": "Rule-based Expert Systems",
+                "title": "Wagerup Alumina Refinery Long Term Residue Management Strategy",
+                "url": "https://www.alcoa.com/australia/en/pdf/2017-wagerup-refinery-ltrms.pdf",
+                "sourceType": "Industry Report",
+                "accessedDate": "Accessed 2026",
+                "notes": "WA-based industrial context showing the relevance of expert knowledge and decision support in large-scale operations."
+            },
+            {
+                "id": 5,
+                "title": "Expert Systems",
                 "url": "https://en.wikipedia.org/wiki/Expert_system",
                 "sourceType": "Background Source",
                 "accessedDate": "Accessed 2026",
-                "notes": "General overview of expert systems."
+                "notes": "General overview of knowledge bases, inference engines, and classic expert-system applications."
             }
         ]
     },
     {
+<<<<<<< HEAD
     "id": 5,
     "slug": "artificial-neural-nets",
     "title": "Artificial Neural Networks",
@@ -339,6 +362,84 @@ TOPICS_DATA = [
         }
     ]
 },
+=======
+        "id": 5,
+        "slug": "artificial-neural-nets",
+        "title": "Artificial Neural Nets",
+        "yearRange": "1980–2000",
+        "category": "Neural Computing",
+        "status": "Active",
+        "introText": "Artificial Neural Nets, or Artificial Neural Networks (ANNs), are a key area of artificial intelligence inspired by the structure of the human brain. They consist of interconnected artificial neurons that learn patterns from data. ANNs became particularly important between 1980 and 2000 for tasks such as classification and pattern recognition. Early research in neural networks was criticised by researchers such as Marvin Minsky, who argued that simple neural networks without intermediate layers could not solve complex problems. This criticism contributed to a slowdown in research for a period of time. However, later developments introduced networks with multiple hidden layers, which led to the rise of deep learning. Deep learning refers to neural networks with several intermediate hidden layers, allowing systems to learn more complex patterns and relationships in data.",
+        "shortSummary": "ANNs learn patterns from data through interconnected artificial neurons and later became the foundation of deep learning systems.",
+        "howItWorks": "ANNs are made up of layers of neurons connected by weighted links. A typical neural network includes three main parts: an input layer, one or more hidden layers, and an output layer. Data enters through the input layer, is processed through hidden layers, and produces results in the output layer. Each neuron receives numerical inputs, applies a weighted calculation, and passes the result forward. During training, the network adjusts these weights to reduce errors and improve accuracy. In this way, the system learns patterns from data rather than following explicitly programmed rules. Deep learning extends this idea by adding multiple hidden layers. These additional layers allow the system to capture more complex relationships in the data, which improves performance in tasks such as image and speech recognition.",
+        "simpleExample": "For example, an ANN can classify images of animals. The system first converts an image into numerical data, such as pixel values. These values are processed through multiple layers, where the network detects features such as edges, shapes, and colours. Based on these features, the system predicts the most likely category, such as 'cat' or 'dog'. The 'best' result is chosen based on the highest probability calculated by the network. Another example is handwriting recognition. The system learns from many examples of handwritten letters and identifies patterns in how characters are formed. When new input is given, the network compares it with learned patterns and produces the most probable output. These examples show how ANNs detect patterns and make decisions based on learned data representations.\n\nParadigm Shift: How This Changed Thinking About AI\nBefore the development of Artificial Neural Networks, computers were generally viewed as systems that followed fixed rules and produced predictable outputs. Traditional programs relied on explicitly defined instructions, and it was assumed that the same input would always produce the same result. As a result, computers were seen mainly as calculation tools rather than systems capable of adapting or improving. The introduction of neural networks challenged this assumption. Instead of relying entirely on predefined rules, ANNs could learn patterns directly from data and adjust their internal parameters through experience. This meant that a system could improve its performance over time and produce different, often better, outputs even when given similar inputs. As neural networks evolved into deep learning systems with multiple hidden layers, they demonstrated the ability to solve complex problems such as image and speech recognition. This showed that computers could go beyond simple rule-based processing and begin to mimic certain aspects of human learning. This marked a significant shift in thinking—from viewing computers as rigid, deterministic machines to recognising them as adaptive systems capable of learning from data and improving over time.",
+        "effectiveUse": "Pattern recognition, image classification, speech recognition, medical diagnosis, financial prediction, and other tasks where patterns are difficult to define using explicit rules.",
+        "realWorldExamples": "Facial recognition is a common real-world application of Artificial Neural Networks. The system learns patterns in facial features, such as the distances between key points on a face. These features are converted into numerical representations and compared with stored data to identify individuals. Deep learning models have significantly improved facial recognition by extracting more detailed and abstract features. The limitations of early perceptrons, such as their inability to solve the XOR problem, also encouraged the development of multi-layer networks that form the basis of modern deep learning.",
+        "advantages": "ANNs can learn directly from data, model complex relationships, detect hidden patterns, and improve performance with more data.",
+        "limitations": "Training neural networks can require large amounts of data and computational resources. Their internal decision-making process is often difficult to interpret, which is why they are sometimes described as 'black box' systems. Early neural networks were also limited in capability, although modern systems have overcome many of these limitations.",
+        "misuse": "ANNs can be misused in surveillance using facial recognition, biased automated decision-making, and misleading prediction systems.",
+        "ethics": "These uses raise ethical concerns, particularly regarding privacy, fairness, bias in training data, and lack of transparency.",
+        "waContext": "Artificial Neural Networks have also played a role in the development of artificial intelligence research in Western Australia. Rather than focusing on hardware, development in WA is mainly reflected in the growth of research expertise, academic contributions, and applied projects. Research in AI and neural networks has been carried out primarily in universities and research institutions, including The University of Western Australia, Curtin University, Edith Cowan University, Murdoch University, and organisations such as CSIRO. Pawsey Supercomputing Research Centre provides advanced computational resources that support AI and neural network research, including large-scale data processing in astronomy, geoscience, and data-intensive research. Neural networks and machine learning methods are also increasingly relevant to projects such as the Square Kilometre Array, where large volumes of scientific data must be processed, filtered, and analysed.",
+        "media": [
+            {
+                "id": 6,
+                "type": "image",
+                "url": "/static/images/ann-structure.png",
+                "title": "Basic Structure of an Artificial Neural Network",
+                "caption": "Figure 1: Basic structure of an Artificial Neural Network"
+            },
+            {
+                "id": 7,
+                "type": "image",
+                "url": "/static/images/xor-problem.png",
+                "title": "XOR Problem Limitation",
+                "caption": "Figure 2: Limitation of early perceptrons in solving non-linearly separable problems (XOR problem)"
+            }
+        ],
+        "references": [
+            {
+                "id": 5,
+                "title": "Artificial neural networks: fundamentals, computing, design, and application",
+                "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Basheer & Hajmeer (2000)"
+            },
+            {
+                "id": 6,
+                "title": "Artificial neural networks for beginners",
+                "url": "https://arxiv.org/pdf/cs/0308031",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Gershenson (2003)"
+            },
+            {
+                "id": 7,
+                "title": "Fundamentals of artificial neural networks",
+                "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews/links/56ebf73a08aee4707a3849a6/Fundamentals-of-Artificial-Neural-Networks-Book-Reviews.pdf",
+                "sourceType": "Book",
+                "accessedDate": "2026",
+                "notes": "Hassoun (1995)"
+            },
+            {
+                "id": 8,
+                "title": "What are artificial neural networks?",
+                "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Krogh (2008)"
+            },
+            {
+                "id": 9,
+                "title": "Perceptrons: An Introduction to Computational Geometry",
+                "url": "https://mitpress.mit.edu/9780262630229/perceptrons/",
+                "sourceType": "Book",
+                "accessedDate": "2026",
+                "notes": "Minsky & Papert (1969)"
+            }
+        ]
+    },
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
     {
         "id": 6,
         "slug": "internet-driven-ai-ibm-watson",
@@ -408,6 +509,7 @@ TOPICS_DATA = [
         "yearRange": "c. 2010",
         "category": "Bio-Inspired AI",
         "status": "Active",
+<<<<<<< HEAD
         "introText": "Evolutionary computing draws inspiration from biological evolution to optimise complex problems.",
         "shortSummary": "Genetic algorithms apply natural selection to computing.",
         "howItWorks": "A genetic algorithm starts with random candidate solutions, evaluates them, selects the best, and creates new generations via crossover and mutation.",
@@ -420,38 +522,51 @@ TOPICS_DATA = [
         "ethics": "Optimization goals must be defined carefully to avoid harmful unintended consequences.",
         "paradigmShift": "Before evolutionary computing, optimisation relied on deterministic and gradient-based methods. The shift was to population-based search inspired by natural selection, which can explore many solutions simultaneously.",
         "waContext": "WA researchers have used genetic algorithms in mining optimisation and logistics.",
+=======
+        "introText": "Evolutionary computing is a branch of artificial intelligence inspired by biological evolution. One of its best-known techniques is the genetic algorithm, which searches for strong solutions by imitating natural selection, reproduction, and mutation.",
+        "shortSummary": "Genetic algorithms solve complex optimisation and search problems by evolving a population of candidate solutions over many generations using selection, crossover, and mutation.",
+        "howItWorks": "A genetic algorithm begins with a population of candidate solutions. Each candidate is evaluated using a fitness function that measures how well it solves the problem. Better candidates are more likely to be selected to form the next generation. New candidates are produced through crossover, which combines features of parent solutions, and mutation, which introduces small random changes. Over time, the population tends to improve, although the algorithm may still converge to a strong local optimum rather than the global optimum.",
+        "simpleExample": "A delivery company may want to find a short route for a truck visiting many locations. A genetic algorithm can begin with many random route candidates, score them by total distance, and then repeatedly select, combine, and mutate the best candidate solutions. The algorithm mutates the encoded candidate solutions, not the real-world route data itself.",
+        "effectiveUse": "Most effective when a problem has a very large search space, many possible combinations, or conflicting objectives. It is often used in optimisation, scheduling, engineering design, logistics, machine learning, and feature selection.",
+        "realWorldExamples": "Applications include route planning, scheduling, engineering optimisation, machine learning feature selection, and other search problems where traditional mathematical optimisation is too rigid or expensive.",
+        "advantages": "Genetic algorithms can examine very large numbers of candidate solutions, avoid some of the limits of human intuition, and discover non-obvious or creative solutions in highly complex search spaces.",
+        "limitations": "They do not guarantee the global optimum, and their effectiveness depends heavily on the encoding method, fitness function, and parameter settings such as mutation rate, crossover rate, and population size. They can also be computationally expensive.",
+        "misuse": "They can produce harmful results if the fitness function is poorly designed, for example by optimising only cost or efficiency while ignoring fairness, safety, or environmental consequences.",
+        "ethics": "Important concerns include accountability, over-reliance, and the risk of optimising the wrong objective. A mathematically efficient result may still be socially harmful if human values are not reflected in the design.",
+        "waContext": "In Western Australia, UWA researchers applied problem-specific genetic algorithms to optimise sparse power distribution network planning in the South-West, and also explored multi-objective genetic algorithm optimisation for road network widening and maintenance scheduling.",
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
         "media": [
-            {
-                "id": 10,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600",
-                "title": "Evolutionary Process Diagram",
-                "caption": "The cycle of selection, crossover, and mutation in genetic algorithms"
-            },
             {
                 "id": 11,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=600",
-                "title": "Optimisation in Nature",
-                "caption": "Nature's evolutionary processes inspire computational optimisation"
+                "title": "Bio-Inspired Optimisation",
+                "caption": "Evolutionary computing drew inspiration from natural selection to solve complex optimisation problems."
+            },
+            {
+                "id": 10,
+                "type": "image",
+                "url": "/static/images/genetic-algorithm-flowchart.png",
+                "title": "Genetic Algorithm Flow",
+                "caption": "A simplified flowchart showing initial population, selection, mating, crossover, mutation, and termination."
             }
         ],
         "references": [
             {
                 "id": 9,
-                "title": "Genetic Algorithms in Search, Optimization and Machine Learning",
-                "url": "https://dl.acm.org/doi/book/10.5555/534133",
-                "sourceType": "Book",
-                "accessedDate": "2024-03-01",
-                "notes": "Goldberg's foundational textbook on genetic algorithms"
+                "title": "Spatial Optimisation for the Planning of Sparse Power Distribution Networks",
+                "url": "https://doi.org/10.1109/TPWRS.2018.2846407",
+                "sourceType": "Research Paper",
+                "accessedDate": "Accessed 2026",
+                "notes": "UWA-related WA application of optimisation methods in regional power distribution planning."
             },
             {
                 "id": 10,
-                "title": "Evolutionary Computation: Toward a New Philosophy of Machine Intelligence",
-                "url": "https://ieeexplore.ieee.org/",
-                "sourceType": "Book",
-                "accessedDate": "2024-03-01",
-                "notes": "Fogel's comprehensive overview of the field"
+                "title": "Genetic Algorithms Short Tutorial",
+                "url": "https://www.cs.ucdavis.edu/~vemuri/classes/ecs271/Genetic%20Algorithms%20Short%20Tutorial.htm",
+                "sourceType": "Tutorial",
+                "accessedDate": "Accessed 2026",
+                "notes": "Accessible explanation of the stages of a genetic algorithm and its optimisation cycle."
             }
         ]
     },
@@ -549,6 +664,7 @@ TOPICS_DATA = [
         ]
     },
     {
+<<<<<<< HEAD
     "id": 9,
     "slug": "natural-language-processing",
     "title": "Natural Language Processing",
@@ -626,6 +742,76 @@ TOPICS_DATA = [
         }
     ]
 },
+=======
+        "id": 9,
+        "slug": "natural-language-processing",
+        "title": "Natural Language Processing",
+        "yearRange": "2010–2020",
+        "category": "Language AI",
+        "status": "Active",
+        "introText": "Natural Language Processing (NLP) is a field of artificial intelligence that enables computers to read, “understand”, and generate human language. Here, “understand” refers to the ability of systems to process and analyse language patterns, rather than true human-like comprehension. It has developed alongside advances in computing power and data. Early NLP systems were rule-based, relying on predefined linguistic rules. In contrast, modern NLP mainly uses machine learning and deep learning techniques. Transformer-based models are now the dominant approach, as they can handle a wide range of language tasks effectively. These models have significantly improved the ability of systems to process and generate human-like language.",
+        "shortSummary": "NLP enables computers to process and generate human language using tokenisation, vector representations, and transformer-based models.",
+        "howItWorks": "NLP systems convert human language into numerical representations so that computers can process it. A key step is tokenisation, which splits text into smaller units such as words or subwords. These tokens are then converted into vectors, which are numerical representations of words. Vectors allow the system to capture relationships between words, such as similarity in meaning. Modern NLP systems, especially transformer models, use attention mechanisms to understand context by focusing on important words in a sentence and considering how words relate to each other. Overall, NLP follows a general process: input text is tokenised, converted into vectors, processed by a model, and then transformed into an output such as a response or prediction. It is important to note that NLP systems do not truly 'understand' language in the same way humans do. Instead, they identify patterns in text, such as nouns, verbs, and sentence structure, and assign meaning based on statistical relationships learned from data.",
+        "simpleExample": "For example, consider the input: 'book a flight to Sydney tomorrow'. The system first splits the sentence into tokens and converts them into vectors. It then analyses these vectors to identify patterns that suggest the user’s intent, such as booking a flight, and extracts key information like destination and time. Based on this, the system generates an appropriate response or action. Another example is a search query such as 'best cafe near me open now'. The system processes the words as tokens, converts them into vectors, and uses learned patterns to understand the meaning of the query. It then considers factors such as location, time, and user intent to provide relevant results. These examples show how NLP systems process language step by step and make decisions based on learned patterns rather than explicit rules.\n\nParadigm Shift: How This Changed Thinking About AI\nBefore the development of Natural Language Processing, computers were generally seen as systems that could only handle structured, numerical data. Human language was considered too complex, ambiguous, and context-dependent for machines to process effectively. As a result, interaction with computers was limited to formal commands and predefined inputs. The introduction of NLP challenged this view by enabling computers to process and generate human language. Early rule-based systems showed that language could be analysed using structured rules, but their limitations highlighted the complexity of real-world communication. Later, the shift to machine learning and deep learning approaches allowed systems to learn language patterns directly from large datasets rather than relying entirely on predefined rules. With the development of transformer-based models, NLP systems became capable of handling a wide range of tasks, such as translation, question answering, and text generation. These systems could produce outputs that appear meaningful and context-aware, even though they do not truly 'understand' language in a human sense. This marked a significant shift in thinking—from viewing computers as tools limited to structured data processing to recognising them as systems that can interact with human language in flexible and increasingly natural ways.",
+        "effectiveUse": "Speech recognition, machine translation, sentiment analysis, chatbots, dialogue systems, summarisation, question answering, and information extraction.",
+        "realWorldExamples": "Transformer models are widely used in industry. Libraries such as Hugging Face Transformers support tasks including translation and text classification. Models such as BERT and GPT can perform multiple language tasks using the same architecture. These models generate outputs based on learned statistical patterns rather than true understanding of language, and they are commonly applied in chatbots, search engines, and customer support systems.",
+        "advantages": "NLP systems can process large amounts of text quickly, operate continuously without fatigue, and automate repetitive language tasks. Transformer models are flexible and can be adapted to different applications.",
+        "limitations": "Human language is complex and highly context-dependent, which makes full understanding difficult. NLP models rely heavily on training data, which can introduce bias. They learn statistical patterns rather than true understanding, which may lead to incorrect or misleading outputs. Transformer models also require significant computational resources, making them expensive to train and deploy.",
+        "misuse": "NLP technologies can be misused to generate fake or misleading content, automate scams or spam messages, and produce biased or harmful text.",
+        "ethics": "These issues can affect public trust and raise ethical concerns about bias, misinformation, harmful outputs, and the responsible use of AI systems.",
+        "waContext": "Natural Language Processing has also contributed to the development of artificial intelligence research in Western Australia. Similar to other AI fields, the focus in WA is mainly on the growth of research expertise, academic contributions, and applied projects rather than specific hardware developments. NLP-related research has been carried out primarily within universities and research institutions, including The University of Western Australia, Curtin University, Edith Cowan University, Murdoch University, and organisations such as CSIRO. The development of NLP in WA reflects a broader evolution from early rule-based systems to modern machine learning and deep learning approaches. Recent developments have been supported by advanced research infrastructure such as the Pawsey Supercomputing Research Centre, which provides computational power for large-scale NLP models and scientific research. NLP techniques are also increasingly relevant in large-scale projects such as the Square Kilometre Array, where textual and metadata information must be processed, organised, and analysed.",
+        "media": [
+            {
+                "id": 14,
+                "type": "image",
+                "url": "/static/images/nlp-pipeline.png",
+                "title": "NLP Processing Pipeline",
+                "caption": "Figure 1: Basic pipeline of a Natural Language Processing system"
+            },
+            {
+                "id": 15,
+                "type": "image",
+                "url": "/static/images/pawsey-centre.png",
+                "title": "Pawsey Supercomputing Research Centre",
+                "caption": "Figure 2: Pawsey Supercomputing Research Centre, supporting AI and NLP research in Western Australia"
+            }
+        ],
+        "references": [
+            {
+                "id": 13,
+                "title": "Natural language processing",
+                "url": "https://mbahng.com/Natural_Sciences/Statistics/Natural_Language_Processing/paper.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Bahng (2024)"
+            },
+            {
+                "id": 14,
+                "title": "Advances in natural language processing",
+                "url": "https://nlp.stanford.edu/~manning/xyzzy/Hirschberg-Manning-Science-2015.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Hirschberg & Manning (2015)"
+            },
+            {
+                "id": 15,
+                "title": "Transformers: State-of-the-art natural language processing",
+                "url": "https://aclanthology.org/2020.emnlp-demos.6.pdf",
+                "sourceType": "Conference Paper",
+                "accessedDate": "2026",
+                "notes": "Wolf et al. (2020)"
+            },
+            {
+                "id": 16,
+                "title": "Survey of transformers and towards ensemble learning using transformers for natural language processing",
+                "url": "https://link.springer.com/content/pdf/10.1186/s40537-023-00842-0.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Zhang & Shafiq (2024)"
+            }
+        ]
+    },
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
     {
         "id": 10,
         "slug": "large-language-models",
