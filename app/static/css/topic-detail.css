@@ -285,6 +285,35 @@
   gap: 16px;
 }
 
+<<<<<<< HEAD
+=======
+.media-item {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.media-image {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  display: block;
+  background: #ffffff;
+}
+
+.media-caption-box {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.media-title {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+}
+
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
 .reference-item {
   padding: 12px;
   border-radius: 4px;
