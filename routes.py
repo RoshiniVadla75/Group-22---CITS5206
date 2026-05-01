@@ -50,7 +50,14 @@ def search():
 @main.route("/topic/<slug>")
 def topic_detail(slug):
     topic = Topic.query.filter_by(slug=slug).first_or_404()
-    return render_template("topic_detail.html", topic=topic)
+    prev_topic = Topic.query.filter(Topic.id < topic.id).order_by(Topic.id.desc()).first()
+    next_topic = Topic.query.filter(Topic.id > topic.id).order_by(Topic.id.asc()).first()
+    return render_template(
+        "topic_detail.html",
+        topic=topic,
+        prev_topic=prev_topic,
+        next_topic=next_topic,
+    )
 
 
 # -----------------------------
@@ -231,6 +238,7 @@ def api_topic_detail(slug):
         "limitations": topic.limitations,
         "misuse": topic.misuse,
         "ethics": topic.ethics,
+        "paradigmShift": topic.paradigm_shift,
         "waContext": topic.wa_context,
         "media": [
             {

@@ -1,5 +1,6 @@
 from app import app
 from models import db, Topic, Media, TopicReference
+from sqlalchemy import inspect, text
 
 
 TOPICS_DATA = [
@@ -20,6 +21,7 @@ TOPICS_DATA = [
         "limitations": "Passing the Turing Test does not imply true understanding. It focuses mainly on conversation and depends on subjective human judgement.",
         "misuse": "Can be misused in systems that imitate humans to deceive users, generate misleading information, or manipulate users.",
         "ethics": "Raises concerns about trust, transparency, deception, and responsible use of human-like AI systems.",
+        "paradigmShift": "Before Turing’s ideas, artificial intelligence was judged by internal design or rule execution. With the Turing Test, the shift was to evaluate intelligence based on observable behaviour and the ability to communicate like a human.",
         "waContext": "In Western Australia, Turing’s ideas influence conversational systems and automated support tools used in customer service, digital platforms, and universities. This influence is also linked to Professor Jeff Rohl at UWA, who worked at the University of Manchester shortly after Turing’s time. Behaviour-based evaluation remains important in modern AI systems across WA.",
         "media": [
             {
@@ -90,6 +92,7 @@ TOPICS_DATA = [
         "limitations": "Learning machines depend on the quality of feedback data. Early systems required carefully designed features, and learning processes may converge slowly or to suboptimal results.",
         "misuse": "Learning systems may reinforce biased or incorrect patterns if training data or feedback signals are flawed. This can lead to unintended or misleading outcomes.",
         "ethics": "Learning machines optimise measurable objectives, which may not align with broader social or ethical goals. Oversight is required to ensure responsible use and to manage risks related to bias and unintended behaviour.",
+        "paradigmShift": "Before learning machines, artificial intelligence followed fixed rules and could not improve from experience. The shift was to systems that learn from feedback and adapt their behaviour over time.",
         "waContext": "In Western Australia, the influence of learning machines is reflected in research, infrastructure, and industrial application. The University of Western Australia conducts teaching and research in machine learning, data science, and optimisation. These areas build on the principles of adaptive systems and iterative improvement. The Pawsey Supercomputing Research Centre, located in Perth, provides high-performance computing infrastructure that supports large-scale data processing and model training. This infrastructure enables modern systems that extend early learning machine concepts. In industry, Rio Tinto applies machine learning techniques in areas such as predictive maintenance and operational optimisation, where systems improve performance using historical data.",
         "media": [
             {
@@ -159,6 +162,7 @@ TOPICS_DATA = [
         "limitations": "Board game AI is limited to structured environments with defined rules, does not generalise easily to complex real-world problems, and depends on accurate modelling of the domain.",
         "misuse": "Search and optimisation techniques developed for board games can be applied to high-stakes decision systems without sufficient transparency, making decisions difficult to interpret.",
         "ethics": "Success in board games may lead to overestimating AI capability. These systems operate in constrained environments and do not represent general intelligence. Distinguishing between domain-specific performance and broader intelligence remains important.",
+        "paradigmShift": "Before board game AI, computers solved problems using fixed logic and simple rules. The shift was to machines that can search through possibilities, evaluate outcomes, and make strategic decisions in game environments.",
         "waContext": "In Western Australia, board game AI is primarily used for education and training. The University of Western Australia includes game-playing algorithms such as minimax and alpha-beta pruning in its computer science curriculum. These concepts are taught through lecture material and support the development of foundational skills in adversarial search and decision-making.",
         "media": [
             {
@@ -218,6 +222,20 @@ TOPICS_DATA = [
         "yearRange": "c. 1980",
         "category": "Knowledge Engineering",
         "status": "Legacy",
+<<<<<<< HEAD
+        "introText": "In the 1980s, expert systems became the first commercially successful form of AI. These programs encoded the decision-making knowledge of human experts into software using rules, facts, and inference engines.",
+        "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, enabling computers to make decisions in medicine, finance, and engineering by following chains of if-then logic.",
+        "howItWorks": "An expert system consists of a knowledge base, an inference engine, and a user interface. The inference engine applies rules step by step to reach a conclusion.",
+        "simpleExample": "If a patient has fever and cough, and recently travelled, the system may suggest considering a tropical disease.",
+        "effectiveUse": "Most effective in narrow domains where knowledge can be clearly expressed as rules.",
+        "realWorldExamples": "MYCIN, DENDRAL, and XCON.",
+        "advantages": "They preserve expert knowledge, provide consistent decisions, and work well in specialised areas.",
+        "limitations": "They are brittle, hard to maintain, and struggle with uncertainty and ambiguity.",
+        "misuse": "They can be misused when applied outside their narrow domain.",
+        "ethics": "Important concerns include accountability, transparency, and over-reliance in high-stakes domains.",
+        "paradigmShift": "Before expert systems, AI could not capture the detailed knowledge of human specialists. The shift was to rule-based systems that encode expert reasoning and provide advice in narrow domains.",
+        "waContext": "Expert systems influenced decision support work in WA across mining, agriculture, and environmental management.",
+=======
         "introText": "Expert systems were one of the most important symbolic AI technologies of the 1980s. They were designed to imitate the decision-making ability of a human expert in a narrow domain by storing specialist knowledge in rules and facts.",
         "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, allowing computers to provide recommendations and decisions in domains such as medicine, troubleshooting, finance, and industry.",
         "howItWorks": "An expert system usually consists of a knowledge base, an inference engine, and a user interface. Knowledge is stored as facts, relationships, and if-then-else rules. The inference engine applies these rules step by step to reach a conclusion. Two common reasoning methods are forward chaining, which starts from known facts and moves toward a conclusion, and backward chaining, which starts from a possible conclusion and checks whether the supporting facts are true.",
@@ -229,6 +247,7 @@ TOPICS_DATA = [
         "misuse": "They can be misused when applied outside their intended domain, or when users trust outdated, incomplete, or biased rules too much in high-stakes areas such as medicine, law, or finance.",
         "ethics": "Important concerns include accountability, transparency, and over-reliance. Some expert systems also used Bayes theorem to reason under uncertainty and fuzzy logic to handle vague concepts, but even then the system’s outputs could still create risks if human judgement was ignored.",
         "waContext": "In Western Australia, expert-system and rule-based decision support approaches were relevant in industrial environments such as Alcoa’s Wagerup alumina refinery, where expert knowledge could support diagnostics, scheduling, and operational planning.",
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
         "media": [
             {
                 "id": 5,
@@ -265,6 +284,85 @@ TOPICS_DATA = [
         ]
     },
     {
+<<<<<<< HEAD
+    "id": 5,
+    "slug": "artificial-neural-nets",
+    "title": "Artificial Neural Networks",
+    "yearRange": "1980–2000",
+    "category": "Neural Computing",
+    "status": "Active",
+    "introText": "Artificial Neural Networks (ANNs) are inspired by the structure of the human brain and learn patterns from data through interconnected neurons.",
+    "shortSummary": "ANNs learn complex patterns through layered structures and form the foundation of modern deep learning systems.",
+    "howItWorks": "ANNs consist of an input layer, one or more hidden layers, and an output layer. Data is passed through the network, where each neuron applies weighted calculations. During training, the system adjusts these weights to reduce error and improve performance. Deep learning extends this by using multiple hidden layers to capture more complex relationships in data.",
+    "simpleExample": "An image classification system processes pixel data through multiple layers to detect features such as edges, shapes, and colours, and then predicts whether the image is a cat or a dog.",
+    "effectiveUse": "Pattern recognition tasks such as image classification, speech recognition, and data analysis.",
+    "realWorldExamples": "Facial recognition systems, handwriting recognition, speech recognition, medical diagnosis, and financial prediction.",
+    "advantages": "They can learn directly from data, model complex relationships, detect hidden patterns, and improve performance with more data.",
+    "limitations": "Training requires large datasets and computational resources. The internal decision-making process is often difficult to interpret, leading to 'black box' concerns.",
+    "misuse": "ANNs can be misused in surveillance systems, biased automated decision-making, and misleading predictive systems.",
+    "ethics": "Key concerns include bias in training data, lack of transparency, and fairness in automated decision-making.",
+    "paradigmShift": "Before artificial neural networks, machine intelligence relied on hand-coded rules and symbolic reasoning. The shift was to learning systems that discover patterns directly from data through layered network structures.",
+    "waContext": "In Western Australia, neural network research is mainly carried out in universities and research institutions such as UWA, Curtin, ECU, and Murdoch University, as well as organisations like CSIRO. Facilities such as the Pawsey Supercomputing Research Centre support large-scale data processing and AI research. Neural networks are also applied in projects like the Square Kilometre Array (SKA) to analyse large volumes of scientific data.",
+    "media": [
+        {
+            "id": 6,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600",
+            "title": "Neural Network Architecture",
+            "caption": "Basic structure of an artificial neural network with input, hidden, and output layers"
+        },
+        {
+            "id": 7,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600",
+            "title": "Brain-Inspired Computing",
+            "caption": "Neural networks are inspired by the structure of the human brain"
+        }
+    ],
+    "references": [
+        {
+            "id": 5,
+            "title": "Artificial neural networks: fundamentals, computing, design, and application",
+            "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Basheer & Hajmeer (2000)"
+        },
+        {
+            "id": 6,
+            "title": "Artificial neural networks for beginners",
+            "url": "https://arxiv.org/pdf/cs/0308031",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Gershenson (2003)"
+        },
+        {
+            "id": 7,
+            "title": "Fundamentals of artificial neural networks",
+            "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews/links/56ebf73a08aee4707a3849a6/Fundamentals-of-Artificial-Neural-Networks-Book-Reviews.pdf",
+            "sourceType": "Book",
+            "accessedDate": "2026",
+            "notes": "Hassoun (1995)"
+        },
+        {
+            "id": 8,
+            "title": "What are artificial neural networks?",
+            "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Krogh (2008)"
+        },
+        {
+            "id": 9,
+            "title": "Perceptrons: An Introduction to Computational Geometry",
+            "url": "https://mitpress.mit.edu/9780262630229/perceptrons/",
+            "sourceType": "Book",
+            "accessedDate": "2026",
+            "notes": "Minsky & Papert (1969)"
+        }
+    ]
+},
+=======
         "id": 5,
         "slug": "artificial-neural-nets",
         "title": "Artificial Neural Nets",
@@ -341,6 +439,7 @@ TOPICS_DATA = [
             }
         ]
     },
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
     {
         "id": 6,
         "slug": "internet-driven-ai-ibm-watson",
@@ -358,6 +457,7 @@ TOPICS_DATA = [
         "limitations": "They depend on data quality, require significant computational resources, and rely on statistical patterns rather than true understanding, which can lead to incorrect or misleading results.",
         "misuse": "Can be misused to spread misinformation, generate misleading answers, and manipulate information at scale.",
         "ethics": "Key concerns include reliability of sources, bias in data, and over-reliance on automated decision-making systems.",
+        "paradigmShift": "Before internet-driven AI, systems had access only to local or curated data. The shift was to large-scale retrieval and ranking of information from the web and distributed datasets.",
         "waContext": "In Western Australia, internet-driven AI systems are widely used in industries such as mining and energy. Companies like Rio Tinto and BHP use data-driven systems and remote operations centres to monitor and manage large-scale operations. Universities such as UWA and Curtin also contribute to research in information retrieval and large-scale data analysis.",
         "media": [
             {
@@ -409,6 +509,20 @@ TOPICS_DATA = [
         "yearRange": "c. 2010",
         "category": "Bio-Inspired AI",
         "status": "Active",
+<<<<<<< HEAD
+        "introText": "Evolutionary computing draws inspiration from biological evolution to optimise complex problems.",
+        "shortSummary": "Genetic algorithms apply natural selection to computing.",
+        "howItWorks": "A genetic algorithm starts with random candidate solutions, evaluates them, selects the best, and creates new generations via crossover and mutation.",
+        "simpleExample": "Like designing better paper airplanes by repeatedly keeping the best and combining their features.",
+        "effectiveUse": "Optimisation problems in engineering, logistics, scheduling, and design.",
+        "realWorldExamples": "NASA antenna design, logistics routing, financial strategy evolution.",
+        "advantages": "Works well on complex search spaces and can find creative solutions.",
+        "limitations": "Computationally expensive and does not guarantee the global optimum.",
+        "misuse": "Can be used to optimise harmful or adversarial outcomes if the fitness criteria are poorly designed.",
+        "ethics": "Optimization goals must be defined carefully to avoid harmful unintended consequences.",
+        "paradigmShift": "Before evolutionary computing, optimisation relied on deterministic and gradient-based methods. The shift was to population-based search inspired by natural selection, which can explore many solutions simultaneously.",
+        "waContext": "WA researchers have used genetic algorithms in mining optimisation and logistics.",
+=======
         "introText": "Evolutionary computing is a branch of artificial intelligence inspired by biological evolution. One of its best-known techniques is the genetic algorithm, which searches for strong solutions by imitating natural selection, reproduction, and mutation.",
         "shortSummary": "Genetic algorithms solve complex optimisation and search problems by evolving a population of candidate solutions over many generations using selection, crossover, and mutation.",
         "howItWorks": "A genetic algorithm begins with a population of candidate solutions. Each candidate is evaluated using a fitness function that measures how well it solves the problem. Better candidates are more likely to be selected to form the next generation. New candidates are produced through crossover, which combines features of parent solutions, and mutation, which introduces small random changes. Over time, the population tends to improve, although the algorithm may still converge to a strong local optimum rather than the global optimum.",
@@ -420,6 +534,7 @@ TOPICS_DATA = [
         "misuse": "They can produce harmful results if the fitness function is poorly designed, for example by optimising only cost or efficiency while ignoring fairness, safety, or environmental consequences.",
         "ethics": "Important concerns include accountability, over-reliance, and the risk of optimising the wrong objective. A mathematically efficient result may still be socially harmful if human values are not reflected in the design.",
         "waContext": "In Western Australia, UWA researchers applied problem-specific genetic algorithms to optimise sparse power distribution network planning in the South-West, and also explored multi-objective genetic algorithm optimisation for road network widening and maintenance scheduling.",
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
         "media": [
             {
                 "id": 11,
@@ -472,7 +587,7 @@ TOPICS_DATA = [
         "limitations": "Deep fakes can still be detected by artefacts around eyes, ears, and hair, and by unnatural blinking or lighting. They require significant compute and data for high quality. Real-time deep fakes at high resolution remain challenging. Detection tools are in an arms race with generation tools",
         "misuse": "Deep fakes are weaponised for political disinformation, fraud (CEO voice spoofing for wire transfers), non-consensual intimate imagery, reputation destruction, and evidence fabrication. They fundamentally undermine trust in audiovisual evidence - the concept of ‘seeing is believing.’ ",
         "ethics": "Deep fakes attack foundational concepts of truth, consent, and identity. They can cause severe psychological harm to victims of non-consensual synthetic imagery. They create an epistemic crisis in democratic societies where shared visual reality is a basis for public discourse. Legal frameworks are struggling to keep pace.",
-        "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
+        "paradigmShift": "Before synthetic media technologies, digital images, videos, and audio were generally trusted as accurate representations of reality. While editing tools existed, most users assumed that visual and audio content was authentic.\n\nWith the development of deepfake technologies, artificial intelligence can now generate highly realistic but fabricated media. This makes it difficult to distinguish between real and manipulated content.\n\nThis represents a shift from trusting digital media to critically evaluating its authenticity, where users must question what they see and rely on verification tools and ethical safeguards.",        "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
         "media": [
             {
                 "id": 12,
@@ -549,6 +664,85 @@ TOPICS_DATA = [
         ]
     },
     {
+<<<<<<< HEAD
+    "id": 9,
+    "slug": "natural-language-processing",
+    "title": "Natural Language Processing",
+    "yearRange": "2010–2020",
+    "category": "Language AI",
+    "status": "Active",
+    "introText": "Natural Language Processing (NLP) enables computers to read, “understand”, and generate human language, although this “understanding” is based on pattern analysis rather than true human comprehension.",
+    "shortSummary": "NLP allows computers to process language through tokenisation, vector representations, and transformer-based models.",
+    "howItWorks": "NLP systems convert human language into numerical representations that computers can process. Text is first tokenised into smaller units such as words or subwords, then converted into vectors that capture relationships between words. Modern NLP systems, especially transformer models, use attention mechanisms to process context and relationships between words. Importantly, these systems do not truly understand language in the human sense; instead, they identify patterns such as nouns, verbs, and sentence structure, and generate outputs based on statistical relationships learned from data.",
+    "simpleExample": "For example, in the sentence 'book a flight to Sydney tomorrow', the system tokenises the text, converts it into vectors, identifies patterns suggesting the user’s intent, and extracts information such as destination and time to generate an appropriate action.",
+    "effectiveUse": "Machine translation, summarisation, question answering, sentiment analysis, chatbots, and information extraction.",
+    "realWorldExamples": "Speech recognition, machine translation, sentiment analysis, chatbots, search engines, customer support systems, and transformer-based models such as BERT and GPT.",
+    "advantages": "NLP systems can process large amounts of text quickly, operate continuously without fatigue, and automate repetitive language tasks. Transformer models are flexible and can be adapted to many real-world applications.",
+    "limitations": "Human language is complex and context-dependent, making full understanding difficult. NLP systems rely on statistical patterns rather than true comprehension, can inherit bias from training data, and often require significant computational resources.",
+    "misuse": "NLP can be misused to generate fake or misleading content, automate scams or spam messages, and produce biased or harmful text.",
+    "ethics": "Key ethical concerns include bias in language data, misinformation, harmful outputs, and the social impact of automated language systems.",
+    "paradigmShift": "Before NLP, computers processed language using rigid, hand-coded rules. The shift was to statistical and contextual language processing that can handle ambiguity and learn from large text data.",
+    "waContext": "In Western Australia, NLP research has developed mainly through universities and research institutions such as UWA, Curtin, ECU, Murdoch University, and organisations including CSIRO. Research infrastructure such as the Pawsey Supercomputing Research Centre supports large-scale NLP and AI work, while projects such as the Square Kilometre Array (SKA) highlight the role of NLP in processing textual and metadata information for scientific research.",
+    "media": [
+        {
+            "id": 14,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600",
+            "title": "Language Processing Pipeline",
+            "caption": "Basic pipeline of a Natural Language Processing system"
+        },
+        {
+            "id": 15,
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600",
+            "title": "Pawsey Supercomputing Research Centre",
+            "caption": "Research infrastructure supporting AI and NLP work in Western Australia"
+        }
+    ],
+    "references": [
+        {
+            "id": 13,
+            "title": "Natural language processing",
+            "url": "https://mbahng.com/Natural_Sciences/Statistics/Natural_Language_Processing/paper.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Bahng (2024)"
+        },
+        {
+            "id": 14,
+            "title": "Advances in natural language processing",
+            "url": "https://nlp.stanford.edu/~manning/xyzzy/Hirschberg-Manning-Science-2015.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Hirschberg & Manning (2015)"
+        },
+        {
+            "id": 15,
+            "title": "Natural language processing: A historical review",
+            "url": "https://aclanthology.org/www.mt-archive.info/90/Zampolli-1994-Sparck-Jones.pdf",
+            "sourceType": "Book Chapter",
+            "accessedDate": "2026",
+            "notes": "Sparck Jones (1994)"
+        },
+        {
+            "id": 16,
+            "title": "Transformers: State-of-the-art natural language processing",
+            "url": "https://aclanthology.org/2020.emnlp-demos.6.pdf",
+            "sourceType": "Conference Paper",
+            "accessedDate": "2026",
+            "notes": "Wolf et al. (2020)"
+        },
+        {
+            "id": 17,
+            "title": "Survey of transformers and towards ensemble learning using transformers for natural language processing",
+            "url": "https://link.springer.com/content/pdf/10.1186/s40537-023-00842-0.pdf",
+            "sourceType": "Research Paper",
+            "accessedDate": "2026",
+            "notes": "Zhang & Shafiq (2024)"
+        }
+    ]
+},
+=======
         "id": 9,
         "slug": "natural-language-processing",
         "title": "Natural Language Processing",
@@ -617,6 +811,7 @@ TOPICS_DATA = [
             }
         ]
     },
+>>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
     {
         "id": 10,
         "slug": "large-language-models",
@@ -634,6 +829,7 @@ TOPICS_DATA = [
         "limitations": "LLMs do not truly understand meaning in the human sense. They can hallucinate - generating confident, fluent, but factually wrong information. They have knowledge cutoffs and cannot access real-time information without tools. They can be inconsistent across sessions. Very large models require enormous compute resources. Fine-tuned alignment is imperfect; models can still harmful outputs. ",
         "misuse": "Because they produce persuasive text quickly, LLMs can be misused for disinformation, phishing messages, spam, academic misconduct, or the generation of misleading summaries that appear confident but are wrong. Their ease of use lowers the barrier for harmful content creation. ",
         "ethics": "Key ethical issues include copyright, privacy, embedded social bias, over-reliance by students, and the risk that confident machine output may be trusted without verification. For a museum or school audience, the most important message is that LLM output should be treated as a draft or assistant, not as unquestionable truth. Human checking remains essential. ",
+        "paradigmShift": "Before large language models, computers followed explicit instructions and produced predictable outputs. Users interacted through structured commands, and systems did not understand meaning or context.\n\nWith the emergence of large language models, computers are now seen as systems capable of understanding language, generating human-like responses, and assisting with complex cognitive tasks.\n\nThis represents a shift from command-based computing to interaction-based and context-aware systems, where users expect computers to interpret intent rather than simply execute instructions.",
         "waContext": "Western Australia’s capability in Large Language Models has developed through documented academic research and applied system development, rather than creating foundational models. At the University of Western Australia, researchers have directly contributed to LLM knowledge through peer-reviewed work such as “A Comprehensive Overview of Large Language Models” (2025), which surveys advanced topics including multimodal LLMs, training strategies, and benchmarking​ (University of Western Australia, 2025)​ . This shows that WA researchers are actively contributing to the global understanding and refinement of LLM systems, not just using them. At Curtin University, current research projects explicitly focus on LLM-powered autonomous systems, where language models are integrated with real-world tools such as sensors and infrastructure monitoring systems​ (Curtin University, 2025)​ . These projects demonstrate practical implementation of LLMs in areas like: infrastructure management, real-time decision systems, intelligent automation. At the national level, evidence shows that Australia does not yet produce globally competitive LLMs (like GPT-4) and instead relies on international models while focusing on application and adaptation . ",
         "media": [
             {
@@ -752,6 +948,7 @@ def seed_database():
                 topic.limitations = topic_data["limitations"]
                 topic.misuse = topic_data["misuse"]
                 topic.ethics = topic_data["ethics"]
+                topic.paradigm_shift = topic_data.get("paradigmShift", "")
                 topic.wa_context = topic_data["waContext"]
 
                 print(f"Updated: {topic.slug}")
@@ -776,8 +973,9 @@ def seed_database():
                     limitations=topic_data["limitations"],
                     misuse=topic_data["misuse"],
                     ethics=topic_data["ethics"],
+                    paradigm_shift=topic_data.get("paradigmShift", ""),
                     wa_context=topic_data["waContext"],
-                )
+)
 
                 db.session.add(topic)
                 db.session.flush()

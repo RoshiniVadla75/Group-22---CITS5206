@@ -39,6 +39,7 @@ class Topic(db.Model):
     limitations = db.Column(db.Text, nullable=False)
     misuse = db.Column(db.Text, nullable=False)
     ethics = db.Column(db.Text, nullable=False)
+    paradigm_shift = db.Column(db.Text, nullable=False)
     wa_context = db.Column(db.Text, nullable=False)
 
     media = db.relationship(

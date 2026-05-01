@@ -120,6 +120,16 @@
                 {% endif %}
               </div>
 
+              <div id="paradigmShiftCard" class="museum-card">
+                <div class="section-title-row">
+                  <span class="section-emoji">🔄</span>
+                  <span class="exhibit-label">Paradigm Shift</span>
+                </div>
+                <p class="section-text">
+                  {{ topic.paradigm_shift if topic and topic.paradigm_shift else 'Paradigm shift details are not available for this topic yet.' }}
+                </p>
+              </div>
+
               <div id="sectionsContainer">
                 {% if topic %}
                   {% if topic.how_it_works %}
@@ -316,10 +326,24 @@
           <div class="archival-divider"></div>
 
           <div class="bottom-nav" id="bottomNav">
-            <a href="{{ url_for('main.timeline') }}" class="nav-card">
-              <div class="nav-direction">Return</div>
-              <div class="nav-title">← Back to Timeline</div>
+            {% if prev_topic %}
+            <a href="{{ url_for('main.topic_detail', slug=prev_topic.slug) }}" class="nav-card nav-prev">
+              <div class="nav-direction">Previous Topic</div>
+              <div class="nav-title">{{ prev_topic.title }}</div>
             </a>
+            {% endif %}
+
+            <a href="{{ url_for('main.timeline') }}" class="nav-card nav-center">
+              <div class="nav-direction">Return</div>
+              <div class="nav-title">Back to Timeline</div>
+            </a>
+
+            {% if next_topic %}
+            <a href="{{ url_for('main.topic_detail', slug=next_topic.slug) }}" class="nav-card nav-next">
+              <div class="nav-direction">Next Topic</div>
+              <div class="nav-title">{{ next_topic.title }}</div>
+            </a>
+            {% endif %}
           </div>
         </div>
       </main>
@@ -330,6 +354,15 @@
           <p class="footer-text">A Virtual Museum Experience · Final Semester Project · 2024</p>
         </div>
       </footer>
+    </div>
+
+    <div id="imageLightbox" class="image-lightbox" aria-hidden="true">
+      <div class="lightbox-backdrop"></div>
+      <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+        <img id="lightboxImage" src="" alt="" />
+        <p id="lightboxCaption" class="lightbox-caption"></p>
+      </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/topic-detail.js') }}"></script>

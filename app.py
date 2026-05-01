@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_login import LoginManager
 from flask_migrate import Migrate
@@ -20,11 +22,16 @@ def create_app():
         static_folder="app/static",
     )
 
+    instance_path = os.path.join(os.path.dirname(__file__), "instance")
+    os.makedirs(instance_path, exist_ok=True)
+    db_path = os.path.abspath(os.path.join(instance_path, "ai_museum.db"))
+    db_uri = f"sqlite:///{db_path.replace('\\', '/')}"
+
     # -------------------------
     # CONFIG
     # -------------------------
     app.config["SECRET_KEY"] = "dev"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///ai_museum.db"
+    app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     # -------------------------
