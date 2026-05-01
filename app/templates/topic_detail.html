@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ topic.title if topic else 'Topic Detail' }} - AI Museum</title>
+
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/topic-detail.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/topic-diagram.css') }}"
+    />
   </head>
+
   <body>
     <div class="site-wrapper">
       <header class="site-header glass-panel">
@@ -37,11 +43,7 @@
             {% endif %}
           </nav>
 
-          <button
-            class="mobile-toggle"
-            id="mobileToggle"
-            aria-label="Open menu"
-          >
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
             ☰
           </button>
         </div>
@@ -75,30 +77,30 @@
 
           <section id="topicHeader" class="museum-card">
             {% if topic %}
-              <div class="header-block">
-                <div class="header-meta">
-                  {% if topic.category %}
-                  <span class="exhibit-label">{{ topic.category }}</span>
-                  {% endif %}
-                  {% if topic.status %}
-                  <span class="meta-muted">{{ topic.status }}</span>
-                  {% endif %}
-                </div>
-
-                {% if topic.year_range %}
-                <p class="year-text">{{ topic.year_range }}</p>
+            <div class="header-block">
+              <div class="header-meta">
+                {% if topic.category %}
+                <span class="exhibit-label">{{ topic.category }}</span>
                 {% endif %}
-
-                <h1 class="page-title brass-text">{{ topic.title }}</h1>
-
-                {% if topic.short_summary %}
-                <p class="hero-text">{{ topic.short_summary }}</p>
-                {% elif topic.intro_text %}
-                <p class="hero-text">{{ topic.intro_text }}</p>
+                {% if topic.status %}
+                <span class="meta-muted">{{ topic.status }}</span>
                 {% endif %}
               </div>
+
+              {% if topic.year_range %}
+              <p class="year-text">{{ topic.year_range }}</p>
+              {% endif %}
+
+              <h1 class="page-title brass-text">{{ topic.title }}</h1>
+
+              {% if topic.short_summary %}
+              <p class="hero-text">{{ topic.short_summary }}</p>
+              {% elif topic.intro_text %}
+              <p class="hero-text">{{ topic.intro_text }}</p>
+              {% endif %}
+            </div>
             {% else %}
-              <h1 class="page-title brass-text">Topic Detail</h1>
+            <h1 class="page-title brass-text">Topic Detail</h1>
             {% endif %}
           </section>
 
@@ -112,8 +114,7 @@
                 <p class="intro-text">{{ topic.short_summary }}</p>
                 {% else %}
                 <p class="intro-text">
-                  Topic introduction will appear here once content is loaded
-                  from the backend.
+                  Topic introduction will appear here once content is loaded from the backend.
                 </p>
                 {% endif %}
               </div>
@@ -126,8 +127,7 @@
                 <p class="summary-text">{{ topic.how_it_works }}</p>
                 {% else %}
                 <p class="summary-text">
-                  Topic summary will appear here once content is loaded from the
-                  backend.
+                  Topic summary will appear here once content is loaded from the backend.
                 </p>
                 {% endif %}
               </div>
@@ -143,6 +143,24 @@
                     <p class="section-text">{{ topic.how_it_works }}</p>
                   </section>
                   {% endif %}
+
+                  <section
+                    class="museum-card"
+                    id="interactive-diagram"
+                    data-slug="{{ topic.slug }}"
+                  >
+                    <div class="section-title-row">
+                      <span class="section-emoji">🧩</span>
+                      <span class="exhibit-label">Interactive Diagram</span>
+                    </div>
+
+                    <div id="diagram-flow" class="vertical"></div>
+
+                    <div id="diagram-info">
+                      <h3 id="diagram-title"></h3>
+                      <p id="diagram-description"></p>
+                    </div>
+                  </section>
 
                   {% if topic.simple_example %}
                   <section class="museum-card">
@@ -231,27 +249,27 @@
               <div id="mediaCard" class="museum-card">
                 <h2>Media</h2>
                 {% if topic and topic.media %}
-                  <div class="sidebar-stack">
-                    {% for item in topic.media %}
-                    <div class="media-item">
-                      {% if item.url %}
-                      <img
-                        src="{{ item.url }}"
-                        alt="{{ item.title if item.title else topic.title }}"
-                        class="media-image"
-                      />
+                <div class="sidebar-stack">
+                  {% for item in topic.media %}
+                  <div class="media-item">
+                    {% if item.url %}
+                    <img
+                      src="{{ item.url }}"
+                      alt="{{ item.title if item.title else topic.title }}"
+                      class="media-image"
+                    />
+                    {% endif %}
+                    <div class="media-caption-box">
+                      {% if item.title %}
+                      <p class="media-title">{{ item.title }}</p>
                       {% endif %}
-                      <div class="media-caption-box">
-                        {% if item.title %}
-                        <p class="media-title">{{ item.title }}</p>
-                        {% endif %}
-                        {% if item.caption %}
-                        <p class="media-caption">{{ item.caption }}</p>
-                        {% endif %}
-                      </div>
+                      {% if item.caption %}
+                      <p class="media-caption">{{ item.caption }}</p>
+                      {% endif %}
                     </div>
-                    {% endfor %}
                   </div>
+                  {% endfor %}
+                </div>
                 {% else %}
                 <p class="media-caption">Media will appear here when available.</p>
                 {% endif %}
@@ -260,36 +278,36 @@
               <div id="referencesCard" class="museum-card">
                 <h2>References</h2>
                 {% if topic and topic.references %}
-                  <div class="sidebar-stack">
-                    {% for ref in topic.references %}
-                    <div class="reference-item">
-                      {% if ref.url %}
-                      <a
-                        href="{{ ref.url }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="reference-link"
-                      >
-                        {{ ref.title if ref.title else ref.url }}
-                      </a>
-                      {% else %}
-                      <p class="reference-link">{{ ref.title if ref.title else 'Reference' }}</p>
-                      {% endif %}
+                <div class="sidebar-stack">
+                  {% for ref in topic.references %}
+                  <div class="reference-item">
+                    {% if ref.url %}
+                    <a
+                      href="{{ ref.url }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="reference-link"
+                    >
+                      {{ ref.title if ref.title else ref.url }}
+                    </a>
+                    {% else %}
+                    <p class="reference-link">{{ ref.title if ref.title else 'Reference' }}</p>
+                    {% endif %}
 
-                      {% if ref.source_type %}
-                      <p class="reference-meta">Type: {{ ref.source_type }}</p>
-                      {% endif %}
+                    {% if ref.source_type %}
+                    <p class="reference-meta">Type: {{ ref.source_type }}</p>
+                    {% endif %}
 
-                      {% if ref.accessed_date %}
-                      <p class="reference-meta">{{ ref.accessed_date }}</p>
-                      {% endif %}
+                    {% if ref.accessed_date %}
+                    <p class="reference-meta">{{ ref.accessed_date }}</p>
+                    {% endif %}
 
-                      {% if ref.notes %}
-                      <p class="reference-notes">{{ ref.notes }}</p>
-                      {% endif %}
-                    </div>
-                    {% endfor %}
+                    {% if ref.notes %}
+                    <p class="reference-notes">{{ ref.notes }}</p>
+                    {% endif %}
                   </div>
+                  {% endfor %}
+                </div>
                 {% else %}
                 <p class="reference-meta">References will appear here when available.</p>
                 {% endif %}
@@ -338,5 +356,6 @@
 
     <script src="{{ url_for('static', filename='js/topic-detail.js') }}"></script>
     <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/topic-diagram.js') }}"></script>
   </body>
 </html>
