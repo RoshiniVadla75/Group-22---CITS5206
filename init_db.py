@@ -1,6 +1,5 @@
 from app import app
 from models import db, Topic, Media, TopicReference
-from sqlalchemy import inspect, text
 
 
 TOPICS_DATA = [
@@ -21,7 +20,7 @@ TOPICS_DATA = [
         "limitations": "Passing the Turing Test does not imply true understanding. It focuses mainly on conversation and depends on subjective human judgement.",
         "misuse": "Can be misused in systems that imitate humans to deceive users, generate misleading information, or manipulate users.",
         "ethics": "Raises concerns about trust, transparency, deception, and responsible use of human-like AI systems.",
-        "paradigmShift": "Before Turing’s ideas, artificial intelligence was judged by internal design or rule execution. With the Turing Test, the shift was to evaluate intelligence based on observable behaviour and the ability to communicate like a human.",
+        "paradigmShift": "Before Turing's ideas, artificial intelligence was judged by internal design or rule execution. With the Turing Test, the shift was to evaluate intelligence based on observable behaviour and the ability to communicate like a human.",
         "waContext": "In Western Australia, Turing’s ideas influence conversational systems and automated support tools used in customer service, digital platforms, and universities. This influence is also linked to Professor Jeff Rohl at UWA, who worked at the University of Manchester shortly after Turing’s time. Behaviour-based evaluation remains important in modern AI systems across WA.",
         "media": [
             {
@@ -222,20 +221,6 @@ TOPICS_DATA = [
         "yearRange": "c. 1980",
         "category": "Knowledge Engineering",
         "status": "Legacy",
-<<<<<<< HEAD
-        "introText": "In the 1980s, expert systems became the first commercially successful form of AI. These programs encoded the decision-making knowledge of human experts into software using rules, facts, and inference engines.",
-        "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, enabling computers to make decisions in medicine, finance, and engineering by following chains of if-then logic.",
-        "howItWorks": "An expert system consists of a knowledge base, an inference engine, and a user interface. The inference engine applies rules step by step to reach a conclusion.",
-        "simpleExample": "If a patient has fever and cough, and recently travelled, the system may suggest considering a tropical disease.",
-        "effectiveUse": "Most effective in narrow domains where knowledge can be clearly expressed as rules.",
-        "realWorldExamples": "MYCIN, DENDRAL, and XCON.",
-        "advantages": "They preserve expert knowledge, provide consistent decisions, and work well in specialised areas.",
-        "limitations": "They are brittle, hard to maintain, and struggle with uncertainty and ambiguity.",
-        "misuse": "They can be misused when applied outside their narrow domain.",
-        "ethics": "Important concerns include accountability, transparency, and over-reliance in high-stakes domains.",
-        "paradigmShift": "Before expert systems, AI could not capture the detailed knowledge of human specialists. The shift was to rule-based systems that encode expert reasoning and provide advice in narrow domains.",
-        "waContext": "Expert systems influenced decision support work in WA across mining, agriculture, and environmental management.",
-=======
         "introText": "Expert systems were one of the most important symbolic AI technologies of the 1980s. They were designed to imitate the decision-making ability of a human expert in a narrow domain by storing specialist knowledge in rules and facts.",
         "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, allowing computers to provide recommendations and decisions in domains such as medicine, troubleshooting, finance, and industry.",
         "howItWorks": "An expert system usually consists of a knowledge base, an inference engine, and a user interface. Knowledge is stored as facts, relationships, and if-then-else rules. The inference engine applies these rules step by step to reach a conclusion. Two common reasoning methods are forward chaining, which starts from known facts and moves toward a conclusion, and backward chaining, which starts from a possible conclusion and checks whether the supporting facts are true.",
@@ -246,8 +231,8 @@ TOPICS_DATA = [
         "limitations": "Their performance depends heavily on the quality of the knowledge base. They are difficult to build and maintain, often suffer from the knowledge acquisition bottleneck, and usually work only in narrow domains. They also struggle with ambiguity and unfamiliar situations.",
         "misuse": "They can be misused when applied outside their intended domain, or when users trust outdated, incomplete, or biased rules too much in high-stakes areas such as medicine, law, or finance.",
         "ethics": "Important concerns include accountability, transparency, and over-reliance. Some expert systems also used Bayes theorem to reason under uncertainty and fuzzy logic to handle vague concepts, but even then the system’s outputs could still create risks if human judgement was ignored.",
+        "paradigmShift": "Before expert systems, AI programs mainly followed general symbolic rules. The shift was to systems that encoded specialist human knowledge and used inference engines to provide expert advice in narrow domains.",
         "waContext": "In Western Australia, expert-system and rule-based decision support approaches were relevant in industrial environments such as Alcoa’s Wagerup alumina refinery, where expert knowledge could support diagnostics, scheduling, and operational planning.",
->>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
         "media": [
             {
                 "id": 5,
@@ -284,85 +269,6 @@ TOPICS_DATA = [
         ]
     },
     {
-<<<<<<< HEAD
-    "id": 5,
-    "slug": "artificial-neural-nets",
-    "title": "Artificial Neural Networks",
-    "yearRange": "1980–2000",
-    "category": "Neural Computing",
-    "status": "Active",
-    "introText": "Artificial Neural Networks (ANNs) are inspired by the structure of the human brain and learn patterns from data through interconnected neurons.",
-    "shortSummary": "ANNs learn complex patterns through layered structures and form the foundation of modern deep learning systems.",
-    "howItWorks": "ANNs consist of an input layer, one or more hidden layers, and an output layer. Data is passed through the network, where each neuron applies weighted calculations. During training, the system adjusts these weights to reduce error and improve performance. Deep learning extends this by using multiple hidden layers to capture more complex relationships in data.",
-    "simpleExample": "An image classification system processes pixel data through multiple layers to detect features such as edges, shapes, and colours, and then predicts whether the image is a cat or a dog.",
-    "effectiveUse": "Pattern recognition tasks such as image classification, speech recognition, and data analysis.",
-    "realWorldExamples": "Facial recognition systems, handwriting recognition, speech recognition, medical diagnosis, and financial prediction.",
-    "advantages": "They can learn directly from data, model complex relationships, detect hidden patterns, and improve performance with more data.",
-    "limitations": "Training requires large datasets and computational resources. The internal decision-making process is often difficult to interpret, leading to 'black box' concerns.",
-    "misuse": "ANNs can be misused in surveillance systems, biased automated decision-making, and misleading predictive systems.",
-    "ethics": "Key concerns include bias in training data, lack of transparency, and fairness in automated decision-making.",
-    "paradigmShift": "Before artificial neural networks, machine intelligence relied on hand-coded rules and symbolic reasoning. The shift was to learning systems that discover patterns directly from data through layered network structures.",
-    "waContext": "In Western Australia, neural network research is mainly carried out in universities and research institutions such as UWA, Curtin, ECU, and Murdoch University, as well as organisations like CSIRO. Facilities such as the Pawsey Supercomputing Research Centre support large-scale data processing and AI research. Neural networks are also applied in projects like the Square Kilometre Array (SKA) to analyse large volumes of scientific data.",
-    "media": [
-        {
-            "id": 6,
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600",
-            "title": "Neural Network Architecture",
-            "caption": "Basic structure of an artificial neural network with input, hidden, and output layers"
-        },
-        {
-            "id": 7,
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600",
-            "title": "Brain-Inspired Computing",
-            "caption": "Neural networks are inspired by the structure of the human brain"
-        }
-    ],
-    "references": [
-        {
-            "id": 5,
-            "title": "Artificial neural networks: fundamentals, computing, design, and application",
-            "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Basheer & Hajmeer (2000)"
-        },
-        {
-            "id": 6,
-            "title": "Artificial neural networks for beginners",
-            "url": "https://arxiv.org/pdf/cs/0308031",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Gershenson (2003)"
-        },
-        {
-            "id": 7,
-            "title": "Fundamentals of artificial neural networks",
-            "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews/links/56ebf73a08aee4707a3849a6/Fundamentals-of-Artificial-Neural-Networks-Book-Reviews.pdf",
-            "sourceType": "Book",
-            "accessedDate": "2026",
-            "notes": "Hassoun (1995)"
-        },
-        {
-            "id": 8,
-            "title": "What are artificial neural networks?",
-            "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Krogh (2008)"
-        },
-        {
-            "id": 9,
-            "title": "Perceptrons: An Introduction to Computational Geometry",
-            "url": "https://mitpress.mit.edu/9780262630229/perceptrons/",
-            "sourceType": "Book",
-            "accessedDate": "2026",
-            "notes": "Minsky & Papert (1969)"
-        }
-    ]
-},
-=======
         "id": 5,
         "slug": "artificial-neural-nets",
         "title": "Artificial Neural Nets",
@@ -379,6 +285,7 @@ TOPICS_DATA = [
         "limitations": "Training neural networks can require large amounts of data and computational resources. Their internal decision-making process is often difficult to interpret, which is why they are sometimes described as 'black box' systems. Early neural networks were also limited in capability, although modern systems have overcome many of these limitations.",
         "misuse": "ANNs can be misused in surveillance using facial recognition, biased automated decision-making, and misleading prediction systems.",
         "ethics": "These uses raise ethical concerns, particularly regarding privacy, fairness, bias in training data, and lack of transparency.",
+        "paradigmShift": "Before artificial neural networks, computers were mostly seen as systems that followed fixed rules. The shift was to adaptive systems that learn patterns from data and improve their performance through training.",
         "waContext": "Artificial Neural Networks have also played a role in the development of artificial intelligence research in Western Australia. Rather than focusing on hardware, development in WA is mainly reflected in the growth of research expertise, academic contributions, and applied projects. Research in AI and neural networks has been carried out primarily in universities and research institutions, including The University of Western Australia, Curtin University, Edith Cowan University, Murdoch University, and organisations such as CSIRO. Pawsey Supercomputing Research Centre provides advanced computational resources that support AI and neural network research, including large-scale data processing in astronomy, geoscience, and data-intensive research. Neural networks and machine learning methods are also increasingly relevant to projects such as the Square Kilometre Array, where large volumes of scientific data must be processed, filtered, and analysed.",
         "media": [
             {
@@ -439,7 +346,6 @@ TOPICS_DATA = [
             }
         ]
     },
->>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
     {
         "id": 6,
         "slug": "internet-driven-ai-ibm-watson",
@@ -509,20 +415,6 @@ TOPICS_DATA = [
         "yearRange": "c. 2010",
         "category": "Bio-Inspired AI",
         "status": "Active",
-<<<<<<< HEAD
-        "introText": "Evolutionary computing draws inspiration from biological evolution to optimise complex problems.",
-        "shortSummary": "Genetic algorithms apply natural selection to computing.",
-        "howItWorks": "A genetic algorithm starts with random candidate solutions, evaluates them, selects the best, and creates new generations via crossover and mutation.",
-        "simpleExample": "Like designing better paper airplanes by repeatedly keeping the best and combining their features.",
-        "effectiveUse": "Optimisation problems in engineering, logistics, scheduling, and design.",
-        "realWorldExamples": "NASA antenna design, logistics routing, financial strategy evolution.",
-        "advantages": "Works well on complex search spaces and can find creative solutions.",
-        "limitations": "Computationally expensive and does not guarantee the global optimum.",
-        "misuse": "Can be used to optimise harmful or adversarial outcomes if the fitness criteria are poorly designed.",
-        "ethics": "Optimization goals must be defined carefully to avoid harmful unintended consequences.",
-        "paradigmShift": "Before evolutionary computing, optimisation relied on deterministic and gradient-based methods. The shift was to population-based search inspired by natural selection, which can explore many solutions simultaneously.",
-        "waContext": "WA researchers have used genetic algorithms in mining optimisation and logistics.",
-=======
         "introText": "Evolutionary computing is a branch of artificial intelligence inspired by biological evolution. One of its best-known techniques is the genetic algorithm, which searches for strong solutions by imitating natural selection, reproduction, and mutation.",
         "shortSummary": "Genetic algorithms solve complex optimisation and search problems by evolving a population of candidate solutions over many generations using selection, crossover, and mutation.",
         "howItWorks": "A genetic algorithm begins with a population of candidate solutions. Each candidate is evaluated using a fitness function that measures how well it solves the problem. Better candidates are more likely to be selected to form the next generation. New candidates are produced through crossover, which combines features of parent solutions, and mutation, which introduces small random changes. Over time, the population tends to improve, although the algorithm may still converge to a strong local optimum rather than the global optimum.",
@@ -533,8 +425,8 @@ TOPICS_DATA = [
         "limitations": "They do not guarantee the global optimum, and their effectiveness depends heavily on the encoding method, fitness function, and parameter settings such as mutation rate, crossover rate, and population size. They can also be computationally expensive.",
         "misuse": "They can produce harmful results if the fitness function is poorly designed, for example by optimising only cost or efficiency while ignoring fairness, safety, or environmental consequences.",
         "ethics": "Important concerns include accountability, over-reliance, and the risk of optimising the wrong objective. A mathematically efficient result may still be socially harmful if human values are not reflected in the design.",
+        "paradigmShift": "Before evolutionary computing, optimisation often relied on deterministic or manually designed search methods. The shift was to population-based search inspired by natural selection, allowing systems to explore many candidate solutions and evolve better ones over time.",
         "waContext": "In Western Australia, UWA researchers applied problem-specific genetic algorithms to optimise sparse power distribution network planning in the South-West, and also explored multi-objective genetic algorithm optimisation for road network widening and maintenance scheduling.",
->>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
         "media": [
             {
                 "id": 11,
@@ -587,7 +479,8 @@ TOPICS_DATA = [
         "limitations": "Deep fakes can still be detected by artefacts around eyes, ears, and hair, and by unnatural blinking or lighting. They require significant compute and data for high quality. Real-time deep fakes at high resolution remain challenging. Detection tools are in an arms race with generation tools",
         "misuse": "Deep fakes are weaponised for political disinformation, fraud (CEO voice spoofing for wire transfers), non-consensual intimate imagery, reputation destruction, and evidence fabrication. They fundamentally undermine trust in audiovisual evidence - the concept of ‘seeing is believing.’ ",
         "ethics": "Deep fakes attack foundational concepts of truth, consent, and identity. They can cause severe psychological harm to victims of non-consensual synthetic imagery. They create an epistemic crisis in democratic societies where shared visual reality is a basis for public discourse. Legal frameworks are struggling to keep pace.",
-        "paradigmShift": "Before synthetic media technologies, digital images, videos, and audio were generally trusted as accurate representations of reality. While editing tools existed, most users assumed that visual and audio content was authentic.\n\nWith the development of deepfake technologies, artificial intelligence can now generate highly realistic but fabricated media. This makes it difficult to distinguish between real and manipulated content.\n\nThis represents a shift from trusting digital media to critically evaluating its authenticity, where users must question what they see and rely on verification tools and ethical safeguards.",        "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
+        "paradigmShift": "Before synthetic media technologies, digital images, videos, and audio were generally trusted as accurate representations of reality. While editing tools existed, most users assumed that visual and audio content was authentic.\n\nWith the development of deepfake technologies, artificial intelligence can now generate highly realistic but fabricated media. This makes it difficult to distinguish between real and manipulated content.\n\nThis represents a shift from trusting digital media to critically evaluating its authenticity, where users must question what they see and rely on verification tools and ethical safeguards.",
+        "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
         "media": [
             {
                 "id": 12,
@@ -664,85 +557,6 @@ TOPICS_DATA = [
         ]
     },
     {
-<<<<<<< HEAD
-    "id": 9,
-    "slug": "natural-language-processing",
-    "title": "Natural Language Processing",
-    "yearRange": "2010–2020",
-    "category": "Language AI",
-    "status": "Active",
-    "introText": "Natural Language Processing (NLP) enables computers to read, “understand”, and generate human language, although this “understanding” is based on pattern analysis rather than true human comprehension.",
-    "shortSummary": "NLP allows computers to process language through tokenisation, vector representations, and transformer-based models.",
-    "howItWorks": "NLP systems convert human language into numerical representations that computers can process. Text is first tokenised into smaller units such as words or subwords, then converted into vectors that capture relationships between words. Modern NLP systems, especially transformer models, use attention mechanisms to process context and relationships between words. Importantly, these systems do not truly understand language in the human sense; instead, they identify patterns such as nouns, verbs, and sentence structure, and generate outputs based on statistical relationships learned from data.",
-    "simpleExample": "For example, in the sentence 'book a flight to Sydney tomorrow', the system tokenises the text, converts it into vectors, identifies patterns suggesting the user’s intent, and extracts information such as destination and time to generate an appropriate action.",
-    "effectiveUse": "Machine translation, summarisation, question answering, sentiment analysis, chatbots, and information extraction.",
-    "realWorldExamples": "Speech recognition, machine translation, sentiment analysis, chatbots, search engines, customer support systems, and transformer-based models such as BERT and GPT.",
-    "advantages": "NLP systems can process large amounts of text quickly, operate continuously without fatigue, and automate repetitive language tasks. Transformer models are flexible and can be adapted to many real-world applications.",
-    "limitations": "Human language is complex and context-dependent, making full understanding difficult. NLP systems rely on statistical patterns rather than true comprehension, can inherit bias from training data, and often require significant computational resources.",
-    "misuse": "NLP can be misused to generate fake or misleading content, automate scams or spam messages, and produce biased or harmful text.",
-    "ethics": "Key ethical concerns include bias in language data, misinformation, harmful outputs, and the social impact of automated language systems.",
-    "paradigmShift": "Before NLP, computers processed language using rigid, hand-coded rules. The shift was to statistical and contextual language processing that can handle ambiguity and learn from large text data.",
-    "waContext": "In Western Australia, NLP research has developed mainly through universities and research institutions such as UWA, Curtin, ECU, Murdoch University, and organisations including CSIRO. Research infrastructure such as the Pawsey Supercomputing Research Centre supports large-scale NLP and AI work, while projects such as the Square Kilometre Array (SKA) highlight the role of NLP in processing textual and metadata information for scientific research.",
-    "media": [
-        {
-            "id": 14,
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600",
-            "title": "Language Processing Pipeline",
-            "caption": "Basic pipeline of a Natural Language Processing system"
-        },
-        {
-            "id": 15,
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600",
-            "title": "Pawsey Supercomputing Research Centre",
-            "caption": "Research infrastructure supporting AI and NLP work in Western Australia"
-        }
-    ],
-    "references": [
-        {
-            "id": 13,
-            "title": "Natural language processing",
-            "url": "https://mbahng.com/Natural_Sciences/Statistics/Natural_Language_Processing/paper.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Bahng (2024)"
-        },
-        {
-            "id": 14,
-            "title": "Advances in natural language processing",
-            "url": "https://nlp.stanford.edu/~manning/xyzzy/Hirschberg-Manning-Science-2015.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Hirschberg & Manning (2015)"
-        },
-        {
-            "id": 15,
-            "title": "Natural language processing: A historical review",
-            "url": "https://aclanthology.org/www.mt-archive.info/90/Zampolli-1994-Sparck-Jones.pdf",
-            "sourceType": "Book Chapter",
-            "accessedDate": "2026",
-            "notes": "Sparck Jones (1994)"
-        },
-        {
-            "id": 16,
-            "title": "Transformers: State-of-the-art natural language processing",
-            "url": "https://aclanthology.org/2020.emnlp-demos.6.pdf",
-            "sourceType": "Conference Paper",
-            "accessedDate": "2026",
-            "notes": "Wolf et al. (2020)"
-        },
-        {
-            "id": 17,
-            "title": "Survey of transformers and towards ensemble learning using transformers for natural language processing",
-            "url": "https://link.springer.com/content/pdf/10.1186/s40537-023-00842-0.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Zhang & Shafiq (2024)"
-        }
-    ]
-},
-=======
         "id": 9,
         "slug": "natural-language-processing",
         "title": "Natural Language Processing",
@@ -759,6 +573,7 @@ TOPICS_DATA = [
         "limitations": "Human language is complex and highly context-dependent, which makes full understanding difficult. NLP models rely heavily on training data, which can introduce bias. They learn statistical patterns rather than true understanding, which may lead to incorrect or misleading outputs. Transformer models also require significant computational resources, making them expensive to train and deploy.",
         "misuse": "NLP technologies can be misused to generate fake or misleading content, automate scams or spam messages, and produce biased or harmful text.",
         "ethics": "These issues can affect public trust and raise ethical concerns about bias, misinformation, harmful outputs, and the responsible use of AI systems.",
+        "paradigmShift": "Before natural language processing, computers were mainly expected to process structured commands and numerical data. The shift was to systems that can process, generate, and respond to human language using rules, statistics, machine learning, and transformer-based models.",
         "waContext": "Natural Language Processing has also contributed to the development of artificial intelligence research in Western Australia. Similar to other AI fields, the focus in WA is mainly on the growth of research expertise, academic contributions, and applied projects rather than specific hardware developments. NLP-related research has been carried out primarily within universities and research institutions, including The University of Western Australia, Curtin University, Edith Cowan University, Murdoch University, and organisations such as CSIRO. The development of NLP in WA reflects a broader evolution from early rule-based systems to modern machine learning and deep learning approaches. Recent developments have been supported by advanced research infrastructure such as the Pawsey Supercomputing Research Centre, which provides computational power for large-scale NLP models and scientific research. NLP techniques are also increasingly relevant in large-scale projects such as the Square Kilometre Array, where textual and metadata information must be processed, organised, and analysed.",
         "media": [
             {
@@ -811,7 +626,6 @@ TOPICS_DATA = [
             }
         ]
     },
->>>>>>> 9bd27ff1d6a4d6df05ad4b1b6ae4be07b5f27c41
     {
         "id": 10,
         "slug": "large-language-models",
@@ -975,7 +789,7 @@ def seed_database():
                     ethics=topic_data["ethics"],
                     paradigm_shift=topic_data.get("paradigmShift", ""),
                     wa_context=topic_data["waContext"],
-)
+                )
 
                 db.session.add(topic)
                 db.session.flush()
