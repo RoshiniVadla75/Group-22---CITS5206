@@ -77,75 +77,137 @@ TOPICS_DATA = [
         "id": 2,
         "slug": "learning-machines",
         "title": "Learning Machines",
-        "yearRange": "c. 1960",
+        "yearRange": "1950s–1980s",
         "category": "Machine Learning",
-        "status": "Active",
-        "introText": "Learning machines marked a shift from explicit programming toward systems that could improve through data and experience.",
-        "shortSummary": "Machines began to learn patterns rather than rely only on fixed hand-written rules.",
-        "howItWorks": "These systems use training data to identify patterns and improve decision-making over time.",
-        "simpleExample": "A model trained on past weather data predicts tomorrow's temperature range.",
-        "effectiveUse": "Useful when large amounts of data are available and patterns can be learned statistically.",
-        "realWorldExamples": "Prediction systems, classification, industrial monitoring, and analytics.",
-        "advantages": "Can adapt better than rigid rule-based systems in changing environments.",
-        "limitations": "Needs data quality, computational power, and careful evaluation.",
-        "misuse": "Can produce misleading results when trained on biased or poor-quality data.",
-        "ethics": "Raises concerns about fairness, transparency, and accountability.",
-        "waContext": "WA universities and research groups have contributed to machine learning education and research.",
+        "status": "Legacy",
+        "introText": "Learning machines represent an early shift in artificial intelligence from fixed, rule-based systems to systems that improve through experience. Instead of relying solely on predefined instructions, these systems incorporate feedback mechanisms, allowing behaviour to change based on performance over time. A key example is the work of Arthur Samuel, who developed a checkers program that improved through self-play. The program evaluated board positions using a scoring function and updated this function based on game outcomes. This demonstrated that a machine could refine its behaviour without explicit reprogramming, reaching strategies not directly anticipated by its designer. During the 1950s to 1980s, this idea of feedback-driven improvement became central to early machine learning. Systems in this period were typically simple in structure but introduced the important concept of adaptive algorithms, where performance improves through repeated evaluation and adjustment.",
+        "shortSummary": "Learning machines introduced adaptive behaviour by using feedback-driven improvement. A system generates an action, evaluates the result, updates its parameters, and repeats the process.",
+        "howItWorks": "A learning machine operates through a cycle of action, evaluation, and adjustment. This process involves generating an action based on current parameters, evaluating the result using a scoring or utility function, and updating parameters to improve future outcomes. In Samuel’s checkers program, this formed a self-play feedback loop, where the system repeatedly played games against itself and refined its evaluation function based on success or failure. Unlike later machine learning systems, early learning machines relied on explicitly defined features and relatively simple update rules. Their importance lies in introducing adaptive behaviour rather than architectural complexity. This process forms a feedback loop, where the system continuously improves its performance through repeated cycles of evaluation and adjustment.",
+        "simpleExample": "A checkers program evaluates board states using features such as piece count and positional strength. Each feature has an associated weight. After repeated games, the system adjusts these weights to favour strategies associated with winning outcomes. Another example is early optimisation systems that adjust parameters to reduce prediction error. These systems compare predicted outcomes with observed results and iteratively update parameters to improve accuracy.",
+        "effectiveUse": "The principles established by early learning machines underpin many modern systems. Applications include optimisation problems where parameters are refined iteratively, recommendation systems that adapt to user behaviour, and adaptive control systems in engineering. Although modern systems are more complex, they continue to rely on feedback-driven improvement, which originates from early learning machine research.",
+        "realWorldExamples": "Samuel’s checkers program remains a defining example of a learning machine. Through self-play and iterative adjustment, the system improved its performance beyond its initial configuration, demonstrating that behaviour could emerge from experience rather than fixed rules.",
+        "advantages": "Learning machines enable systems to improve without manual reprogramming, adapt to changing data and environments, and form the foundation of modern machine learning.",
+        "limitations": "Learning machines depend on the quality of feedback data. Early systems required carefully designed features, and learning processes may converge slowly or to suboptimal results.",
+        "misuse": "Learning systems may reinforce biased or incorrect patterns if training data or feedback signals are flawed. This can lead to unintended or misleading outcomes.",
+        "ethics": "Learning machines optimise measurable objectives, which may not align with broader social or ethical goals. Oversight is required to ensure responsible use and to manage risks related to bias and unintended behaviour.",
+        "waContext": "In Western Australia, the influence of learning machines is reflected in research, infrastructure, and industrial application. The University of Western Australia conducts teaching and research in machine learning, data science, and optimisation. These areas build on the principles of adaptive systems and iterative improvement. The Pawsey Supercomputing Research Centre, located in Perth, provides high-performance computing infrastructure that supports large-scale data processing and model training. This infrastructure enables modern systems that extend early learning machine concepts. In industry, Rio Tinto applies machine learning techniques in areas such as predictive maintenance and operational optimisation, where systems improve performance using historical data.",
         "media": [
             {
                 "id": 2,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
-                "title": "Learning from Data",
-                "caption": "Data-driven approaches transformed AI development."
+                "url": "/static/images/learning-machines-feedback-loop.png",
+                "title": "Learning Machine Feedback Loop",
+                "caption": "Figure 1. A simplified feedback loop in a learning machine, showing how a system generates an action, evaluates the outcome, updates its parameters, and repeats the process. Source: Author’s own diagram, based on Samuel (1959)."
+            },
+            {
+                "id": 20,
+                "type": "image",
+                "url": "/static/images/pawsey-supercomputing-centre.png",
+                "title": "Pawsey Supercomputing Research Centre",
+                "caption": "Figure 2. Pawsey Supercomputing Research Centre in Western Australia, supporting large-scale computational research."
             }
         ],
         "references": [
             {
                 "id": 2,
-                "title": "Machine Learning Overview",
-                "url": "https://en.wikipedia.org/wiki/Machine_learning",
-                "sourceType": "Background Source",
+                "title": "Some studies in machine learning using the game of checkers",
+                "url": "https://doi.org/10.1147/rd.33.0210",
+                "sourceType": "Research Paper",
                 "accessedDate": "Accessed 2026",
-                "notes": "General introductory material."
+                "notes": "Samuel, A. L. (1959). IBM Journal of Research and Development, 3(3), 210–229."
+            },
+            {
+                "id": 20,
+                "title": "Data science at UWA",
+                "url": "https://www.uwa.edu.au/projects/data-science-at-uwa",
+                "sourceType": "University Website",
+                "accessedDate": "Accessed 2026",
+                "notes": "The University of Western Australia. (2024, November 27)."
+            },
+            {
+                "id": 21,
+                "title": "Pawsey Supercomputing Research Centre",
+                "url": "https://www.csiro.au/en/about/facilities-collections/pawsey-supercomputing-research-centre",
+                "sourceType": "Research Infrastructure Website",
+                "accessedDate": "Accessed 2026",
+                "notes": "CSIRO. (2023)."
+            },
+            {
+                "id": 22,
+                "title": "Using AI and data science for better operations",
+                "url": "https://www.riotinto.com/en/news/stories/using-ai-data-science-for-better-operations",
+                "sourceType": "Industry Website",
+                "accessedDate": "Accessed 2026",
+                "notes": "Rio Tinto. (2024)."
             }
         ]
     },
-    {
+        {
         "id": 3,
         "slug": "game-playing-ai",
-        "title": "Game Playing AI",
-        "yearRange": "c. 1970",
+        "title": "Board Game Playing",
+        "yearRange": "1950s–1990s",
         "category": "Strategic Systems",
-        "status": "Active",
-        "introText": "Game-playing AI demonstrated that machines could make strategic decisions in structured environments.",
-        "shortSummary": "Game AI made abstract reasoning and search visible and measurable.",
-        "howItWorks": "These systems explore possible future moves and evaluate game states to choose effective strategies.",
-        "simpleExample": "A chess engine examines several possible moves and chooses the one with the highest evaluation.",
-        "effectiveUse": "Best in structured problems with clear rules and goals.",
-        "realWorldExamples": "Chess engines, board games, and teaching search algorithms.",
-        "advantages": "Excellent for demonstrating planning and search methods.",
-        "limitations": "Performs best in closed systems with well-defined rules.",
-        "misuse": "People may assume success in games always transfers to messy real-world tasks.",
-        "ethics": "Limited direct ethical risk, but influences public perception of AI capability.",
-        "waContext": "WA computing programs have used game-playing systems as teaching tools for search, heuristics, and decision-making.",
+        "status": "Legacy",
+        "introText": "Board games played a central role in early artificial intelligence research because they provide controlled environments with fixed rules, limited actions, and clearly defined outcomes. These characteristics make them suitable for studying decision-making and reasoning. As explained by Tim French (2021), games offer a simplified domain where intelligent behaviour can be analysed without the uncertainty of real-world environments. Early AI researchers used board games as primary evidence that machines could perform structured reasoning tasks. Claude Shannon (1950) formalised computer chess as a search problem, showing that a machine could evaluate future possibilities and select optimal moves. Arthur Samuel (1959) extended this approach by incorporating learning into a checkers program, demonstrating that performance could improve through experience. These properties made board games one of the earliest and most effective forms of evidence that machines could perform structured reasoning within a well-defined domain.",
+        "shortSummary": "Board game AI demonstrated how machines use search, evaluation, and optimisation to make strategic decisions in structured environments.",
+        "howItWorks": "Board game AI models decision-making as a search through possible game states. A game consists of a set of possible states, a set of legal moves, a transition function defining how moves change states, and a utility function that assigns outcomes. The minimax algorithm evaluates moves by assuming both players act optimally. It explores the game tree and selects actions that maximise the AI’s outcome while minimising the opponent’s best response. In simple games such as noughts and crosses, the full game tree can be evaluated. Each possible sequence of moves is explored until a terminal state is reached, and values are propagated back through the tree to determine the optimal move. Because the number of possible states grows rapidly in more complex games, practical systems use depth-limited search, heuristic evaluation functions, and alpha-beta pruning to reduce computation.",
+        "simpleExample": "In noughts and crosses, all possible outcomes can be evaluated, which guarantees optimal play when using minimax. In chess, the search space is much larger, so programs rely on evaluation functions that estimate the value of a position based on factors such as material balance and positional strength.",
+        "effectiveUse": "Board game AI is used in chess engines, checkers programs, and Go systems. The same techniques are applied in planning and scheduling, optimisation problems, and strategic decision systems where search and evaluation are required.",
+        "realWorldExamples": "Deep Blue demonstrated the effectiveness of large-scale search combined with domain-specific evaluation by defeating world chess champion Garry Kasparov in 1997. AlphaGo later combined search with learned evaluation functions, showing how modern systems extend classical approaches to handle complex environments such as Go.",
+        "advantages": "Board game AI provides a controlled environment for testing algorithms, enables precise evaluation of decision-making strategies, and supports the development of search and optimisation techniques.",
+        "limitations": "Board game AI is limited to structured environments with defined rules, does not generalise easily to complex real-world problems, and depends on accurate modelling of the domain.",
+        "misuse": "Search and optimisation techniques developed for board games can be applied to high-stakes decision systems without sufficient transparency, making decisions difficult to interpret.",
+        "ethics": "Success in board games may lead to overestimating AI capability. These systems operate in constrained environments and do not represent general intelligence. Distinguishing between domain-specific performance and broader intelligence remains important.",
+        "waContext": "In Western Australia, board game AI is primarily used for education and training. The University of Western Australia includes game-playing algorithms such as minimax and alpha-beta pruning in its computer science curriculum. These concepts are taught through lecture material and support the development of foundational skills in adversarial search and decision-making.",
         "media": [
             {
                 "id": 3,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&w=1200&q=80",
-                "title": "Strategic Search",
-                "caption": "Game environments provided clear testbeds for AI reasoning."
+                "url": "/static/images/minimax-diagram.png",
+                "title": "Minimax Search",
+                "caption": "Minimax search applied to noughts and crosses, showing how values are propagated through the game tree."
+            },
+            {
+                "id": 30,
+                "type": "image",
+                "url": "/static/images/deep-blue.png",
+                "title": "IBM Deep Blue",
+                "caption": "Deep Blue demonstrated large-scale search and evaluation in computer chess."
             }
         ],
         "references": [
             {
                 "id": 3,
-                "title": "Game AI Background",
-                "url": "https://en.wikipedia.org/wiki/Game_artificial_intelligence",
-                "sourceType": "Background Source",
+                "title": "Programming a computer for playing chess",
+                "url": "https://doi.org/10.1080/14786445008521796",
+                "sourceType": "Research Paper",
                 "accessedDate": "Accessed 2026",
-                "notes": "General overview source."
+                "notes": "Shannon, C. E. (1950)."
+            },
+            {
+                "id": 31,
+                "title": "Game-Playing Lecture",
+                "url": "https://teaching.csse.uwa.edu.au/units/CITS3001/lectures/07GamePlaying.pdf",
+                "sourceType": "Lecture Material",
+                "accessedDate": "Accessed 2026",
+                "notes": "French, T. (2021)."
+            },
+            {
+                "id": 32,
+                "title": "Deep Blue",
+                "url": "https://www.ibm.com/history/deep-blue",
+                "sourceType": "Company Source",
+                "accessedDate": "Accessed 2026",
+                "notes": "IBM (2011)."
+            },
+            {
+                "id": 33,
+                "title": "Mastering the game of Go",
+                "url": "https://www.nature.com/articles/nature16961",
+                "sourceType": "Research Paper",
+                "accessedDate": "Accessed 2026",
+                "notes": "Silver et al. (2016)."
             }
         ]
     },
