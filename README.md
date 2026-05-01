@@ -260,7 +260,11 @@ GROUP-22---CITS5206/
 │   │   │   ├── home.css
 │   │   │   ├── search.css
 │   │   │   ├── timeline.css
-│   │   │   └── topic-detail.css
+│   │   │   ├── topic-detail.css
+│   │   │   └── topic-diagram.css        
+│   │   ├── images/
+│   │   │   ├── deep fake.png
+│   │   │   └── Large language models... 
 │   │   └── js/
 │   │       ├── explore-wa.js
 │   │       ├── guided-tour.js
@@ -269,7 +273,8 @@ GROUP-22---CITS5206/
 │   │       ├── search.js
 │   │       ├── timeline.js
 │   │       ├── topic_data.js
-│   │       └── topic-detail.js
+│   │       ├── topic-detail.js
+│   │       └── topic-diagram.js       
 │   └── templates/
 │       ├── explore_WA.html
 │       ├── guided_tour.html
@@ -279,13 +284,13 @@ GROUP-22---CITS5206/
 │       ├── signup.html
 │       ├── timeline.html
 │       └── topic_detail.html
-├── instance/
-│   └── ai_museum.db
+│
 ├── migrations/
 │   ├── alembic.ini
 │   ├── env.py
 │   ├── README
 │   └── script.py.mako
+│
 ├── tests/
 │   ├── Selenium/
 │   │   ├── test_guided_tour.py
@@ -297,14 +302,19 @@ GROUP-22---CITS5206/
 │   │   ├── test_models.py
 │   │   └── test_routes.py
 │   └── conftest.py
+│
+├── __pycache__/              
+├── .pytest_cache/            
+│
 ├── .gitignore
 ├── app.py
 ├── init_db.py
 ├── models.py
+├── routes.py
 ├── README.md
-├── requirements.txt
-└── routes.py
+└── requirements.txt
 ```
+> Note: Cache directories such as `__pycache__/` and `.pytest_cache/` are excluded via `.gitignore` and are not part of the core project structure.
 
 ## ✅ Features Implemented
 
