@@ -124,41 +124,49 @@ TOPICS_DATA = [
         "yearRange": "c. 1980",
         "category": "Knowledge Engineering",
         "status": "Legacy",
-        "introText": "In the 1980s, expert systems became the first commercially successful form of AI. These programs encoded the decision-making knowledge of human experts into software using rules, facts, and inference engines.",
-        "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, enabling computers to make decisions in medicine, finance, and engineering by following chains of if-then logic.",
-        "howItWorks": "An expert system consists of a knowledge base, an inference engine, and a user interface. The inference engine applies rules step by step to reach a conclusion.",
-        "simpleExample": "If a patient has fever and cough, and recently travelled, the system may suggest considering a tropical disease.",
-        "effectiveUse": "Most effective in narrow domains where knowledge can be clearly expressed as rules.",
-        "realWorldExamples": "MYCIN, DENDRAL, and XCON.",
-        "advantages": "They preserve expert knowledge, provide consistent decisions, and work well in specialised areas.",
-        "limitations": "They are brittle, hard to maintain, and struggle with uncertainty and ambiguity.",
-        "misuse": "They can be misused when applied outside their narrow domain.",
-        "ethics": "Important concerns include accountability, transparency, and over-reliance in high-stakes domains.",
-        "waContext": "Expert systems influenced decision support work in WA across mining, agriculture, and environmental management.",
+        "introText": "Expert systems were one of the most important symbolic AI technologies of the 1980s. They were designed to imitate the decision-making ability of a human expert in a narrow domain by storing specialist knowledge in rules and facts.",
+        "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, allowing computers to provide recommendations and decisions in domains such as medicine, troubleshooting, finance, and industry.",
+        "howItWorks": "An expert system usually consists of a knowledge base, an inference engine, and a user interface. Knowledge is stored as facts, relationships, and if-then-else rules. The inference engine applies these rules step by step to reach a conclusion. Two common reasoning methods are forward chaining, which starts from known facts and moves toward a conclusion, and backward chaining, which starts from a possible conclusion and checks whether the supporting facts are true.",
+        "simpleExample": "Imagine a car fault diagnosis system. If the engine does not start and the battery lights are weak, the system may conclude that the battery is flat and recommend recharging or replacing it. In a more advanced example such as MYCIN, the system used rules about symptoms, infections, and treatments to recommend antibiotics.",
+        "effectiveUse": "Most effective in narrow, stable, and rule-based domains where specialist knowledge can be clearly expressed, such as medical diagnosis, troubleshooting, legal reasoning, financial advice, and industrial monitoring.",
+        "realWorldExamples": "Classic examples include MYCIN for medical diagnosis and antibiotic recommendation, DENDRAL for chemical analysis, and XCON for computer system configuration.",
+        "advantages": "Expert systems can preserve specialist knowledge, provide consistent decisions, and support fast decision-making in repetitive or highly specialised tasks. They do not become tired and can continue to apply the same logic reliably.",
+        "limitations": "Their performance depends heavily on the quality of the knowledge base. They are difficult to build and maintain, often suffer from the knowledge acquisition bottleneck, and usually work only in narrow domains. They also struggle with ambiguity and unfamiliar situations.",
+        "misuse": "They can be misused when applied outside their intended domain, or when users trust outdated, incomplete, or biased rules too much in high-stakes areas such as medicine, law, or finance.",
+        "ethics": "Important concerns include accountability, transparency, and over-reliance. Some expert systems also used Bayes theorem to reason under uncertainty and fuzzy logic to handle vague concepts, but even then the system’s outputs could still create risks if human judgement was ignored.",
+        "waContext": "In Western Australia, expert-system and rule-based decision support approaches were relevant in industrial environments such as Alcoa’s Wagerup alumina refinery, where expert knowledge could support diagnostics, scheduling, and operational planning.",
         "media": [
-            {
-                "id": 4,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
-                "title": "Knowledge Engineering Process",
-                "caption": "The process of capturing expert knowledge into rule-based systems."
-            },
             {
                 "id": 5,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80",
-                "title": "Medical Expert Systems",
-                "caption": "Expert systems found early success in medical diagnosis."
+                "url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+                "title": "Knowledge Engineering in Practice",
+                "caption": "Expert systems translated specialist knowledge into structured rules for decision support."
+            },
+            {
+                "id": 4,
+                "type": "image",
+                "url": "/static/images/expert-systems-diagram.png",
+                "title": "Basic Structure of an Expert System",
+                "caption": "A simplified expert system structure showing the knowledge base, inference engine, user interface, and external data sources."
             }
         ],
         "references": [
             {
                 "id": 4,
-                "title": "Rule-based Expert Systems",
+                "title": "Wagerup Alumina Refinery Long Term Residue Management Strategy",
+                "url": "https://www.alcoa.com/australia/en/pdf/2017-wagerup-refinery-ltrms.pdf",
+                "sourceType": "Industry Report",
+                "accessedDate": "Accessed 2026",
+                "notes": "WA-based industrial context showing the relevance of expert knowledge and decision support in large-scale operations."
+            },
+            {
+                "id": 5,
+                "title": "Expert Systems",
                 "url": "https://en.wikipedia.org/wiki/Expert_system",
                 "sourceType": "Background Source",
                 "accessedDate": "Accessed 2026",
-                "notes": "General overview of expert systems."
+                "notes": "General overview of knowledge bases, inference engines, and classic expert-system applications."
             }
         ]
     },
@@ -275,49 +283,49 @@ TOPICS_DATA = [
         "yearRange": "c. 2010",
         "category": "Bio-Inspired AI",
         "status": "Active",
-        "introText": "Evolutionary computing draws inspiration from biological evolution to optimise complex problems.",
-        "shortSummary": "Genetic algorithms apply natural selection to computing.",
-        "howItWorks": "A genetic algorithm starts with random candidate solutions, evaluates them, selects the best, and creates new generations via crossover and mutation.",
-        "simpleExample": "Like designing better paper airplanes by repeatedly keeping the best and combining their features.",
-        "effectiveUse": "Optimisation problems in engineering, logistics, scheduling, and design.",
-        "realWorldExamples": "NASA antenna design, logistics routing, financial strategy evolution.",
-        "advantages": "Works well on complex search spaces and can find creative solutions.",
-        "limitations": "Computationally expensive and does not guarantee the global optimum.",
-        "misuse": "Can be used to optimise harmful or adversarial outcomes if the fitness criteria are poorly designed.",
-        "ethics": "Optimization goals must be defined carefully to avoid harmful unintended consequences.",
-        "waContext": "WA researchers have used genetic algorithms in mining optimisation and logistics.",
+        "introText": "Evolutionary computing is a branch of artificial intelligence inspired by biological evolution. One of its best-known techniques is the genetic algorithm, which searches for strong solutions by imitating natural selection, reproduction, and mutation.",
+        "shortSummary": "Genetic algorithms solve complex optimisation and search problems by evolving a population of candidate solutions over many generations using selection, crossover, and mutation.",
+        "howItWorks": "A genetic algorithm begins with a population of candidate solutions. Each candidate is evaluated using a fitness function that measures how well it solves the problem. Better candidates are more likely to be selected to form the next generation. New candidates are produced through crossover, which combines features of parent solutions, and mutation, which introduces small random changes. Over time, the population tends to improve, although the algorithm may still converge to a strong local optimum rather than the global optimum.",
+        "simpleExample": "A delivery company may want to find a short route for a truck visiting many locations. A genetic algorithm can begin with many random route candidates, score them by total distance, and then repeatedly select, combine, and mutate the best candidate solutions. The algorithm mutates the encoded candidate solutions, not the real-world route data itself.",
+        "effectiveUse": "Most effective when a problem has a very large search space, many possible combinations, or conflicting objectives. It is often used in optimisation, scheduling, engineering design, logistics, machine learning, and feature selection.",
+        "realWorldExamples": "Applications include route planning, scheduling, engineering optimisation, machine learning feature selection, and other search problems where traditional mathematical optimisation is too rigid or expensive.",
+        "advantages": "Genetic algorithms can examine very large numbers of candidate solutions, avoid some of the limits of human intuition, and discover non-obvious or creative solutions in highly complex search spaces.",
+        "limitations": "They do not guarantee the global optimum, and their effectiveness depends heavily on the encoding method, fitness function, and parameter settings such as mutation rate, crossover rate, and population size. They can also be computationally expensive.",
+        "misuse": "They can produce harmful results if the fitness function is poorly designed, for example by optimising only cost or efficiency while ignoring fairness, safety, or environmental consequences.",
+        "ethics": "Important concerns include accountability, over-reliance, and the risk of optimising the wrong objective. A mathematically efficient result may still be socially harmful if human values are not reflected in the design.",
+        "waContext": "In Western Australia, UWA researchers applied problem-specific genetic algorithms to optimise sparse power distribution network planning in the South-West, and also explored multi-objective genetic algorithm optimisation for road network widening and maintenance scheduling.",
         "media": [
-            {
-                "id": 10,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600",
-                "title": "Evolutionary Process Diagram",
-                "caption": "The cycle of selection, crossover, and mutation in genetic algorithms"
-            },
             {
                 "id": 11,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=600",
-                "title": "Optimisation in Nature",
-                "caption": "Nature's evolutionary processes inspire computational optimisation"
+                "title": "Bio-Inspired Optimisation",
+                "caption": "Evolutionary computing drew inspiration from natural selection to solve complex optimisation problems."
+            },
+            {
+                "id": 10,
+                "type": "image",
+                "url": "/static/images/genetic-algorithm-flowchart.png",
+                "title": "Genetic Algorithm Flow",
+                "caption": "A simplified flowchart showing initial population, selection, mating, crossover, mutation, and termination."
             }
         ],
         "references": [
             {
                 "id": 9,
-                "title": "Genetic Algorithms in Search, Optimization and Machine Learning",
-                "url": "https://dl.acm.org/doi/book/10.5555/534133",
-                "sourceType": "Book",
-                "accessedDate": "2024-03-01",
-                "notes": "Goldberg's foundational textbook on genetic algorithms"
+                "title": "Spatial Optimisation for the Planning of Sparse Power Distribution Networks",
+                "url": "https://doi.org/10.1109/TPWRS.2018.2846407",
+                "sourceType": "Research Paper",
+                "accessedDate": "Accessed 2026",
+                "notes": "UWA-related WA application of optimisation methods in regional power distribution planning."
             },
             {
                 "id": 10,
-                "title": "Evolutionary Computation: Toward a New Philosophy of Machine Intelligence",
-                "url": "https://ieeexplore.ieee.org/",
-                "sourceType": "Book",
-                "accessedDate": "2024-03-01",
-                "notes": "Fogel's comprehensive overview of the field"
+                "title": "Genetic Algorithms Short Tutorial",
+                "url": "https://www.cs.ucdavis.edu/~vemuri/classes/ecs271/Genetic%20Algorithms%20Short%20Tutorial.htm",
+                "sourceType": "Tutorial",
+                "accessedDate": "Accessed 2026",
+                "notes": "Accessible explanation of the stages of a genetic algorithm and its optimisation cycle."
             }
         ]
     },
