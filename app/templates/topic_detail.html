@@ -106,21 +106,98 @@
             {% endif %}
           </section>
 
+          <section
+            id="audioNarrationCard"
+            class="museum-card narration-card"
+            data-narration-title="{{ topic.title if topic else 'Topic Detail' }}"
+          >
+            <div class="section-title-row">
+              <span class="section-emoji">Audio</span>
+              <span class="exhibit-label">Audio Narration</span>
+            </div>
+            <p class="section-text">
+              Listen to the complete exhibit narration from introduction
+              through the Western Australia context.
+            </p>
+            <div class="narration-controls">
+              <button type="button" class="narration-btn primary" id="playNarration">
+                Play
+              </button>
+              <button type="button" class="narration-btn" id="pauseNarration">
+                Pause
+              </button>
+              <button type="button" class="narration-btn" id="stopNarration">
+                Stop
+              </button>
+            </div>
+            <p class="narration-status" id="narrationStatus" aria-live="polite">
+              Narration is ready.
+            </p>
+            {% if topic %}
+            <div id="narrationSource" class="narration-source" hidden>
+              <p>{{ topic.title }}.</p>
+              {% if topic.year_range %}
+              <p>Time period: {{ topic.year_range }}.</p>
+              {% endif %}
+              {% if topic.category %}
+              <p>Category: {{ topic.category }}.</p>
+              {% endif %}
+              {% if topic.short_summary %}
+              <p>Summary. {{ topic.short_summary }}</p>
+              {% endif %}
+              {% if topic.intro_text %}
+              <p>Introduction. {{ topic.intro_text }}</p>
+              {% endif %}
+              {% if topic.paradigm_shift %}
+              <p>Paradigm shift. {{ topic.paradigm_shift }}</p>
+              {% endif %}
+              {% if topic.how_it_works %}
+              <p>How it works. {{ topic.how_it_works }}</p>
+              {% endif %}
+              {% if topic.simple_example %}
+              <p>Simple example. {{ topic.simple_example }}</p>
+              {% endif %}
+              {% if topic.effective_use %}
+              <p>Effective use. {{ topic.effective_use }}</p>
+              {% endif %}
+              {% if topic.real_world_examples %}
+              <p>Real-world examples. {{ topic.real_world_examples }}</p>
+              {% endif %}
+              {% if topic.advantages %}
+              <p>Advantages. {{ topic.advantages }}</p>
+              {% endif %}
+              {% if topic.limitations %}
+              <p>Limitations. {{ topic.limitations }}</p>
+              {% endif %}
+              {% if topic.misuse %}
+              <p>Possible misuse. {{ topic.misuse }}</p>
+              {% endif %}
+              {% if topic.ethics %}
+              <p>Ethical concerns. {{ topic.ethics }}</p>
+              {% endif %}
+              {% if topic.wa_context %}
+              <p>Western Australia context. {{ topic.wa_context }}</p>
+              {% endif %}
+            </div>
+            {% endif %}
+          </section>
+
+          <div id="introCard" class="museum-card">
+            <span class="exhibit-label block-label">Introduction</span>
+            {% if topic and topic.intro_text %}
+            <p class="intro-text">{{ topic.intro_text }}</p>
+            {% elif topic and topic.short_summary %}
+            <p class="intro-text">{{ topic.short_summary }}</p>
+            {% else %}
+            <p class="intro-text">
+              Topic introduction will appear here once content is loaded
+              from the backend.
+            </p>
+            {% endif %}
+          </div>
+
           <div class="content-grid">
             <div class="main-column">
-              <div id="introCard" class="museum-card">
-                <span class="exhibit-label block-label">Introduction</span>
-                {% if topic and topic.intro_text %}
-                <p class="intro-text">{{ topic.intro_text }}</p>
-                {% elif topic and topic.short_summary %}
-                <p class="intro-text">{{ topic.short_summary }}</p>
-                {% else %}
-                <p class="intro-text">
-                  Topic introduction will appear here once content is loaded
-                  from the backend.
-                </p>
-                {% endif %}
-              </div>
 
               <div id="summaryCard" class="museum-card summary-card">
                 <span class="exhibit-label block-label">Summary</span>
