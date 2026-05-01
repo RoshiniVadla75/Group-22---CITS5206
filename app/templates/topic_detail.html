@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ topic.title if topic else 'Topic Detail' }} - AI Museum</title>
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/topic-detail.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/topic-diagram.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/topic-detail.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/topic-diagram.css', _t='5') }}" />
   </head>
 
   <body>
@@ -43,9 +37,7 @@
             {% endif %}
           </nav>
 
-          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
-            ☰
-          </button>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
         </div>
 
         <nav class="mobile-nav" id="mobileNav">
@@ -113,9 +105,7 @@
                 {% elif topic and topic.short_summary %}
                 <p class="intro-text">{{ topic.short_summary }}</p>
                 {% else %}
-                <p class="intro-text">
-                  Topic introduction will appear here once content is loaded from the backend.
-                </p>
+                <p class="intro-text">Topic introduction will appear here once content is loaded from the backend.</p>
                 {% endif %}
               </div>
 
@@ -126,9 +116,7 @@
                 {% elif topic and topic.how_it_works %}
                 <p class="summary-text">{{ topic.how_it_works }}</p>
                 {% else %}
-                <p class="summary-text">
-                  Topic summary will appear here once content is loaded from the backend.
-                </p>
+                <p class="summary-text">Topic summary will appear here once content is loaded from the backend.</p>
                 {% endif %}
               </div>
 
@@ -144,21 +132,24 @@
                   </section>
                   {% endif %}
 
-                  <section
-                    class="museum-card"
-                    id="interactive-diagram"
-                    data-slug="{{ topic.slug }}"
-                  >
+                  <section class="museum-card interactive-diagram-section">
                     <div class="section-title-row">
                       <span class="section-emoji">🧩</span>
                       <span class="exhibit-label">Interactive Diagram</span>
                     </div>
 
-                    <div id="diagram-flow" class="vertical"></div>
+                    <p class="diagram-intro">
+                      Click each stage to understand how this technology works.
+                    </p>
 
-                    <div id="diagram-info">
-                      <h3 id="diagram-title"></h3>
-                      <p id="diagram-description"></p>
+                    <div id="interactive-diagram" data-slug="{{ topic.slug }}">
+                      <div class="diagram-flow vertical" id="diagram-flow"></div>
+                      <div class="diagram-info" id="diagram-info">
+                        <h3 id="diagram-title">Select a stage</h3>
+                        <p id="diagram-description">
+                          Click a step in the diagram to view an explanation.
+                        </p>
+                      </div>
                     </div>
                   </section>
 
@@ -253,11 +244,7 @@
                   {% for item in topic.media %}
                   <div class="media-item">
                     {% if item.url %}
-                    <img
-                      src="{{ item.url }}"
-                      alt="{{ item.title if item.title else topic.title }}"
-                      class="media-image"
-                    />
+                    <img src="{{ item.url }}" alt="{{ item.title if item.title else topic.title }}" class="media-image" />
                     {% endif %}
                     <div class="media-caption-box">
                       {% if item.title %}
@@ -282,12 +269,7 @@
                   {% for ref in topic.references %}
                   <div class="reference-item">
                     {% if ref.url %}
-                    <a
-                      href="{{ ref.url }}"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="reference-link"
-                    >
+                    <a href="{{ ref.url }}" target="_blank" rel="noopener noreferrer" class="reference-link">
                       {{ ref.title if ref.title else ref.url }}
                     </a>
                     {% else %}
@@ -344,12 +326,8 @@
 
       <footer class="site-footer">
         <div class="container footer-inner">
-          <p class="exhibit-label">
-            A.I. Software Technology in Western Australia
-          </p>
-          <p class="footer-text">
-            A Virtual Museum Experience · Final Semester Project · 2024
-          </p>
+          <p class="exhibit-label">A.I. Software Technology in Western Australia</p>
+          <p class="footer-text">A Virtual Museum Experience · Final Semester Project · 2024</p>
         </div>
       </footer>
     </div>

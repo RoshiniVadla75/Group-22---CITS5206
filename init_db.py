@@ -6,38 +6,70 @@ TOPICS_DATA = [
     {
         "id": 1,
         "slug": "turing-thoughts-on-ai",
-        "title": "Alan Turing's Thoughts on AI",
+        "title": "Alan Turing & The Turing Test",
         "yearRange": "c. 1950",
         "category": "Foundations",
         "status": "Legacy",
-        "introText": "Alan Turing's ideas laid the intellectual groundwork for artificial intelligence. His questions about whether machines can think became central to later AI research.",
-        "shortSummary": "Turing provided the conceptual foundations for machine intelligence.",
-        "howItWorks": "This topic focuses on theoretical ideas about computation, intelligence, and symbolic reasoning rather than a single application system.",
-        "simpleExample": "A machine following formal logical steps to solve a problem reflects Turing's vision of computation.",
-        "effectiveUse": "Most effective in foundational teaching, philosophy of AI, and computational theory.",
-        "realWorldExamples": "University teaching, theoretical computer science, and early AI research.",
-        "advantages": "Provides a strong conceptual basis for later technologies.",
-        "limitations": "Highly theoretical and not a direct end-user system.",
-        "misuse": "Can be oversimplified when discussing modern AI.",
-        "ethics": "Raises questions about intelligence, autonomy, and human-machine comparison.",
-        "waContext": "The University of Western Australia's Computer Science department has long incorporated Turing's theories into its foundational curriculum.",
+        "introText": "Alan Turing was one of the earliest thinkers to explore artificial intelligence. His idea of the Turing Test evaluates machine intelligence based on behaviour rather than internal structure.",
+        "shortSummary": "The Turing Test evaluates whether a machine can exhibit human-like behaviour through conversation.",
+        "howItWorks": "Turing proposed that machines could produce intelligent behaviour by following logical rules and algorithms rather than copying the human brain. Systems can simulate reasoning and decision-making by evaluating options and selecting the most favourable outcomes, such as in a chess game.",
+        "simpleExample": "A machine playing chess evaluates possible moves and selects the best option based on defined criteria. Another example is ELIZA, a program from the 1960s that simulated conversation using pattern-matching rules, showing how machines can appear intelligent without true understanding.",
+        "effectiveUse": "Evaluating conversational systems, game-playing AI, and decision-making systems based on observable behaviour.",
+        "realWorldExamples": "Chatbots, conversational agents, large language models, game-playing systems, and decision-support tools.",
+        "advantages": "Focuses on observable behaviour, provides a practical evaluation method, and encourages human-like interaction in AI systems.",
+        "limitations": "Passing the Turing Test does not imply true understanding. It focuses mainly on conversation and depends on subjective human judgement.",
+        "misuse": "Can be misused in systems that imitate humans to deceive users, generate misleading information, or manipulate users.",
+        "ethics": "Raises concerns about trust, transparency, deception, and responsible use of human-like AI systems.",
+        "waContext": "In Western Australia, Turing’s ideas influence conversational systems and automated support tools used in customer service, digital platforms, and universities. This influence is also linked to Professor Jeff Rohl at UWA, who worked at the University of Manchester shortly after Turing’s time. Behaviour-based evaluation remains important in modern AI systems across WA.",
         "media": [
             {
                 "id": 1,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-                "title": "Computing Foundations",
-                "caption": "Theoretical work shaped the future of AI."
+                "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg",
+                "title": "Alan Turing",
+                "caption": "Alan Turing, a pioneer of artificial intelligence and the originator of the Turing Test"
             }
         ],
         "references": [
             {
                 "id": 1,
-                "title": "Foundational AI History",
-                "url": "https://en.wikipedia.org/wiki/Alan_Turing",
-                "sourceType": "Background Source",
-                "accessedDate": "Accessed 2026",
-                "notes": "General background on Turing and computing history."
+                "title": "Artificial neural networks technology",
+                "url": "https://d1wqtxts1xzle7.cloudfront.net/33786328/Artificial_Neural_Networks_Technology-libre.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Anderson & McNeill (1992)"
+            },
+            {
+                "id": 2,
+                "title": "Artificial neural networks: fundamentals, computing, design, and application",
+                "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Basheer & Hajmeer (2000)"
+            },
+            {
+                "id": 3,
+                "title": "Artificial neural networks for beginners",
+                "url": "https://arxiv.org/pdf/cs/0308031",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Gershenson (2003)"
+            },
+            {
+                "id": 4,
+                "title": "Fundamentals of artificial neural networks",
+                "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews",
+                "sourceType": "Book",
+                "accessedDate": "2026",
+                "notes": "Hassoun (1995)"
+            },
+            {
+                "id": 5,
+                "title": "What are artificial neural networks?",
+                "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Krogh (2008)"
             }
         ]
     },
@@ -242,53 +274,61 @@ TOPICS_DATA = [
     {
         "id": 6,
         "slug": "internet-driven-ai-ibm-watson",
-        "title": "Internet-Driven AI / IBM Watson",
+        "title": "Internet-Driven AI Systems",
         "yearRange": "c. 2011",
         "category": "Knowledge Retrieval",
         "status": "Legacy",
-        "introText": "IBM Watson showed that AI could process enormous volumes of unstructured text, understand natural language questions, and answer in real time.",
-        "shortSummary": "IBM Watson demonstrated large-scale knowledge-driven AI.",
-        "howItWorks": "Watson used a massively parallel architecture called DeepQA to generate, score, and rank candidate answers.",
-        "simpleExample": "Imagine a thousand researchers searching millions of documents at once, each proposing an answer with a confidence score.",
-        "effectiveUse": "Question answering, information retrieval, medical literature analysis, legal review.",
-        "realWorldExamples": "Jeopardy!, Watson for Oncology, enterprise assistants.",
-        "advantages": "Processes and synthesises information from huge document collections.",
-        "limitations": "Requires major computing resources and struggled in messy real-world domains.",
-        "misuse": "Overhyped marketing can lead organisations to trust the system beyond its real capabilities.",
-        "ethics": "Raises accountability concerns in healthcare and other high-stakes domains.",
-        "waContext": "WA healthcare and resources sectors explored Watson-style AI for analysis and decision support.",
+        "introText": "With the growth of the internet, AI systems gained access to large-scale data, enabling them to connect information across sources and simulate general knowledge.",
+        "shortSummary": "Internet-driven AI systems retrieve, evaluate, and rank information from large datasets rather than relying on fixed rules.",
+        "howItWorks": "Internet-driven AI systems process large amounts of unstructured data such as web pages, documents, and databases. They convert text using NLP techniques, generate multiple candidate answers, and evaluate them using evidence. A key step is 'soft filtering', where less likely answers are gradually removed based on confidence scores rather than strict rules. Systems such as IBM Watson use architectures like DeepQA to rank answers and select the most probable result.",
+        "simpleExample": "For example, when asked 'Who is the president of the United States?', the system searches large datasets, identifies patterns linking names with that role, and selects the most likely answer. In quiz-style tasks such as Jeopardy!, the system analyses clues, gathers evidence, and ranks competing answers.",
+        "effectiveUse": "Question answering, search engines, virtual assistants, and knowledge retrieval systems that require analysing large amounts of data quickly.",
+        "realWorldExamples": "IBM Watson, Jeopardy!, search engines, virtual assistants, enterprise knowledge systems, and data-driven decision support tools.",
+        "advantages": "They can access large amounts of information, connect knowledge from multiple sources, provide fast responses, and improve as more data becomes available.",
+        "limitations": "They depend on data quality, require significant computational resources, and rely on statistical patterns rather than true understanding, which can lead to incorrect or misleading results.",
+        "misuse": "Can be misused to spread misinformation, generate misleading answers, and manipulate information at scale.",
+        "ethics": "Key concerns include reliability of sources, bias in data, and over-reliance on automated decision-making systems.",
+        "waContext": "In Western Australia, internet-driven AI systems are widely used in industries such as mining and energy. Companies like Rio Tinto and BHP use data-driven systems and remote operations centres to monitor and manage large-scale operations. Universities such as UWA and Curtin also contribute to research in information retrieval and large-scale data analysis.",
         "media": [
             {
                 "id": 8,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
-                "title": "Watson on Jeopardy!",
-                "caption": "AI competing against human champions in knowledge retrieval"
+                "title": "Internet-Driven AI Process",
+                "caption": "Simplified process of an internet-driven AI system such as IBM Watson for question answering"
             },
             {
                 "id": 9,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
-                "title": "Big Data Processing",
-                "caption": "The massive data processing infrastructure behind Watson"
+                "title": "Data-Driven AI in Western Australia",
+                "caption": "Large-scale data systems supporting decision-making in WA industries"
             }
         ],
         "references": [
             {
                 "id": 7,
-                "title": "Building Watson: An Overview of the DeepQA Project",
-                "url": "https://www.aaai.org/ojs/index.php/aimagazine/article/view/2303",
+                "title": "Building Watson: An overview of the DeepQA project",
+                "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2303",
                 "sourceType": "Research Paper",
-                "accessedDate": "2024-02-20",
-                "notes": "IBM Research's technical overview of Watson's architecture"
+                "accessedDate": "2026",
+                "notes": "Ferrucci et al. (2010)"
             },
             {
                 "id": 8,
-                "title": "Watson: Beyond Jeopardy!",
-                "url": "https://www.ibm.com/watson",
-                "sourceType": "Web Archive",
-                "accessedDate": "2024-02-20",
-                "notes": "IBM's Watson platform documentation"
+                "title": "Introduction to 'This is Watson'",
+                "url": "https://ieeexplore.ieee.org/abstract/document/6177724",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Ferrucci (2012)"
+            },
+            {
+                "id": 9,
+                "title": "Question analysis: How Watson reads a clue",
+                "url": "https://www.patwardhans.net/papers/LallyEtAl12.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Lally et al. (2012)"
             }
         ]
     },
@@ -352,37 +392,37 @@ TOPICS_DATA = [
         "yearRange": "c. 2015",
         "category": "Generative AI & Deception",
         "status": "Active",
-        "introText": "Deep fakes use neural networks to create highly realistic fake media.",
-        "shortSummary": "Deep fake technology creates convincing fake images, audio, and video.",
-        "howItWorks": "Most deep fakes use GANs, where a generator and discriminator compete to improve realism and detection.",
-        "simpleExample": "Like two art students: one creates forgeries, the other tries to detect them, both improving over time.",
-        "effectiveUse": "Film, accessibility, art, privacy protection, and synthetic data generation.",
-        "realWorldExamples": "Face-swapping in films, voice cloning, manipulated political or intimate media.",
-        "advantages": "Powerful creative applications and privacy-preserving possibilities.",
-        "limitations": "Detection remains difficult and fakes often spread faster than debunking.",
-        "misuse": "Non-consensual imagery, political disinformation, voice fraud, fabricated evidence.",
-        "ethics": "Raises urgent concerns around consent, evidence, trust, and democracy.",
-        "waContext": "WA law enforcement and cybersecurity researchers have studied deep fake detection and digital forensics.",
+        "introText": "Synthetic Media Technologies use neural networks to create highly realistic fake media.",
+        "shortSummary": "Synthetic Media Technologies, commonly referred to as Deep fakes use deep learning - specifically Generative Adversarial Networks (GANs) - to synthesise realistic but fabricated images, videos, and audio of real people. Emerging around 2015, they represent one of the most ethically complex and socially disruptive AI technologies.",
+        "howItWorks": "A GAN consists of two competing neural networks: a Generator (which creates fake content) and a Discriminator (which tries to detect fakes). The two networks train together: the generator improves at creating convincing fakes; the discriminator improves at detecting them. Over time, the generator produces increasingly realistic synthetic media. Deep fakes additionally use face-swapping techniques (autoencoders and facial landmark detection) to map one person’s face onto another’s with high fidelity.",
+        "simpleExample": "Start with thousands of photos of Person A and video footage of Person B. The GAN learns the facial geometry, lighting, and expression patterns of Person A. It then replaces Person B’s face in the video with a photorealistic rendering of Person A’s face, frame by  frame - resulting in a convincing video of Person A saying things they never said or doing things they never did.",
+        "effectiveUse": "Deep fake technology has legitimate applications in film production (de ageing actors, dubbing into other languages while preserving lip sync), gaming (realistic character animation), accessibility (generating synthetic voices for people who have lost theirs), and historical preservation (animating archival photographs).",
+        "realWorldExamples": "Hollywood studios use deep fake technology to de-age actors. The Dali Museum recreated Salvador Dali using deep fakes for interactive exhibitions. Ukraine’s president was targeted by a deep fake video urging troops to surrender. The eSafety Commissioner identifies deep fakes as a growing risk for identity theft, humiliation, extortion, sexual exploitation, and reputational damage.",
+        "advantages": "Deep-fake systems can generate or alter media at a scale and speed impossible for manual editing alone. They can automate detailed synthesis, imitate facial or vocal patterns quickly, and create many variations of a scene far faster than a human editor working frame by frame.",
+        "limitations": "Deep fakes can still be detected by artefacts around eyes, ears, and hair, and by unnatural blinking or lighting. They require significant compute and data for high quality. Real-time deep fakes at high resolution remain challenging. Detection tools are in an arms race with generation tools",
+        "misuse": "Deep fakes are weaponised for political disinformation, fraud (CEO voice spoofing for wire transfers), non-consensual intimate imagery, reputation destruction, and evidence fabrication. They fundamentally undermine trust in audiovisual evidence - the concept of ‘seeing is believing.’ ",
+        "ethics": "Deep fakes attack foundational concepts of truth, consent, and identity. They can cause severe psychological harm to victims of non-consensual synthetic imagery. They create an epistemic crisis in democratic societies where shared visual reality is a basis for public discourse. Legal frameworks are struggling to keep pace.",
+        "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
         "media": [
             {
                 "id": 12,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600",
-                "title": "Synthetic Media Generation",
-                "caption": "The technology behind generating synthetic media content"
+                "url": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7",
+                "title": "Digital Forensics",
+                "caption": "Digital forensics tools used to detect manipulated media"
             },
             {
                 "id": 13,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=600",
-                "title": "Digital Forensics",
-                "caption": "Digital forensics tools used to detect manipulated media"
+                "url": "/static/images/deep%20fake.png",
+                "title": "Synthetic Media Generation",
+                "caption": "The technology behind generating synthetic media content"
             }
         ],
         "references": [
             {
                 "id": 11,
-                "title": "Generative Adversarial Networks",
+                "title": "Generative Adversarial Nets",
                 "url": "https://arxiv.org/abs/1406.2661",
                 "sourceType": "Research Paper",
                 "accessedDate": "2024-03-10",
@@ -395,7 +435,47 @@ TOPICS_DATA = [
                 "sourceType": "Report",
                 "accessedDate": "2024-03-10",
                 "notes": "Deeptrace's analysis of deep fake proliferation"
-            }
+            },
+            {
+                "id": 13,
+                "title": "Deepfakes and Manipulated Media",
+                "url": "https://www.esafety.gov.au/",
+                "sourceType": "Government Website",
+                "accessedDate": "2026-03-23",
+                "notes": "eSafety Commissioner guidance on deepfakes"
+            },
+            {
+                "id": 14,
+                "title": "Generative Adversarial Nets",
+                "url": "https://arxiv.org/abs/1406.2661",
+                "sourceType": "Journal Article",
+                "accessedDate": "2026-03-23",
+                "notes": "Goodfellow, I., Pouget-Abadie, J., & Mirza, M. (2014). Advances in Neural Information Processing Systems, 2672-2680"
+            },
+            {
+                "id": 15,
+                "title": "Deepfakes: Trick or Treat?",
+                "url": "N/A",
+                "sourceType": "Journal Article",
+                "accessedDate": "2026-03-23",
+                "notes": "Kietzmann, J., Lee, L., & McCarthy, I. (2020). Business Horizons, 63(2), 135-146"
+            },
+            {
+                "id": 16,
+                "title": "The Emergence of Deepfake Technology",
+                "url": "N/A",
+                "sourceType": "Journal Article",
+                "accessedDate": "2026-03-23",
+                "notes": "Westerlund, M. (2019). Technology Innovation Management Review, 9(11)"
+            },
+             {
+                "id": 17,
+                "title": "Deepfakes: A Looming Challenge for Privacy, Democracy, and National Security",
+                "url": "N/A",
+                "sourceType": "Journal Article",
+                "accessedDate": "2026-03-23",
+                "notes": "Citron, D., & Chesney, R. (2019). California Law Review"
+         }
         ]
     },
     {
@@ -475,16 +555,16 @@ TOPICS_DATA = [
         "category": "Frontier AI",
         "status": "Active",
         "introText": "Large Language Models (LLMs) scale Transformer architectures to enormous sizes and datasets.",
-        "shortSummary": "LLMs like GPT-4, Claude, and Gemini represent the current frontier of AI.",
-        "howItWorks": "LLMs are Transformer neural networks trained on vast corpora to predict next words and generate helpful outputs.",
-        "simpleExample": "Like someone who has read almost everything and answers by predicting the most useful response word by word.",
-        "effectiveUse": "Writing assistance, code generation, tutoring, summarisation, research support.",
-        "realWorldExamples": "ChatGPT, GitHub Copilot, Claude, Gemini.",
-        "advantages": "Very versatile and accessible through natural language.",
-        "limitations": "Hallucinations, high compute cost, outdated knowledge, imprecise logic.",
-        "misuse": "Mass disinformation, phishing, academic dishonesty, malicious code generation.",
-        "ethics": "Raises concerns about copyright, employment, power concentration, and environmental cost.",
-        "waContext": "WA's technology sector is adopting LLMs in mining, agriculture, healthcare, and education.",
+        "shortSummary": "Large Language Models (LLMs) like GPT-4, Claude, Gemini, and Llama represent the cutting edge of AI in 2024. Trained on trillions of words and hundreds of billions of parameters, they exhibit capabilities by performing tasks they were never explicitly trained for and are transforming every industry.",
+        "howItWorks": "LLMs are extremely large transformer neural networks trained on vast internet text using self-supervised learning (predicting the next word). Their scale creates emergent capabilities: reasoning, code generation, instruction following, translation, mathematics, and creative writing - all from the same model. Reinforcement learning from Human Feedback (RLHF) is used to align model outputs with human preferences and safety guidelines. Models are accessed via Application Programming Interfaces (APIs) or run locally on consumer hardware.",
+        "simpleExample": "Ask an LLM: ‘Explain quantum entanglement to a 10-year-old using a story about socks.’ The model has never seen that exact prompt but draws on its training to craft an age-appropriate metaphor, with narrative structure and accurate physics - an example of generalisation for beyond simple pattern matching.",
+        "effectiveUse": "LLMs are most effective as flexible general-purpose assistants for text generation, code writing, summarisation, Q&A, translation, tutoring, creative writing, and data analysis. They are transforming software development, education, legal research, scientific writing, and customer service",
+        "realWorldExamples": "ChatGPT (OpenAI) reached 100 million users in two months – the fastest growing consumer application in history. GitHub Copilot, powered by OpenAI, assists millions of developers with code. Claude (Anthropic) is used for long-form document analysis. Google Gemini integrates into Google Workspace. Meta’s Llama models enable open-source deployment on consumer hardware.",
+        "advantages": "LLMs can process and generate text at a speed and scale that humans cannot match. They can draft multiple versions of a response quickly, work across many subject areas, and handle large volumes of text without fatigue. In educational settings, they can provide immediate feedback and different levels of explanation, which can be useful when supervised carefully.",
+        "limitations": "LLMs do not truly understand meaning in the human sense. They can hallucinate - generating confident, fluent, but factually wrong information. They have knowledge cutoffs and cannot access real-time information without tools. They can be inconsistent across sessions. Very large models require enormous compute resources. Fine-tuned alignment is imperfect; models can still harmful outputs. ",
+        "misuse": "Because they produce persuasive text quickly, LLMs can be misused for disinformation, phishing messages, spam, academic misconduct, or the generation of misleading summaries that appear confident but are wrong. Their ease of use lowers the barrier for harmful content creation. ",
+        "ethics": "Key ethical issues include copyright, privacy, embedded social bias, over-reliance by students, and the risk that confident machine output may be trusted without verification. For a museum or school audience, the most important message is that LLM output should be treated as a draft or assistant, not as unquestionable truth. Human checking remains essential. ",
+        "waContext": "Western Australia’s capability in Large Language Models has developed through documented academic research and applied system development, rather than creating foundational models. At the University of Western Australia, researchers have directly contributed to LLM knowledge through peer-reviewed work such as “A Comprehensive Overview of Large Language Models” (2025), which surveys advanced topics including multimodal LLMs, training strategies, and benchmarking​ (University of Western Australia, 2025)​ . This shows that WA researchers are actively contributing to the global understanding and refinement of LLM systems, not just using them. At Curtin University, current research projects explicitly focus on LLM-powered autonomous systems, where language models are integrated with real-world tools such as sensors and infrastructure monitoring systems​ (Curtin University, 2025)​ . These projects demonstrate practical implementation of LLMs in areas like: infrastructure management, real-time decision systems, intelligent automation. At the national level, evidence shows that Australia does not yet produce globally competitive LLMs (like GPT-4) and instead relies on international models while focusing on application and adaptation . ",
         "media": [
             {
                 "id": 16,
@@ -495,13 +575,21 @@ TOPICS_DATA = [
             },
             {
                 "id": 17,
+                "type": "image",    
+                "url": "/static/images/large%20language%20models.png",
+                "title": "LLM Architectures,Training, and Applications",
+                "caption": "AI architectures, training processes, and applications of LLMs in various industries"
+            },
+            {
+                "id": 18,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
                 "title": "AI Computing Infrastructure",
                 "caption": "The massive computing infrastructure required to train LLMs"
             }
         ],
-        "references": [
+        "references": 
+        [
             {
                 "id": 15,
                 "title": "GPT-4 Technical Report",
@@ -517,6 +605,46 @@ TOPICS_DATA = [
                 "sourceType": "Research Paper",
                 "accessedDate": "2024-03-20",
                 "notes": "Bender et al.'s critique of LLMs"
+            },
+            {
+                "id": 18,
+                "title": "Large Language Models: Guidance of the WA Public Sector",
+                "url": "https://www.wa.gov.au/system/files/2025-02/largelanguagemodels.pdf",
+                "sourceType": "Government Report",
+                "accessedDate": "2026-03-13",
+                "notes": "Guidelines from WA Government on LLM usage in the public sector"
+            },
+            {
+                "id": 19,
+                "title": "Guidance on Privacy and AI Products",
+                "url": "https://www.oaic.gov.au/",
+                "sourceType": "Government Website",
+                "accessedDate": "2026-03-24",
+                "notes": "Privacy guidance for AI systems from OAIC"
+            },
+            {
+                "id": 20,
+                "title": "GPT-4 Technical Report",
+                "url": "https://arxiv.org/pdf/2303.08774",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026-03-22",
+                "notes": "OpenAI's technical report on GPT-4"
+            },
+            {
+                "id": 21,
+                "title": "Training Language Models to Follow Instructions with Human Feedback",
+                "url": "https://arxiv.org/pdf/2203.02155",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026-03-22",
+                "notes": "Ouyang et al. paper on RLHF for LLM alignment"
+            },
+            {
+                "id": 22,
+                "title": "Attention Is All You Need",
+                "url": "https://arxiv.org/abs/1706.03762",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026-03-22",
+                "notes": "Foundational Transformer architecture paper"
             }
         ]
     }
@@ -624,4 +752,6 @@ def seed_database():
 
 
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
     seed_database()
