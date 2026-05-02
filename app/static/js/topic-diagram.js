@@ -243,6 +243,65 @@ document.addEventListener("DOMContentLoaded", function () {
           "The model produces an output, such as a response, translation, summary, search result, or prediction.",
       },
     ],
+    "turing-thoughts-on-ai": [
+    {
+      label: "1. Human Conversation",
+      title: "Human Conversation",
+      description:
+        "A human evaluator communicates with both a human and a machine without knowing which is which.",
+    },
+    {
+      label: "2. Machine Response",
+      title: "Machine Response",
+      description:
+        "The machine generates responses that attempt to appear natural and human-like.",
+    },
+    {
+      label: "3. Behaviour Evaluation",
+      title: "Behaviour Evaluation",
+      description:
+        "The evaluator judges intelligence based on observable behaviour rather than the machine’s internal structure.",
+    },
+    {
+      label: "4. Turing Test Result",
+      title: "Turing Test Result",
+      description:
+        "If the evaluator cannot reliably distinguish the machine from the human, the machine is considered to show intelligent behaviour.",
+    },
+  ],
+
+    "internet-driven-ai-systems": [
+    {
+      label: "1. Question Input",
+      title: "Question Input",
+      description:
+        "The system receives a natural language question or clue.",
+    },
+    {
+      label: "2. Search Large Data Sources",
+      title: "Search Large Data Sources",
+      description:
+        "The system searches large collections of web pages, documents, and databases.",
+    },
+    {
+      label: "3. Generate Candidate Answers",
+      title: "Generate Candidate Answers",
+      description:
+        "Multiple possible answers are generated based on patterns and evidence from the data.",
+    },
+    {
+      label: "4. Evidence Ranking",
+      title: "Evidence Ranking",
+      description:
+        "The system gathers evidence and ranks possible answers using confidence scores.",
+    },
+    {
+      label: "5. Final Answer",
+      title: "Final Answer",
+      description:
+        "The answer with the strongest evidence and highest confidence score is selected.",
+    },
+  ],
   };
 
   const steps = diagrams[slug];
