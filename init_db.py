@@ -7,69 +7,70 @@ TOPICS_DATA = [
         "id": 1,
         "slug": "turing-thoughts-on-ai",
         "title": "Alan Turing & The Turing Test",
-        "yearRange": "c. 1950",
+        "yearRange": "1950",
         "category": "Foundations",
         "status": "Legacy",
-        "introText": "Alan Turing was one of the earliest thinkers to explore artificial intelligence. His idea of the Turing Test evaluates machine intelligence based on behaviour rather than internal structure.",
-        "shortSummary": "The Turing Test evaluates whether a machine can exhibit human-like behaviour through conversation.",
-        "howItWorks": "Turing proposed that machines could produce intelligent behaviour by following logical rules and algorithms rather than copying the human brain. Systems can simulate reasoning and decision-making by evaluating options and selecting the most favourable outcomes, such as in a chess game.",
-        "simpleExample": "A machine playing chess evaluates possible moves and selects the best option based on defined criteria. Another example is ELIZA, a program from the 1960s that simulated conversation using pattern-matching rules, showing how machines can appear intelligent without true understanding.",
-        "effectiveUse": "Evaluating conversational systems, game-playing AI, and decision-making systems based on observable behaviour.",
-        "realWorldExamples": "Chatbots, conversational agents, large language models, game-playing systems, and decision-support tools.",
-        "advantages": "Focuses on observable behaviour, provides a practical evaluation method, and encourages human-like interaction in AI systems.",
-        "limitations": "Passing the Turing Test does not imply true understanding. It focuses mainly on conversation and depends on subjective human judgement.",
-        "misuse": "Can be misused in systems that imitate humans to deceive users, generate misleading information, or manipulate users.",
-        "ethics": "Raises concerns about trust, transparency, deception, and responsible use of human-like AI systems.",
-        "waContext": "In Western Australia, Turing’s ideas influence conversational systems and automated support tools used in customer service, digital platforms, and universities. This influence is also linked to Professor Jeff Rohl at UWA, who worked at the University of Manchester shortly after Turing’s time. Behaviour-based evaluation remains important in modern AI systems across WA.",
+        "introText": "Alan Turing was one of the earliest thinkers to explore artificial intelligence in 1950. One of his most important contributions was the idea of the Turing Test, which evaluates machine intelligence based on behaviour rather than internal structure. This idea laid an important foundation for modern AI research. The Turing Test involves a human evaluator communicating with both a machine and another human without knowing which is which. If the evaluator cannot reliably tell them apart, the machine is considered to exhibit intelligent behaviour. The test focuses not only on correctness, but also on whether the machine can maintain natural, human-like conversation over time.",
+        "shortSummary": "The Turing Test evaluates machine intelligence based on observable behaviour rather than internal structure.",
+        "howItWorks": "Turing proposed that machines could follow logical rules and algorithms to produce intelligent behaviour. Instead of copying the human brain directly, he suggested that machines could achieve similar outcomes using different methods. This idea can be understood through an analogy: just as airplanes achieve flight using engines and wings rather than flapping like birds, AI systems can demonstrate intelligence without thinking in the same way as humans. Turing also explored how machines could solve problems through structured reasoning. For example, in a chess game, a system can evaluate possible moves, compare outcomes, and select the most favourable option.",
+        "simpleExample": "A simple example of Turing’s idea is a machine playing chess. The system evaluates different possible moves, predicts outcomes, and selects the best option based on predefined rules or calculations. However, the idea of “best” must be clearly defined, usually based on measurable criteria such as winning probability or board advantage. Another example is a conversational system. If a machine can respond to questions in a way that appears natural and human-like, it may pass the Turing Test. However, this does not mean the system truly understands the conversation; it may only be generating responses based on patterns. An early example of this is ELIZA, a program developed in the 1960s that simulated human conversation using simple pattern-matching rules. Although ELIZA could produce responses that appeared meaningful, it did not truly understand the conversation. These examples show that intelligence, in Turing’s framework, is evaluated based on observable behaviour rather than internal understanding.",
+        "paradigmShift": "Before Alan Turing’s work, computers were primarily viewed as machines for performing calculations and executing predefined instructions. Intelligence was often associated with human thinking processes, and it was generally assumed that machines could not demonstrate genuine intelligence. Turing challenged this assumption by proposing that intelligence should be evaluated based on observable behaviour rather than internal processes. Through the idea of the Turing Test, he suggested that if a machine could produce responses indistinguishable from a human, it could be considered intelligent, regardless of how it actually worked. This shifted the focus of artificial intelligence from attempting to replicate human thinking exactly to designing systems that can produce intelligent behaviour. It also opened the possibility that machines could appear intelligent without truly “understanding” in the human sense. This marked a fundamental change in thinking—from viewing computers as purely computational tools to recognising them as systems capable of simulating intelligent behaviour through interaction.",
+        "effectiveUse": "Conversational agents and chatbots, game-playing systems such as chess programs, and decision-making systems.",
+        "realWorldExamples": "The Turing Test remains an important concept in evaluating AI systems. Modern chatbots and large language models are often informally assessed using similar principles. For example, if users cannot easily tell whether they are interacting with a human or a machine, the system may be considered successful in terms of behavioural intelligence. However, many systems that appear intelligent still rely on pattern recognition rather than true understanding, which reflects one of the key limitations of the Turing Test.",
+        "advantages": "Turing’s approach focuses on observable behaviour rather than internal complexity. It provides a practical way to evaluate AI systems and encourages the development of systems that interact naturally with humans.",
+        "limitations": "Passing the Turing Test does not mean a system truly understands language or thinks like a human. It may only imitate human responses. The test also focuses mainly on conversation and does not measure other types of intelligence, such as perception or physical interaction. Finally, it depends on human judgement, which may be subjective and inconsistent.",
+        "misuse": "Turing’s ideas can be misused in systems that imitate humans to deceive users, generate misleading or false information, or manipulate users through human-like interaction.",
+        "ethics": "These issues raise concerns about trust, transparency, deception, and the ethical use of AI systems.",
+        "waContext": "Although Alan Turing developed his ideas in the United Kingdom, the concept of evaluating intelligence through observable behaviour can be seen in modern applications in Western Australia. This influence can also be linked to Professor Jeff Rohl, the founding Professor of Computer Science at The University of Western Australia. Professor Rohl worked at the University of Manchester shortly after Turing’s time, where many of Turing’s ideas were still influential. Through this connection, early concepts of artificial intelligence were indirectly introduced to Western Australia. In WA, conversational systems, automated support tools, and decision-support systems are evaluated based on how effectively they respond in a clear, helpful, and human-like way.",
         "media": [
             {
                 "id": 1,
                 "type": "image",
-                "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg",
+                "url": "/static/images/alan-turing.png",
                 "title": "Alan Turing",
-                "caption": "Alan Turing, a pioneer of artificial intelligence and the originator of the Turing Test"
+                "caption": "Figure 1: Alan Turing, a pioneer of artificial intelligence and the originator of the Turing Test"
             }
         ],
         "references": [
             {
                 "id": 1,
-                "title": "Artificial neural networks technology",
-                "url": "https://d1wqtxts1xzle7.cloudfront.net/33786328/Artificial_Neural_Networks_Technology-libre.pdf",
-                "sourceType": "Research Paper",
+                "title": "The status and future of the Turing Test",
+                "url": "https://academicos.azc.uam.mx/cbr/Cursos/UEA_14P_LenAut/2StatusFutureTT2001.pdf",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Anderson & McNeill (1992)"
+                "notes": "Moor (2001)"
             },
             {
                 "id": 2,
-                "title": "Artificial neural networks: fundamentals, computing, design, and application",
-                "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
-                "sourceType": "Research Paper",
+                "title": "The Turing Test: The first 50 years",
+                "url": "https://lead.ube.fr/wp-content/uploads/2023/09/000279-the-turing-test-the-first-50-years.pdf",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Basheer & Hajmeer (2000)"
+                "notes": "French (2000)"
             },
             {
                 "id": 3,
-                "title": "Artificial neural networks for beginners",
-                "url": "https://arxiv.org/pdf/cs/0308031",
-                "sourceType": "Research Paper",
+                "title": "ELIZA—A computer program for the study of natural language communication between man and machine",
+                "url": "https://dl.acm.org/doi/pdf/10.1145/365153.365168",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Gershenson (2003)"
+                "notes": "Weizenbaum (1966)"
             },
             {
                 "id": 4,
-                "title": "Fundamentals of artificial neural networks",
-                "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews",
-                "sourceType": "Book",
+                "title": "Turing Test: 50 years later",
+                "url": "https://philarchive.org/archive/PINTT",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Hassoun (1995)"
+                "notes": "Saygin, Cicekli, & Akman (2000)"
             },
             {
                 "id": 5,
-                "title": "What are artificial neural networks?",
-                "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
-                "sourceType": "Research Paper",
+                "title": "Rethinking the Turing Test",
+                "url": "https://philpapers.org/archive/PRORTT-3.pdf",
+                "sourceType": "Journal Article",
                 "accessedDate": "2026",
-                "notes": "Krogh (2008)"
+                "notes": "Proudfoot (2010)"
             }
         ]
     },
@@ -77,75 +78,139 @@ TOPICS_DATA = [
         "id": 2,
         "slug": "learning-machines",
         "title": "Learning Machines",
-        "yearRange": "c. 1960",
+        "yearRange": "1950s–1980s",
         "category": "Machine Learning",
-        "status": "Active",
-        "introText": "Learning machines marked a shift from explicit programming toward systems that could improve through data and experience.",
-        "shortSummary": "Machines began to learn patterns rather than rely only on fixed hand-written rules.",
-        "howItWorks": "These systems use training data to identify patterns and improve decision-making over time.",
-        "simpleExample": "A model trained on past weather data predicts tomorrow's temperature range.",
-        "effectiveUse": "Useful when large amounts of data are available and patterns can be learned statistically.",
-        "realWorldExamples": "Prediction systems, classification, industrial monitoring, and analytics.",
-        "advantages": "Can adapt better than rigid rule-based systems in changing environments.",
-        "limitations": "Needs data quality, computational power, and careful evaluation.",
-        "misuse": "Can produce misleading results when trained on biased or poor-quality data.",
-        "ethics": "Raises concerns about fairness, transparency, and accountability.",
-        "waContext": "WA universities and research groups have contributed to machine learning education and research.",
+        "status": "Legacy",
+        "introText": "Learning machines represent an early shift in artificial intelligence from fixed, rule-based systems to systems that improve through experience. Instead of relying solely on predefined instructions, these systems incorporate feedback mechanisms, allowing behaviour to change based on performance over time. A key example is the work of Arthur Samuel, who developed a checkers program that improved through self-play. The program evaluated board positions using a scoring function and updated this function based on game outcomes. This demonstrated that a machine could refine its behaviour without explicit reprogramming, reaching strategies not directly anticipated by its designer. During the 1950s to 1980s, this idea of feedback-driven improvement became central to early machine learning. Systems in this period were typically simple in structure but introduced the important concept of adaptive algorithms, where performance improves through repeated evaluation and adjustment.",
+        "shortSummary": "Learning machines introduced adaptive behaviour by using feedback-driven improvement. A system generates an action, evaluates the result, updates its parameters, and repeats the process.",
+        "howItWorks": "A learning machine operates through a cycle of action, evaluation, and adjustment. This process involves generating an action based on current parameters, evaluating the result using a scoring or utility function, and updating parameters to improve future outcomes. In Samuel’s checkers program, this formed a self-play feedback loop, where the system repeatedly played games against itself and refined its evaluation function based on success or failure. Unlike later machine learning systems, early learning machines relied on explicitly defined features and relatively simple update rules. Their importance lies in introducing adaptive behaviour rather than architectural complexity. This process forms a feedback loop, where the system continuously improves its performance through repeated cycles of evaluation and adjustment.",
+        "simpleExample": "A checkers program evaluates board states using features such as piece count and positional strength. Each feature has an associated weight. After repeated games, the system adjusts these weights to favour strategies associated with winning outcomes. Another example is early optimisation systems that adjust parameters to reduce prediction error. These systems compare predicted outcomes with observed results and iteratively update parameters to improve accuracy.",
+        "effectiveUse": "The principles established by early learning machines underpin many modern systems. Applications include optimisation problems where parameters are refined iteratively, recommendation systems that adapt to user behaviour, and adaptive control systems in engineering. Although modern systems are more complex, they continue to rely on feedback-driven improvement, which originates from early learning machine research.",
+        "realWorldExamples": "Samuel’s checkers program remains a defining example of a learning machine. Through self-play and iterative adjustment, the system improved its performance beyond its initial configuration, demonstrating that behaviour could emerge from experience rather than fixed rules.",
+        "advantages": "Learning machines enable systems to improve without manual reprogramming, adapt to changing data and environments, and form the foundation of modern machine learning.",
+        "limitations": "Learning machines depend on the quality of feedback data. Early systems required carefully designed features, and learning processes may converge slowly or to suboptimal results.",
+        "misuse": "Learning systems may reinforce biased or incorrect patterns if training data or feedback signals are flawed. This can lead to unintended or misleading outcomes.",
+        "ethics": "Learning machines optimise measurable objectives, which may not align with broader social or ethical goals. Oversight is required to ensure responsible use and to manage risks related to bias and unintended behaviour.",
+        "paradigmShift": "Before learning machines, artificial intelligence followed fixed rules and could not improve from experience. The shift was to systems that learn from feedback and adapt their behaviour over time.",
+        "waContext": "In Western Australia, the influence of learning machines is reflected in research, infrastructure, and industrial application. The University of Western Australia conducts teaching and research in machine learning, data science, and optimisation. These areas build on the principles of adaptive systems and iterative improvement. The Pawsey Supercomputing Research Centre, located in Perth, provides high-performance computing infrastructure that supports large-scale data processing and model training. This infrastructure enables modern systems that extend early learning machine concepts. In industry, Rio Tinto applies machine learning techniques in areas such as predictive maintenance and operational optimisation, where systems improve performance using historical data.",
         "media": [
             {
                 "id": 2,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
-                "title": "Learning from Data",
-                "caption": "Data-driven approaches transformed AI development."
+                "url": "/static/images/learning-machines-feedback-loop.png",
+                "title": "Learning Machine Feedback Loop",
+                "caption": "Figure 1. A simplified feedback loop in a learning machine, showing how a system generates an action, evaluates the outcome, updates its parameters, and repeats the process. Source: Author’s own diagram, based on Samuel (1959)."
+            },
+            {
+                "id": 20,
+                "type": "image",
+                "url": "/static/images/pawsey-supercomputing-centre.png",
+                "title": "Pawsey Supercomputing Research Centre",
+                "caption": "Figure 2. Pawsey Supercomputing Research Centre in Western Australia, supporting large-scale computational research."
             }
         ],
         "references": [
             {
                 "id": 2,
-                "title": "Machine Learning Overview",
-                "url": "https://en.wikipedia.org/wiki/Machine_learning",
-                "sourceType": "Background Source",
+                "title": "Some studies in machine learning using the game of checkers",
+                "url": "https://doi.org/10.1147/rd.33.0210",
+                "sourceType": "Research Paper",
                 "accessedDate": "Accessed 2026",
-                "notes": "General introductory material."
+                "notes": "Samuel, A. L. (1959). IBM Journal of Research and Development, 3(3), 210–229."
+            },
+            {
+                "id": 20,
+                "title": "Data science at UWA",
+                "url": "https://www.uwa.edu.au/projects/data-science-at-uwa",
+                "sourceType": "University Website",
+                "accessedDate": "Accessed 2026",
+                "notes": "The University of Western Australia. (2024, November 27)."
+            },
+            {
+                "id": 21,
+                "title": "Pawsey Supercomputing Research Centre",
+                "url": "https://www.csiro.au/en/about/facilities-collections/pawsey-supercomputing-research-centre",
+                "sourceType": "Research Infrastructure Website",
+                "accessedDate": "Accessed 2026",
+                "notes": "CSIRO. (2023)."
+            },
+            {
+                "id": 22,
+                "title": "Using AI and data science for better operations",
+                "url": "https://www.riotinto.com/en/news/stories/using-ai-data-science-for-better-operations",
+                "sourceType": "Industry Website",
+                "accessedDate": "Accessed 2026",
+                "notes": "Rio Tinto. (2024)."
             }
         ]
     },
-    {
+        {
         "id": 3,
         "slug": "game-playing-ai",
-        "title": "Game Playing AI",
-        "yearRange": "c. 1970",
+        "title": "Board Game Playing",
+        "yearRange": "1950s–1990s",
         "category": "Strategic Systems",
-        "status": "Active",
-        "introText": "Game-playing AI demonstrated that machines could make strategic decisions in structured environments.",
-        "shortSummary": "Game AI made abstract reasoning and search visible and measurable.",
-        "howItWorks": "These systems explore possible future moves and evaluate game states to choose effective strategies.",
-        "simpleExample": "A chess engine examines several possible moves and chooses the one with the highest evaluation.",
-        "effectiveUse": "Best in structured problems with clear rules and goals.",
-        "realWorldExamples": "Chess engines, board games, and teaching search algorithms.",
-        "advantages": "Excellent for demonstrating planning and search methods.",
-        "limitations": "Performs best in closed systems with well-defined rules.",
-        "misuse": "People may assume success in games always transfers to messy real-world tasks.",
-        "ethics": "Limited direct ethical risk, but influences public perception of AI capability.",
-        "waContext": "WA computing programs have used game-playing systems as teaching tools for search, heuristics, and decision-making.",
+        "status": "Legacy",
+        "introText": "Board games played a central role in early artificial intelligence research because they provide controlled environments with fixed rules, limited actions, and clearly defined outcomes. These characteristics make them suitable for studying decision-making and reasoning. As explained by Tim French (2021), games offer a simplified domain where intelligent behaviour can be analysed without the uncertainty of real-world environments. Early AI researchers used board games as primary evidence that machines could perform structured reasoning tasks. Claude Shannon (1950) formalised computer chess as a search problem, showing that a machine could evaluate future possibilities and select optimal moves. Arthur Samuel (1959) extended this approach by incorporating learning into a checkers program, demonstrating that performance could improve through experience. These properties made board games one of the earliest and most effective forms of evidence that machines could perform structured reasoning within a well-defined domain.",
+        "shortSummary": "Board game AI demonstrated how machines use search, evaluation, and optimisation to make strategic decisions in structured environments.",
+        "howItWorks": "Board game AI models decision-making as a search through possible game states. A game consists of a set of possible states, a set of legal moves, a transition function defining how moves change states, and a utility function that assigns outcomes. The minimax algorithm evaluates moves by assuming both players act optimally. It explores the game tree and selects actions that maximise the AI’s outcome while minimising the opponent’s best response. In simple games such as noughts and crosses, the full game tree can be evaluated. Each possible sequence of moves is explored until a terminal state is reached, and values are propagated back through the tree to determine the optimal move. Because the number of possible states grows rapidly in more complex games, practical systems use depth-limited search, heuristic evaluation functions, and alpha-beta pruning to reduce computation.",
+        "simpleExample": "In noughts and crosses, all possible outcomes can be evaluated, which guarantees optimal play when using minimax. In chess, the search space is much larger, so programs rely on evaluation functions that estimate the value of a position based on factors such as material balance and positional strength.",
+        "effectiveUse": "Board game AI is used in chess engines, checkers programs, and Go systems. The same techniques are applied in planning and scheduling, optimisation problems, and strategic decision systems where search and evaluation are required.",
+        "realWorldExamples": "Deep Blue demonstrated the effectiveness of large-scale search combined with domain-specific evaluation by defeating world chess champion Garry Kasparov in 1997. AlphaGo later combined search with learned evaluation functions, showing how modern systems extend classical approaches to handle complex environments such as Go.",
+        "advantages": "Board game AI provides a controlled environment for testing algorithms, enables precise evaluation of decision-making strategies, and supports the development of search and optimisation techniques.",
+        "limitations": "Board game AI is limited to structured environments with defined rules, does not generalise easily to complex real-world problems, and depends on accurate modelling of the domain.",
+        "misuse": "Search and optimisation techniques developed for board games can be applied to high-stakes decision systems without sufficient transparency, making decisions difficult to interpret.",
+        "ethics": "Success in board games may lead to overestimating AI capability. These systems operate in constrained environments and do not represent general intelligence. Distinguishing between domain-specific performance and broader intelligence remains important.",
+        "paradigmShift": "Before board game AI, computers solved problems using fixed logic and simple rules. The shift was to machines that can search through possibilities, evaluate outcomes, and make strategic decisions in game environments.",
+        "waContext": "In Western Australia, board game AI is primarily used for education and training. The University of Western Australia includes game-playing algorithms such as minimax and alpha-beta pruning in its computer science curriculum. These concepts are taught through lecture material and support the development of foundational skills in adversarial search and decision-making.",
         "media": [
             {
                 "id": 3,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?auto=format&fit=crop&w=1200&q=80",
-                "title": "Strategic Search",
-                "caption": "Game environments provided clear testbeds for AI reasoning."
+                "url": "/static/images/minimax-diagram.png",
+                "title": "Minimax Search",
+                "caption": "Minimax search applied to noughts and crosses, showing how values are propagated through the game tree."
+            },
+            {
+                "id": 30,
+                "type": "image",
+                "url": "/static/images/deep-blue.png",
+                "title": "IBM Deep Blue",
+                "caption": "Deep Blue demonstrated large-scale search and evaluation in computer chess."
             }
         ],
         "references": [
             {
                 "id": 3,
-                "title": "Game AI Background",
-                "url": "https://en.wikipedia.org/wiki/Game_artificial_intelligence",
-                "sourceType": "Background Source",
+                "title": "Programming a computer for playing chess",
+                "url": "https://doi.org/10.1080/14786445008521796",
+                "sourceType": "Research Paper",
                 "accessedDate": "Accessed 2026",
-                "notes": "General overview source."
+                "notes": "Shannon, C. E. (1950)."
+            },
+            {
+                "id": 31,
+                "title": "Game-Playing Lecture",
+                "url": "https://teaching.csse.uwa.edu.au/units/CITS3001/lectures/07GamePlaying.pdf",
+                "sourceType": "Lecture Material",
+                "accessedDate": "Accessed 2026",
+                "notes": "French, T. (2021)."
+            },
+            {
+                "id": 32,
+                "title": "Deep Blue",
+                "url": "https://www.ibm.com/history/deep-blue",
+                "sourceType": "Company Source",
+                "accessedDate": "Accessed 2026",
+                "notes": "IBM (2011)."
+            },
+            {
+                "id": 33,
+                "title": "Mastering the game of Go",
+                "url": "https://www.nature.com/articles/nature16961",
+                "sourceType": "Research Paper",
+                "accessedDate": "Accessed 2026",
+                "notes": "Silver et al. (2016)."
             }
         ]
     },
@@ -156,177 +221,200 @@ TOPICS_DATA = [
         "yearRange": "c. 1980",
         "category": "Knowledge Engineering",
         "status": "Legacy",
-        "introText": "In the 1980s, expert systems became the first commercially successful form of AI. These programs encoded the decision-making knowledge of human experts into software using rules, facts, and inference engines.",
-        "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, enabling computers to make decisions in medicine, finance, and engineering by following chains of if-then logic.",
-        "howItWorks": "An expert system consists of a knowledge base, an inference engine, and a user interface. The inference engine applies rules step by step to reach a conclusion.",
-        "simpleExample": "If a patient has fever and cough, and recently travelled, the system may suggest considering a tropical disease.",
-        "effectiveUse": "Most effective in narrow domains where knowledge can be clearly expressed as rules.",
-        "realWorldExamples": "MYCIN, DENDRAL, and XCON.",
-        "advantages": "They preserve expert knowledge, provide consistent decisions, and work well in specialised areas.",
-        "limitations": "They are brittle, hard to maintain, and struggle with uncertainty and ambiguity.",
-        "misuse": "They can be misused when applied outside their narrow domain.",
-        "ethics": "Important concerns include accountability, transparency, and over-reliance in high-stakes domains.",
-        "waContext": "Expert systems influenced decision support work in WA across mining, agriculture, and environmental management.",
+        "introText": "Expert systems were one of the most important symbolic AI technologies of the 1980s. They were designed to imitate the decision-making ability of a human expert in a narrow domain by storing specialist knowledge in rules and facts.",
+        "shortSummary": "Expert systems captured human specialist knowledge in rule-based software, allowing computers to provide recommendations and decisions in domains such as medicine, troubleshooting, finance, and industry.",
+        "howItWorks": "An expert system usually consists of a knowledge base, an inference engine, and a user interface. Knowledge is stored as facts, relationships, and if-then-else rules. The inference engine applies these rules step by step to reach a conclusion. Two common reasoning methods are forward chaining, which starts from known facts and moves toward a conclusion, and backward chaining, which starts from a possible conclusion and checks whether the supporting facts are true.",
+        "simpleExample": "Imagine a car fault diagnosis system. If the engine does not start and the battery lights are weak, the system may conclude that the battery is flat and recommend recharging or replacing it. In a more advanced example such as MYCIN, the system used rules about symptoms, infections, and treatments to recommend antibiotics.",
+        "effectiveUse": "Most effective in narrow, stable, and rule-based domains where specialist knowledge can be clearly expressed, such as medical diagnosis, troubleshooting, legal reasoning, financial advice, and industrial monitoring.",
+        "realWorldExamples": "Classic examples include MYCIN for medical diagnosis and antibiotic recommendation, DENDRAL for chemical analysis, and XCON for computer system configuration.",
+        "advantages": "Expert systems can preserve specialist knowledge, provide consistent decisions, and support fast decision-making in repetitive or highly specialised tasks. They do not become tired and can continue to apply the same logic reliably.",
+        "limitations": "Their performance depends heavily on the quality of the knowledge base. They are difficult to build and maintain, often suffer from the knowledge acquisition bottleneck, and usually work only in narrow domains. They also struggle with ambiguity and unfamiliar situations.",
+        "misuse": "They can be misused when applied outside their intended domain, or when users trust outdated, incomplete, or biased rules too much in high-stakes areas such as medicine, law, or finance.",
+        "ethics": "Important concerns include accountability, transparency, and over-reliance. Some expert systems also used Bayes theorem to reason under uncertainty and fuzzy logic to handle vague concepts, but even then the system’s outputs could still create risks if human judgement was ignored.",
+        "paradigmShift": "Before expert systems, AI programs mainly followed general symbolic rules. The shift was to systems that encoded specialist human knowledge and used inference engines to provide expert advice in narrow domains.",
+        "waContext": "In Western Australia, expert-system and rule-based decision support approaches were relevant in industrial environments such as Alcoa’s Wagerup alumina refinery, where expert knowledge could support diagnostics, scheduling, and operational planning.",
         "media": [
-            {
-                "id": 4,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
-                "title": "Knowledge Engineering Process",
-                "caption": "The process of capturing expert knowledge into rule-based systems."
-            },
             {
                 "id": 5,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80",
-                "title": "Medical Expert Systems",
-                "caption": "Expert systems found early success in medical diagnosis."
+                "url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+                "title": "Knowledge Engineering in Practice",
+                "caption": "Expert systems translated specialist knowledge into structured rules for decision support."
+            },
+            {
+                "id": 4,
+                "type": "image",
+                "url": "/static/images/expert-systems-diagram.png",
+                "title": "Basic Structure of an Expert System",
+                "caption": "A simplified expert system structure showing the knowledge base, inference engine, user interface, and external data sources."
             }
         ],
         "references": [
             {
                 "id": 4,
-                "title": "Rule-based Expert Systems",
+                "title": "Wagerup Alumina Refinery Long Term Residue Management Strategy",
+                "url": "https://www.alcoa.com/australia/en/pdf/2017-wagerup-refinery-ltrms.pdf",
+                "sourceType": "Industry Report",
+                "accessedDate": "Accessed 2026",
+                "notes": "WA-based industrial context showing the relevance of expert knowledge and decision support in large-scale operations."
+            },
+            {
+                "id": 5,
+                "title": "Expert Systems",
                 "url": "https://en.wikipedia.org/wiki/Expert_system",
                 "sourceType": "Background Source",
                 "accessedDate": "Accessed 2026",
-                "notes": "General overview of expert systems."
+                "notes": "General overview of knowledge bases, inference engines, and classic expert-system applications."
             }
         ]
     },
     {
-    "id": 5,
-    "slug": "artificial-neural-nets",
-    "title": "Artificial Neural Networks",
-    "yearRange": "1980–2000",
-    "category": "Neural Computing",
-    "status": "Active",
-    "introText": "Artificial Neural Networks (ANNs) are inspired by the structure of the human brain and learn patterns from data through interconnected neurons.",
-    "shortSummary": "ANNs learn complex patterns through layered structures and form the foundation of modern deep learning systems.",
-    "howItWorks": "ANNs consist of an input layer, one or more hidden layers, and an output layer. Data is passed through the network, where each neuron applies weighted calculations. During training, the system adjusts these weights to reduce error and improve performance. Deep learning extends this by using multiple hidden layers to capture more complex relationships in data.",
-    "simpleExample": "An image classification system processes pixel data through multiple layers to detect features such as edges, shapes, and colours, and then predicts whether the image is a cat or a dog.",
-    "effectiveUse": "Pattern recognition tasks such as image classification, speech recognition, and data analysis.",
-    "realWorldExamples": "Facial recognition systems, handwriting recognition, speech recognition, medical diagnosis, and financial prediction.",
-    "advantages": "They can learn directly from data, model complex relationships, detect hidden patterns, and improve performance with more data.",
-    "limitations": "Training requires large datasets and computational resources. The internal decision-making process is often difficult to interpret, leading to 'black box' concerns.",
-    "misuse": "ANNs can be misused in surveillance systems, biased automated decision-making, and misleading predictive systems.",
-    "ethics": "Key concerns include bias in training data, lack of transparency, and fairness in automated decision-making.",
-    "waContext": "In Western Australia, neural network research is mainly carried out in universities and research institutions such as UWA, Curtin, ECU, and Murdoch University, as well as organisations like CSIRO. Facilities such as the Pawsey Supercomputing Research Centre support large-scale data processing and AI research. Neural networks are also applied in projects like the Square Kilometre Array (SKA) to analyse large volumes of scientific data.",
-    "media": [
-        {
-            "id": 6,
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600",
-            "title": "Neural Network Architecture",
-            "caption": "Basic structure of an artificial neural network with input, hidden, and output layers"
-        },
-        {
-            "id": 7,
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600",
-            "title": "Brain-Inspired Computing",
-            "caption": "Neural networks are inspired by the structure of the human brain"
-        }
-    ],
-    "references": [
-        {
-            "id": 5,
-            "title": "Artificial neural networks: fundamentals, computing, design, and application",
-            "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Basheer & Hajmeer (2000)"
-        },
-        {
-            "id": 6,
-            "title": "Artificial neural networks for beginners",
-            "url": "https://arxiv.org/pdf/cs/0308031",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Gershenson (2003)"
-        },
-        {
-            "id": 7,
-            "title": "Fundamentals of artificial neural networks",
-            "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews/links/56ebf73a08aee4707a3849a6/Fundamentals-of-Artificial-Neural-Networks-Book-Reviews.pdf",
-            "sourceType": "Book",
-            "accessedDate": "2026",
-            "notes": "Hassoun (1995)"
-        },
-        {
-            "id": 8,
-            "title": "What are artificial neural networks?",
-            "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Krogh (2008)"
-        },
-        {
-            "id": 9,
-            "title": "Perceptrons: An Introduction to Computational Geometry",
-            "url": "https://mitpress.mit.edu/9780262630229/perceptrons/",
-            "sourceType": "Book",
-            "accessedDate": "2026",
-            "notes": "Minsky & Papert (1969)"
-        }
-    ]
-},
-    {
-        "id": 6,
-        "slug": "internet-driven-ai-ibm-watson",
-        "title": "Internet-Driven AI Systems",
-        "yearRange": "c. 2011",
-        "category": "Knowledge Retrieval",
-        "status": "Legacy",
-        "introText": "With the growth of the internet, AI systems gained access to large-scale data, enabling them to connect information across sources and simulate general knowledge.",
-        "shortSummary": "Internet-driven AI systems retrieve, evaluate, and rank information from large datasets rather than relying on fixed rules.",
-        "howItWorks": "Internet-driven AI systems process large amounts of unstructured data such as web pages, documents, and databases. They convert text using NLP techniques, generate multiple candidate answers, and evaluate them using evidence. A key step is 'soft filtering', where less likely answers are gradually removed based on confidence scores rather than strict rules. Systems such as IBM Watson use architectures like DeepQA to rank answers and select the most probable result.",
-        "simpleExample": "For example, when asked 'Who is the president of the United States?', the system searches large datasets, identifies patterns linking names with that role, and selects the most likely answer. In quiz-style tasks such as Jeopardy!, the system analyses clues, gathers evidence, and ranks competing answers.",
-        "effectiveUse": "Question answering, search engines, virtual assistants, and knowledge retrieval systems that require analysing large amounts of data quickly.",
-        "realWorldExamples": "IBM Watson, Jeopardy!, search engines, virtual assistants, enterprise knowledge systems, and data-driven decision support tools.",
-        "advantages": "They can access large amounts of information, connect knowledge from multiple sources, provide fast responses, and improve as more data becomes available.",
-        "limitations": "They depend on data quality, require significant computational resources, and rely on statistical patterns rather than true understanding, which can lead to incorrect or misleading results.",
-        "misuse": "Can be misused to spread misinformation, generate misleading answers, and manipulate information at scale.",
-        "ethics": "Key concerns include reliability of sources, bias in data, and over-reliance on automated decision-making systems.",
-        "waContext": "In Western Australia, internet-driven AI systems are widely used in industries such as mining and energy. Companies like Rio Tinto and BHP use data-driven systems and remote operations centres to monitor and manage large-scale operations. Universities such as UWA and Curtin also contribute to research in information retrieval and large-scale data analysis.",
+        "id": 5,
+        "slug": "artificial-neural-nets",
+        "title": "Artificial Neural Nets",
+        "yearRange": "1980–2000",
+        "category": "Neural Computing",
+        "status": "Active",
+        "introText": "Artificial Neural Nets, or Artificial Neural Networks (ANNs), are a key area of artificial intelligence inspired by the structure of the human brain. They consist of interconnected artificial neurons that learn patterns from data. ANNs became particularly important between 1980 and 2000 for tasks such as classification and pattern recognition. Early research in neural networks was criticised by researchers such as Marvin Minsky, who argued that simple neural networks without intermediate layers could not solve complex problems. This criticism contributed to a slowdown in research for a period of time. However, later developments introduced networks with multiple hidden layers, which led to the rise of deep learning. Deep learning refers to neural networks with several intermediate hidden layers, allowing systems to learn more complex patterns and relationships in data.",
+        "shortSummary": "ANNs learn patterns from data through interconnected artificial neurons and later became the foundation of deep learning systems.",
+        "howItWorks": "ANNs are made up of layers of neurons connected by weighted links. A typical neural network includes three main parts: an input layer, one or more hidden layers, and an output layer. Data enters through the input layer, is processed through hidden layers, and produces results in the output layer. Each neuron receives numerical inputs, applies a weighted calculation, and passes the result forward. During training, the network adjusts these weights to reduce errors and improve accuracy. In this way, the system learns patterns from data rather than following explicitly programmed rules. Deep learning extends this idea by adding multiple hidden layers. These additional layers allow the system to capture more complex relationships in the data, which improves performance in tasks such as image and speech recognition.",
+        "simpleExample": "For example, an ANN can classify images of animals. The system first converts an image into numerical data, such as pixel values. These values are processed through multiple layers, where the network detects features such as edges, shapes, and colours. Based on these features, the system predicts the most likely category, such as 'cat' or 'dog'. The 'best' result is chosen based on the highest probability calculated by the network. Another example is handwriting recognition. The system learns from many examples of handwritten letters and identifies patterns in how characters are formed. When new input is given, the network compares it with learned patterns and produces the most probable output. These examples show how ANNs detect patterns and make decisions based on learned data representations.",
+        "effectiveUse": "Pattern recognition, image classification, speech recognition, medical diagnosis, financial prediction, and other tasks where patterns are difficult to define using explicit rules.",
+        "realWorldExamples": "Facial recognition is a common real-world application of Artificial Neural Networks. The system learns patterns in facial features, such as the distances between key points on a face. These features are converted into numerical representations and compared with stored data to identify individuals. Deep learning models have significantly improved facial recognition by extracting more detailed and abstract features. The limitations of early perceptrons, such as their inability to solve the XOR problem, also encouraged the development of multi-layer networks that form the basis of modern deep learning.",
+        "advantages": "ANNs can learn directly from data, model complex relationships, detect hidden patterns, and improve performance with more data.",
+        "limitations": "Training neural networks can require large amounts of data and computational resources. Their internal decision-making process is often difficult to interpret, which is why they are sometimes described as 'black box' systems. Early neural networks were also limited in capability, although modern systems have overcome many of these limitations.",
+        "misuse": "ANNs can be misused in surveillance using facial recognition, biased automated decision-making, and misleading prediction systems.",
+        "ethics": "These uses raise ethical concerns, particularly regarding privacy, fairness, bias in training data, and lack of transparency.",
+        "paradigmShift": "Before artificial neural networks, computers were mostly seen as systems that followed fixed rules. The shift was to adaptive systems that learn patterns from data and improve their performance through training.",
+        "waContext": "Artificial Neural Networks have also played a role in the development of artificial intelligence research in Western Australia. Rather than focusing on hardware, development in WA is mainly reflected in the growth of research expertise, academic contributions, and applied projects. Research in AI and neural networks has been carried out primarily in universities and research institutions, including The University of Western Australia, Curtin University, Edith Cowan University, Murdoch University, and organisations such as CSIRO. Pawsey Supercomputing Research Centre provides advanced computational resources that support AI and neural network research, including large-scale data processing in astronomy, geoscience, and data-intensive research. Neural networks and machine learning methods are also increasingly relevant to projects such as the Square Kilometre Array, where large volumes of scientific data must be processed, filtered, and analysed.",
         "media": [
             {
-                "id": 8,
+                "id": 6,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600",
-                "title": "Internet-Driven AI Process",
-                "caption": "Simplified process of an internet-driven AI system such as IBM Watson for question answering"
+                "url": "/static/images/ann-structure.png",
+                "title": "Basic Structure of an Artificial Neural Network",
+                "caption": "Figure 1: Basic structure of an Artificial Neural Network"
             },
             {
-                "id": 9,
+                "id": 7,
                 "type": "image",
-                "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600",
-                "title": "Data-Driven AI in Western Australia",
-                "caption": "Large-scale data systems supporting decision-making in WA industries"
+                "url": "/static/images/xor-problem.png",
+                "title": "XOR Problem Limitation",
+                "caption": "Figure 2: Limitation of early perceptrons in solving non-linearly separable problems (XOR problem)"
             }
         ],
         "references": [
             {
-                "id": 7,
-                "title": "Building Watson: An overview of the DeepQA project",
-                "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2303",
+                "id": 5,
+                "title": "Artificial neural networks: fundamentals, computing, design, and application",
+                "url": "https://nathan.instras.com/ResearchProposalDB/doc-7.pdf",
                 "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Basheer & Hajmeer (2000)"
+            },
+            {
+                "id": 6,
+                "title": "Artificial neural networks for beginners",
+                "url": "https://arxiv.org/pdf/cs/0308031",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Gershenson (2003)"
+            },
+            {
+                "id": 7,
+                "title": "Fundamentals of artificial neural networks",
+                "url": "https://www.researchgate.net/profile/Terrence-Fine/publication/3078997_Fundamentals_of_Artificial_Neural_Networks-Book_Reviews/links/56ebf73a08aee4707a3849a6/Fundamentals-of-Artificial-Neural-Networks-Book-Reviews.pdf",
+                "sourceType": "Book",
+                "accessedDate": "2026",
+                "notes": "Hassoun (1995)"
+            },
+            {
+                "id": 8,
+                "title": "What are artificial neural networks?",
+                "url": "http://www.lmse.org/assets/learning/bioinformatics/Reading/Krogh2008NatureBiotech_ANN.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Krogh (2008)"
+            },
+            {
+                "id": 9,
+                "title": "Perceptrons: An Introduction to Computational Geometry",
+                "url": "https://mitpress.mit.edu/9780262630229/perceptrons/",
+                "sourceType": "Book",
+                "accessedDate": "2026",
+                "notes": "Minsky & Papert (1969)"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "slug": "internet-driven-ai-systems",
+        "title": "Internet Driven AI Systems",
+        "yearRange": "2000s–Present",
+        "category": "Data-Driven AI",
+        "status": "Modern",
+        "introText": "With the growth of the internet, artificial intelligence systems gained access to very large amounts of data from web pages, documents, and online databases. This allowed AI systems to connect information across different sources and create the appearance of general knowledge. Unlike earlier rule-based systems, internet-driven AI systems rely on large-scale data to learn relationships between words, concepts, and ideas. A well-known example is IBM Watson, which became the Jeopardy! champion in 2011.",
+        "shortSummary": "Internet-driven AI systems use large-scale online data to answer questions and retrieve knowledge dynamically.",
+        
+        "howItWorks": "Internet-driven AI systems collect and process large amounts of unstructured data from the internet, including websites and documents. The system converts text into processable form using NLP, then generates possible answers and evaluates them. For example, IBM Watson used DeepQA to generate hypotheses, gather evidence, rank answers, and select the most confident result.",
+        
+        "simpleExample": "For example, when asked 'Who is the president of the United States?', the system searches large datasets and finds patterns linking names with the phrase. Another example is Jeopardy-style questions, where the system must understand meaning, retrieve data, and evaluate answers.",
+        
+        "paradigmShift": "Before the rise of internet-driven AI systems, computers were generally seen as limited to the knowledge explicitly programmed into them. Traditional systems relied on predefined rules or structured databases, and it was assumed that a computer could only provide answers based on information that had been carefully encoded in advance. The growth of the internet, combined with advances in data processing, challenged this view. Instead of depending on fixed knowledge, AI systems could access and analyse vast amounts of information from multiple sources in real time. Systems such as IBM Watson demonstrated that a machine could search, evaluate, and combine evidence from large datasets to answer complex questions. This changed expectations about how computers could handle knowledge. Rather than storing all information internally, systems could dynamically retrieve and interpret data from external sources, producing answers that appear informed and context-aware. This marked a significant shift in thinking—from viewing computers as isolated systems with limited knowledge to recognising them as connected systems capable of leveraging large-scale information to support reasoning and decision-making.",
+
+        "effectiveUse": "Search engines, question answering systems, virtual assistants, and knowledge retrieval platforms.",
+        
+        "realWorldExamples": "IBM Watson is a key example. In 2011, it defeated human champions in Jeopardy! by analysing natural language, searching large datasets, and evaluating answers based on evidence.",
+        
+        "advantages": "They can access large-scale information, connect multiple data sources, respond quickly, and improve with more data.",
+        
+        "limitations": "They depend on data quality, require high computational resources, and do not truly understand information, relying instead on statistical patterns.",
+        
+        "misuse": "These systems can spread misinformation, generate misleading answers, and manipulate information at scale.",
+        
+        "ethics": "Key concerns include data reliability, bias, and over-reliance on automated systems.",
+        
+        "waContext": "In Western Australia, internet-driven AI systems are widely used in mining and resource industries. Companies like Rio Tinto and BHP use real-time data systems and remote operation centres in Perth to monitor mining activities. These systems rely on internet connectivity to process large datasets from remote sites. Universities such as UWA and Curtin also contribute to research in data-driven AI. These systems help manage information across large distances, which is critical in WA’s geographically vast environment.",
+        
+        "media": [
+            {
+                "id": 1,
+                "type": "image",
+                "url": "/static/images/watson-diagram.png",
+                "title": "IBM Watson Processing Pipeline",
+                "caption": "Figure 1: Simplified process of an internet-driven AI system (e.g., IBM Watson)"
+            },
+            {
+                "id": 2,
+                "type": "image",
+                "url": "/static/images/wa-mining.png",
+                "title": "Mining in Western Australia",
+                "caption": "Figure 2: Mining and resource industries in Western Australia using data-driven AI systems"
+            }
+        ],
+        
+        "references": [
+            {
+                "id": 1,
+                "title": "Building Watson: DeepQA Project",
+                "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2303",
+                "sourceType": "Journal",
                 "accessedDate": "2026",
                 "notes": "Ferrucci et al. (2010)"
             },
             {
-                "id": 8,
-                "title": "Introduction to 'This is Watson'",
+                "id": 2,
+                "title": "Introduction to This is Watson",
                 "url": "https://ieeexplore.ieee.org/abstract/document/6177724",
-                "sourceType": "Research Paper",
+                "sourceType": "Journal",
                 "accessedDate": "2026",
                 "notes": "Ferrucci (2012)"
             },
             {
-                "id": 9,
-                "title": "Question analysis: How Watson reads a clue",
+                "id": 3,
+                "title": "How Watson Reads a Clue",
                 "url": "https://www.patwardhans.net/papers/LallyEtAl12.pdf",
-                "sourceType": "Research Paper",
+                "sourceType": "Journal",
                 "accessedDate": "2026",
                 "notes": "Lally et al. (2012)"
             }
@@ -339,49 +427,50 @@ TOPICS_DATA = [
         "yearRange": "c. 2010",
         "category": "Bio-Inspired AI",
         "status": "Active",
-        "introText": "Evolutionary computing draws inspiration from biological evolution to optimise complex problems.",
-        "shortSummary": "Genetic algorithms apply natural selection to computing.",
-        "howItWorks": "A genetic algorithm starts with random candidate solutions, evaluates them, selects the best, and creates new generations via crossover and mutation.",
-        "simpleExample": "Like designing better paper airplanes by repeatedly keeping the best and combining their features.",
-        "effectiveUse": "Optimisation problems in engineering, logistics, scheduling, and design.",
-        "realWorldExamples": "NASA antenna design, logistics routing, financial strategy evolution.",
-        "advantages": "Works well on complex search spaces and can find creative solutions.",
-        "limitations": "Computationally expensive and does not guarantee the global optimum.",
-        "misuse": "Can be used to optimise harmful or adversarial outcomes if the fitness criteria are poorly designed.",
-        "ethics": "Optimization goals must be defined carefully to avoid harmful unintended consequences.",
-        "waContext": "WA researchers have used genetic algorithms in mining optimisation and logistics.",
+        "introText": "Evolutionary computing is a branch of artificial intelligence inspired by biological evolution. One of its best-known techniques is the genetic algorithm, which searches for strong solutions by imitating natural selection, reproduction, and mutation.",
+        "shortSummary": "Genetic algorithms solve complex optimisation and search problems by evolving a population of candidate solutions over many generations using selection, crossover, and mutation.",
+        "howItWorks": "A genetic algorithm begins with a population of candidate solutions. Each candidate is evaluated using a fitness function that measures how well it solves the problem. Better candidates are more likely to be selected to form the next generation. New candidates are produced through crossover, which combines features of parent solutions, and mutation, which introduces small random changes. Over time, the population tends to improve, although the algorithm may still converge to a strong local optimum rather than the global optimum.",
+        "simpleExample": "A delivery company may want to find a short route for a truck visiting many locations. A genetic algorithm can begin with many random route candidates, score them by total distance, and then repeatedly select, combine, and mutate the best candidate solutions. The algorithm mutates the encoded candidate solutions, not the real-world route data itself.",
+        "effectiveUse": "Most effective when a problem has a very large search space, many possible combinations, or conflicting objectives. It is often used in optimisation, scheduling, engineering design, logistics, machine learning, and feature selection.",
+        "realWorldExamples": "Applications include route planning, scheduling, engineering optimisation, machine learning feature selection, and other search problems where traditional mathematical optimisation is too rigid or expensive.",
+        "advantages": "Genetic algorithms can examine very large numbers of candidate solutions, avoid some of the limits of human intuition, and discover non-obvious or creative solutions in highly complex search spaces.",
+        "limitations": "They do not guarantee the global optimum, and their effectiveness depends heavily on the encoding method, fitness function, and parameter settings such as mutation rate, crossover rate, and population size. They can also be computationally expensive.",
+        "misuse": "They can produce harmful results if the fitness function is poorly designed, for example by optimising only cost or efficiency while ignoring fairness, safety, or environmental consequences.",
+        "ethics": "Important concerns include accountability, over-reliance, and the risk of optimising the wrong objective. A mathematically efficient result may still be socially harmful if human values are not reflected in the design.",
+        "paradigmShift": "Before evolutionary computing, optimisation often relied on deterministic or manually designed search methods. The shift was to population-based search inspired by natural selection, allowing systems to explore many candidate solutions and evolve better ones over time.",
+        "waContext": "In Western Australia, UWA researchers applied problem-specific genetic algorithms to optimise sparse power distribution network planning in the South-West, and also explored multi-objective genetic algorithm optimisation for road network widening and maintenance scheduling.",
         "media": [
-            {
-                "id": 10,
-                "type": "image",
-                "url": "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600",
-                "title": "Evolutionary Process Diagram",
-                "caption": "The cycle of selection, crossover, and mutation in genetic algorithms"
-            },
             {
                 "id": 11,
                 "type": "image",
                 "url": "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=600",
-                "title": "Optimisation in Nature",
-                "caption": "Nature's evolutionary processes inspire computational optimisation"
+                "title": "Bio-Inspired Optimisation",
+                "caption": "Evolutionary computing drew inspiration from natural selection to solve complex optimisation problems."
+            },
+            {
+                "id": 10,
+                "type": "image",
+                "url": "/static/images/genetic-algorithm-flowchart.png",
+                "title": "Genetic Algorithm Flow",
+                "caption": "A simplified flowchart showing initial population, selection, mating, crossover, mutation, and termination."
             }
         ],
         "references": [
             {
                 "id": 9,
-                "title": "Genetic Algorithms in Search, Optimization and Machine Learning",
-                "url": "https://dl.acm.org/doi/book/10.5555/534133",
-                "sourceType": "Book",
-                "accessedDate": "2024-03-01",
-                "notes": "Goldberg's foundational textbook on genetic algorithms"
+                "title": "Spatial Optimisation for the Planning of Sparse Power Distribution Networks",
+                "url": "https://doi.org/10.1109/TPWRS.2018.2846407",
+                "sourceType": "Research Paper",
+                "accessedDate": "Accessed 2026",
+                "notes": "UWA-related WA application of optimisation methods in regional power distribution planning."
             },
             {
                 "id": 10,
-                "title": "Evolutionary Computation: Toward a New Philosophy of Machine Intelligence",
-                "url": "https://ieeexplore.ieee.org/",
-                "sourceType": "Book",
-                "accessedDate": "2024-03-01",
-                "notes": "Fogel's comprehensive overview of the field"
+                "title": "Genetic Algorithms Short Tutorial",
+                "url": "https://www.cs.ucdavis.edu/~vemuri/classes/ecs271/Genetic%20Algorithms%20Short%20Tutorial.htm",
+                "sourceType": "Tutorial",
+                "accessedDate": "Accessed 2026",
+                "notes": "Accessible explanation of the stages of a genetic algorithm and its optimisation cycle."
             }
         ]
     },
@@ -402,6 +491,7 @@ TOPICS_DATA = [
         "limitations": "Deep fakes can still be detected by artefacts around eyes, ears, and hair, and by unnatural blinking or lighting. They require significant compute and data for high quality. Real-time deep fakes at high resolution remain challenging. Detection tools are in an arms race with generation tools",
         "misuse": "Deep fakes are weaponised for political disinformation, fraud (CEO voice spoofing for wire transfers), non-consensual intimate imagery, reputation destruction, and evidence fabrication. They fundamentally undermine trust in audiovisual evidence - the concept of ‘seeing is believing.’ ",
         "ethics": "Deep fakes attack foundational concepts of truth, consent, and identity. They can cause severe psychological harm to victims of non-consensual synthetic imagery. They create an epistemic crisis in democratic societies where shared visual reality is a basis for public discourse. Legal frameworks are struggling to keep pace.",
+        "paradigmShift": "Before synthetic media technologies, digital images, videos, and audio were generally trusted as accurate representations of reality. While editing tools existed, most users assumed that visual and audio content was authentic.\n\nWith the development of deepfake technologies, artificial intelligence can now generate highly realistic but fabricated media. This makes it difficult to distinguish between real and manipulated content.\n\nThis represents a shift from trusting digital media to critically evaluating its authenticity, where users must question what they see and rely on verification tools and ethical safeguards.",
         "waContext": "Western Australia’s involvement in synthetic media technologies is based on existing expertise in computer vision and AI research, combined with national-level regulation and response systems. At WA universities such as Curtin University and University of Western Australia, research in: image analysis, machine learning, pattern recognition - forms the technical foundation used in deepfake detection and analysis. These capabilities are directly linked to synthetic media systems, which rely on similar techniques for generating and identifying manipulated content.At the national level, Australia’s eSafety Commissioner  has formally identified deepfakes as a significant emerging risk, including: identity misuse, misinformation, reputational harm. This is supported by active regulatory frameworks, including: reporting systems for harmful content, enforcement mechanisms, public awareness initiatives.These policies directly influence how WA addresses synthetic media through education and digital literacy programs",
         "media": [
             {
@@ -479,82 +569,75 @@ TOPICS_DATA = [
         ]
     },
     {
-    "id": 9,
-    "slug": "natural-language-processing",
-    "title": "Natural Language Processing",
-    "yearRange": "2010–2020",
-    "category": "Language AI",
-    "status": "Active",
-    "introText": "Natural Language Processing (NLP) enables computers to read, “understand”, and generate human language, although this “understanding” is based on pattern analysis rather than true human comprehension.",
-    "shortSummary": "NLP allows computers to process language through tokenisation, vector representations, and transformer-based models.",
-    "howItWorks": "NLP systems convert human language into numerical representations that computers can process. Text is first tokenised into smaller units such as words or subwords, then converted into vectors that capture relationships between words. Modern NLP systems, especially transformer models, use attention mechanisms to process context and relationships between words. Importantly, these systems do not truly understand language in the human sense; instead, they identify patterns such as nouns, verbs, and sentence structure, and generate outputs based on statistical relationships learned from data.",
-    "simpleExample": "For example, in the sentence 'book a flight to Sydney tomorrow', the system tokenises the text, converts it into vectors, identifies patterns suggesting the user’s intent, and extracts information such as destination and time to generate an appropriate action.",
-    "effectiveUse": "Machine translation, summarisation, question answering, sentiment analysis, chatbots, and information extraction.",
-    "realWorldExamples": "Speech recognition, machine translation, sentiment analysis, chatbots, search engines, customer support systems, and transformer-based models such as BERT and GPT.",
-    "advantages": "NLP systems can process large amounts of text quickly, operate continuously without fatigue, and automate repetitive language tasks. Transformer models are flexible and can be adapted to many real-world applications.",
-    "limitations": "Human language is complex and context-dependent, making full understanding difficult. NLP systems rely on statistical patterns rather than true comprehension, can inherit bias from training data, and often require significant computational resources.",
-    "misuse": "NLP can be misused to generate fake or misleading content, automate scams or spam messages, and produce biased or harmful text.",
-    "ethics": "Key ethical concerns include bias in language data, misinformation, harmful outputs, and the social impact of automated language systems.",
-    "waContext": "In Western Australia, NLP research has developed mainly through universities and research institutions such as UWA, Curtin, ECU, Murdoch University, and organisations including CSIRO. Research infrastructure such as the Pawsey Supercomputing Research Centre supports large-scale NLP and AI work, while projects such as the Square Kilometre Array (SKA) highlight the role of NLP in processing textual and metadata information for scientific research.",
-    "media": [
-        {
-            "id": 14,
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600",
-            "title": "Language Processing Pipeline",
-            "caption": "Basic pipeline of a Natural Language Processing system"
-        },
-        {
-            "id": 15,
-            "type": "image",
-            "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600",
-            "title": "Pawsey Supercomputing Research Centre",
-            "caption": "Research infrastructure supporting AI and NLP work in Western Australia"
-        }
-    ],
-    "references": [
-        {
-            "id": 13,
-            "title": "Natural language processing",
-            "url": "https://mbahng.com/Natural_Sciences/Statistics/Natural_Language_Processing/paper.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Bahng (2024)"
-        },
-        {
-            "id": 14,
-            "title": "Advances in natural language processing",
-            "url": "https://nlp.stanford.edu/~manning/xyzzy/Hirschberg-Manning-Science-2015.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Hirschberg & Manning (2015)"
-        },
-        {
-            "id": 15,
-            "title": "Natural language processing: A historical review",
-            "url": "https://aclanthology.org/www.mt-archive.info/90/Zampolli-1994-Sparck-Jones.pdf",
-            "sourceType": "Book Chapter",
-            "accessedDate": "2026",
-            "notes": "Sparck Jones (1994)"
-        },
-        {
-            "id": 16,
-            "title": "Transformers: State-of-the-art natural language processing",
-            "url": "https://aclanthology.org/2020.emnlp-demos.6.pdf",
-            "sourceType": "Conference Paper",
-            "accessedDate": "2026",
-            "notes": "Wolf et al. (2020)"
-        },
-        {
-            "id": 17,
-            "title": "Survey of transformers and towards ensemble learning using transformers for natural language processing",
-            "url": "https://link.springer.com/content/pdf/10.1186/s40537-023-00842-0.pdf",
-            "sourceType": "Research Paper",
-            "accessedDate": "2026",
-            "notes": "Zhang & Shafiq (2024)"
-        }
-    ]
-},
+        "id": 9,
+        "slug": "natural-language-processing",
+        "title": "Natural Language Processing",
+        "yearRange": "2010–2020",
+        "category": "Language AI",
+        "status": "Active",
+        "introText": "Natural Language Processing (NLP) is a field of artificial intelligence that enables computers to read, “understand”, and generate human language. Here, “understand” refers to the ability of systems to process and analyse language patterns, rather than true human-like comprehension. It has developed alongside advances in computing power and data. Early NLP systems were rule-based, relying on predefined linguistic rules. In contrast, modern NLP mainly uses machine learning and deep learning techniques. Transformer-based models are now the dominant approach, as they can handle a wide range of language tasks effectively. These models have significantly improved the ability of systems to process and generate human-like language.",
+        "shortSummary": "NLP enables computers to process and generate human language using tokenisation, vector representations, and transformer-based models.",
+        "howItWorks": "NLP systems convert human language into numerical representations so that computers can process it. A key step is tokenisation, which splits text into smaller units such as words or subwords. These tokens are then converted into vectors, which are numerical representations of words. Vectors allow the system to capture relationships between words, such as similarity in meaning. Modern NLP systems, especially transformer models, use attention mechanisms to understand context by focusing on important words in a sentence and considering how words relate to each other. Overall, NLP follows a general process: input text is tokenised, converted into vectors, processed by a model, and then transformed into an output such as a response or prediction. It is important to note that NLP systems do not truly 'understand' language in the same way humans do. Instead, they identify patterns in text, such as nouns, verbs, and sentence structure, and assign meaning based on statistical relationships learned from data.",
+        "simpleExample": "For example, consider the input: 'book a flight to Sydney tomorrow'. The system first splits the sentence into tokens and converts them into vectors. It then analyses these vectors to identify patterns that suggest the user’s intent, such as booking a flight, and extracts key information like destination and time. Based on this, the system generates an appropriate response or action. Another example is a search query such as 'best cafe near me open now'. The system processes the words as tokens, converts them into vectors, and uses learned patterns to understand the meaning of the query. It then considers factors such as location, time, and user intent to provide relevant results. These examples show how NLP systems process language step by step and make decisions based on learned patterns rather than explicit rules.",
+        "effectiveUse": "Speech recognition, machine translation, sentiment analysis, chatbots, dialogue systems, summarisation, question answering, and information extraction.",
+        "realWorldExamples": "Transformer models are widely used in industry. Libraries such as Hugging Face Transformers support tasks including translation and text classification. Models such as BERT and GPT can perform multiple language tasks using the same architecture. These models generate outputs based on learned statistical patterns rather than true understanding of language, and they are commonly applied in chatbots, search engines, and customer support systems.",
+        "advantages": "NLP systems can process large amounts of text quickly, operate continuously without fatigue, and automate repetitive language tasks. Transformer models are flexible and can be adapted to different applications.",
+        "limitations": "Human language is complex and highly context-dependent, which makes full understanding difficult. NLP models rely heavily on training data, which can introduce bias. They learn statistical patterns rather than true understanding, which may lead to incorrect or misleading outputs. Transformer models also require significant computational resources, making them expensive to train and deploy.",
+        "misuse": "NLP technologies can be misused to generate fake or misleading content, automate scams or spam messages, and produce biased or harmful text.",
+        "ethics": "These issues can affect public trust and raise ethical concerns about bias, misinformation, harmful outputs, and the responsible use of AI systems.",
+        "paradigmShift": "Before natural language processing, computers were mainly expected to process structured commands and numerical data. The shift was to systems that can process, generate, and respond to human language using rules, statistics, machine learning, and transformer-based models.",
+        "waContext": "Natural Language Processing has also contributed to the development of artificial intelligence research in Western Australia. Similar to other AI fields, the focus in WA is mainly on the growth of research expertise, academic contributions, and applied projects rather than specific hardware developments. NLP-related research has been carried out primarily within universities and research institutions, including The University of Western Australia, Curtin University, Edith Cowan University, Murdoch University, and organisations such as CSIRO. The development of NLP in WA reflects a broader evolution from early rule-based systems to modern machine learning and deep learning approaches. Recent developments have been supported by advanced research infrastructure such as the Pawsey Supercomputing Research Centre, which provides computational power for large-scale NLP models and scientific research. NLP techniques are also increasingly relevant in large-scale projects such as the Square Kilometre Array, where textual and metadata information must be processed, organised, and analysed.",
+        "media": [
+            {
+                "id": 14,
+                "type": "image",
+                "url": "/static/images/nlp-pipeline.png",
+                "title": "NLP Processing Pipeline",
+                "caption": "Figure 1: Basic pipeline of a Natural Language Processing system"
+            },
+            {
+                "id": 15,
+                "type": "image",
+                "url": "/static/images/pawsey-centre.png",
+                "title": "Pawsey Supercomputing Research Centre",
+                "caption": "Figure 2: Pawsey Supercomputing Research Centre, supporting AI and NLP research in Western Australia"
+            }
+        ],
+        "references": [
+            {
+                "id": 13,
+                "title": "Natural language processing",
+                "url": "https://mbahng.com/Natural_Sciences/Statistics/Natural_Language_Processing/paper.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Bahng (2024)"
+            },
+            {
+                "id": 14,
+                "title": "Advances in natural language processing",
+                "url": "https://nlp.stanford.edu/~manning/xyzzy/Hirschberg-Manning-Science-2015.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Hirschberg & Manning (2015)"
+            },
+            {
+                "id": 15,
+                "title": "Transformers: State-of-the-art natural language processing",
+                "url": "https://aclanthology.org/2020.emnlp-demos.6.pdf",
+                "sourceType": "Conference Paper",
+                "accessedDate": "2026",
+                "notes": "Wolf et al. (2020)"
+            },
+            {
+                "id": 16,
+                "title": "Survey of transformers and towards ensemble learning using transformers for natural language processing",
+                "url": "https://link.springer.com/content/pdf/10.1186/s40537-023-00842-0.pdf",
+                "sourceType": "Research Paper",
+                "accessedDate": "2026",
+                "notes": "Zhang & Shafiq (2024)"
+            }
+        ]
+    },
     {
         "id": 10,
         "slug": "large-language-models",
@@ -572,6 +655,7 @@ TOPICS_DATA = [
         "limitations": "LLMs do not truly understand meaning in the human sense. They can hallucinate - generating confident, fluent, but factually wrong information. They have knowledge cutoffs and cannot access real-time information without tools. They can be inconsistent across sessions. Very large models require enormous compute resources. Fine-tuned alignment is imperfect; models can still harmful outputs. ",
         "misuse": "Because they produce persuasive text quickly, LLMs can be misused for disinformation, phishing messages, spam, academic misconduct, or the generation of misleading summaries that appear confident but are wrong. Their ease of use lowers the barrier for harmful content creation. ",
         "ethics": "Key ethical issues include copyright, privacy, embedded social bias, over-reliance by students, and the risk that confident machine output may be trusted without verification. For a museum or school audience, the most important message is that LLM output should be treated as a draft or assistant, not as unquestionable truth. Human checking remains essential. ",
+        "paradigmShift": "Before large language models, computers followed explicit instructions and produced predictable outputs. Users interacted through structured commands, and systems did not understand meaning or context.\n\nWith the emergence of large language models, computers are now seen as systems capable of understanding language, generating human-like responses, and assisting with complex cognitive tasks.\n\nThis represents a shift from command-based computing to interaction-based and context-aware systems, where users expect computers to interpret intent rather than simply execute instructions.",
         "waContext": "Western Australia’s capability in Large Language Models has developed through documented academic research and applied system development, rather than creating foundational models. At the University of Western Australia, researchers have directly contributed to LLM knowledge through peer-reviewed work such as “A Comprehensive Overview of Large Language Models” (2025), which surveys advanced topics including multimodal LLMs, training strategies, and benchmarking​ (University of Western Australia, 2025)​ . This shows that WA researchers are actively contributing to the global understanding and refinement of LLM systems, not just using them. At Curtin University, current research projects explicitly focus on LLM-powered autonomous systems, where language models are integrated with real-world tools such as sensors and infrastructure monitoring systems​ (Curtin University, 2025)​ . These projects demonstrate practical implementation of LLMs in areas like: infrastructure management, real-time decision systems, intelligent automation. At the national level, evidence shows that Australia does not yet produce globally competitive LLMs (like GPT-4) and instead relies on international models while focusing on application and adaptation . ",
         "media": [
             {
@@ -690,6 +774,7 @@ def seed_database():
                 topic.limitations = topic_data["limitations"]
                 topic.misuse = topic_data["misuse"]
                 topic.ethics = topic_data["ethics"]
+                topic.paradigm_shift = topic_data.get("paradigmShift", "")
                 topic.wa_context = topic_data["waContext"]
 
                 print(f"Updated: {topic.slug}")
@@ -714,6 +799,7 @@ def seed_database():
                     limitations=topic_data["limitations"],
                     misuse=topic_data["misuse"],
                     ethics=topic_data["ethics"],
+                    paradigm_shift=topic_data.get("paradigmShift", ""),
                     wa_context=topic_data["waContext"],
                 )
 
