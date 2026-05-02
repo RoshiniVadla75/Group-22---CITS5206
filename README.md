@@ -250,7 +250,7 @@ These APIs are used by frontend JavaScript for dynamic rendering.
 
 ## 🗂️ Project Structure
 ```
-GROUP-22---CITS5206/
+GROUP-22—CITS5206/
 ├── app/
 │   ├── static/
 │   │   ├── css/
@@ -261,10 +261,25 @@ GROUP-22---CITS5206/
 │   │   │   ├── search.css
 │   │   │   ├── timeline.css
 │   │   │   ├── topic-detail.css
-│   │   │   └── topic-diagram.css        
+│   │   │   └── topic-diagram.css
+│   │   │
 │   │   ├── images/
+│   │   │   ├── alan-turing.png
+│   │   │   ├── ann-structure.png
 │   │   │   ├── deep fake.png
-│   │   │   └── Large language models... 
+│   │   │   ├── deep-blue.png
+│   │   │   ├── expert-systems-diagram.png
+│   │   │   ├── genetic-algorithm-flowchart.png
+│   │   │   ├── Large language models.png
+│   │   │   ├── learning-machines-feedback-loop.png
+│   │   │   ├── minimax-diagram.png
+│   │   │   ├── nlp-pipeline.png
+│   │   │   ├── pawsey-centre.png
+│   │   │   ├── pawsey-supercomputing-centre.png
+│   │   │   ├── wa-mining.png
+│   │   │   ├── watson-diagram.png
+│   │   │   └── xor-problem.png
+│   │   │
 │   │   └── js/
 │   │       ├── explore-wa.js
 │   │       ├── guided-tour.js
@@ -274,7 +289,8 @@ GROUP-22---CITS5206/
 │   │       ├── timeline.js
 │   │       ├── topic_data.js
 │   │       ├── topic-detail.js
-│   │       └── topic-diagram.js       
+│   │       └── topic-diagram.js
+│   │
 │   └── templates/
 │       ├── explore_WA.html
 │       ├── guided_tour.html
@@ -284,6 +300,9 @@ GROUP-22---CITS5206/
 │       ├── signup.html
 │       ├── timeline.html
 │       └── topic_detail.html
+│
+├── instance/
+│   └── ai_museum.db
 │
 ├── migrations/
 │   ├── alembic.ini
@@ -297,24 +316,38 @@ GROUP-22---CITS5206/
 │   │   ├── test_home.py
 │   │   ├── test_search.py
 │   │   └── test_timeline.py
+│   │
 │   ├── Unit/
 │   │   ├── test_app.py
 │   │   ├── test_models.py
 │   │   └── test_routes.py
+│   │
 │   └── conftest.py
 │
-├── __pycache__/              
-├── .pytest_cache/            
+├── pycache/
+│   ├── app.cpython-310.pyc
+│   ├── init_db.cpython-310.pyc
+│   ├── models.cpython-310.pyc
+│   └── routes.cpython-310.pyc
+│
+├── .pytest_cache/
+│   ├── v/
+│   │   └── cache/
+│   │       ├── lastfailed
+│   │       └── nodeids
+│   ├── .gitignore
+│   ├── CACHEDIR.TAG
+│   └── README.md
 │
 ├── .gitignore
 ├── app.py
 ├── init_db.py
 ├── models.py
-├── routes.py
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── routes.py
 ```
-> Note: Cache directories such as `__pycache__/` and `.pytest_cache/` are excluded via `.gitignore` and are not part of the core project structure.
+> Note: `__pycache__/`, `.pytest_cache/`, and `instance/ai_museum.db` are local/generated files and should not be committed to GitHub. They are shown here only to reflect the full local project structure visible in the development environment.
 
 ## ✅ Features Implemented
 
