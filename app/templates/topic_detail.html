@@ -27,9 +27,15 @@
 
           <nav class="desktop-nav" id="desktopNav">
             <a href="{{ url_for('main.home') }}" class="nav-link">Home</a>
-            <a href="{{ url_for('main.timeline') }}" class="nav-link">Timeline</a>
-            <a href="{{ url_for('main.guided_tour') }}" class="nav-link">Guided Tour</a>
-            <a href="{{ url_for('main.explore_wa') }}" class="nav-link">Explore WA</a>
+            <a href="{{ url_for('main.timeline') }}" class="nav-link"
+              >Timeline</a
+            >
+            <a href="{{ url_for('main.guided_tour') }}" class="nav-link"
+              >Guided Tour</a
+            >
+            <a href="{{ url_for('main.explore_wa') }}" class="nav-link"
+              >Explore WA</a
+            >
             <a href="{{ url_for('main.search') }}" class="nav-link">Search</a>
 
             {% if current_user.is_authenticated %}
@@ -52,17 +58,33 @@
 
         <nav class="mobile-nav" id="mobileNav">
           <a href="{{ url_for('main.home') }}" class="mobile-nav-link">Home</a>
-          <a href="{{ url_for('main.timeline') }}" class="mobile-nav-link">Timeline</a>
-          <a href="{{ url_for('main.guided_tour') }}" class="mobile-nav-link">Guided Tour</a>
-          <a href="{{ url_for('main.explore_wa') }}" class="mobile-nav-link">Explore WA</a>
-          <a href="{{ url_for('main.search') }}" class="mobile-nav-link">Search</a>
+          <a href="{{ url_for('main.timeline') }}" class="mobile-nav-link"
+            >Timeline</a
+          >
+          <a href="{{ url_for('main.guided_tour') }}" class="mobile-nav-link"
+            >Guided Tour</a
+          >
+          <a href="{{ url_for('main.explore_wa') }}" class="mobile-nav-link"
+            >Explore WA</a
+          >
+          <a href="{{ url_for('main.search') }}" class="mobile-nav-link"
+            >Search</a
+          >
 
           {% if current_user.is_authenticated %}
-          <span class="nav-user mobile-user">Hi, {{ current_user.username }}</span>
-          <a href="{{ url_for('main.logout') }}" class="mobile-nav-link">Logout</a>
+          <span class="nav-user mobile-user"
+            >Hi, {{ current_user.username }}</span
+          >
+          <a href="{{ url_for('main.logout') }}" class="mobile-nav-link"
+            >Logout</a
+          >
           {% else %}
-          <a href="{{ url_for('main.login') }}" class="mobile-nav-link">Login</a>
-          <a href="{{ url_for('main.signup') }}" class="mobile-nav-link">Sign Up</a>
+          <a href="{{ url_for('main.login') }}" class="mobile-nav-link"
+            >Login</a
+          >
+          <a href="{{ url_for('main.signup') }}" class="mobile-nav-link"
+            >Sign Up</a
+          >
           {% endif %}
         </nav>
       </header>
@@ -79,30 +101,29 @@
 
           <section id="topicHeader" class="museum-card">
             {% if topic %}
-              <div class="header-block">
-                <div class="header-meta">
-                  {% if topic.category %}
-                  <span class="exhibit-label">{{ topic.category }}</span>
-                  {% endif %}
-                  {% if topic.status %}
-                  <span class="meta-muted">{{ topic.status }}</span>
-                  {% endif %}
-                </div>
-
-                {% if topic.year_range %}
-                <p class="year-text">{{ topic.year_range }}</p>
-                {% endif %}
-
-                <h1 class="page-title brass-text">{{ topic.title }}</h1>
-
-                {% if topic.short_summary %}
-                <p class="hero-text">{{ topic.short_summary }}</p>
-                {% elif topic.intro_text %}
-                <p class="hero-text">{{ topic.intro_text }}</p>
+            <div class="header-block">
+              <div class="header-meta">
+                {% if topic.category %}
+                <span class="exhibit-label">{{ topic.category }}</span>
+                {% endif %} {% if topic.status %}
+                <span class="meta-muted">{{ topic.status }}</span>
                 {% endif %}
               </div>
+
+              {% if topic.year_range %}
+              <p class="year-text">{{ topic.year_range }}</p>
+              {% endif %}
+
+              <h1 class="page-title brass-text">{{ topic.title }}</h1>
+
+              {% if topic.short_summary %}
+              <p class="hero-text">{{ topic.short_summary }}</p>
+              {% elif topic.intro_text %}
+              <p class="hero-text">{{ topic.intro_text }}</p>
+              {% endif %}
+            </div>
             {% else %}
-              <h1 class="page-title brass-text">Topic Detail</h1>
+            <h1 class="page-title brass-text">Topic Detail</h1>
             {% endif %}
           </section>
 
@@ -116,11 +137,15 @@
               <span class="exhibit-label">Audio Narration</span>
             </div>
             <p class="section-text">
-              Listen to the complete exhibit narration from introduction
-              through the Western Australia context.
+              Listen to the complete exhibit narration from introduction through
+              the Western Australia context.
             </p>
             <div class="narration-controls">
-              <button type="button" class="narration-btn primary" id="playNarration">
+              <button
+                type="button"
+                class="narration-btn primary"
+                id="playNarration"
+              >
                 Play
               </button>
               <button type="button" class="narration-btn" id="pauseNarration">
@@ -138,44 +163,31 @@
               <p>{{ topic.title }}.</p>
               {% if topic.year_range %}
               <p>Time period: {{ topic.year_range }}.</p>
-              {% endif %}
-              {% if topic.category %}
+              {% endif %} {% if topic.category %}
               <p>Category: {{ topic.category }}.</p>
-              {% endif %}
-              {% if topic.short_summary %}
+              {% endif %} {% if topic.short_summary %}
               <p>Summary. {{ topic.short_summary }}</p>
-              {% endif %}
-              {% if topic.intro_text %}
+              {% endif %} {% if topic.intro_text %}
               <p>Introduction. {{ topic.intro_text }}</p>
-              {% endif %}
-              {% if topic.paradigm_shift %}
+              {% endif %} {% if topic.paradigm_shift %}
               <p>Paradigm shift. {{ topic.paradigm_shift }}</p>
-              {% endif %}
-              {% if topic.how_it_works %}
+              {% endif %} {% if topic.how_it_works %}
               <p>How it works. {{ topic.how_it_works }}</p>
-              {% endif %}
-              {% if topic.simple_example %}
+              {% endif %} {% if topic.simple_example %}
               <p>Simple example. {{ topic.simple_example }}</p>
-              {% endif %}
-              {% if topic.effective_use %}
+              {% endif %} {% if topic.effective_use %}
               <p>Effective use. {{ topic.effective_use }}</p>
-              {% endif %}
-              {% if topic.real_world_examples %}
+              {% endif %} {% if topic.real_world_examples %}
               <p>Real-world examples. {{ topic.real_world_examples }}</p>
-              {% endif %}
-              {% if topic.advantages %}
+              {% endif %} {% if topic.advantages %}
               <p>Advantages. {{ topic.advantages }}</p>
-              {% endif %}
-              {% if topic.limitations %}
+              {% endif %} {% if topic.limitations %}
               <p>Limitations. {{ topic.limitations }}</p>
-              {% endif %}
-              {% if topic.misuse %}
+              {% endif %} {% if topic.misuse %}
               <p>Possible misuse. {{ topic.misuse }}</p>
-              {% endif %}
-              {% if topic.ethics %}
+              {% endif %} {% if topic.ethics %}
               <p>Ethical concerns. {{ topic.ethics }}</p>
-              {% endif %}
-              {% if topic.wa_context %}
+              {% endif %} {% if topic.wa_context %}
               <p>Western Australia context. {{ topic.wa_context }}</p>
               {% endif %}
             </div>
@@ -190,15 +202,14 @@
             <p class="intro-text">{{ topic.short_summary }}</p>
             {% else %}
             <p class="intro-text">
-              Topic introduction will appear here once content is loaded
-              from the backend.
+              Topic introduction will appear here once content is loaded from
+              the backend.
             </p>
             {% endif %}
           </div>
 
           <div class="content-grid">
             <div class="main-column">
-
               <div id="summaryCard" class="museum-card summary-card">
                 <span class="exhibit-label block-label">Summary</span>
                 {% if topic and topic.short_summary %}
@@ -219,125 +230,107 @@
                   <span class="exhibit-label">Paradigm Shift</span>
                 </div>
                 <p class="section-text">
-                  {{ topic.paradigm_shift if topic and topic.paradigm_shift else 'Paradigm shift details are not available for this topic yet.' }}
+                  {{ topic.paradigm_shift if topic and topic.paradigm_shift else
+                  'Paradigm shift details are not available for this topic yet.'
+                  }}
                 </p>
               </div>
 
               <div id="sectionsContainer">
-                {% if topic %}
-                  {% if topic.how_it_works %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">⚙️</span>
-                      <span class="exhibit-label">How It Works</span>
-                    </div>
-                    <p class="section-text">{{ topic.how_it_works }}</p>
-                  </section>
-                  {% endif %}
+                {% if topic %} {% if topic.how_it_works %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">⚙️</span>
+                    <span class="exhibit-label">How It Works</span>
+                  </div>
+                  <p class="section-text">{{ topic.how_it_works }}</p>
+                </section>
+                {% endif %} {% if topic %}
+                <section class="museum-card interactive-diagram-section">
+                  <div class="section-title-row">
+                    <span class="section-emoji">🧩</span>
+                    <span class="exhibit-label">Interactive Diagram</span>
+                  </div>
 
-                  {% if topic %}
-                  <section class="museum-card interactive-diagram-section">
-                    <div class="section-title-row">
-                      <span class="section-emoji">🧩</span>
-                      <span class="exhibit-label">Interactive Diagram</span>
-                    </div>
+                  <p class="diagram-intro">
+                    Click each stage to understand how this technology works.
+                  </p>
 
-                    <p class="diagram-intro">
-                      Click each stage to understand how this technology works.
-                    </p>
-
-                    <div id="interactive-diagram" data-slug="{{ topic.slug }}">
-                      <div class="diagram-flow vertical" id="diagram-flow"></div>
-                      <div class="diagram-info" id="diagram-info">
-                        <h3 id="diagram-title">Select a stage</h3>
-                        <p id="diagram-description">
-                          Click a step in the diagram to view an explanation.
-                        </p>
-                      </div>
+                  <div id="interactive-diagram" data-slug="{{ topic.slug }}">
+                    <div class="diagram-flow vertical" id="diagram-flow"></div>
+                    <div class="diagram-info" id="diagram-info">
+                      <h3 id="diagram-title">Select a stage</h3>
+                      <p id="diagram-description">
+                        Click a step in the diagram to view an explanation.
+                      </p>
                     </div>
-                  </section>
-                  {% endif %}
-
-                  {% if topic.simple_example %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">💡</span>
-                      <span class="exhibit-label">Simple Example</span>
-                    </div>
-                    <p class="section-text">{{ topic.simple_example }}</p>
-                  </section>
-                  {% endif %}
-
-                  {% if topic.effective_use %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">🎯</span>
-                      <span class="exhibit-label">Effective Use</span>
-                    </div>
-                    <p class="section-text">{{ topic.effective_use }}</p>
-                  </section>
-                  {% endif %}
-
-                  {% if topic.real_world_examples %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">🌍</span>
-                      <span class="exhibit-label">Real-World Examples</span>
-                    </div>
-                    <p class="section-text">{{ topic.real_world_examples }}</p>
-                  </section>
-                  {% endif %}
-
-                  {% if topic.advantages %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">✅</span>
-                      <span class="exhibit-label">Advantages</span>
-                    </div>
-                    <p class="section-text">{{ topic.advantages }}</p>
-                  </section>
-                  {% endif %}
-
-                  {% if topic.limitations %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">⚠️</span>
-                      <span class="exhibit-label">Limitations</span>
-                    </div>
-                    <p class="section-text">{{ topic.limitations }}</p>
-                  </section>
-                  {% endif %}
-
-                  {% if topic.misuse %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">🚫</span>
-                      <span class="exhibit-label">Possible Misuse</span>
-                    </div>
-                    <p class="section-text">{{ topic.misuse }}</p>
-                  </section>
-                  {% endif %}
-
-                  {% if topic.ethics %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">⚖️</span>
-                      <span class="exhibit-label">Ethical Concerns</span>
-                    </div>
-                    <p class="section-text">{{ topic.ethics }}</p>
-                  </section>
-                  {% endif %}
-
-                  {% if topic.wa_context %}
-                  <section class="museum-card">
-                    <div class="section-title-row">
-                      <span class="section-emoji">📍</span>
-                      <span class="exhibit-label">Western Australia Context</span>
-                    </div>
-                    <p class="section-text">{{ topic.wa_context }}</p>
-                  </section>
-                  {% endif %}
-                {% endif %}
+                  </div>
+                </section>
+                {% endif %} {% if topic.simple_example %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">💡</span>
+                    <span class="exhibit-label">Simple Example</span>
+                  </div>
+                  <p class="section-text">{{ topic.simple_example }}</p>
+                </section>
+                {% endif %} {% if topic.effective_use %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">🎯</span>
+                    <span class="exhibit-label">Effective Use</span>
+                  </div>
+                  <p class="section-text">{{ topic.effective_use }}</p>
+                </section>
+                {% endif %} {% if topic.real_world_examples %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">🌍</span>
+                    <span class="exhibit-label">Real-World Examples</span>
+                  </div>
+                  <p class="section-text">{{ topic.real_world_examples }}</p>
+                </section>
+                {% endif %} {% if topic.advantages %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">✅</span>
+                    <span class="exhibit-label">Advantages</span>
+                  </div>
+                  <p class="section-text">{{ topic.advantages }}</p>
+                </section>
+                {% endif %} {% if topic.limitations %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">⚠️</span>
+                    <span class="exhibit-label">Limitations</span>
+                  </div>
+                  <p class="section-text">{{ topic.limitations }}</p>
+                </section>
+                {% endif %} {% if topic.misuse %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">🚫</span>
+                    <span class="exhibit-label">Possible Misuse</span>
+                  </div>
+                  <p class="section-text">{{ topic.misuse }}</p>
+                </section>
+                {% endif %} {% if topic.ethics %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">⚖️</span>
+                    <span class="exhibit-label">Ethical Concerns</span>
+                  </div>
+                  <p class="section-text">{{ topic.ethics }}</p>
+                </section>
+                {% endif %} {% if topic.wa_context %}
+                <section class="museum-card">
+                  <div class="section-title-row">
+                    <span class="section-emoji">📍</span>
+                    <span class="exhibit-label">Western Australia Context</span>
+                  </div>
+                  <p class="section-text">{{ topic.wa_context }}</p>
+                </section>
+                {% endif %} {% endif %}
               </div>
             </div>
 
@@ -345,67 +338,66 @@
               <div id="mediaCard" class="museum-card">
                 <h2>Media</h2>
                 {% if topic and topic.media %}
-                  <div class="sidebar-stack">
-                    {% for item in topic.media %}
-                    <div class="media-item">
-                      {% if item.url %}
-                      <img
-                        src="{{ item.url }}"
-                        alt="{{ item.title if item.title else topic.title }}"
-                        class="media-image"
-                      />
+                <div class="sidebar-stack">
+                  {% for item in topic.media %}
+                  <div class="media-item">
+                    {% if item.url %}
+                    <img
+                      src="{{ item.url }}"
+                      alt="{{ item.title if item.title else topic.title }}"
+                      class="media-image"
+                    />
+                    {% endif %}
+                    <div class="media-caption-box">
+                      {% if item.title %}
+                      <p class="media-title">{{ item.title }}</p>
+                      {% endif %} {% if item.caption %}
+                      <p class="media-caption">{{ item.caption }}</p>
                       {% endif %}
-                      <div class="media-caption-box">
-                        {% if item.title %}
-                        <p class="media-title">{{ item.title }}</p>
-                        {% endif %}
-                        {% if item.caption %}
-                        <p class="media-caption">{{ item.caption }}</p>
-                        {% endif %}
-                      </div>
                     </div>
-                    {% endfor %}
                   </div>
+                  {% endfor %}
+                </div>
                 {% else %}
-                <p class="media-caption">Media will appear here when available.</p>
+                <p class="media-caption">
+                  Media will appear here when available.
+                </p>
                 {% endif %}
               </div>
 
               <div id="referencesCard" class="museum-card">
                 <h2>References</h2>
                 {% if topic and topic.references %}
-                  <div class="sidebar-stack">
-                    {% for ref in topic.references %}
-                    <div class="reference-item">
-                      {% if ref.url %}
-                      <a
-                        href="{{ ref.url }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="reference-link"
-                      >
-                        {{ ref.title if ref.title else ref.url }}
-                      </a>
-                      {% else %}
-                      <p class="reference-link">{{ ref.title if ref.title else 'Reference' }}</p>
-                      {% endif %}
-
-                      {% if ref.source_type %}
-                      <p class="reference-meta">Type: {{ ref.source_type }}</p>
-                      {% endif %}
-
-                      {% if ref.accessed_date %}
-                      <p class="reference-meta">{{ ref.accessed_date }}</p>
-                      {% endif %}
-
-                      {% if ref.notes %}
-                      <p class="reference-notes">{{ ref.notes }}</p>
-                      {% endif %}
-                    </div>
-                    {% endfor %}
+                <div class="sidebar-stack">
+                  {% for ref in topic.references %}
+                  <div class="reference-item">
+                    {% if ref.url %}
+                    <a
+                      href="{{ ref.url }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="reference-link"
+                    >
+                      {{ ref.title if ref.title else ref.url }}
+                    </a>
+                    {% else %}
+                    <p class="reference-link">
+                      {{ ref.title if ref.title else 'Reference' }}
+                    </p>
+                    {% endif %} {% if ref.source_type %}
+                    <p class="reference-meta">Type: {{ ref.source_type }}</p>
+                    {% endif %} {% if ref.accessed_date %}
+                    <p class="reference-meta">{{ ref.accessed_date }}</p>
+                    {% endif %} {% if ref.notes %}
+                    <p class="reference-notes">{{ ref.notes }}</p>
+                    {% endif %}
                   </div>
+                  {% endfor %}
+                </div>
                 {% else %}
-                <p class="reference-meta">References will appear here when available.</p>
+                <p class="reference-meta">
+                  References will appear here when available.
+                </p>
                 {% endif %}
               </div>
 
@@ -419,7 +411,10 @@
                   <span class="related-id">→</span>
                   <span>Search the Collection</span>
                 </a>
-                <a href="{{ url_for('main.guided_tour') }}" class="related-link">
+                <a
+                  href="{{ url_for('main.guided_tour') }}"
+                  class="related-link"
+                >
                   <span class="related-id">→</span>
                   <span>Continue Guided Tour</span>
                 </a>
@@ -431,19 +426,28 @@
 
           <div class="bottom-nav" id="bottomNav">
             {% if prev_topic %}
-            <a href="{{ url_for('main.topic_detail', slug=prev_topic.slug) }}" class="nav-card nav-prev">
+            <a
+              href="{{ url_for('main.topic_detail', slug=prev_topic.slug) }}"
+              class="nav-card nav-prev"
+            >
               <div class="nav-direction">Previous Topic</div>
               <div class="nav-title">{{ prev_topic.title }}</div>
             </a>
             {% endif %}
 
-            <a href="{{ url_for('main.timeline') }}" class="nav-card nav-center">
+            <a
+              href="{{ url_for('main.timeline') }}"
+              class="nav-card nav-center"
+            >
               <div class="nav-direction">Return</div>
               <div class="nav-title">Back to Timeline</div>
             </a>
 
             {% if next_topic %}
-            <a href="{{ url_for('main.topic_detail', slug=next_topic.slug) }}" class="nav-card nav-next">
+            <a
+              href="{{ url_for('main.topic_detail', slug=next_topic.slug) }}"
+              class="nav-card nav-next"
+            >
               <div class="nav-direction">Next Topic</div>
               <div class="nav-title">{{ next_topic.title }}</div>
             </a>
@@ -457,17 +461,22 @@
           <p class="exhibit-label">
             A.I. Software Technology in Western Australia
           </p>
-          <p class="footer-text">
-            A Virtual Museum Experience · Final Semester Project · 2024
-          </p>
+          <p class="footer-text">A Virtual Museum Experience · 2026</p>
         </div>
       </footer>
     </div>
 
     <div id="imageLightbox" class="image-lightbox" aria-hidden="true">
       <div class="lightbox-backdrop"></div>
-      <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Image preview">
-        <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+      <div
+        class="lightbox-content"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Image preview"
+      >
+        <button class="lightbox-close" type="button" aria-label="Close image">
+          ×
+        </button>
         <img id="lightboxImage" src="" alt="" />
         <p id="lightboxCaption" class="lightbox-caption"></p>
       </div>
