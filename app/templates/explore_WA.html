@@ -1,329 +1,532 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explore WA - AI Museum</title>
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIINfQ9eEWxjK1CcQj54QBrwKr7D+l3N2z8="
-    crossorigin=""
-  />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/explore-wa.css') }}" />
-</head>
-<body>
-  <div class="site-wrapper">
-    <header class="site-header glass-panel">
-      <div class="container nav-bar">
-        <a href="{{ url_for('main.home') }}" class="logo-link">
-          <div class="logo-circle">🧭</div>
-          <div class="logo-text">
-            <span class="logo-title brass-text">AI Museum</span>
-            <span class="logo-subtitle">Western Australia</span>
-          </div>
-        </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore WA - AI Museum</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIINfQ9eEWxjK1CcQj54QBrwKr7D+l3N2z8="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/explore-wa.css') }}"
+    />
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <header class="site-header glass-panel">
+        <div class="container nav-bar">
+          <a href="{{ url_for('main.home') }}" class="logo-link">
+            <div class="logo-circle">🧭</div>
+            <div class="logo-text">
+              <span class="logo-title brass-text">AI Museum</span>
+              <span class="logo-subtitle">Western Australia</span>
+            </div>
+          </a>
 
-        <nav class="desktop-nav" id="desktopNav">
-          <a href="{{ url_for('main.home') }}" class="nav-link">Home</a>
-          <a href="{{ url_for('main.timeline') }}" class="nav-link">Timeline</a>
-          <a href="{{ url_for('main.guided_tour') }}" class="nav-link">Guided Tour</a>
-          <a href="{{ url_for('main.explore_wa') }}" class="nav-link">Explore WA</a>
-          <a href="{{ url_for('main.search') }}" class="nav-link">Search</a>
+          <nav class="desktop-nav" id="desktopNav">
+            <a href="{{ url_for('main.home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('main.timeline') }}" class="nav-link"
+              >Timeline</a
+            >
+            <a href="{{ url_for('main.guided_tour') }}" class="nav-link"
+              >Guided Tour</a
+            >
+            <a href="{{ url_for('main.explore_wa') }}" class="nav-link"
+              >Explore WA</a
+            >
+            <a href="{{ url_for('main.search') }}" class="nav-link">Search</a>
+
+            {% if current_user.is_authenticated %}
+            <span class="nav-user">Hi, {{ current_user.username }}</span>
+            <a href="{{ url_for('main.logout') }}" class="nav-link">Logout</a>
+            {% else %}
+            <a href="{{ url_for('main.login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('main.signup') }}" class="nav-link">Sign Up</a>
+            {% endif %}
+          </nav>
+
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav">
+          <a href="{{ url_for('main.home') }}" class="mobile-nav-link">Home</a>
+          <a href="{{ url_for('main.timeline') }}" class="mobile-nav-link"
+            >Timeline</a
+          >
+          <a href="{{ url_for('main.guided_tour') }}" class="mobile-nav-link"
+            >Guided Tour</a
+          >
+          <a href="{{ url_for('main.explore_wa') }}" class="mobile-nav-link"
+            >Explore WA</a
+          >
+          <a href="{{ url_for('main.search') }}" class="mobile-nav-link"
+            >Search</a
+          >
 
           {% if current_user.is_authenticated %}
-          <span class="nav-user">Hi, {{ current_user.username }}</span>
-          <a href="{{ url_for('main.logout') }}" class="nav-link">Logout</a>
+          <span class="nav-user mobile-user"
+            >Hi, {{ current_user.username }}</span
+          >
+          <a href="{{ url_for('main.logout') }}" class="mobile-nav-link"
+            >Logout</a
+          >
           {% else %}
-          <a href="{{ url_for('main.login') }}" class="nav-link">Login</a>
-          <a href="{{ url_for('main.signup') }}" class="nav-link">Sign Up</a>
+          <a href="{{ url_for('main.login') }}" class="mobile-nav-link"
+            >Login</a
+          >
+          <a href="{{ url_for('main.signup') }}" class="mobile-nav-link"
+            >Sign Up</a
+          >
           {% endif %}
         </nav>
+      </header>
 
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
-      </div>
+      <main class="main-content">
+        <div class="container page-section">
+          <section class="hero-block fade-in">
+            <span class="exhibit-label">Regional Heritage</span>
+            <h1 class="page-title brass-text">
+              Explore WA: Our Place in AI History
+            </h1>
+            <p class="hero-text">
+              Western Australia's story within global AI development is unique —
+              shaped by its vast geography, dominant industries, world-class
+              universities, and growing technology sector.
+            </p>
+          </section>
 
-      <nav class="mobile-nav" id="mobileNav">
-        <a href="{{ url_for('main.home') }}" class="mobile-nav-link">Home</a>
-        <a href="{{ url_for('main.timeline') }}" class="mobile-nav-link">Timeline</a>
-        <a href="{{ url_for('main.guided_tour') }}" class="mobile-nav-link">Guided Tour</a>
-        <a href="{{ url_for('main.explore_wa') }}" class="mobile-nav-link">Explore WA</a>
-        <a href="{{ url_for('main.search') }}" class="mobile-nav-link">Search</a>
-
-        {% if current_user.is_authenticated %}
-        <span class="nav-user mobile-user">Hi, {{ current_user.username }}</span>
-        <a href="{{ url_for('main.logout') }}" class="mobile-nav-link">Logout</a>
-        {% else %}
-        <a href="{{ url_for('main.login') }}" class="mobile-nav-link">Login</a>
-        <a href="{{ url_for('main.signup') }}" class="mobile-nav-link">Sign Up</a>
-        {% endif %}
-      </nav>
-    </header>
-
-    <main class="main-content">
-      <div class="container page-section">
-        <section class="hero-block fade-in">
-          <span class="exhibit-label">Regional Heritage</span>
-          <h1 class="page-title brass-text">Explore WA: Our Place in AI History</h1>
-          <p class="hero-text">
-            Western Australia's story within global AI development is unique — shaped by its vast geography,
-            dominant industries, world-class universities, and growing technology sector.
-          </p>
-        </section>
-
-        <section class="museum-card why-wa">
-          <div class="section-icon">🗺️</div>
-          <span class="exhibit-label">Why Western Australia Matters</span>
-          <p>
-            Western Australia occupies a third of the Australian continent, with a population concentrated
-            in Perth and a vast regional hinterland dependent on mining, agriculture, and environmental
-            management. These conditions have driven unique applications of AI — from autonomous mining
-            vehicles in the Pilbara to precision agriculture in the Wheatbelt, from marine conservation
-            AI on the Ningaloo coast to remote healthcare delivery across distances greater than most
-            European countries.
-          </p>
-          <p>
-            WA's universities — UWA, Curtin, Murdoch, and ECU — have contributed to AI research across
-            every paradigm represented in this museum. The state's technology sector, centred in Perth,
-            is rapidly growing and positioning itself as a hub for AI innovation in the Indo-Pacific region.
-          </p>
-        </section>
-
-        <section class="institution-grid">
-          <article class="museum-card">
-            <div class="section-icon">🎓</div>
-            <h3>Universities</h3>
+          <section class="museum-card why-wa">
+            <div class="section-icon">🗺️</div>
+            <span class="exhibit-label">Why Western Australia Matters</span>
             <p>
-              UWA, Curtin, ECU, and Murdoch have strong computer science and AI research programs,
-              with alumni contributing to global AI companies and research institutions.
+              Western Australia occupies a third of the Australian continent,
+              with a population concentrated in Perth and a vast regional
+              hinterland dependent on mining, agriculture, and environmental
+              management. These conditions have driven unique applications of AI
+              — from autonomous mining vehicles in the Pilbara to precision
+              agriculture in the Wheatbelt, from marine conservation AI on the
+              Ningaloo coast to remote healthcare delivery across distances
+              greater than most European countries.
             </p>
-          </article>
-
-          <article class="museum-card">
-            <div class="section-icon">🏢</div>
-            <h3>Tech Sector</h3>
             <p>
-              Perth's tech sector is growing rapidly, with startups and established companies applying
-              AI to mining, healthcare, agriculture, and environmental management.
+              WA's universities — UWA, Curtin, Murdoch, and ECU — have
+              contributed to AI research across every paradigm represented in
+              this museum. The state's technology sector, centred in Perth, is
+              rapidly growing and positioning itself as a hub for AI innovation
+              in the Indo-Pacific region.
             </p>
-          </article>
+          </section>
 
-          <article class="museum-card">
-            <div class="section-icon">⛏️</div>
-            <h3>Resources Industry</h3>
-            <p>
-              WA's mining giants (Rio Tinto, BHP, Fortescue) operate some of the world's most advanced
-              autonomous and AI-driven operations, pioneered right here.
-            </p>
-          </article>
-        </section>
+          <section class="institution-grid">
+            <article class="museum-card">
+              <div class="section-icon">🎓</div>
+              <h3>Universities</h3>
+              <p>
+                UWA, Curtin, ECU, and Murdoch have strong computer science and
+                AI research programs, with alumni contributing to global AI
+                companies and research institutions.
+              </p>
+            </article>
 
-        <section class="museum-card wa-map-activity" aria-labelledby="waMapTitle">
-          <div class="map-activity-header">
-            <div>
-              <span class="exhibit-label">Interactive WA Map</span>
-              <h2 id="waMapTitle" class="map-title brass-text">Choose an AI Topic, See WA Places</h2>
-            </div>
-            <p class="map-intro">
-              Start with a familiar AI topic, then see the Western Australian places connected to it.
-              Each place card links back to the full museum exhibit.
-            </p>
-          </div>
+            <article class="museum-card">
+              <div class="section-icon">🏢</div>
+              <h3>Tech Sector</h3>
+              <p>
+                Perth's tech sector is growing rapidly, with startups and
+                established companies applying AI to mining, healthcare,
+                agriculture, and environmental management.
+              </p>
+            </article>
 
-          <div class="map-controls-panel">
-            <label for="topicPlaceSelect">Choose an AI topic</label>
-            <div class="topic-select-wrap">
-              <select id="topicPlaceSelect" class="topic-place-select"></select>
-            </div>
-            <p id="mapSelectionHint" class="selection-hint">
-              Showing all mapped WA places. Select a topic to narrow the list.
-            </p>
-          </div>
+            <article class="museum-card">
+              <div class="section-icon">⛏️</div>
+              <h3>Resources Industry</h3>
+              <p>
+                WA's mining giants (Rio Tinto, BHP, Fortescue) operate some of
+                the world's most advanced autonomous and AI-driven operations,
+                pioneered right here.
+              </p>
+            </article>
+          </section>
 
-          <div class="map-shell">
-            <div id="waMap" class="wa-map" aria-label="Map of Western Australian AI locations"></div>
-            <div id="mapFallback" class="map-fallback hidden">
-              <p class="fallback-title">Map tiles are unavailable.</p>
-              <p class="fallback-text">
-                Use the place cards below to explore each WA location and linked exhibit.
+          <section
+            class="museum-card wa-map-activity"
+            aria-labelledby="waMapTitle"
+          >
+            <div class="map-activity-header">
+              <div>
+                <span class="exhibit-label">Interactive WA Map</span>
+                <h2 id="waMapTitle" class="map-title brass-text">
+                  Choose an AI Topic, See WA Places
+                </h2>
+              </div>
+              <p class="map-intro">
+                Start with a familiar AI topic, then see the Western Australian
+                places connected to it. Each place card links back to the full
+                museum exhibit.
               </p>
             </div>
-          </div>
 
-          <div class="map-location-list" id="mapLocationList"></div>
-          <aside class="map-detail-panel selected-place-panel hidden" id="mapDetailPanel" aria-live="polite"></aside>
-        </section>
-
-        <section class="parchment-panel uwa-panel">
-          <span class="exhibit-label">WA Research and Computing Heritage</span>
-          <p>
-            Western Australia’s AI history is reflected not only in one institution, but across a wider network of
-            universities, research infrastructure, and industry practice. UWA, Curtin, ECU, and Murdoch have all
-            contributed to AI teaching and research, while facilities such as the Pawsey Supercomputing Research
-            Centre have supported large-scale data processing, machine learning, and scientific computing.
-          </p>
-          <p>
-            Across the museum’s ten topics, the WA context shows a consistent pattern: global AI ideas were often
-            adapted locally through teaching, research, infrastructure, mining, transport, agriculture, and decision-support
-            systems. This gives the museum a regional perspective that connects international AI history with Western
-            Australian experience.
-          </p>
-        </section>
-
-        <section class="museum-card wa-highlights">
-          <div class="section-icon large">📚</div>
-          <span class="exhibit-label">Completed WA Research</span>
-          <h3>WA Context Across the 10 AI Topics</h3>
-          <p class="wa-summary">
-            This section summarises the Western Australian context researched across all 10 AI topics in the museum.
-            It highlights how local teaching, research, infrastructure, public guidance, and industry practice connect
-            WA to major developments in artificial intelligence.
-          </p>
-
-          <div class="wa-topic-grid">
-            <article class="wa-topic-card">
-              <h4>1. Alan Turing &amp; The Turing Test</h4>
-              <p>
-                In WA, Turing’s behaviour-based view of intelligence can be seen in chatbots, automated support systems,
-                and digital services that are evaluated by how effectively they respond to users. The topic also connects
-                indirectly to WA through Professor Jeff Rohl at UWA, whose academic background links WA computing culture
-                to ideas still shaped by Turing’s influence.
+            <div class="map-controls-panel">
+              <label for="topicPlaceSelect">Choose an AI topic</label>
+              <div class="topic-select-wrap">
+                <select
+                  id="topicPlaceSelect"
+                  class="topic-place-select"
+                ></select>
+              </div>
+              <p id="mapSelectionHint" class="selection-hint">
+                Showing all mapped WA places. Select a topic to narrow the list.
               </p>
-            </article>
+            </div>
 
-            <article class="wa-topic-card">
-              <h4>2. Learning Machines</h4>
-              <p>
-                In Western Australia, the influence of learning machines appears in UWA teaching and research in data science,
-                in the Pawsey Supercomputing Research Centre’s support for large-scale data processing and model training,
-                and in Rio Tinto’s use of AI and data science for predictive maintenance and operational improvement.
-              </p>
-            </article>
+            <div class="map-shell">
+              <div
+                id="waMap"
+                class="wa-map"
+                aria-label="Map of Western Australian AI locations"
+              ></div>
+              <div id="mapFallback" class="map-fallback hidden">
+                <p class="fallback-title">Map tiles are unavailable.</p>
+                <p class="fallback-text">
+                  Use the place cards below to explore each WA location and
+                  linked exhibit.
+                </p>
+              </div>
+            </div>
 
-            <article class="wa-topic-card">
-              <h4>3. Board Game Playing</h4>
-              <p>
-                In WA, board game AI is especially significant in education. UWA teaching materials use minimax,
-                alpha-beta pruning, and adversarial search to introduce core ideas in decision-making and optimisation,
-                showing how game environments remain useful AI training grounds in the state.<sup>[1]</sup>
-              </p>
-            </article>
+            <div class="map-location-list" id="mapLocationList"></div>
+            <aside
+              class="map-detail-panel selected-place-panel hidden"
+              id="mapDetailPanel"
+              aria-live="polite"
+            ></aside>
+          </section>
 
-            <article class="wa-topic-card">
-              <h4>4. Expert Systems</h4>
-              <p>
-                In Western Australia, expert-system and decision-support approaches were relevant in large industrial
-                environments such as Alcoa’s Wagerup alumina refinery, where expert knowledge and rule-based support
-                could assist with diagnostics, scheduling, and operational planning.<sup>[2]</sup>
-              </p>
-            </article>
-
-            <article class="wa-topic-card">
-              <h4>5. Artificial Neural Networks</h4>
-              <p>
-                WA’s role in neural networks is reflected through university research at UWA, Curtin, ECU, and Murdoch,
-                support from CSIRO and the Pawsey Supercomputing Research Centre, and data-intensive projects such as
-                the Square Kilometre Array, where large-scale computation and analysis are essential.<sup>[3][4]</sup>
-              </p>
-            </article>
-
-            <article class="wa-topic-card">
-              <h4>6. Internet-Driven AI Systems</h4>
-              <p>
-                Internet-driven AI is especially important in WA’s mining and energy sectors. Rio Tinto’s “Mine of the Future”
-                and BHP’s intelligent data platforms show how internet-connected systems, remote operations in Perth, and
-                large-scale data analysis support decision-making across geographically distant industrial sites.<sup>[5][6]</sup>
-              </p>
-            </article>
-
-            <article class="wa-topic-card">
-              <h4>7. Evolutionary Computing</h4>
-              <p>
-                In WA, evolutionary computing has been applied to infrastructure optimisation. UWA-linked research used
-                problem-specific genetic algorithms for sparse power distribution planning in the South-West and for
-                multi-objective optimisation in road widening and maintenance scheduling.<sup>[7][8]</sup>
-              </p>
-            </article>
-
-            <article class="wa-topic-card">
-              <h4>8. Synthetic Media Technology</h4>
-              <p>
-                WA’s connection to synthetic media lies in local strengths in computer vision, machine learning, and pattern
-                recognition, together with the influence of Australia’s eSafety response to deepfake risks. In practice, this
-                means WA engages with synthetic media through research capability, digital literacy, and harm-prevention
-                frameworks.<sup>[9]</sup>
-              </p>
-            </article>
-
-            <article class="wa-topic-card">
-              <h4>9. Natural Language Processing</h4>
-              <p>
-                In Western Australia, NLP research is supported by UWA, Curtin, ECU, Murdoch, and CSIRO. Facilities such as
-                Pawsey provide the computing power needed for large-scale NLP work, while projects such as the SKA create
-                demand for information extraction, metadata analysis, and automated processing of large volumes of text and
-                scientific data.<sup>[4][10]</sup>
-              </p>
-            </article>
-
-            <article class="wa-topic-card">
-              <h4>10. Large Language Models</h4>
-              <p>
-                WA’s LLM capability is reflected in academic research at UWA, applied autonomous-system projects at Curtin,
-                and practical uptake in public-sector governance through WA guidance on large language models. This shows
-                WA’s role in adaptation, deployment, and responsible use rather than in building frontier foundation models.<sup>[11][12][13]</sup>
-              </p>
-            </article>
-          </div>
-
-          <div class="wa-topics-note">
+          <section class="parchment-panel uwa-panel">
+            <span class="exhibit-label"
+              >WA Research and Computing Heritage</span
+            >
             <p>
-              Taken together, these examples show that Western Australia’s place in AI history is not defined by a single
-              invention, but by the ongoing local adaptation, teaching, application, and extension of major AI developments
-              across research, infrastructure, industry, and public institutions.
+              Western Australia’s AI history is reflected not only in one
+              institution, but across a wider network of universities, research
+              infrastructure, and industry practice. UWA, Curtin, ECU, and
+              Murdoch have all contributed to AI teaching and research, while
+              facilities such as the Pawsey Supercomputing Research Centre have
+              supported large-scale data processing, machine learning, and
+              scientific computing.
             </p>
-          </div>
+            <p>
+              Across the museum’s ten topics, the WA context shows a consistent
+              pattern: global AI ideas were often adapted locally through
+              teaching, research, infrastructure, mining, transport,
+              agriculture, and decision-support systems. This gives the museum a
+              regional perspective that connects international AI history with
+              Western Australian experience.
+            </p>
+          </section>
 
-          <div class="wa-reference-block">
-            <h4>References for WA Context</h4>
-            <ol class="wa-reference-list">
-              <li><a href="https://teaching.csse.uwa.edu.au/units/CITS3001/lectures/07GamePlaying.pdf" target="_blank" rel="noopener noreferrer">French, T. (2021). Game-Playing. The University of Western Australia.</a></li>
-              <li><a href="https://www.alcoa.com/australia/en/pdf/2017-wagerup-refinery-ltrms.pdf" target="_blank" rel="noopener noreferrer">Alcoa of Australia. Wagerup alumina refinery long term residue management strategy.</a></li>
-              <li><a href="https://www.csiro.au/" target="_blank" rel="noopener noreferrer">CSIRO. AI-related research support in Australia and WA-linked research context.</a></li>
-              <li><a href="https://www.skao.int/" target="_blank" rel="noopener noreferrer">Square Kilometre Array Observatory. SKA project overview.</a></li>
-              <li><a href="https://www.riotinto.com/en/operations/australia/pilbara/mine-of-the-future" target="_blank" rel="noopener noreferrer">Rio Tinto. Mine of the Future.</a></li>
-              <li><a href="https://www.bhp.com/what-we-do/our-approach/technology" target="_blank" rel="noopener noreferrer">BHP. Technology and data platforms overview.</a></li>
-              <li><a href="https://doi.org/10.1109/TPWRS.2018.2846407" target="_blank" rel="noopener noreferrer">Fletcher, J. R. E., et al. (2018). Spatial optimization for the planning of sparse power distribution networks.</a></li>
-              <li><a href="https://www.researchgate.net/publication/377307375_Multi-objective_optimisation_for_simultaneous_scheduling_of_multiple_roadwork_programs" target="_blank" rel="noopener noreferrer">Sun, C., French, T., Hu, Y., While, L., Reynolds, M., &amp; Biermann, S. Multi-objective genetic algorithm optimisation for roadwork scheduling.</a></li>
-              <li><a href="https://www.esafety.gov.au/" target="_blank" rel="noopener noreferrer">eSafety Commissioner. Deepfake and online safety guidance.</a></li>
-              <li><a href="https://www.datacenterdynamics.com/en/news/pawsey-supercomputing-centre-reaches-practical-completion/" target="_blank" rel="noopener noreferrer">Data Center Dynamics. Pawsey Supercomputing Research Centre coverage.</a></li>
-              <li><a href="https://research-repository.uwa.edu.au/en/publications/a-comprehensive-overview-of-large-language-models/" target="_blank" rel="noopener noreferrer">The University of Western Australia. A comprehensive overview of large language models.</a></li>
-              <li><a href="https://research.curtin.edu.au/hdr-r-projects/agentic-ai-with-large-language-models-toward-autonomous-reasoning-and-action-in-smarter-systems/" target="_blank" rel="noopener noreferrer">Curtin University. Agentic AI with large language models.</a></li>
-              <li><a href="https://www.wa.gov.au/system/files/2025-02/largelanguagemodels.pdf" target="_blank" rel="noopener noreferrer">Government of Western Australia. Large language models: Guidance of the WA public sector.</a></li>
-            </ol>
-          </div>
-        </section>
+          <section class="museum-card wa-highlights">
+            <div class="section-icon large">📚</div>
+            <span class="exhibit-label">Completed WA Research</span>
+            <h3>WA Context Across the 10 AI Topics</h3>
+            <p class="wa-summary">
+              This section summarises the Western Australian context researched
+              across all 10 AI topics in the museum. It highlights how local
+              teaching, research, infrastructure, public guidance, and industry
+              practice connect WA to major developments in artificial
+              intelligence.
+            </p>
 
-        <section class="timeline-section">
-          <span class="exhibit-label timeline-label">WA Connections Across the Timeline</span>
-          <div id="topicsList" class="topics-list"></div>
-        </section>
-      </div>
-    </main>
+            <div class="wa-topic-grid">
+              <article class="wa-topic-card">
+                <h4>1. Alan Turing &amp; The Turing Test</h4>
+                <p>
+                  In WA, Turing’s behaviour-based view of intelligence can be
+                  seen in chatbots, automated support systems, and digital
+                  services that are evaluated by how effectively they respond to
+                  users. The topic also connects indirectly to WA through
+                  Professor Jeff Rohl at UWA, whose academic background links WA
+                  computing culture to ideas still shaped by Turing’s influence.
+                </p>
+              </article>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p class="exhibit-label">A.I. Software Technology in Western Australia</p>
-        <p class="footer-text">A Virtual Museum Experience · Final Semester Project · 2024</p>
-      </div>
-    </footer>
-  </div>
+              <article class="wa-topic-card">
+                <h4>2. Learning Machines</h4>
+                <p>
+                  In Western Australia, the influence of learning machines
+                  appears in UWA teaching and research in data science, in the
+                  Pawsey Supercomputing Research Centre’s support for
+                  large-scale data processing and model training, and in Rio
+                  Tinto’s use of AI and data science for predictive maintenance
+                  and operational improvement.
+                </p>
+              </article>
 
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-  <script src="{{ url_for('static', filename='js/explore-wa.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
-</body>
+              <article class="wa-topic-card">
+                <h4>3. Board Game Playing</h4>
+                <p>
+                  In WA, board game AI is especially significant in education.
+                  UWA teaching materials use minimax, alpha-beta pruning, and
+                  adversarial search to introduce core ideas in decision-making
+                  and optimisation, showing how game environments remain useful
+                  AI training grounds in the state.<sup>[1]</sup>
+                </p>
+              </article>
+
+              <article class="wa-topic-card">
+                <h4>4. Expert Systems</h4>
+                <p>
+                  In Western Australia, expert-system and decision-support
+                  approaches were relevant in large industrial environments such
+                  as Alcoa’s Wagerup alumina refinery, where expert knowledge
+                  and rule-based support could assist with diagnostics,
+                  scheduling, and operational planning.<sup>[2]</sup>
+                </p>
+              </article>
+
+              <article class="wa-topic-card">
+                <h4>5. Artificial Neural Networks</h4>
+                <p>
+                  WA’s role in neural networks is reflected through university
+                  research at UWA, Curtin, ECU, and Murdoch, support from CSIRO
+                  and the Pawsey Supercomputing Research Centre, and
+                  data-intensive projects such as the Square Kilometre Array,
+                  where large-scale computation and analysis are essential.<sup
+                    >[3][4]</sup
+                  >
+                </p>
+              </article>
+
+              <article class="wa-topic-card">
+                <h4>6. Internet-Driven AI Systems</h4>
+                <p>
+                  Internet-driven AI is especially important in WA’s mining and
+                  energy sectors. Rio Tinto’s “Mine of the Future” and BHP’s
+                  intelligent data platforms show how internet-connected
+                  systems, remote operations in Perth, and large-scale data
+                  analysis support decision-making across geographically distant
+                  industrial sites.<sup>[5][6]</sup>
+                </p>
+              </article>
+
+              <article class="wa-topic-card">
+                <h4>7. Evolutionary Computing</h4>
+                <p>
+                  In WA, evolutionary computing has been applied to
+                  infrastructure optimisation. UWA-linked research used
+                  problem-specific genetic algorithms for sparse power
+                  distribution planning in the South-West and for
+                  multi-objective optimisation in road widening and maintenance
+                  scheduling.<sup>[7][8]</sup>
+                </p>
+              </article>
+
+              <article class="wa-topic-card">
+                <h4>8. Synthetic Media Technology</h4>
+                <p>
+                  WA’s connection to synthetic media lies in local strengths in
+                  computer vision, machine learning, and pattern recognition,
+                  together with the influence of Australia’s eSafety response to
+                  deepfake risks. In practice, this means WA engages with
+                  synthetic media through research capability, digital literacy,
+                  and harm-prevention frameworks.<sup>[9]</sup>
+                </p>
+              </article>
+
+              <article class="wa-topic-card">
+                <h4>9. Natural Language Processing</h4>
+                <p>
+                  In Western Australia, NLP research is supported by UWA,
+                  Curtin, ECU, Murdoch, and CSIRO. Facilities such as Pawsey
+                  provide the computing power needed for large-scale NLP work,
+                  while projects such as the SKA create demand for information
+                  extraction, metadata analysis, and automated processing of
+                  large volumes of text and scientific data.<sup>[4][10]</sup>
+                </p>
+              </article>
+
+              <article class="wa-topic-card">
+                <h4>10. Large Language Models</h4>
+                <p>
+                  WA’s LLM capability is reflected in academic research at UWA,
+                  applied autonomous-system projects at Curtin, and practical
+                  uptake in public-sector governance through WA guidance on
+                  large language models. This shows WA’s role in adaptation,
+                  deployment, and responsible use rather than in building
+                  frontier foundation models.<sup>[11][12][13]</sup>
+                </p>
+              </article>
+            </div>
+
+            <div class="wa-topics-note">
+              <p>
+                Taken together, these examples show that Western Australia’s
+                place in AI history is not defined by a single invention, but by
+                the ongoing local adaptation, teaching, application, and
+                extension of major AI developments across research,
+                infrastructure, industry, and public institutions.
+              </p>
+            </div>
+
+            <div class="wa-reference-block">
+              <h4>References for WA Context</h4>
+              <ol class="wa-reference-list">
+                <li>
+                  <a
+                    href="https://teaching.csse.uwa.edu.au/units/CITS3001/lectures/07GamePlaying.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >French, T. (2021). Game-Playing. The University of Western
+                    Australia.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.alcoa.com/australia/en/pdf/2017-wagerup-refinery-ltrms.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Alcoa of Australia. Wagerup alumina refinery long term
+                    residue management strategy.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.csiro.au/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >CSIRO. AI-related research support in Australia and
+                    WA-linked research context.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.skao.int/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Square Kilometre Array Observatory. SKA project
+                    overview.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.riotinto.com/en/operations/australia/pilbara/mine-of-the-future"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Rio Tinto. Mine of the Future.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.bhp.com/what-we-do/our-approach/technology"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >BHP. Technology and data platforms overview.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://doi.org/10.1109/TPWRS.2018.2846407"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Fletcher, J. R. E., et al. (2018). Spatial optimization for
+                    the planning of sparse power distribution networks.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.researchgate.net/publication/377307375_Multi-objective_optimisation_for_simultaneous_scheduling_of_multiple_roadwork_programs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Sun, C., French, T., Hu, Y., While, L., Reynolds, M., &amp;
+                    Biermann, S. Multi-objective genetic algorithm optimisation
+                    for roadwork scheduling.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.esafety.gov.au/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >eSafety Commissioner. Deepfake and online safety
+                    guidance.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.datacenterdynamics.com/en/news/pawsey-supercomputing-centre-reaches-practical-completion/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Data Center Dynamics. Pawsey Supercomputing Research Centre
+                    coverage.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://research-repository.uwa.edu.au/en/publications/a-comprehensive-overview-of-large-language-models/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >The University of Western Australia. A comprehensive
+                    overview of large language models.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://research.curtin.edu.au/hdr-r-projects/agentic-ai-with-large-language-models-toward-autonomous-reasoning-and-action-in-smarter-systems/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Curtin University. Agentic AI with large language
+                    models.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.wa.gov.au/system/files/2025-02/largelanguagemodels.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Government of Western Australia. Large language models:
+                    Guidance of the WA public sector.</a
+                  >
+                </li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="timeline-section">
+            <span class="exhibit-label timeline-label"
+              >WA Connections Across the Timeline</span
+            >
+            <div id="topicsList" class="topics-list"></div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <p class="exhibit-label">
+            A.I. Software Technology in Western Australia
+          </p>
+          <p class="footer-text">A Virtual Museum Experience · 2026</p>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="{{ url_for('static', filename='js/explore-wa.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+  </body>
 </html>
